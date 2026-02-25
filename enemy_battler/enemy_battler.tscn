@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://3t6a4pm4ttpx" path="res://battler/battler.tscn" id="1_fc1jj"]
 [ext_resource type="Script" uid="uid://w2d1rdd1wo2h" path="res://enemy_battler/enemy_battler.gd" id="2_uhnwk"]
 
-[node name="EnemyBattler" unique_id=893298890 groups=["enemy"] instance=ExtResource("1_fc1jj")]
+[node name="EnemyBattler" unique_id=893298890 groups=["enemy battler"] instance=ExtResource("1_fc1jj")]
 script = ExtResource("2_uhnwk")
 
 [node name="DamageLabel" parent="." index="4" unique_id=261734383]

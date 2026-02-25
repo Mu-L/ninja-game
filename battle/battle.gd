@@ -11,10 +11,12 @@ signal textbox_closed
 signal battle_finished
 
 var enemy_data: BattlerData
+var player_health: int
 
 func _ready() -> void:
 	battle_camera.make_current()
 	enemy_battler.init_self(enemy_data)
+	player_battler.health = player_health
 	text_box.hide()
 	
 	while not is_battle_finished():
@@ -49,7 +51,9 @@ func is_battle_finished() -> bool:
 func finish_battle() -> void:
 	if not enemy_battler:
 		display_text("Player Won !")
+		await self.textbox_closed
 	else:
 		display_text("Game Over...")
-	await self.textbox_closed
+		await self.textbox_closed
+		get_tree().quit()
 	battle_finished.emit()

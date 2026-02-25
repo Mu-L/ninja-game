@@ -36,4 +36,4 @@ func take_damage(amount: int) -> void:
 		queue_free()
 
 func player() -> PlayerBattler:
-	return get_tree().get_first_node_in_group("player")
+	return get_tree().get_first_node_in_group("player battler")

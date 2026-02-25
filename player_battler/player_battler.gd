@@ -69,13 +69,15 @@ func _on_attack_button_pressed() -> void:
 	finished_deciding_action.emit()
 
 func enemy() -> EnemyBattler:
-	return get_tree().get_first_node_in_group("enemy")
+	return get_tree().get_first_node_in_group("enemy battler")
 
 func take_damage(amount: int) -> void:
 	%HurtSound.play()
 	%HurtAnimationPlayer.play("hurt")
 	health -= amount
 	await %HurtAnimationPlayer.animation_finished
+	if health <= 0:
+		queue_free()
 
 func _on_attack_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":

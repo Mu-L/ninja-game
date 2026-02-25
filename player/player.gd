@@ -2,12 +2,12 @@ class_name Player extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 @onready var weapon_sound: AudioStreamPlayer = %WeaponSound
-@onready var hearts_container: HBoxContainer = %HeartsContainer
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var hurt_sound: AudioStreamPlayer = %HurtSound
 @onready var knockback_component: KnockbackCompnent = %KnockbackComponent
 @onready var debug_label: Label = %DebugLabel
 @onready var weapon_timer: Timer = %WeaponTimer
+@onready var health_bar: ProgressBar = %HealthBar
 
 @onready var weapons: Node2D = %Weapons
 @onready var weapon_down: WeaponScene = %WeaponDown
@@ -17,7 +17,7 @@ class_name Player extends CharacterBody2D
 
 @export var movement_speed: int = 100
 @export var attack_duration := 0.5
-@export var health: int = 3: set = set_health
+@export var health: int = 100: set = set_health
 @export var strength: int = 1
 
 class Direction:
@@ -106,16 +106,12 @@ func _on_damageable_component_took_damage(amount: int) -> void:
 
 func _on_weapon_body_entered(body: Node2D) -> void:
 	if body is Enemy:
-		Global.start_battle.emit(body)
+		health_bar.hide()
+		Global.start_battle.emit(body, self)
 
 func set_health(new_val) -> void:
 	health = new_val
-	for child: Node in hearts_container.get_children():
-		child.queue_free()
-	for i in range(health):
-		const HEART_SPRITE := preload("uid://b5g33wvjhrwnt")
-		var sprite: TextureRect = HEART_SPRITE.instantiate()
-		hearts_container.add_child(sprite)
+	health_bar.value = health
 
 func _on_weapon_timer_timeout() -> void:
 	current_weapon.hide()

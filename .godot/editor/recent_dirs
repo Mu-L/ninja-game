@@ -1,6 +1,8 @@
+res://game/
+res://player_battler/
+res://player/
 res://weapon_scene/
 res://global/
-res://game/
 res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/
 res://battler_data/
 res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/
@@ -9,8 +11,6 @@ res://battle/
 res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime/
 res://enemy_battler/
 res://battler/
-res://player_battler/
 res://follower_enemy/
 res://ui/
 res://enemy/
-res://player/

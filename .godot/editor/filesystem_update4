@@ -6,3 +6,13 @@ res://battler/battler.tscn
 res://enemy/enemy.tscn
 res://player/player.tscn
 res://follower_enemy/follower_enemy.tscn
+res://enemy/enemy.gd
+res://player/player.gd
+res://game/game.gd
+res://player_battler/player_battler.tscn
+res://enemy_battler/enemy_battler.gd
+res://enemy_battler/enemy_battler.tscn
+res://player_battler/player_battler.gd
+res://global/global.tscn
+res://global/global.gd
+res://battle/battle.gd

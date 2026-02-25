@@ -49,7 +49,7 @@ _data = {
 &"attack": SubResource("Animation_6tkng")
 }
 
-[node name="PlayerBattler" unique_id=893298890 groups=["player"] instance=ExtResource("1_w0k00")]
+[node name="PlayerBattler" unique_id=893298890 groups=["player battler"] instance=ExtResource("1_w0k00")]
 script = ExtResource("2_qckex")
 
 [node name="Sword" type="Sprite2D" parent="AnimatedSprite2D" parent_id_path=PackedInt32Array(2107465465) index="0" unique_id=1030885112]

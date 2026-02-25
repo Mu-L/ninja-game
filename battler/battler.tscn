@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3t6a4pm4ttpx"]
 
-[ext_resource type="AudioStream" uid="uid://dgdavkudo7r8j" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact.wav" id="1_kj5ye"]
+[ext_resource type="AudioStream" uid="uid://csryb4da68guf" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact2.wav" id="1_kj5ye"]
 
 [sub_resource type="Animation" id="Animation_1wwld"]
 length = 0.001

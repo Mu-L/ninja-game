@@ -2,6 +2,7 @@ class_name PlayerBattler extends Battler
 
 @onready var ui: CanvasLayer = $UI
 @onready var attack_button: Button = %AttackButton
+@onready var skill_animation: AnimatedSprite2D = %SkillAnimation
 
 signal finished_deciding_action
 
@@ -18,8 +19,8 @@ func decide_action() -> void:
 	attack_button.grab_focus()
 
 func perform_action() -> void:
+	health_bar.hide()
 	if action_name == "attack":
-		health_bar.hide()
 		var final_pos := enemy().global_position - Vector2(25, 0)
 		var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", final_pos, 0.5)
@@ -27,6 +28,16 @@ func perform_action() -> void:
 		$AttackBar.show()
 		%AttackAnimationPlayer.play("attack")
 		is_attacking = true
+	elif action_name == "skill":
+		skill_animation.global_position = enemy().global_position
+		skill_animation.show()
+		skill_animation.play("default")
+		%SkillSound.play()
+		await skill_animation.animation_finished
+		skill_animation.hide()
+		await enemy().take_damage(100)
+		await get_tree().create_timer(0.5).timeout
+		finished_performing_action.emit()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") and is_attacking:
@@ -88,3 +99,9 @@ func _on_attack_animation_player_animation_finished(anim_name: StringName) -> vo
 		await tween.finished
 		health_bar.show()
 		finished_performing_action.emit()
+
+func _on_skills_button_pressed() -> void:
+	action_name = "skill"
+	action_text = "Green Ninja cast a magic spell !"
+	ui.hide()
+	finished_deciding_action.emit()

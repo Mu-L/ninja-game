@@ -1,3 +1,8 @@
+AudioStreamPlayer
+AnimatedSprite2D
+MarginContainer
+HBoxContainer
+VBoxContainer
 Timer
 Sprite2D
 CollisionShape2D
@@ -5,11 +10,5 @@ Area2D
 Camera2D
 Node
 Label
-AudioStreamPlayer
 AnimationPlayer
 Control
-ColorRect
-AnimationTree
-TextureRect
-MarginContainer
-PanelContainer

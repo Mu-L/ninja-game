@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://3t6a4pm4ttpx" path="res://battler/battler.tscn" id="1_w0k00"]
 [ext_resource type="Script" uid="uid://dncnfcosfo0ij" path="res://player_battler/player_battler.gd" id="2_qckex"]
 [ext_resource type="Texture2D" uid="uid://618ncu12hrge" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/SpriteInHand.png" id="3_6tkng"]
+[ext_resource type="Texture2D" uid="uid://dqgw15oan6g7c" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/SpriteSheet.png" id="4_0m672"]
+[ext_resource type="AudioStream" uid="uid://3lf7ysdioi16" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh2.wav" id="5_xyngr"]
 
 [sub_resource type="Gradient" id="Gradient_6tkng"]
 offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
@@ -49,6 +51,84 @@ _data = {
 &"attack": SubResource("Animation_6tkng")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyngr"]
+atlas = ExtResource("4_0m672")
+region = Rect2(0, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65rad"]
+atlas = ExtResource("4_0m672")
+region = Rect2(65, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwkn0"]
+atlas = ExtResource("4_0m672")
+region = Rect2(130, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksi8t"]
+atlas = ExtResource("4_0m672")
+region = Rect2(195, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0871"]
+atlas = ExtResource("4_0m672")
+region = Rect2(260, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri7bm"]
+atlas = ExtResource("4_0m672")
+region = Rect2(325, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2xhu"]
+atlas = ExtResource("4_0m672")
+region = Rect2(390, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s85tj"]
+atlas = ExtResource("4_0m672")
+region = Rect2(455, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjdmu"]
+atlas = ExtResource("4_0m672")
+region = Rect2(520, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_821uq"]
+atlas = ExtResource("4_0m672")
+region = Rect2(585, 0, 65, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6tkng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyngr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65rad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwkn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksi8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0871")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri7bm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2xhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s85tj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjdmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_821uq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 11.0
+}]
+
 [node name="PlayerBattler" unique_id=893298890 groups=["player battler"] instance=ExtResource("1_w0k00")]
 script = ExtResource("2_qckex")
 
@@ -61,17 +141,35 @@ texture = ExtResource("3_6tkng")
 
 [node name="UI" type="CanvasLayer" parent="." index="1" unique_id=866865561]
 
-[node name="AttackButton" type="Button" parent="UI" index="0" unique_id=1138679672]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="UI" index="0" unique_id=1069164308]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = -44.0
-offset_right = 67.0
-offset_bottom = -13.0
+offset_top = -40.0
+offset_right = 110.0
 grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Buttons" type="HBoxContainer" parent="UI/MarginContainer" index="0" unique_id=826519428]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AttackButton" type="Button" parent="UI/MarginContainer/Buttons" index="0" unique_id=1138679672]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Attack"
+
+[node name="SkillsButton" type="Button" parent="UI/MarginContainer/Buttons" index="1" unique_id=1407909011]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Skills"
 
 [node name="AttackBar" type="Control" parent="." index="3" unique_id=733611916]
 layout_mode = 3
@@ -112,5 +210,18 @@ offset_bottom = 14.0
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_0m672")
 
-[connection signal="pressed" from="UI/AttackButton" to="." method="_on_attack_button_pressed"]
+[node name="SkillAnimation" type="AnimatedSprite2D" parent="." index="7" unique_id=2082438353]
+unique_name_in_owner = true
+visible = false
+position = Vector2(139, 62)
+sprite_frames = SubResource("SpriteFrames_6tkng")
+frame = 9
+frame_progress = 1.0
+
+[node name="SkillSound" type="AudioStreamPlayer" parent="." index="8" unique_id=1774249253]
+unique_name_in_owner = true
+stream = ExtResource("5_xyngr")
+
+[connection signal="pressed" from="UI/MarginContainer/Buttons/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/Buttons/SkillsButton" to="." method="_on_skills_button_pressed"]
 [connection signal="animation_finished" from="AttackBar/AttackAnimationPlayer" to="." method="_on_attack_animation_player_animation_finished"]

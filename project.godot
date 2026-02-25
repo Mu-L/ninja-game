@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ninja game"
-run/main_scene="uid://ffwpq180qldq"
+run/main_scene="uid://bc82oj3djooy3"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://qkjm2wdxvko6"
 

@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dt8uhwwsl3qt3" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/Slime2.png" id="2_4rbx3"]
 [ext_resource type="PackedScene" uid="uid://dvk8ofnxjkd0q" path="res://components/damage/damage_component.tscn" id="3_hkvc3"]
 [ext_resource type="PackedScene" uid="uid://eq00otqnti1x" path="res://components/knockback/knockback_component.tscn" id="4_badg0"]
-[ext_resource type="AudioStream" uid="uid://kx6qluhyi2a3" path="res://SNES - The Legend of Zelda_ A Link to the Past - Miscellaneous - Sound Effects/enemy hit.wav" id="5_gc2r6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofsxj"]
 atlas = ExtResource("2_4rbx3")
@@ -213,10 +212,9 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_ofsxj")
 debug_color = Color(1, 0, 0, 0.41960785)
 
-[node name="KnockbackComponent" parent="." unique_id=1500406809 node_paths=PackedStringArray("body") instance=ExtResource("4_badg0")]
+[node name="KnockbackComponent" parent="." unique_id=1500406809 instance=ExtResource("4_badg0")]
 collision_layer = 4
 collision_mask = 0
-body = NodePath("..")
 
 [node name="CollisionShape2D" parent="KnockbackComponent" index="0" unique_id=1749381845]
 position = Vector2(0, 2)
@@ -230,7 +228,6 @@ one_shot = true
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=453855887]
 unique_name_in_owner = true
-stream = ExtResource("5_gc2r6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1052725111]
 unique_name_in_owner = true

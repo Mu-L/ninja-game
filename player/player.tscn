@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dualqpud1jpvv" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png" id="2_yw30f"]
 [ext_resource type="PackedScene" uid="uid://dem6v7a3ywgfj" path="res://weapon_scene/weapon_scene.tscn" id="5_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://dvk8ofnxjkd0q" path="res://components/damage/damage_component.tscn" id="7_boad6"]
-[ext_resource type="AudioStream" uid="uid://d2bs87bpy7311" path="res://SNES - The Legend of Zelda_ A Link to the Past - Miscellaneous - Sound Effects/fighter sword 1.wav" id="7_rgyib"]
+[ext_resource type="AudioStream" uid="uid://8cefjqgtmx0e" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh.wav" id="8_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://81rem6ejea54" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Hit8.wav" id="8_rgyib"]
 [ext_resource type="PackedScene" uid="uid://eq00otqnti1x" path="res://components/knockback/knockback_component.tscn" id="9_hg6s5"]
 
@@ -352,7 +352,7 @@ debug_color = Color(1.7808378e-06, 0.64992064, 0.13606134, 0.41960785)
 
 [node name="WeaponSound" type="AudioStreamPlayer" parent="." unique_id=1759539607]
 unique_name_in_owner = true
-stream = ExtResource("7_rgyib")
+stream = ExtResource("8_hg6s5")
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=1468874747]
 unique_name_in_owner = true

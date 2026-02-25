@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dt8uhwwsl3qt3" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/Slime2.png" id="1_2mvqj"]
 [ext_resource type="Script" uid="uid://ccp45ufa25hf0" path="res://enemy/enemy.gd" id="1_p200p"]
-[ext_resource type="AudioStream" uid="uid://kx6qluhyi2a3" path="res://SNES - The Legend of Zelda_ A Link to the Past - Miscellaneous - Sound Effects/enemy hit.wav" id="5_pmsee"]
+[ext_resource type="AudioStream" uid="uid://dgdavkudo7r8j" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact.wav" id="3_ppra6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofsxj"]
 atlas = ExtResource("1_2mvqj")
@@ -208,7 +208,7 @@ one_shot = true
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=453855887]
 unique_name_in_owner = true
-stream = ExtResource("5_pmsee")
+stream = ExtResource("3_ppra6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1052725111]
 unique_name_in_owner = true

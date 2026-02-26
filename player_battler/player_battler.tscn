@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://618ncu12hrge" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/SpriteInHand.png" id="3_6tkng"]
 [ext_resource type="Texture2D" uid="uid://dqgw15oan6g7c" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/SpriteSheet.png" id="4_0m672"]
 [ext_resource type="AudioStream" uid="uid://3lf7ysdioi16" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh2.wav" id="5_xyngr"]
+[ext_resource type="AudioStream" uid="uid://d4jyouinuchho" path="res://Ninja Adventure - Asset Pack/Audio/Jingles/LevelUp1.wav" id="6_65rad"]
+[ext_resource type="Script" uid="uid://bfq1palb523e2" path="res://player_battler/level_up_manager.gd" id="7_nwkn0"]
 
 [sub_resource type="Gradient" id="Gradient_6tkng"]
 offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
@@ -171,7 +173,19 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Skills"
 
-[node name="AttackBar" type="Control" parent="." index="3" unique_id=733611916]
+[node name="ExperienceBar" type="ProgressBar" parent="." index="3" unique_id=2008643697]
+unique_name_in_owner = true
+modulate = Color(0, 0, 1, 1)
+custom_minimum_size = Vector2(50, 10)
+offset_left = -19.0
+offset_top = 29.0
+offset_right = 31.0
+offset_bottom = 39.0
+value = 100.0
+show_percentage = false
+
+[node name="AttackBar" type="Control" parent="." index="4" unique_id=733611916]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -80.0
@@ -210,7 +224,7 @@ offset_bottom = 14.0
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_0m672")
 
-[node name="SkillAnimation" type="AnimatedSprite2D" parent="." index="7" unique_id=2082438353]
+[node name="SkillAnimation" type="AnimatedSprite2D" parent="." index="8" unique_id=2082438353]
 unique_name_in_owner = true
 visible = false
 position = Vector2(139, 62)
@@ -218,9 +232,17 @@ sprite_frames = SubResource("SpriteFrames_6tkng")
 frame = 9
 frame_progress = 1.0
 
-[node name="SkillSound" type="AudioStreamPlayer" parent="." index="8" unique_id=1774249253]
+[node name="SkillSound" type="AudioStreamPlayer" parent="." index="9" unique_id=1774249253]
 unique_name_in_owner = true
 stream = ExtResource("5_xyngr")
+
+[node name="LevelUpSound" type="AudioStreamPlayer" parent="." index="11" unique_id=789223776]
+unique_name_in_owner = true
+stream = ExtResource("6_65rad")
+
+[node name="LevelUpManager" type="Node" parent="." index="12" unique_id=615844653]
+unique_name_in_owner = true
+script = ExtResource("7_nwkn0")
 
 [connection signal="pressed" from="UI/MarginContainer/Buttons/AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/Buttons/SkillsButton" to="." method="_on_skills_button_pressed"]

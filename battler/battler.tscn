@@ -73,6 +73,7 @@ offset_bottom = 55.0
 text = "100"
 
 [node name="HPLabel" type="Label" parent="." unique_id=1568770917]
+visible = false
 offset_left = -14.0
 offset_top = -42.0
 offset_right = 26.0

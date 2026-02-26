@@ -3,15 +3,24 @@ class_name PlayerBattler extends Battler
 @onready var ui: CanvasLayer = $UI
 @onready var attack_button: Button = %AttackButton
 @onready var skill_animation: AnimatedSprite2D = %SkillAnimation
+@onready var experience_bar: ProgressBar = %ExperienceBar
+@onready var level_up_manager: LevelUpManager = %LevelUpManager
 
 signal finished_deciding_action
 
 var is_attacking := false
 
+func set_data(new_val: BattlerData) -> void:
+	super.set_data(new_val)
+	experience_bar.max_value = data.EXP_to_next_level
+	experience_bar.value = data.EXP
+
 func _ready() -> void:
 	super._ready()
 	ui.hide()
 	$AttackBar.hide()
+	experience_bar.hide()
+
 func decide_action() -> void:
 	ui.show()
 	attack_button.grab_focus()
@@ -103,3 +112,30 @@ func _on_skills_button_pressed() -> void:
 	action_text = "Green Ninja cast a magic spell !"
 	ui.hide()
 	finished_deciding_action.emit()
+
+func increase_exp(amount: int) -> void:
+	experience_bar.show()
+	data.EXP += amount
+	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(experience_bar, "value", data.EXP, 1.0)
+	await tween.finished
+	# Check if leveled up:
+	if data.EXP >= data.EXP_to_next_level:
+		data.level += 1
+		%LevelUpSound.play()
+		var new_EXP := data.EXP - data.EXP_to_next_level
+		data.EXP = new_EXP
+		data.EXP_to_next_level *= 1.25
+		Global.display_text.emit("Ninja reached level %d" % data.level)
+		await Global.textbox_closed
+		var upgrades := level_up_manager.upgrades[data.level]
+		for key: String in upgrades:
+			var value: int = upgrades[key]
+			Global.display_text.emit(
+				"%s increased by %d" % [key.replace('_',' '), value]
+			)
+			await Global.textbox_closed
+			var old_value = data.get(key)
+			data.set(key, old_value + value)
+			if key == "max_health":
+				data.set("health", data.health+value)

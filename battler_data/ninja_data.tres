@@ -42,5 +42,6 @@ name = "Ninja"
 max_health = 100
 speed = 20
 strength = 50
+EXP_to_next_level = 100
 sprite_frames = SubResource("SpriteFrames_wq7ox")
 metadata/_custom_type_script = "uid://bi85lablvrto7"

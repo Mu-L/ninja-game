@@ -13,3 +13,5 @@ res://player_battler/player_battler.gd
 res://battler/battler.tscn
 res://enemy_battler/enemy_battler.gd
 res://enemy_battler/enemy_battler.tscn
+res://global/global.gd
+res://player_battler/level_up_manager.gd

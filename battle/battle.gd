@@ -7,13 +7,13 @@ class_name Battle extends Node2D
 @onready var enemy_battler: EnemyBattler = %EnemyBattler
 @onready var battle_camera: Camera2D = %BattleCamera
 
-signal textbox_closed
 signal battle_finished
 
 var enemy_data: BattlerData
 var player_data: BattlerData
 
 func _ready() -> void:
+	Global.display_text.connect(display_text)
 	enemy_battler.data = enemy_data
 	player_battler.data = player_data
 	battle_camera.make_current()
@@ -27,7 +27,7 @@ func _ready() -> void:
 		
 		for battler: Battler in battlers.get_children():
 			display_text(battler.action_text)
-			await self.textbox_closed
+			await Global.textbox_closed
 			text_box.hide()
 			battler.perform_action()
 			await battler.finished_performing_action
@@ -42,7 +42,7 @@ func display_text(text: String) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		textbox_closed.emit()
+		Global.textbox_closed.emit()
 
 func is_battle_finished() -> bool:
 	return not enemy_battler or not player_battler
@@ -50,9 +50,11 @@ func is_battle_finished() -> bool:
 func finish_battle() -> void:
 	if not enemy_battler:
 		display_text("Player Won !")
-		await self.textbox_closed
+		await Global.textbox_closed
+		text_box.hide()
+		await player_battler.increase_exp(100)
 	else:
 		display_text("Game Over...")
-		await self.textbox_closed
+		await Global.textbox_closed
 		get_tree().quit()
 	battle_finished.emit()

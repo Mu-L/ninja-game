@@ -1,0 +1,91 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://cyqhlvwprkbff"]
+
+[ext_resource type="Texture2D" uid="uid://dqgw15oan6g7c" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/SpriteSheet.png" id="1_la2my"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://skill.gd" id="1_pusi0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyngr"]
+atlas = ExtResource("1_la2my")
+region = Rect2(0, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65rad"]
+atlas = ExtResource("1_la2my")
+region = Rect2(65, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwkn0"]
+atlas = ExtResource("1_la2my")
+region = Rect2(130, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksi8t"]
+atlas = ExtResource("1_la2my")
+region = Rect2(195, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0871"]
+atlas = ExtResource("1_la2my")
+region = Rect2(260, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri7bm"]
+atlas = ExtResource("1_la2my")
+region = Rect2(325, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2xhu"]
+atlas = ExtResource("1_la2my")
+region = Rect2(390, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s85tj"]
+atlas = ExtResource("1_la2my")
+region = Rect2(455, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjdmu"]
+atlas = ExtResource("1_la2my")
+region = Rect2(520, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_821uq"]
+atlas = ExtResource("1_la2my")
+region = Rect2(585, 0, 65, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0akt1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyngr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65rad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwkn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksi8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0871")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri7bm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2xhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s85tj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjdmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_821uq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 11.0
+}]
+
+[resource]
+script = ExtResource("1_pusi0")
+name = "Kunai"
+battle_text = "Ninja Threw Kunai at the enemy"
+magic_points_cost = 5
+strength = 150
+animation = SubResource("SpriteFrames_0akt1")
+metadata/_custom_type_script = "uid://bycf0afmvv35g"

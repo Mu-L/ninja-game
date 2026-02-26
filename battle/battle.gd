@@ -26,9 +26,6 @@ func _ready() -> void:
 				await battler.finished_deciding_action
 		
 		for battler: Battler in battlers.get_children():
-			display_text(battler.action_text)
-			await Global.textbox_closed
-			text_box.hide()
 			battler.perform_action()
 			await battler.finished_performing_action
 			if is_battle_finished():
@@ -40,8 +37,9 @@ func display_text(text: String) -> void:
 	text_box.show()
 	battle_text.text = text
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept") and text_box.visible:
+		text_box.hide()
 		Global.textbox_closed.emit()
 
 func is_battle_finished() -> bool:

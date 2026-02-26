@@ -1,1 +1,1 @@
-res://battler_data.gd
+res://skill.gd

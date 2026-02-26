@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bi85lablvrto7" path="res://battler_data.gd" id="1_wq7ox"]
 [ext_resource type="Texture2D" uid="uid://117th8lgbcdw" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png" id="2_41ixl"]
 [ext_resource type="Texture2D" uid="uid://dualqpud1jpvv" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png" id="2_gko10"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://skill.gd" id="2_k4f4g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4f4g"]
 atlas = ExtResource("2_gko10")
@@ -40,8 +41,9 @@ animations = [{
 script = ExtResource("1_wq7ox")
 name = "Ninja"
 max_health = 100
+max_magic_points = 25
 speed = 20
-strength = 50
+strength = 999
 EXP_to_next_level = 100
 sprite_frames = SubResource("SpriteFrames_wq7ox")
 metadata/_custom_type_script = "uid://bi85lablvrto7"

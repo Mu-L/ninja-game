@@ -1,0 +1,91 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://20x015kijq3h"]
+
+[ext_resource type="Texture2D" uid="uid://d0cxuk4t6o6fx" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken/SpriteSheet.png" id="1_5y727"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://skill.gd" id="1_rc824"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmvyj"]
+atlas = ExtResource("1_5y727")
+region = Rect2(0, 0, 69, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeni0"]
+atlas = ExtResource("1_5y727")
+region = Rect2(69, 0, 69, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1081"]
+atlas = ExtResource("1_5y727")
+region = Rect2(138, 0, 69, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qv1m"]
+atlas = ExtResource("1_5y727")
+region = Rect2(207, 0, 69, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yopa"]
+atlas = ExtResource("1_5y727")
+region = Rect2(276, 0, 69, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqjml"]
+atlas = ExtResource("1_5y727")
+region = Rect2(345, 0, 69, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3twb2"]
+atlas = ExtResource("1_5y727")
+region = Rect2(414, 0, 69, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4acqa"]
+atlas = ExtResource("1_5y727")
+region = Rect2(483, 0, 69, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdceq"]
+atlas = ExtResource("1_5y727")
+region = Rect2(552, 0, 69, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrfjb"]
+atlas = ExtResource("1_5y727")
+region = Rect2(621, 0, 69, 54)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epebr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmvyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeni0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1081")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qv1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yopa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqjml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3twb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4acqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdceq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrfjb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 11.0
+}]
+
+[resource]
+script = ExtResource("1_rc824")
+name = "Shuriken"
+battle_text = "Ninja Threw Shurikens at the enemy"
+magic_points_cost = 7
+strength = 175
+animation = SubResource("SpriteFrames_epebr")
+metadata/_custom_type_script = "uid://bycf0afmvv35g"

@@ -56,6 +56,7 @@ func _ready() -> void:
 		weapon.body_entered.connect(_on_weapon_body_entered)
 	direction = Direction.new(Direction.Directions.DOWN, self)
 	set_health(battle_data.max_health)
+	battle_data.magic_points = battle_data.max_magic_points
 
 func _physics_process(delta: float) -> void:
 	if not is_attacking:

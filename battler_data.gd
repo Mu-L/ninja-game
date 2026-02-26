@@ -3,13 +3,16 @@ class_name BattlerData extends Resource
 
 @export var name: String
 @export var max_health: int
+@export var max_magic_points: int
 @export var speed: int
 @export var strength: int
 @export var EXP_to_next_level: int
 @export var sprite_frames: SpriteFrames
+@export var skills: Array[Skill]
 @export_tool_button("create animations template") var button = create_animations_template
 
 var health: int
+var magic_points: int
 var EXP: int = 0
 var level: int = 1
 

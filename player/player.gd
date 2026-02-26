@@ -17,8 +17,7 @@ class_name Player extends CharacterBody2D
 
 @export var movement_speed: int = 100
 @export var attack_duration := 0.5
-@export var health: int = 100: set = set_health
-@export var strength: int = 1
+@export var battle_data: BattlerData
 
 class Direction:
 	
@@ -56,7 +55,7 @@ func _ready() -> void:
 	for weapon: WeaponScene in weapons.get_children():
 		weapon.body_entered.connect(_on_weapon_body_entered)
 	direction = Direction.new(Direction.Directions.DOWN, self)
-	set_health(health)
+	set_health(battle_data.max_health)
 
 func _physics_process(delta: float) -> void:
 	if not is_attacking:
@@ -95,13 +94,13 @@ func attack_logic_and_animation(_delta: float) -> void:
 		
 		current_weapon.show()
 		current_weapon.set_hitbox(false)
-		weapon_timer.start()
+		weapon_timer.start(attack_duration)
 
 func _on_damageable_component_took_damage(amount: int) -> void:
-	health -= amount
+	battle_data.health -= amount
 	animation_player.play("hurt")
 	hurt_sound.play()
-	if health <= 0:
+	if battle_data.health <= 0:
 		queue_free()
 
 func _on_weapon_body_entered(body: Node2D) -> void:
@@ -110,8 +109,8 @@ func _on_weapon_body_entered(body: Node2D) -> void:
 		Global.start_battle.emit(body, self)
 
 func set_health(new_val) -> void:
-	health = new_val
-	health_bar.value = health
+	battle_data.health = new_val
+	health_bar.value = new_val
 
 func _on_weapon_timer_timeout() -> void:
 	current_weapon.hide()

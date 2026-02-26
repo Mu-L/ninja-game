@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1772044471
+::res://::1772103332
 battler_data.gd::GDScript::3017897054270628288::1771666960::0::1::::BattlerData<>Resource<><>0<>1<><>::
 icon.svg::CompressedTexture2D::618367769540306195::1770807542::1770807547::1::::<><><>0<>0<>3dfe518675dc1416ae7cdfa7214a3a10<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://battle/::1772037155
@@ -8,9 +8,9 @@ battle.tscn::PackedScene::4902652249734281718::1772037155::0::1::::<><><>0<>0<><
 ::res://battler/::1772034528
 battler.gd::GDScript::4525353335873349832::1771669554::0::1::::Battler<>Node2D<><>1<>0<><>::
 battler.tscn::PackedScene::2006394572901771401::1772034528::0::1::::<><><>0<>0<><>::uid://csryb4da68guf::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact2.wav
-::res://battler_data/::1772035250
-ninja_data.tres::Resource/BattlerData::1845949957395563392::1772033263::0::1::::<><><>0<>0<><>::uid://bi85lablvrto7::::res://battler_data.gd<>uid://117th8lgbcdw::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png<>uid://dualqpud1jpvv::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png
-slime_data.tres::Resource/BattlerData::7118932932132599003::1772035250::0::1::::<><><>0<>0<><>::uid://bi85lablvrto7::::res://battler_data.gd<>uid://dt8uhwwsl3qt3::::res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/Slime2.png
+::res://battler_data/::1772049346
+ninja_data.tres::Resource/BattlerData::1845949957395563392::1772049293::0::1::::<><><>0<>0<><>::uid://bi85lablvrto7::::res://battler_data.gd<>uid://117th8lgbcdw::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png<>uid://dualqpud1jpvv::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png
+slime_data.tres::Resource/BattlerData::7118932932132599003::1772049346::0::1::::<><><>0<>0<><>::uid://bi85lablvrto7::::res://battler_data.gd<>uid://dt8uhwwsl3qt3::::res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/Slime2.png
 ::res://components/::1770971185
 ::res://components/damage/::1771081327
 damage_component.gd::GDScript::4672727666581499298::1771081327::0::1::::DamageComponent<>Area2D<><>0<>0<><>::
@@ -27,9 +27,9 @@ enemy_battler.tscn::PackedScene::4300077116724616375::1772034520::0::1::::<><><>
 ::res://follower_enemy/::1772033594
 follower_enemy.gd::GDScript::6743445013889151831::1771079435::0::1::::FollowerEnemy<>CharacterBody2D<><>0<>0<><>::
 follower_enemy.tscn::PackedScene::119041433501160046::1772033594::0::1::::<><><>0<>0<><>::uid://c3cts3ujnwu8f::::res://follower_enemy/follower_enemy.gd<>uid://dt8uhwwsl3qt3::::res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/Slime2.png<>uid://dvk8ofnxjkd0q::::res://components/damage/damage_component.tscn<>uid://eq00otqnti1x::::res://components/knockback/knockback_component.tscn
-::res://game/::1772035163
-game.gd::GDScript::6512586254752261737::1772035163::0::1::::<>Node2D<><>0<>0<><>::
-game.tscn::PackedScene::362629549781832658::1772034970::0::1::::<><><>0<>0<><>::uid://fjl6kkh371ii::::res://overworld/overworld.tscn<>uid://cy10lx2djm5r6::::res://game/game.gd<>uid://b0fhfpv3y5e5y::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Bonus/Bonus.wav
+::res://game/::1772050276
+game.gd::GDScript::6512586254752261737::1772050248::0::1::::<>Node2D<><>0<>0<><>::
+game.tscn::PackedScene::362629549781832658::1772050276::0::1::::<><><>0<>0<><>::uid://cy10lx2djm5r6::::res://game/game.gd<>uid://hyokb23kj5pe::::res://rooms/room_2.tscn<>uid://b0fhfpv3y5e5y::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Bonus/Bonus.wav
 ::res://global/::1772034789
 global.gd::GDScript::1093541472206489417::1772034789::0::1::::<>Node<><>0<>0<><>::
 global.tscn::PackedScene::8473768650821461284::1772034789::0::1::::<><><>0<>0<><>::uid://ptyp6lh4kblp::::res://global/global.gd
@@ -2410,14 +2410,17 @@ nine_path_panel.png::CompressedTexture2D::1049965058096172299::1713469657::17708
 nine_path_panel.png::CompressedTexture2D::961831879021586036::1713470005::1770808028::1::::<><><>0<>0<>b995af4547602c96f531c38d8fbf1630<>res://.godot/imported/nine_path_panel.png-590de20d8676ecb8d37c0170678a1e67.ctex::
 ::res://Ninja Adventure - Asset Pack/Ui/Theme/Wip/ThemeWood4/::1770808028
 nine_path_panel.png::CompressedTexture2D::6531063156051470046::1713471122::1770808028::1::::<><><>0<>0<>4be9007471a1a60fa7ab52f11aba3916<>res://.godot/imported/nine_path_panel.png-e6efca0f39f74d6975e80ba22193bab7.ctex::
-::res://overworld/::1772044186
-overworld.tscn::PackedScene::370247405546481824::1772044186::0::1::::<><><>0<>0<><>::uid://b7yj4dqffi1si::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png<>uid://scuhh0k57ubf::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png<>uid://brhckb1lkjt2d::::res://player/player.tscn<>uid://cuim5yngrx5yj::::res://enemy/enemy.tscn<>uid://bagboqmpx8qyr::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png<>uid://c8op1x2s2t0ff::::res://battler_data/slime_data.tres
+::res://overworld/::1772050682
+overworld.tscn::PackedScene::370247405546481824::1772050682::0::1::::<><><>0<>0<><>::uid://b7yj4dqffi1si::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png<>uid://scuhh0k57ubf::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png<>uid://brhckb1lkjt2d::::res://player/player.tscn<>uid://bagboqmpx8qyr::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png<>uid://is1hrfuyfueo::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetHouse.png
 ::res://player/::1772034817
 player.gd::GDScript::547510077686890147::1772034817::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
 player.tscn::PackedScene::3594221054944446509::1772034817::0::1::::<><><>0<>0<><>::uid://h2hn8dpdkqu2::::res://player/player.gd<>uid://0wqo08ppgyux::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Walk.png<>uid://117th8lgbcdw::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png<>uid://dualqpud1jpvv::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png<>uid://dem6v7a3ywgfj::::res://weapon_scene/weapon_scene.tscn<>uid://dvk8ofnxjkd0q::::res://components/damage/damage_component.tscn<>uid://8cefjqgtmx0e::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh.wav<>uid://81rem6ejea54::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Hit8.wav<>uid://eq00otqnti1x::::res://components/knockback/knockback_component.tscn
 ::res://player_battler/::1772036518
 player_battler.gd::GDScript::8076644151256393085::1772036345::0::1::::PlayerBattler<>Battler<><>0<>0<><>::
 player_battler.tscn::PackedScene::833719124098917955::1772036518::0::1::::<><><>0<>0<><>::uid://3t6a4pm4ttpx::::res://battler/battler.tscn<>uid://dncnfcosfo0ij::::res://player_battler/player_battler.gd<>uid://618ncu12hrge::::res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/SpriteInHand.png<>uid://dqgw15oan6g7c::::res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/SpriteSheet.png<>uid://3lf7ysdioi16::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh2.wav
+::res://rooms/::1772050757
+room_1.tscn::PackedScene::2596587712886077028::1772049320::0::1::::<><><>0<>0<><>::uid://fjl6kkh371ii::::res://overworld/overworld.tscn<>uid://cuim5yngrx5yj::::res://enemy/enemy.tscn<>uid://c8op1x2s2t0ff::::res://battler_data/slime_data.tres
+room_2.tscn::PackedScene::541734962920454306::1772050757::0::1::::<><><>0<>0<><>::uid://fjl6kkh371ii::::res://overworld/overworld.tscn<>uid://cuim5yngrx5yj::::res://enemy/enemy.tscn<>uid://c8op1x2s2t0ff::::res://battler_data/slime_data.tres
 ::res://ui/::1770982046
 heart_sprite.tscn::PackedScene::4506223525758792445::1770982046::0::1::::<><><>0<>0<><>::uid://dkw6rg84j22rk::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/Heart.png
 ::res://weapon_scene/::1771779159

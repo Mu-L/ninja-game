@@ -3,6 +3,10 @@ class_name EnemyBattler extends Battler
 func _ready() -> void:
 	super._ready()
 
+func set_data(new_val: BattlerData) -> void:
+	super.set_data(new_val)
+	set_health(data.max_health)
+
 func decide_action() -> void:
 	action_name = "attack"
 	action_text = "Slime Jumped at green ninja"
@@ -16,7 +20,7 @@ func perform_action() -> void:
 		await tween.finished
 		animated_sprite_2d.play("attack")
 		await animated_sprite_2d.animation_finished
-		await player().take_damage(self.strength)
+		await player().take_damage(data.strength)
 		animated_sprite_2d.play("idle")
 		tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", starting_pos, 0.5)
@@ -25,14 +29,14 @@ func perform_action() -> void:
 		finished_performing_action.emit()
 
 func take_damage(amount: int) -> void:
-	health -= amount
+	set_health(data.health - amount)
 	damage_label.show()
 	damage_label.text = str(amount)
 	%HurtSound.play()
 	%HurtAnimationPlayer.play("hurt")
 	await %HurtAnimationPlayer.animation_finished
 	damage_label.hide()
-	if health <= 0:
+	if data.health <= 0:
 		queue_free()
 
 func player() -> PlayerBattler:

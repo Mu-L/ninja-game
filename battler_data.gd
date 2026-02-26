@@ -8,6 +8,8 @@ class_name BattlerData extends Resource
 @export var sprite_frames: SpriteFrames
 @export_tool_button("create animations template") var button = create_animations_template
 
+var health: int
+
 func create_animations_template() -> void:
 	sprite_frames = SpriteFrames.new()
 	const ANIMATION_NAMES := ["idle", "attack"]

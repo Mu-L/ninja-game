@@ -1,9 +1,11 @@
-res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/
+res://enemy_battler/
+res://player_battler/
+res://battle/
 res://rooms/
 res://overworld/
-res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/
 res://game/
-res://player_battler/
+res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/
+res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/
 res://player/
 res://weapon_scene/
 res://global/
@@ -11,9 +13,7 @@ res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/
 res://battler_data/
 res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/
 res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/
-res://battle/
 res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime/
-res://enemy_battler/
 res://battler/
 res://follower_enemy/
 res://ui/

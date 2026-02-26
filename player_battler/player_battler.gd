@@ -10,10 +10,8 @@ var is_attacking := false
 
 func _ready() -> void:
 	super._ready()
-	init_self(self.data)
 	ui.hide()
 	$AttackBar.hide()
-
 func decide_action() -> void:
 	ui.show()
 	attack_button.grab_focus()
@@ -85,9 +83,9 @@ func enemy() -> EnemyBattler:
 func take_damage(amount: int) -> void:
 	%HurtSound.play()
 	%HurtAnimationPlayer.play("hurt")
-	health -= amount
+	set_health(data.health - amount)
 	await %HurtAnimationPlayer.animation_finished
-	if health <= 0:
+	if data.health <= 0:
 		queue_free()
 
 func _on_attack_animation_player_animation_finished(anim_name: StringName) -> void:

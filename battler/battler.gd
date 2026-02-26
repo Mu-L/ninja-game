@@ -6,32 +6,27 @@ signal finished_performing_action
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var damage_label: Label = %DamageLabel
+@onready var hp_label: Label = $HPLabel
 
-@export var data: BattlerData
-
-var health: int: set = set_health
-var max_health: int
-var speed: int
-var strength: int
-
+var data: BattlerData: set = set_data
 var action_name: String
 var action_text: String
 var starting_pos: Vector2
+
+func set_data(new_val: BattlerData) -> void:
+	data = new_val
+	animated_sprite_2d.sprite_frames = data.sprite_frames
+	animated_sprite_2d.play("idle")
+	set_health(data.health)
 
 func _ready() -> void:
 	starting_pos = self.global_position
 	damage_label.hide()
 
-func init_self(data: BattlerData) -> void:
-	self.data = data
-	max_health = data.max_health
-	health = max_health
-	health_bar.max_value = max_health
-	health_bar.value = max_health
-	strength = data.strength
-	speed = data.speed
-	animated_sprite_2d.sprite_frames = data.sprite_frames
-	animated_sprite_2d.play("idle")
+func _process(delta: float) -> void:
+	if not hp_label:
+		return
+	hp_label.text = "%d" % data.health
 
 @abstract
 func decide_action() -> void
@@ -43,5 +38,5 @@ func perform_action() -> void
 func take_damage(amount: int) -> void
 
 func set_health(new_val: int) -> void:
-	health = new_val
-	health_bar.value = health
+	data.health = new_val
+	health_bar.value = new_val

@@ -11,14 +11,13 @@ signal textbox_closed
 signal battle_finished
 
 var enemy_data: BattlerData
-var player_health: int
+var player_data: BattlerData
 
 func _ready() -> void:
+	enemy_battler.data = enemy_data
+	player_battler.data = player_data
 	battle_camera.make_current()
-	enemy_battler.init_self(enemy_data)
-	player_battler.health = player_health
 	text_box.hide()
-	
 	while not is_battle_finished():
 		await get_tree().create_timer(0.1).timeout
 		for battler: Battler in battlers.get_children():

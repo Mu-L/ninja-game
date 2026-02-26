@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var battle_start_sound: AudioStreamPlayer = %BattleStartSound
-@onready var over_world: Node2D = %OverWorld
+@onready var over_world: Node2D = %Room2
 
 func _ready() -> void:
 	Global.start_battle.connect(_on_battle_start)
@@ -14,7 +14,7 @@ func _on_battle_start(enemy: Enemy, player: Player) -> void:
 	const BATTLE := preload("uid://cb3474ae6wcck")
 	var battle: Battle = BATTLE.instantiate()
 	battle.enemy_data = enemy.battle_data
-	battle.player_health = player.health
+	battle.player_data = player.battle_data
 	add_child(battle)
 	battle.battle_finished.connect(
 		func():
@@ -26,5 +26,5 @@ func _on_battle_start(enemy: Enemy, player: Player) -> void:
 			if not player_battler:
 				return
 			player.health_bar.show()
-			player.health = player_battler.health
+			player.set_health(player.battle_data.health)
 	)

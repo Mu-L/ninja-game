@@ -10,13 +10,14 @@ class_name PlayerBattler extends Battler
 @onready var skills_menu: PanelContainer = %SkillsMenu
 @onready var skills_container: GridContainer = %SkillsContainer
 @onready var skills_button: Button = %SkillsButton
+@onready var attack_animation_player: AnimationPlayer = %AttackAnimationPlayer
 
 signal finished_deciding_action
 
 var is_attacking := false
 var skill_to_perform: Skill
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	hp_label.text = "%d" % data.magic_points
 
 func set_data(new_val: BattlerData) -> void:
@@ -76,8 +77,12 @@ func perform_action() -> void:
 		tween.tween_property(self, "global_position", final_pos, 0.5)
 		await tween.finished
 		$AttackBar.show()
-		%AttackAnimationPlayer.play("attack")
 		is_attacking = true
+		attack_animation_player.speed_scale = randf_range(0.5, 1.25)
+		if randf() < 0.5:
+			attack_animation_player.play_backwards("attack")
+		else:
+			attack_animation_player.play("attack")
 	elif action_name == "skill":
 		Global.display_text.emit(skill_to_perform.battle_text)
 		await Global.textbox_closed
@@ -98,23 +103,14 @@ func _input(event: InputEvent) -> void:
 		is_attacking = false
 		animated_sprite_2d.play("attack")
 		%Sword.show()
-		%AttackAnimationPlayer.stop(true)
+		attack_animation_player.stop(true)
 		var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BOUNCE)
 		tween.tween_property(%AttackSlider, "scale", Vector2.ONE*1.5, 0.1)
 		tween.tween_property(%AttackSlider, "scale", Vector2.ONE, 0.25)
 		await tween.finished
+		
 		var distance_to_center: int = round(abs(%AttackSlider.position.x - 50))
-		var multiplier: float
-		if distance_to_center == 0:
-			multiplier = 1.0
-		elif distance_to_center < 10:
-			multiplier = 0.9
-		elif distance_to_center < 20:
-			multiplier = 0.75
-		elif distance_to_center < 30:
-			multiplier = 0.5
-		else:
-			multiplier = 0.25
+		var multiplier: float = (50.0 - distance_to_center) / 50.0
 		var damage: int = round(data.strength * multiplier)
 		await enemy().take_damage(damage)
 		
@@ -176,6 +172,7 @@ func increase_exp(amount: int) -> void:
 		%LevelUpSound.play()
 		var new_EXP := data.EXP - data.EXP_to_next_level
 		data.EXP = new_EXP
+		@warning_ignore("narrowing_conversion")
 		data.EXP_to_next_level *= 1.25
 		Global.display_text.emit("Ninja reached level %d" % data.level)
 		await Global.textbox_closed

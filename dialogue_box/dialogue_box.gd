@@ -15,17 +15,16 @@ func display_dialogue(dialogue: Array[String]) -> void:
 	scroll_line(lines_to_display.pop_front())
 
 func scroll_line(line: String) -> void:
-	await clear_text()
+	clear_text()
 	label.text = line
-	label.visible_characters = 0
 	timer.start()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not InteractableComponent.is_interacting:
 		return
 	if Input.is_action_just_pressed("interact"):
 		if lines_to_display.size() == 0:
-			await clear_text()
+			clear_text()
 			self.hide()
 			await get_tree().create_timer(0.1).timeout
 			InteractableComponent.is_interacting = false

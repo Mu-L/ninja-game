@@ -1,6 +1,7 @@
 @abstract
 class_name Battler extends Node2D
 
+@warning_ignore("unused_signal")
 signal finished_performing_action
 
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
@@ -24,7 +25,7 @@ func _ready() -> void:
 	starting_pos = self.global_position
 	damage_label.hide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not hp_label:
 		return
 	hp_label.text = "%d" % data.health

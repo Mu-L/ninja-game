@@ -1,3 +1,4 @@
+res://player_battler/
 res://rooms/
 res://dialogue_box/
 res://battle/
@@ -14,7 +15,6 @@ res://enemy_battler/
 res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken/
 res://skills/
 res://battler/
-res://player_battler/
 res://player/
 res://overworld/
 res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/

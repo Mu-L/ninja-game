@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bcvueaesm4jdi"]
+
+[ext_resource type="Script" uid="uid://bkbx71iylf5h7" path="res://dialogue_box/dialogue_box.gd" id="1_rgaxe"]
+[ext_resource type="AudioStream" uid="uid://df1fo5buh34rv" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move1.wav" id="2_no5ax"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgaxe"]
+bg_color = Color(0, 0, 0, 0.8784314)
+
+[node name="DialogueBox" type="CanvasLayer" unique_id=1663880039]
+process_mode = 2
+script = ExtResource("1_rgaxe")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1651529256]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = -1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1359327579]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rgaxe")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1498651341]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1567947604]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "Hello, World !"
+
+[node name="TextSound" type="AudioStreamPlayer" parent="." unique_id=709002828]
+unique_name_in_owner = true
+stream = ExtResource("2_no5ax")
+
+[node name="Timer" type="Timer" parent="." unique_id=1183512774]
+unique_name_in_owner = true
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

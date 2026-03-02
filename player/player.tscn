@@ -6,10 +6,8 @@
 [ext_resource type="Resource" uid="uid://1kgr5f5teeiq" path="res://battler_data/ninja_data.tres" id="2_8t03j"]
 [ext_resource type="Texture2D" uid="uid://dualqpud1jpvv" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png" id="2_yw30f"]
 [ext_resource type="PackedScene" uid="uid://dem6v7a3ywgfj" path="res://weapon_scene/weapon_scene.tscn" id="5_hg6s5"]
-[ext_resource type="PackedScene" uid="uid://dvk8ofnxjkd0q" path="res://components/damage/damage_component.tscn" id="7_boad6"]
 [ext_resource type="AudioStream" uid="uid://8cefjqgtmx0e" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh.wav" id="8_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://81rem6ejea54" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Hit8.wav" id="8_rgyib"]
-[ext_resource type="PackedScene" uid="uid://eq00otqnti1x" path="res://components/knockback/knockback_component.tscn" id="9_hg6s5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjvpn"]
 atlas = ExtResource("2_yw30f")
@@ -245,12 +243,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
 radius = 5.0990195
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_boad6"]
-radius = 7.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_hg6s5"]
-radius = 7.071068
-
 [sub_resource type="Animation" id="Animation_1wwld"]
 length = 0.001
 tracks/0/type = "value"
@@ -302,7 +294,6 @@ animation = &"attack left"
 autoplay = "idle down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=181110495]
-visible = false
 shape = SubResource("CircleShape2D_rkbax")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=181001614]
@@ -332,25 +323,6 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(-8, 4)
 rotation = 1.5707964
-
-[node name="DamageComponent" parent="." unique_id=1429838472 instance=ExtResource("7_boad6")]
-visible = false
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" parent="DamageComponent" index="0" unique_id=1061504655]
-shape = SubResource("CircleShape2D_boad6")
-debug_color = Color(0.6783122, 0.5051648, 5.7756904e-07, 0.41960785)
-
-[node name="KnockbackComponent" parent="." unique_id=1500406809 instance=ExtResource("9_hg6s5")]
-unique_name_in_owner = true
-visible = false
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" parent="KnockbackComponent" index="0" unique_id=1749381845]
-shape = SubResource("CircleShape2D_hg6s5")
-debug_color = Color(1.7808378e-06, 0.64992064, 0.13606134, 0.41960785)
 
 [node name="WeaponSound" type="AudioStreamPlayer" parent="." unique_id=1759539607]
 unique_name_in_owner = true
@@ -396,8 +368,4 @@ unique_name_in_owner = true
 wait_time = 0.35
 one_shot = true
 
-[connection signal="took_damage" from="DamageComponent" to="." method="_on_damageable_component_took_damage"]
 [connection signal="timeout" from="WeaponTimer" to="." method="_on_weapon_timer_timeout"]
-
-[editable path="DamageComponent"]
-[editable path="KnockbackComponent"]

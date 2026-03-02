@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bdexxyiy6fxdj"]
+
+[ext_resource type="Script" uid="uid://cfpopjot7t5h4" path="res://components/random_walker/random_walker.gd" id="1_ajr63"]
+
+[node name="RandomWalker" type="Node2D" unique_id=831836997]
+script = ExtResource("1_ajr63")
+
+[node name="DirectionChangeTimer" type="Timer" parent="." unique_id=799539286]
+unique_name_in_owner = true
+autostart = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=399969067]
+target_position = Vector2(0, 20)
+collide_with_areas = true
+
+[connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_direction_change_timer_timeout"]

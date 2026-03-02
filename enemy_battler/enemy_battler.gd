@@ -13,6 +13,8 @@ func decide_action() -> void:
 
 func perform_action() -> void:
 	if action_name == "attack":
+		Global.display_text.emit(action_text)
+		await Global.textbox_closed
 		health_bar.hide()
 		var final_pos := player().global_position + Vector2(25, 0)
 		var tween := create_tween().set_trans(Tween.TRANS_CUBIC)

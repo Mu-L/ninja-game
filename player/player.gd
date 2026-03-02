@@ -4,7 +4,6 @@ class_name Player extends CharacterBody2D
 @onready var weapon_sound: AudioStreamPlayer = %WeaponSound
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var hurt_sound: AudioStreamPlayer = %HurtSound
-@onready var knockback_component: KnockbackCompnent = %KnockbackComponent
 @onready var debug_label: Label = %DebugLabel
 @onready var weapon_timer: Timer = %WeaponTimer
 @onready var health_bar: ProgressBar = %HealthBar
@@ -49,6 +48,7 @@ class Direction:
 
 var direction: Direction
 var is_attacking := false
+var is_interacting := false
 var current_weapon: WeaponScene
 
 func _ready() -> void:
@@ -59,6 +59,8 @@ func _ready() -> void:
 	battle_data.magic_points = battle_data.max_magic_points
 
 func _physics_process(delta: float) -> void:
+	if is_interacting:
+		return
 	if not is_attacking:
 		movement_logic_and_animation(delta)
 	attack_logic_and_animation(delta)
@@ -67,7 +69,7 @@ func _physics_process(delta: float) -> void:
 func movement_logic_and_animation(_delta: float) -> void:
 	
 	var input_vector = Input.get_vector("move left", "move right","move up", "move down")
-	velocity = input_vector * movement_speed + knockback_component.force
+	velocity = input_vector * movement_speed
 	
 	if input_vector.x > 0:
 		direction = Direction.new(Direction.Directions.RIGHT, self)
@@ -96,13 +98,6 @@ func attack_logic_and_animation(_delta: float) -> void:
 		current_weapon.show()
 		current_weapon.set_hitbox(false)
 		weapon_timer.start(attack_duration)
-
-func _on_damageable_component_took_damage(amount: int) -> void:
-	battle_data.health -= amount
-	animation_player.play("hurt")
-	hurt_sound.play()
-	if battle_data.health <= 0:
-		queue_free()
 
 func _on_weapon_body_entered(body: Node2D) -> void:
 	if body is Enemy:

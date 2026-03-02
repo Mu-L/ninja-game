@@ -94,7 +94,7 @@ func perform_action() -> void:
 		finished_performing_action.emit()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack") and is_attacking:
+	if event.is_action_pressed("interact") and is_attacking:
 		is_attacking = false
 		animated_sprite_2d.play("attack")
 		%Sword.show()

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://fjl6kkh371ii" path="res://overworld/overworld.tscn" id="1_secxv"]
 [ext_resource type="PackedScene" uid="uid://cuim5yngrx5yj" path="res://enemy/enemy.tscn" id="2_bylct"]
 [ext_resource type="Resource" uid="uid://c8op1x2s2t0ff" path="res://battler_data/slime_data.tres" id="3_13qvk"]
+[ext_resource type="PackedScene" uid="uid://dho364r52w8t7" path="res://npc/npc.tscn" id="4_13qvk"]
 
 [node name="Room2" unique_id=1645941047 instance=ExtResource("1_secxv")]
 
@@ -45,3 +46,6 @@ battle_data = ExtResource("3_13qvk")
 [node name="Enemy6" parent="." index="7" unique_id=2078369280 instance=ExtResource("2_bylct")]
 position = Vector2(266, -253)
 battle_data = ExtResource("3_13qvk")
+
+[node name="NPC" parent="." index="8" unique_id=546455887 instance=ExtResource("4_13qvk")]
+position = Vector2(118, 85)

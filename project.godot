@@ -20,6 +20,10 @@ config/icon="uid://qkjm2wdxvko6"
 Global="*uid://dsy0y41u2kis7"
 DialogueBox="*uid://bcvueaesm4jdi"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/viewport_width=320

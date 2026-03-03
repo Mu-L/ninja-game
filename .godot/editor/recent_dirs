@@ -1,22 +1,21 @@
+res://enemy_battler/
+res://battle/
+res://game/
+res://quick_time_events/shuriken/
 res://player_battler/
 res://rooms/
 res://dialogue_box/
-res://battle/
 res://font/
 res://Ninja Adventure - Asset Pack/Ui/Font/
 res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/
 res://components/random_walker/
 res://Ninja Adventure - Asset Pack/Ui/Emote/
 res://Ninja Adventure - Asset Pack/Ui/Dialog/
-res://game/
 res://components/interact/
 res://npc/
-res://enemy_battler/
 res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken/
 res://skills/
 res://battler/
 res://player/
 res://overworld/
 res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/
-res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/
-res://weapon_scene/

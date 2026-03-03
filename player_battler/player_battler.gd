@@ -63,6 +63,7 @@ func _ready() -> void:
 	skills_menu.hide()
 
 func decide_action() -> void:
+	buttons.show()
 	ui.show()
 	attack_button.grab_focus()
 
@@ -86,17 +87,26 @@ func perform_action() -> void:
 	elif action_name == "skill":
 		Global.display_text.emit(skill_to_perform.battle_text)
 		await Global.textbox_closed
-		skill_animation.sprite_frames = skill_to_perform.animation
-		skill_animation.global_position = enemy().global_position
-		skill_animation.show()
-		skill_animation.play("default")
-		%SkillSound.play()
-		await skill_animation.animation_finished
-		skill_animation.hide()
-		await enemy().take_damage(data.strength + skill_to_perform.strength)
-		await get_tree().create_timer(0.1).timeout
-		set_magic_points(data.magic_points - skill_to_perform.magic_points_cost)
-		finished_performing_action.emit()
+		var qte: QuickTimeEvent = skill_to_perform.quick_time_event.instantiate()
+		add_child(qte)
+		qte.global_position = enemy().global_position
+		qte.start()
+		qte.finished.connect(func(success: bool):
+			if success:
+				skill_animation.sprite_frames = skill_to_perform.animation
+				skill_animation.global_position = enemy().global_position
+				skill_animation.show()
+				skill_animation.play("default")
+				%SkillSound.play()
+				await skill_animation.animation_finished
+				skill_animation.hide()
+				await enemy().take_damage(data.strength + skill_to_perform.strength)
+				await get_tree().create_timer(0.1).timeout
+				health_bar.show()
+				magic_bar.show()
+				set_magic_points(data.magic_points - skill_to_perform.magic_points_cost)
+			finished_performing_action.emit()
+			)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and is_attacking:

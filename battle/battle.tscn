@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://p4gm0mb73spx" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Menu5.wav" id="5_4mnim"]
 
 [node name="Battle" type="Node2D" unique_id=697061231]
-process_mode = 2
 script = ExtResource("1_4mnim")
 
 [node name="Battlers" type="Node2D" parent="." unique_id=882097105]

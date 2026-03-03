@@ -7,7 +7,7 @@ func _ready() -> void:
 	Global.start_battle.connect(_on_battle_start)
 
 func _on_battle_start(enemy: Enemy, player: Player) -> void:
-	get_tree().paused = true
+	over_world.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	battle_start_sound.play()
 	await battle_start_sound.finished
 	over_world.hide()
@@ -18,7 +18,8 @@ func _on_battle_start(enemy: Enemy, player: Player) -> void:
 	add_child(battle)
 	battle.battle_finished.connect(
 		func():
-			get_tree().paused = false
+			over_world.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
+			player._on_weapon_timer_timeout()
 			over_world.show()
 			battle.queue_free()
 			enemy.die()

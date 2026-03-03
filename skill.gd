@@ -5,3 +5,4 @@ class_name Skill extends Resource
 @export var magic_points_cost: int
 @export var strength: int
 @export var animation: SpriteFrames
+@export var quick_time_event: PackedScene

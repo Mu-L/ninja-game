@@ -10,7 +10,6 @@ script = ExtResource("1_vasa2")
 
 [node name="BattleStartSound" type="AudioStreamPlayer" parent="." unique_id=1155609766]
 unique_name_in_owner = true
-process_mode = 2
 stream = ExtResource("3_h7iqs")
 
 [node name="Room2" parent="." unique_id=1645941047 instance=ExtResource("3_4fuuu")]

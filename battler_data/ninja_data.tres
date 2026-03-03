@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="BattlerData" format=3 uid="uid://1kgr5f5teeiq"]
 
-[ext_resource type="Script" uid="uid://bi85lablvrto7" path="res://battler_data.gd" id="1_wq7ox"]
+[ext_resource type="Script" uid="uid://bi85lablvrto7" path="res://resource_classes/battler_data.gd" id="1_weh2s"]
 [ext_resource type="Texture2D" uid="uid://117th8lgbcdw" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png" id="2_41ixl"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_d51f0"]
 [ext_resource type="Texture2D" uid="uid://dualqpud1jpvv" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png" id="2_gko10"]
-[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://skill.gd" id="2_k4f4g"]
-[ext_resource type="Resource" uid="uid://c483w56sm1avj" path="res://skills/heal.tres" id="3_weh2s"]
+[ext_resource type="Resource" uid="uid://dc777fd6rmieb" path="res://skills/weak_heal.tres" id="3_p4pdj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4f4g"]
 atlas = ExtResource("2_gko10")
@@ -39,7 +39,7 @@ animations = [{
 }]
 
 [resource]
-script = ExtResource("1_wq7ox")
+script = ExtResource("1_weh2s")
 name = "Ninja"
 max_health = 100
 max_magic_points = 25
@@ -47,5 +47,5 @@ speed = 20
 strength = 50
 EXP_to_next_level = 100
 sprite_frames = SubResource("SpriteFrames_wq7ox")
-skills = Array[ExtResource("2_k4f4g")]([ExtResource("3_weh2s")])
+skills = Array[ExtResource("2_d51f0")]([ExtResource("3_p4pdj")])
 metadata/_custom_type_script = "uid://bi85lablvrto7"

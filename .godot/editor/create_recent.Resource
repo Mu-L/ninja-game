@@ -1,1 +1,1 @@
-res://skill.gd
+res://resource_classes/healing_skill.gd

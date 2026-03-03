@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BattlerData" format=3 uid="uid://c8op1x2s2t0ff"]
 
-[ext_resource type="Script" uid="uid://bi85lablvrto7" path="res://battler_data.gd" id="1_sw1tb"]
-[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://skill.gd" id="2_klj0v"]
+[ext_resource type="Script" uid="uid://bi85lablvrto7" path="res://resource_classes/battler_data.gd" id="1_sw1tb"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_klj0v"]
 [ext_resource type="Texture2D" uid="uid://dt8uhwwsl3qt3" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/Slime2.png" id="2_yjqf0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klj0v"]

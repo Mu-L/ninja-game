@@ -1,93 +1,93 @@
-[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://cyqhlvwprkbff"]
+[gd_resource type="Resource" script_class="OffensiveSkill" format=3 uid="uid://cyqhlvwprkbff"]
 
 [ext_resource type="Texture2D" uid="uid://dqgw15oan6g7c" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/SpriteSheet.png" id="1_la2my"]
-[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://skill.gd" id="1_pusi0"]
+[ext_resource type="Script" uid="uid://urex30mn1ce7" path="res://resource_classes/offensive_skill.gd" id="1_pusi0"]
 [ext_resource type="PackedScene" uid="uid://b326wqe6hkuxm" path="res://quick_time_events/kunai/kunai_qte.tscn" id="2_0akt1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xyngr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_la2my"]
 atlas = ExtResource("1_la2my")
 region = Rect2(0, 0, 65, 59)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_65rad"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0akt1"]
 atlas = ExtResource("1_la2my")
 region = Rect2(65, 0, 65, 59)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nwkn0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8tyl"]
 atlas = ExtResource("1_la2my")
 region = Rect2(130, 0, 65, 59)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ksi8t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cs08"]
 atlas = ExtResource("1_la2my")
 region = Rect2(195, 0, 65, 59)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t0871"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lajtb"]
 atlas = ExtResource("1_la2my")
 region = Rect2(260, 0, 65, 59)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ri7bm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkyyr"]
 atlas = ExtResource("1_la2my")
 region = Rect2(325, 0, 65, 59)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2xhu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w6mf"]
 atlas = ExtResource("1_la2my")
 region = Rect2(390, 0, 65, 59)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s85tj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jqe2"]
 atlas = ExtResource("1_la2my")
 region = Rect2(455, 0, 65, 59)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xjdmu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0bun"]
 atlas = ExtResource("1_la2my")
 region = Rect2(520, 0, 65, 59)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_821uq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg6m8"]
 atlas = ExtResource("1_la2my")
 region = Rect2(585, 0, 65, 59)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0akt1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_jhupm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xyngr")
+"texture": SubResource("AtlasTexture_la2my")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_65rad")
+"texture": SubResource("AtlasTexture_0akt1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nwkn0")
+"texture": SubResource("AtlasTexture_o8tyl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ksi8t")
+"texture": SubResource("AtlasTexture_2cs08")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t0871")
+"texture": SubResource("AtlasTexture_lajtb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ri7bm")
+"texture": SubResource("AtlasTexture_qkyyr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d2xhu")
+"texture": SubResource("AtlasTexture_5w6mf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s85tj")
+"texture": SubResource("AtlasTexture_7jqe2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xjdmu")
+"texture": SubResource("AtlasTexture_a0bun")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_821uq")
+"texture": SubResource("AtlasTexture_qg6m8")
 }],
 "loop": false,
 "name": &"default",
-"speed": 11.0
+"speed": 8.0
 }]
 
 [resource]
 script = ExtResource("1_pusi0")
-name = "Kunai"
-battle_text = "Ninja Threw Kunai"
-magic_points_cost = 7
 strength = 100
-animation = SubResource("SpriteFrames_0akt1")
+name = "kunai"
+battle_text = "Ninja threw kunais"
+magic_points_cost = 8
+animation = SubResource("SpriteFrames_jhupm")
 quick_time_event = ExtResource("2_0akt1")
-metadata/_custom_type_script = "uid://bycf0afmvv35g"
+metadata/_custom_type_script = "uid://urex30mn1ce7"

@@ -1,10 +1,13 @@
 res://Ninja Adventure - Asset Pack/FX/Magic/Aura/
 res://skills/
+res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/
+res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken/
+res://enemy_battler/
+res://
 res://quick_time_events/healing/
 res://quick_time_events/base_class/
 res://quick_time_events/miss_label/
 res://quick_time_events/kunai/
-res://enemy_battler/
 res://battle/
 res://game/
 res://quick_time_events/shuriken/
@@ -17,6 +20,3 @@ res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/
 res://components/random_walker/
 res://Ninja Adventure - Asset Pack/Ui/Emote/
 res://Ninja Adventure - Asset Pack/Ui/Dialog/
-res://components/interact/
-res://npc/
-res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken/

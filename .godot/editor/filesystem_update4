@@ -19,3 +19,10 @@ res://quick_time_events/healing/healing_qte.tscn
 res://quick_time_events/healing/healing_qte.gd
 res://skills/heal.tres
 res://quick_time_events/base_class/quick_time_event.tscn
+res://skill.gd
+res://new_script.gd
+res://offensive_skill.gd
+res://resource_classes/healing_skill.gd
+res://battler/battler.gd
+res://resource_classes/skill.gd
+res://skills/weak_heal.tres

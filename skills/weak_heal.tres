@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="HealingSkill" format=3 uid="uid://dc777fd6rmieb"]
+
+[ext_resource type="Script" uid="uid://cmmpxsqdksgf2" path="res://resource_classes/healing_skill.gd" id="1_ew0do"]
+[ext_resource type="Texture2D" uid="uid://v3ktmsyl60sk" path="res://Ninja Adventure - Asset Pack/FX/Magic/Aura/SpriteSheet.png" id="1_wpowu"]
+[ext_resource type="PackedScene" uid="uid://cqnjevgkdwovv" path="res://quick_time_events/healing/healing_qte.tscn" id="2_4juqf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4juqf"]
+atlas = ExtResource("1_wpowu")
+region = Rect2(0, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttojd"]
+atlas = ExtResource("1_wpowu")
+region = Rect2(25, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my7hy"]
+atlas = ExtResource("1_wpowu")
+region = Rect2(50, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1def"]
+atlas = ExtResource("1_wpowu")
+region = Rect2(75, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xre17"]
+atlas = ExtResource("1_wpowu")
+region = Rect2(100, 0, 25, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06lv1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4juqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttojd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my7hy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1def")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xre17")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[resource]
+script = ExtResource("1_ew0do")
+heal_amount = 50
+name = "Weak Heal"
+battle_text = "Ninja Healed Himself"
+magic_points_cost = 3
+animation = SubResource("SpriteFrames_06lv1")
+quick_time_event = ExtResource("2_4juqf")
+metadata/_custom_type_script = "uid://cmmpxsqdksgf2"

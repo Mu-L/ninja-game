@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://d4jyouinuchho" path="res://Ninja Adventure - Asset Pack/Audio/Jingles/LevelUp1.wav" id="6_65rad"]
 [ext_resource type="Script" uid="uid://bfq1palb523e2" path="res://player_battler/level_up_manager.gd" id="7_nwkn0"]
 [ext_resource type="AudioStream" uid="uid://iuggp7pxayvo" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Alert/Alert.wav" id="8_ksi8t"]
+[ext_resource type="AudioStream" uid="uid://76ycilithniw" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Magic & Skill/Heal.wav" id="9_t0871"]
 
 [sub_resource type="Gradient" id="Gradient_6tkng"]
 offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
@@ -205,6 +206,10 @@ script = ExtResource("7_nwkn0")
 [node name="ErrorSound" type="AudioStreamPlayer" parent="." index="14" unique_id=443687390]
 unique_name_in_owner = true
 stream = ExtResource("8_ksi8t")
+
+[node name="HealSound" type="AudioStreamPlayer" parent="." index="15" unique_id=1183572879]
+unique_name_in_owner = true
+stream = ExtResource("9_t0871")
 
 [connection signal="pressed" from="UI/MarginContainer/Buttons/AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/Buttons/SkillsButton" to="." method="_on_skills_button_pressed"]

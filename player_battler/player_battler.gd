@@ -68,8 +68,7 @@ func decide_action() -> void:
 	attack_button.grab_focus()
 
 func perform_action() -> void:
-	health_bar.hide()
-	magic_bar.hide()
+	set_stat_visibility(false)
 	if action_name == "attack":
 		Global.display_text.emit("Ninja Attacked the enemy")
 		await Global.textbox_closed
@@ -85,30 +84,12 @@ func perform_action() -> void:
 		else:
 			attack_animation_player.play("attack")
 	elif action_name == "skill":
-		Global.display_text.emit(skill_to_perform.battle_text)
-		await Global.textbox_closed
-		var qte: QuickTimeEvent = skill_to_perform.quick_time_event.instantiate()
-		add_child(qte)
-		qte.global_position = enemy().global_position
-		qte.start()
-		qte.finished.connect(func(success: bool):
-			if success:
-				skill_animation.sprite_frames = skill_to_perform.animation
-				skill_animation.global_position = enemy().global_position
-				skill_animation.show()
-				skill_animation.play("default")
-				%SkillSound.play()
-				await skill_animation.animation_finished
-				skill_animation.hide()
-				await enemy().take_damage(data.strength + skill_to_perform.strength)
-				await get_tree().create_timer(0.1).timeout
-				health_bar.show()
-				magic_bar.show()
-				set_magic_points(data.magic_points - skill_to_perform.magic_points_cost)
-			else:
-				await attack_missed_effect()
-			finished_performing_action.emit()
-			)
+		if skill_to_perform is HealingSkill:
+			perform_skill_action(self)
+		elif skill_to_perform is OffensiveSkill:
+			perform_skill_action(enemy())
+		else:
+			assert(false, "no match")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and is_attacking:
@@ -132,8 +113,7 @@ func _input(event: InputEvent) -> void:
 		tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", starting_pos, 0.5)
 		await tween.finished
-		health_bar.show()
-		magic_bar.show()
+		set_stat_visibility(true)
 		finished_performing_action.emit()
 
 func _on_attack_button_pressed() -> void:
@@ -157,11 +137,11 @@ func _on_attack_animation_player_animation_finished(anim_name: StringName) -> vo
 	if anim_name == "attack":
 		is_attacking = false
 		$AttackBar.hide()
-		await attack_missed_effect()
+		await missed_effect(enemy().global_position)
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", starting_pos, 0.5)
 		await tween.finished
-		health_bar.show()
+		set_stat_visibility(true)
 		finished_performing_action.emit()
 
 func _on_skills_button_pressed() -> void:
@@ -210,11 +190,54 @@ func set_magic_points(new_val: int) -> void:
 	data.magic_points = new_val
 	magic_bar.value = new_val
 
-func attack_missed_effect() -> void:
+func missed_effect(pos: Vector2) -> void:
 	const MISS_LABEL = preload("uid://cqw5qj1ygekwl")
 	var label: MissLabel = MISS_LABEL.instantiate()
 	add_child(label)
-	label.global_position = enemy().global_position 
+	label.global_position = pos
 	await label.bouncing_finished
 	%ErrorSound.play()
 	await %ErrorSound.finished
+
+func perform_skill_action(target: Battler) -> void:
+	Global.display_text.emit(skill_to_perform.battle_text)
+	await Global.textbox_closed
+	var qte: QuickTimeEvent = skill_to_perform.quick_time_event.instantiate()
+	add_child(qte)
+	qte.global_position = target.global_position
+	qte.start()
+	qte.finished.connect(func(success: bool):
+		if success:
+			skill_animation.sprite_frames = skill_to_perform.animation
+			skill_animation.global_position = target.global_position
+			skill_animation.show()
+			skill_animation.play("default")
+			%SkillSound.play()
+			await skill_animation.animation_finished
+			skill_animation.hide()
+			if skill_to_perform is OffensiveSkill:
+				await enemy().take_damage(data.strength + skill_to_perform.strength)
+			elif skill_to_perform is HealingSkill:
+				await self.heal(skill_to_perform.heal_amount)
+			await get_tree().create_timer(0.1).timeout
+			set_stat_visibility(true)
+			set_magic_points(data.magic_points - skill_to_perform.magic_points_cost)
+		else:
+			await missed_effect(target.global_position)
+		set_stat_visibility(true)
+		finished_performing_action.emit()
+		)
+
+func heal(amount: int) -> void:
+	set_health(data.health + amount)
+	damage_label.show()
+	damage_label.text = str(amount)
+	%HealSound.play()
+	%HurtAnimationPlayer.play("hurt")
+	await %HurtAnimationPlayer.animation_finished
+	damage_label.hide()
+
+@warning_ignore("shadowed_variable_base_class")
+func set_stat_visibility(is_visible: bool) -> void:
+	health_bar.visible = is_visible
+	magic_bar.visible = is_visible

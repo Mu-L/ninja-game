@@ -40,5 +40,5 @@ func perform_action() -> void
 func take_damage(amount: int) -> void
 
 func set_health(new_val: int) -> void:
-	data.health = new_val
+	data.health = clamp(new_val, 0, data.max_health)
 	health_bar.value = new_val

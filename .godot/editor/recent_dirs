@@ -1,3 +1,6 @@
+res://quick_time_events/miss_label/
+res://quick_time_events/kunai/
+res://quick_time_events/base_class/
 res://enemy_battler/
 res://battle/
 res://game/
@@ -17,5 +20,3 @@ res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken/
 res://skills/
 res://battler/
 res://player/
-res://overworld/
-res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/

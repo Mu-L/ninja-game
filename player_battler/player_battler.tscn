@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://3t6a4pm4ttpx" path="res://battler/battler.tscn" id="1_w0k00"]
 [ext_resource type="Script" uid="uid://dncnfcosfo0ij" path="res://player_battler/player_battler.gd" id="2_qckex"]
 [ext_resource type="Texture2D" uid="uid://618ncu12hrge" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/SpriteInHand.png" id="3_6tkng"]
+[ext_resource type="Texture2D" uid="uid://vr6wlka602gs" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/Sprite.png" id="4_ksi8t"]
 [ext_resource type="AudioStream" uid="uid://3lf7ysdioi16" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh2.wav" id="5_xyngr"]
 [ext_resource type="AudioStream" uid="uid://d4jyouinuchho" path="res://Ninja Adventure - Asset Pack/Audio/Jingles/LevelUp1.wav" id="6_65rad"]
 [ext_resource type="Script" uid="uid://bfq1palb523e2" path="res://player_battler/level_up_manager.gd" id="7_nwkn0"]
@@ -44,7 +45,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.75),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -6), Vector2(100, -6)]
+"values": [Vector2(0, 0), Vector2(100, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0m672"]
@@ -174,12 +175,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = SubResource("GradientTexture1D_0m672")
 
-[node name="AttackSlider" type="ColorRect" parent="AttackBar/PanelContainer/MarginContainer/TextureRect" index="0" unique_id=2113237127]
+[node name="AttackSlider" type="Sprite2D" parent="AttackBar/PanelContainer/MarginContainer/TextureRect" index="0" unique_id=133674698]
 unique_name_in_owner = true
-layout_mode = 0
-offset_top = -6.0
-offset_right = 2.5
-offset_bottom = 14.0
+position = Vector2(0, -6)
+texture = ExtResource("4_ksi8t")
 
 [node name="AttackAnimationPlayer" type="AnimationPlayer" parent="AttackBar" index="1" unique_id=455873078]
 unique_name_in_owner = true

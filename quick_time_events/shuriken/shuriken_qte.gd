@@ -8,8 +8,6 @@ extends QuickTimeEvent
 
 @export var radius: float
 
-var started: bool = false
-
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, radius, Color.WHITE, false)
 

@@ -105,6 +105,8 @@ func perform_action() -> void:
 				health_bar.show()
 				magic_bar.show()
 				set_magic_points(data.magic_points - skill_to_perform.magic_points_cost)
+			else:
+				await attack_missed_effect()
 			finished_performing_action.emit()
 			)
 
@@ -155,6 +157,7 @@ func _on_attack_animation_player_animation_finished(anim_name: StringName) -> vo
 	if anim_name == "attack":
 		is_attacking = false
 		$AttackBar.hide()
+		await attack_missed_effect()
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", starting_pos, 0.5)
 		await tween.finished
@@ -206,3 +209,12 @@ func increase_exp(amount: int) -> void:
 func set_magic_points(new_val: int) -> void:
 	data.magic_points = new_val
 	magic_bar.value = new_val
+
+func attack_missed_effect() -> void:
+	const MISS_LABEL = preload("uid://cqw5qj1ygekwl")
+	var label: MissLabel = MISS_LABEL.instantiate()
+	add_child(label)
+	label.global_position = enemy().global_position 
+	await label.bouncing_finished
+	%ErrorSound.play()
+	await %ErrorSound.finished

@@ -8,3 +8,9 @@ res://enemy_battler/enemy_battler.tscn
 res://quick_time_events/shuriken/shuriken_qte.tscn
 res://quick_time_events/shuriken/shuriken_qte.gd
 res://player_battler/player_battler.gd
+res://quick_time_events/kunai/kunai_qte.tscn
+res://quick_time_events/kunai/kunai_qte.gd
+res://quick_time_events/base_class/quick_time_event.gd
+res://quick_time_events/kunai/cursor.gd
+res://quick_time_events/miss_label/miss_label.tscn
+res://quick_time_events/miss_label/miss_label.gd

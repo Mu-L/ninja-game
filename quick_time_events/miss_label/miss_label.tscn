@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cqw5qj1ygekwl"]
+
+[ext_resource type="Script" uid="uid://cklo615f7movq" path="res://quick_time_events/miss_label/miss_label.gd" id="1_0j45h"]
+
+[node name="MissLabel" type="Control" unique_id=1233689891]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -18.0
+offset_top = -6.0
+offset_right = 22.0
+offset_bottom = 34.0
+script = ExtResource("1_0j45h")
+
+[node name="Label" type="Label" parent="." unique_id=108131979]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 0
+offset_left = -23.0
+offset_top = -5.0
+offset_right = 17.0
+offset_bottom = 6.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "MISS!"
+horizontal_alignment = 1
+vertical_alignment = 1

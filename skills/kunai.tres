@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dqgw15oan6g7c" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/SpriteSheet.png" id="1_la2my"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://skill.gd" id="1_pusi0"]
+[ext_resource type="PackedScene" uid="uid://b326wqe6hkuxm" path="res://quick_time_events/kunai/kunai_qte.tscn" id="2_0akt1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyngr"]
 atlas = ExtResource("1_la2my")
@@ -86,6 +87,7 @@ script = ExtResource("1_pusi0")
 name = "Kunai"
 battle_text = "Ninja Threw Kunai at the enemy"
 magic_points_cost = 5
-strength = 150
+strength = 100
 animation = SubResource("SpriteFrames_0akt1")
+quick_time_event = ExtResource("2_0akt1")
 metadata/_custom_type_script = "uid://bycf0afmvv35g"

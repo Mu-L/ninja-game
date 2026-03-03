@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dualqpud1jpvv" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png" id="2_gko10"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://skill.gd" id="2_k4f4g"]
 [ext_resource type="Resource" uid="uid://20x015kijq3h" path="res://skills/shuriken.tres" id="3_weh2s"]
+[ext_resource type="Resource" uid="uid://cyqhlvwprkbff" path="res://skills/kunai.tres" id="4_d51f0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4f4g"]
 atlas = ExtResource("2_gko10")
@@ -47,5 +48,5 @@ speed = 20
 strength = 50
 EXP_to_next_level = 100
 sprite_frames = SubResource("SpriteFrames_wq7ox")
-skills = Array[ExtResource("2_k4f4g")]([ExtResource("3_weh2s")])
+skills = Array[ExtResource("2_k4f4g")]([ExtResource("3_weh2s"), ExtResource("4_d51f0")])
 metadata/_custom_type_script = "uid://bi85lablvrto7"

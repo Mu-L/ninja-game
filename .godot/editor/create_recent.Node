@@ -1,12 +1,13 @@
+Control
 Label
 Node2D
-Node
 AnimationPlayer
+Area2D
+CollisionShape2D
+Sprite2D
+Node
 PathFollow2D
 Path2D
-CollisionShape2D
-Area2D
-Sprite2D
 AnimatedSprite2D
 Timer
 AudioStreamPlayer

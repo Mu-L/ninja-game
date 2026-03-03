@@ -1,3 +1,9 @@
+MarginContainer
+PanelContainer
+Panel
+AnimatedSprite2D
+TextureProgressBar
+ProgressBar
 Control
 Label
 Node2D
@@ -7,9 +13,3 @@ CollisionShape2D
 Sprite2D
 Node
 PathFollow2D
-Path2D
-AnimatedSprite2D
-Timer
-AudioStreamPlayer
-RayCast2D
-RichTextLabel

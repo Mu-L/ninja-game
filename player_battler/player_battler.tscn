@@ -187,6 +187,7 @@ libraries/ = SubResource("AnimationLibrary_0m672")
 [node name="SkillAnimation" type="AnimatedSprite2D" parent="." index="9" unique_id=2082438353]
 unique_name_in_owner = true
 visible = false
+z_index = 2
 position = Vector2(139, 62)
 
 [node name="SkillSound" type="AudioStreamPlayer" parent="." index="10" unique_id=1774249253]

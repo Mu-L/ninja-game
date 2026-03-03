@@ -14,3 +14,8 @@ res://quick_time_events/base_class/quick_time_event.gd
 res://quick_time_events/kunai/cursor.gd
 res://quick_time_events/miss_label/miss_label.tscn
 res://quick_time_events/miss_label/miss_label.gd
+res://player_battler/level_up_manager.gd
+res://quick_time_events/healing/healing_qte.tscn
+res://quick_time_events/healing/healing_qte.gd
+res://skills/heal.tres
+res://quick_time_events/base_class/quick_time_event.tscn

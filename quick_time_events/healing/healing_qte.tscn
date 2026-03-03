@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cqnjevgkdwovv"]
+
+[ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_7dacu"]
+[ext_resource type="Script" uid="uid://caeybmnranpuv" path="res://quick_time_events/healing/healing_qte.gd" id="2_wp865"]
+[ext_resource type="Texture2D" uid="uid://svgoryfws50q" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Idle.png" id="5_s47li"]
+[ext_resource type="Texture2D" uid="uid://j1w5g25snexe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Pressed.png" id="6_e85ly"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8r2ej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_s47li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_e85ly")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_33dld"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tjo66"]
+gradient = SubResource("Gradient_33dld")
+width = 100
+height = 10
+
+[node name="HealingQTE" unique_id=1593403207 instance=ExtResource("1_7dacu")]
+script = ExtResource("2_wp865")
+
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="." index="0" unique_id=1382428013]
+position = Vector2(-137, 21)
+sprite_frames = SubResource("SpriteFrames_8r2ej")
+autoplay = "default"
+frame_progress = 0.48433393
+
+[node name="PanelContainer" type="PanelContainer" parent="." index="1" unique_id=1109557002]
+custom_minimum_size = Vector2(100, 10)
+offset_left = -187.0
+offset_top = -9.0
+offset_right = -77.0
+offset_bottom = 11.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" index="0" unique_id=1368410900]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ProgressBar" type="TextureProgressBar" parent="PanelContainer/MarginContainer" index="0" unique_id=94241738]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture_progress = SubResource("GradientTexture2D_tjo66")

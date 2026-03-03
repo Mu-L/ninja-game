@@ -14,13 +14,13 @@ var upgrades: Dictionary[int, Upgrade] = {
 	2 : Upgrade.new({
 		"max_health" : 25,
 		"strength" : 10
-	}, [preload("res://skills/kunai.tres")]),
+	}, [preload("res://skills/shuriken.tres")]),
 	
 	3 : Upgrade.new({
 		"max_health" : 27,
 		"strength" : 9,
 		"speed" : 4
-	}, [preload("res://skills/shuriken.tres")]),
+	}, [preload("res://skills/kunai.tres")]),
 	
 	4 : Upgrade.new({
 		"max_health" : 18,

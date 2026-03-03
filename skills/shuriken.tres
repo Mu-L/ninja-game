@@ -85,8 +85,8 @@ animations = [{
 [resource]
 script = ExtResource("1_rc824")
 name = "Shuriken"
-battle_text = "Ninja Threw Shurikens at the enemy"
-magic_points_cost = 7
+battle_text = "Ninja Threw Shurikens"
+magic_points_cost = 5
 strength = 50
 animation = SubResource("SpriteFrames_epebr")
 quick_time_event = ExtResource("2_1s0p5")

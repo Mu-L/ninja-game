@@ -18,7 +18,7 @@ func _on_battle_start(enemy: Enemy, player: Player) -> void:
 	add_child(battle)
 	battle.battle_finished.connect(
 		func():
-			over_world.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
+			over_world.set_deferred("process_mode", Node.PROCESS_MODE_PAUSABLE)
 			player._on_weapon_timer_timeout()
 			over_world.show()
 			battle.queue_free()

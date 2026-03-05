@@ -193,6 +193,7 @@ animation = &"walk right"
 frame_progress = 0.14631328
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2566815]
+unique_name_in_owner = true
 visible = false
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_p200p")
@@ -206,6 +207,6 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_1wwld")
 
 [node name="RandomWalker" parent="." unique_id=1193253767 node_paths=PackedStringArray("body", "animated_sprite_2d") instance=ExtResource("4_p200p")]
+unique_name_in_owner = true
 body = NodePath("..")
 animated_sprite_2d = NodePath("../AnimatedSprite2D")
-min_direction_change_time = 2.0

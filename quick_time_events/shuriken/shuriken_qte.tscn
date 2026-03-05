@@ -13,6 +13,7 @@ _data = {
 point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i83oa"]
+radius = 6.7082024
 
 [sub_resource type="Animation" id="Animation_i83oa"]
 length = 0.001

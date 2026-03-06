@@ -5,11 +5,12 @@ func _ready() -> void:
 
 func set_data(new_val: BattlerData) -> void:
 	super.set_data(new_val)
+	animated_sprite_2d.play("idle left")
 	set_health(data.max_health)
 
 func decide_action() -> void:
 	action_name = "attack"
-	action_text = "Slime Jumped at green ninja"
+	action_text = "%s attacked green ninja!" % data.name
 
 func perform_action() -> void:
 	if action_name == "attack":
@@ -20,10 +21,12 @@ func perform_action() -> void:
 		var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", final_pos, 0.5)
 		await tween.finished
-		animated_sprite_2d.play("attack")
+		animated_sprite_2d.sprite_frames.set_animation_loop("walk left", false)
+		animated_sprite_2d.play("walk left")
 		await animated_sprite_2d.animation_finished
+		animated_sprite_2d.sprite_frames.set_animation_loop("walk left", true)
 		await player().take_damage(data.strength)
-		animated_sprite_2d.play("idle")
+		animated_sprite_2d.play("idle left")
 		tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", starting_pos, 0.5)
 		await tween.finished

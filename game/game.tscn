@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ffwpq180qldq"]
 
 [ext_resource type="Script" uid="uid://cy10lx2djm5r6" path="res://game/game.gd" id="1_vasa2"]
-[ext_resource type="PackedScene" uid="uid://hyokb23kj5pe" path="res://rooms/room_2.tscn" id="3_4fuuu"]
+[ext_resource type="PackedScene" uid="uid://cvmlvshvoumb5" path="res://rooms/room_3.tscn" id="3_4fuuu"]
 [ext_resource type="AudioStream" uid="uid://b0fhfpv3y5e5y" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Bonus/Bonus.wav" id="3_h7iqs"]
 
 [node name="Game" type="Node2D" unique_id=1945105279]
@@ -12,5 +12,4 @@ script = ExtResource("1_vasa2")
 unique_name_in_owner = true
 stream = ExtResource("3_h7iqs")
 
-[node name="Room2" parent="." unique_id=1645941047 instance=ExtResource("3_4fuuu")]
-unique_name_in_owner = true
+[node name="Room3" parent="." unique_id=1645941047 instance=ExtResource("3_4fuuu")]

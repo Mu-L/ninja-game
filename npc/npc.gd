@@ -1,6 +1,10 @@
 class_name NPC extends CharacterBody2D
 
+@export var data: NPCData
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready() -> void:
+	animated_sprite_2d.sprite_frames = data.sprite_frames
 
 func _on_interact_component_interacted() -> void:
 	
@@ -18,9 +22,4 @@ func _on_interact_component_interacted() -> void:
 		if dir.y < 0:
 			animated_sprite_2d.play("idle up")
 	
-	DialogueBox.display_dialogue([
-		"Hey what's up dude.",
-		"Have you seen the new game in town ?",
-		"It's called 'Ninja Adventure'.",
-		"I think it sounds pretty rad!"
-	])
+	DialogueBox.display_dialogue(data.dialouge.duplicate(), data.portait)

@@ -22,6 +22,7 @@ func _process(_delta: float) -> void:
 
 func set_data(new_val: BattlerData) -> void:
 	super.set_data(new_val)
+	animated_sprite_2d.play("idle")
 	experience_bar.max_value = data.EXP_to_next_level
 	experience_bar.value = data.EXP
 	magic_bar.max_value = data.max_magic_points

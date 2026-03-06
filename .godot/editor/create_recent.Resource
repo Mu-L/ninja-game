@@ -1,1 +1,1 @@
-res://resource_classes/healing_skill.gd
+res://resource_classes/npc_data.gd

@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_7dacu"]
 [ext_resource type="Script" uid="uid://caeybmnranpuv" path="res://quick_time_events/healing/healing_qte.gd" id="2_wp865"]
-[ext_resource type="Texture2D" uid="uid://svgoryfws50q" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Idle.png" id="5_s47li"]
-[ext_resource type="Texture2D" uid="uid://j1w5g25snexe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Pressed.png" id="6_e85ly"]
+[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="3_c75k3"]
 
 [sub_resource type="Gradient" id="Gradient_33dld"]
 offsets = PackedFloat32Array(0, 0.5, 1)
@@ -14,14 +13,22 @@ gradient = SubResource("Gradient_33dld")
 width = 100
 height = 10
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_33dld"]
+atlas = ExtResource("3_c75k3")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjo66"]
+atlas = ExtResource("3_c75k3")
+region = Rect2(16, 192, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_8r2ej"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_s47li")
+"texture": SubResource("AtlasTexture_33dld")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_e85ly")
+"texture": SubResource("AtlasTexture_tjo66")
 }],
 "loop": true,
 "name": &"default",
@@ -79,7 +86,7 @@ size_flags_horizontal = 4
 [node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer/VBoxContainer/Control" index="0" unique_id=1382428013]
 sprite_frames = SubResource("SpriteFrames_8r2ej")
 autoplay = "default"
-frame_progress = 0.48433393
+frame_progress = 0.63176584
 
 [node name="Timer" type="Timer" parent="." index="1" unique_id=754833619]
 unique_name_in_owner = true

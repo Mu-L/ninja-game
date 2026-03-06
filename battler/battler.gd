@@ -17,7 +17,6 @@ var starting_pos: Vector2
 func set_data(new_val: BattlerData) -> void:
 	data = new_val
 	animated_sprite_2d.sprite_frames = data.sprite_frames
-	animated_sprite_2d.play("idle")
 	health_bar.max_value = data.max_health
 	set_health(data.health)
 

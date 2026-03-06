@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var battle_start_sound: AudioStreamPlayer = %BattleStartSound
-@onready var over_world: Node2D = %Room2
+@onready var over_world: Node2D = $Room3
 
 func _ready() -> void:
 	Global.start_battle.connect(_on_battle_start)

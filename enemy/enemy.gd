@@ -7,8 +7,9 @@ class_name Enemy extends CharacterBody2D
 @onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
 
 @export var battle_data: BattlerData
-@export var health: int = 3
-@export var strength: int = 1
+
+func _ready() -> void:
+	animated_sprite_2d.sprite_frames = battle_data.sprite_frames
 
 func die() -> void:
 	random_walker.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)

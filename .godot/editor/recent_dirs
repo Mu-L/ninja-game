@@ -1,22 +1,22 @@
+res://Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/
+res://npc_data/
+res://Ninja Adventure - Asset Pack/Actor/Monsters/Cyclope/
+res://battler_data/
+res://Ninja Adventure - Asset Pack/Actor/Monsters/BlueBat/
+res://player_battler/
+res://enemy_battler/
+res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/
+res://dialogue_box/
+res://Ninja Adventure - Asset Pack/Actor/Characters/Princess/
+res://
+res://quick_time_events/healing/
+res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/
+res://rooms/
+res://overworld/
+res://game/
+res://player/
+res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/
+res://battle/
 res://quick_time_events/shuriken/
 res://enemy/
 res://npc/
-res://Ninja Adventure - Asset Pack/FX/Magic/Aura/
-res://skills/
-res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/
-res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken/
-res://enemy_battler/
-res://
-res://quick_time_events/healing/
-res://quick_time_events/base_class/
-res://quick_time_events/miss_label/
-res://quick_time_events/kunai/
-res://battle/
-res://game/
-res://player_battler/
-res://rooms/
-res://dialogue_box/
-res://font/
-res://Ninja Adventure - Asset Pack/Ui/Font/
-res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/
-res://components/random_walker/

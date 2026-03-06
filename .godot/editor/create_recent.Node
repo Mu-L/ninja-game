@@ -1,3 +1,6 @@
+Node2D
+TextureRect
+HBoxContainer
 VBoxContainer
 Label
 Timer
@@ -9,7 +12,3 @@ PanelContainer
 Panel
 AnimatedSprite2D
 TextureProgressBar
-ProgressBar
-Node2D
-AnimationPlayer
-Area2D

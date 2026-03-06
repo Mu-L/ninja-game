@@ -1,15 +1,17 @@
 extends CanvasLayer
 
-@onready var label: RichTextLabel = %RichTextLabel
+@onready var label: RichTextLabel = %DialogueLabel
 @onready var text_sound: AudioStreamPlayer = %TextSound
 @onready var timer: Timer = %Timer
+@onready var portrait: TextureRect = %Portrait
 
 var lines_to_display: Array[String]
 
 func _ready() -> void:
 	self.hide()
 
-func display_dialogue(dialogue: Array[String]) -> void:
+func display_dialogue(dialogue: Array[String], portrait_texture: Texture) -> void:
+	portrait.texture = portrait_texture
 	lines_to_display = dialogue
 	self.show()
 	scroll_line(lines_to_display.pop_front())

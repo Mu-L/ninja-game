@@ -25,3 +25,11 @@ res://enemy_battler/enemy_battler.gd
 res://battler/battler.tscn
 res://quick_time_events/shuriken/shuriken_qte.tscn
 res://game/game.gd
+res://battle/battle.tscn
+res://battle/battle.gd
+res://resource_classes/npc_data.gd
+res://dialogue_box/dialogue_box.tscn
+res://dialogue_box/dialogue_box.gd
+res://npc/npc.gd
+res://overworld/overworld.tscn
+res://game/game.tscn

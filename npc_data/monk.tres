@@ -189,6 +189,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_jok6p")
+name = "Monk"
 sprite_frames = SubResource("SpriteFrames_qf0dh")
 portait = ExtResource("1_aihk6")
 dialouge = Array[String](["Are you using your SKILLS, Young man?", "performing a skill successfully requires precision.", "But it results in high damage!"])

@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/17 - Fight.ogg-5e6c2aef9d86db2ec949c45284a871
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

@@ -61,3 +61,9 @@ func bounce_number_label(amount: int) -> void:
 func set_health(new_val: int) -> void:
 	data.health = clamp(new_val, 0, data.max_health)
 	health_bar.value = new_val
+
+func show_stat_bars() -> void:
+	health_bar.show()
+
+func hide_stat_bars() -> void:
+	health_bar.hide()

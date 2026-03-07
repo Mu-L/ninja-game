@@ -1,11 +1,12 @@
 class_name Battle extends Node2D
 
 @onready var battlers: Node2D = %Battlers
-@onready var text_box: ColorRect = %TextBox
+@onready var text_box: TextureRect = %TextBox
 @onready var battle_text: Label = %BattleText
 @onready var player_battler: PlayerBattler = %PlayerBattler
 @onready var enemy_battler: EnemyBattler = %EnemyBattler
 @onready var battle_camera: Camera2D = %BattleCamera
+@onready var music: AudioStreamPlayer = %Music
 
 signal battle_finished
 
@@ -46,6 +47,7 @@ func is_battle_finished() -> bool:
 	return not enemy_battler or not player_battler
 
 func finish_battle() -> void:
+	music.stop()
 	if not enemy_battler:
 		display_text("Player Won !")
 		await Global.textbox_closed

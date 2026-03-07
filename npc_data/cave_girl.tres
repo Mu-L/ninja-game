@@ -189,6 +189,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_5sm4k")
+name = "Girl"
 sprite_frames = SubResource("SpriteFrames_5sm4k")
 portait = ExtResource("1_dq4mg")
 dialouge = Array[String](["Hey You!", "Don't forget to heal every now and then!", "You can use the heal skill in battle.", "It costs Magic points though!"])

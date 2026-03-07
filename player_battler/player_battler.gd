@@ -69,7 +69,7 @@ func decide_action() -> void:
 	attack_button.grab_focus()
 
 func perform_action() -> void:
-	set_stat_visibility(false)
+	hide_stat_bars()
 	if action_name == "attack":
 		Global.display_text.emit("Ninja Attacked the enemy")
 		await Global.textbox_closed
@@ -114,7 +114,7 @@ func _input(event: InputEvent) -> void:
 		tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", starting_pos, 0.5)
 		await tween.finished
-		set_stat_visibility(true)
+		show_stat_bars()
 		finished_performing_action.emit()
 
 func _on_attack_button_pressed() -> void:
@@ -134,7 +134,7 @@ func _on_attack_animation_player_animation_finished(anim_name: StringName) -> vo
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", starting_pos, 0.5)
 		await tween.finished
-		set_stat_visibility(true)
+		show_stat_bars()
 		finished_performing_action.emit()
 
 func _on_skills_button_pressed() -> void:
@@ -198,6 +198,7 @@ func perform_skill_action(target: Battler) -> void:
 	var qte: QuickTimeEvent = skill_to_perform.quick_time_event.instantiate()
 	add_child(qte)
 	qte.global_position = target.global_position
+	target.hide_stat_bars()
 	qte.start()
 	qte.finished.connect(func(success: bool):
 		if success:
@@ -208,20 +209,24 @@ func perform_skill_action(target: Battler) -> void:
 			%SkillSound.play()
 			await skill_animation.animation_finished
 			skill_animation.hide()
+			target.show_stat_bars()
 			if skill_to_perform is OffensiveSkill:
 				await enemy().take_damage(data.strength + skill_to_perform.strength)
 			elif skill_to_perform is HealingSkill:
 				await self.heal(skill_to_perform.heal_amount)
 			await get_tree().create_timer(0.1).timeout
-			set_stat_visibility(true)
+			show_stat_bars()
 			set_magic_points(data.magic_points - skill_to_perform.magic_points_cost)
 		else:
 			await missed_effect(target.global_position)
-		set_stat_visibility(true)
+		show_stat_bars()
 		finished_performing_action.emit()
 		)
 
-@warning_ignore("shadowed_variable_base_class")
-func set_stat_visibility(is_visible: bool) -> void:
-	health_bar.visible = is_visible
-	magic_bar.visible = is_visible
+func show_stat_bars() -> void:
+	super.show_stat_bars()
+	magic_bar.show()
+
+func hide_stat_bars() -> void:
+	super.hide_stat_bars()
+	magic_bar.hide()

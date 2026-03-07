@@ -1,6 +1,7 @@
 @tool
 class_name NPCData extends Resource
 
+@export var name: String
 @export var sprite_frames: SpriteFrames
 @export var portait: Texture2D
 @export_multiline var dialouge: Array[String]

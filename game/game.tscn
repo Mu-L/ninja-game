@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cy10lx2djm5r6" path="res://game/game.gd" id="1_vasa2"]
 [ext_resource type="PackedScene" uid="uid://cvmlvshvoumb5" path="res://rooms/room_3.tscn" id="3_4fuuu"]
+[ext_resource type="AudioStream" uid="uid://btphvg0ta15gb" path="res://Ninja Adventure - Asset Pack/Audio/Musics/23 - Road.ogg" id="3_dxrkv"]
 [ext_resource type="AudioStream" uid="uid://b0fhfpv3y5e5y" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Bonus/Bonus.wav" id="3_h7iqs"]
 
 [node name="Game" type="Node2D" unique_id=1945105279]
@@ -11,5 +12,11 @@ script = ExtResource("1_vasa2")
 [node name="BattleStartSound" type="AudioStreamPlayer" parent="." unique_id=1155609766]
 unique_name_in_owner = true
 stream = ExtResource("3_h7iqs")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=16124524]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("3_dxrkv")
+autoplay = true
 
 [node name="Room3" parent="." unique_id=1645941047 instance=ExtResource("3_4fuuu")]

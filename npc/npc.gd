@@ -22,4 +22,5 @@ func _on_interact_component_interacted() -> void:
 		if dir.y < 0:
 			animated_sprite_2d.play("idle up")
 	
-	DialogueBox.display_dialogue(data.dialouge.duplicate(), data.portait)
+	DialogueBox.display_dialogue(
+		data.dialouge.duplicate(), data.portait, data.name)

@@ -37,7 +37,6 @@ animations = [{
 
 [node name="HealingQTE" unique_id=1593403207 instance=ExtResource("1_7dacu")]
 script = ExtResource("2_wp865")
-qte_duration = 3.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0" unique_id=924224680]
 

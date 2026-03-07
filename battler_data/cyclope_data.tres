@@ -190,6 +190,7 @@ animations = [{
 [resource]
 script = ExtResource("1_evxgg")
 name = "Cyclope"
+max_health = 200
 strength = 20
 sprite_frames = SubResource("SpriteFrames_6f8u2")
 metadata/_custom_type_script = "uid://bi85lablvrto7"

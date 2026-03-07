@@ -63,7 +63,7 @@ libraries/ = SubResource("AnimationLibrary_f17ml")
 unique_name_in_owner = true
 stream = ExtResource("1_kj5ye")
 
-[node name="DamageLabel" type="Label" parent="." unique_id=261734383]
+[node name="NumberLabel" type="Label" parent="." unique_id=261734383]
 unique_name_in_owner = true
 visible = false
 offset_left = -17.0

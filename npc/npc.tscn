@@ -26,8 +26,8 @@ shape = SubResource("CircleShape2D_2xp5l")
 visible = false
 shape = SubResource("CircleShape2D_3i1kj")
 
-[node name="animation" parent="InteractComponent" index="1" unique_id=939527620]
-position = Vector2(0, -19)
+[node name="ButtonPrompt" parent="InteractComponent" index="1" unique_id=1810815216]
+position = Vector2(0, -14)
 
 [node name="RandomWalker" parent="." unique_id=1193253767 node_paths=PackedStringArray("body", "animated_sprite_2d") instance=ExtResource("4_o6cys")]
 body = NodePath("..")

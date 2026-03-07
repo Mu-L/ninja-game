@@ -33,16 +33,5 @@ func perform_action() -> void:
 		health_bar.show()
 		finished_performing_action.emit()
 
-func take_damage(amount: int) -> void:
-	set_health(data.health - amount)
-	damage_label.show()
-	damage_label.text = str(amount)
-	%HurtSound.play()
-	%HurtAnimationPlayer.play("hurt")
-	await %HurtAnimationPlayer.animation_finished
-	damage_label.hide()
-	if data.health <= 0:
-		queue_free()
-
 func player() -> PlayerBattler:
 	return get_tree().get_first_node_in_group("player battler")

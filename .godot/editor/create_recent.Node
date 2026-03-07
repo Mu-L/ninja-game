@@ -1,8 +1,9 @@
+Label
+AnimatedSprite2D
 Node2D
 TextureRect
 HBoxContainer
 VBoxContainer
-Label
 Timer
 Control
 CanvasLayer
@@ -10,5 +11,4 @@ AudioStreamPlayer
 MarginContainer
 PanelContainer
 Panel
-AnimatedSprite2D
 TextureProgressBar

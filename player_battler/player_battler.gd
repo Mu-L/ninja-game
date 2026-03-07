@@ -126,14 +126,6 @@ func _on_attack_button_pressed() -> void:
 func enemy() -> EnemyBattler:
 	return get_tree().get_first_node_in_group("enemy battler")
 
-func take_damage(amount: int) -> void:
-	%HurtSound.play()
-	%HurtAnimationPlayer.play("hurt")
-	set_health(data.health - amount)
-	await %HurtAnimationPlayer.animation_finished
-	if data.health <= 0:
-		queue_free()
-
 func _on_attack_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
 		is_attacking = false
@@ -228,15 +220,6 @@ func perform_skill_action(target: Battler) -> void:
 		set_stat_visibility(true)
 		finished_performing_action.emit()
 		)
-
-func heal(amount: int) -> void:
-	set_health(data.health + amount)
-	damage_label.show()
-	damage_label.text = str(amount)
-	%HealSound.play()
-	%HurtAnimationPlayer.play("hurt")
-	await %HurtAnimationPlayer.animation_finished
-	damage_label.hide()
 
 @warning_ignore("shadowed_variable_base_class")
 func set_stat_visibility(is_visible: bool) -> void:

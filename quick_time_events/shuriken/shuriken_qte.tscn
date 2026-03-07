@@ -74,6 +74,7 @@ rotation = 0.7853982
 
 [node name="Shuriken" type="Area2D" parent="ShurikenPath/PathFollow2D" unique_id=952989142 groups=["shuriken"]]
 unique_name_in_owner = true
+z_index = 2
 rotation = 2.063374
 
 [node name="Shuriken" type="Sprite2D" parent="ShurikenPath/PathFollow2D/Shuriken" unique_id=974771011]

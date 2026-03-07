@@ -49,8 +49,8 @@ animations = [{
 
 [resource]
 script = ExtResource("1_ew0do")
-heal_amount = 50
-name = "Weak Heal"
+heal_amount = 100
+name = "Heal"
 battle_text = "Ninja Healed Himself"
 magic_points_cost = 3
 animation = SubResource("SpriteFrames_06lv1")

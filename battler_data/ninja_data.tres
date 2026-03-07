@@ -41,6 +41,7 @@ animations = [{
 [resource]
 script = ExtResource("1_weh2s")
 name = "Ninja"
+max_magic_points = 50
 strength = 50
 skills = Array[ExtResource("2_d51f0")]([ExtResource("3_p4pdj")])
 sprite_frames = SubResource("SpriteFrames_wq7ox")

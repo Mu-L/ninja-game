@@ -6,7 +6,7 @@ signal finished_performing_action
 
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 @onready var health_bar: ProgressBar = %HealthBar
-@onready var damage_label: Label = %DamageLabel
+@onready var number_label: Label = %NumberLabel
 @onready var hp_label: Label = $HPLabel
 
 var data: BattlerData: set = set_data
@@ -22,7 +22,7 @@ func set_data(new_val: BattlerData) -> void:
 
 func _ready() -> void:
 	starting_pos = self.global_position
-	damage_label.hide()
+	number_label.hide()
 
 func _process(_delta: float) -> void:
 	if not hp_label:
@@ -35,8 +35,28 @@ func decide_action() -> void
 @abstract
 func perform_action() -> void
 
-@abstract
-func take_damage(amount: int) -> void
+func take_damage(amount: int) -> void:
+	%HurtSound.play()
+	%HurtAnimationPlayer.play("hurt")
+	set_health(data.health - amount)
+	await bounce_number_label(amount)
+	if data.health <= 0:
+		queue_free()
+
+func heal(amount: int) -> void:
+	set_health(data.health + amount)
+	%HealSound.play()
+	%HurtAnimationPlayer.play("hurt")
+	await bounce_number_label(amount)
+
+func bounce_number_label(amount: int) -> void:
+	number_label.show()
+	number_label.text = "%d" % amount
+	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_property(number_label, "scale", Vector2.ONE*1.5, 0.1)
+	tween.tween_property(number_label, "scale", Vector2.ONE, 0.25)
+	await tween.finished
+	number_label.hide()
 
 func set_health(new_val: int) -> void:
 	data.health = clamp(new_val, 0, data.max_health)

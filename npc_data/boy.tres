@@ -192,6 +192,5 @@ script = ExtResource("1_8ah7j")
 name = "Samir"
 sprite_frames = SubResource("SpriteFrames_3i1kj")
 portait = ExtResource("1_u7y8n")
-dialouge = Array[String](["Hey what's up.", "Welcome to project 'ninja'.", "a turn based RPG made in Godot.", "Right now it's just a prototype.", "We need you to test the current playable content.", "And then you can tell us if you enjoyed it.", "Good luck!
-~ samir-alhindi"])
+dialouge = Array[String](["Hey what's up.", "Welcome to project 'ninja'.", "a turn based RPG made in Godot.", "Right now it's just a prototype.", "We need you to test the current playable content.", "And then you can tell us if you enjoyed it.", "Good luck!"])
 metadata/_custom_type_script = "uid://10jpfy421udu"

@@ -32,3 +32,7 @@ func _on_battle_start(enemy: Enemy, player: Player) -> void:
 			player.health_bar.show()
 			player.set_health(player.battle_data.health)
 	)
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()

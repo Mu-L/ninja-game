@@ -33,3 +33,4 @@ res://dialogue_box/dialogue_box.gd
 res://npc/npc.gd
 res://overworld/overworld.tscn
 res://game/game.tscn
+res://npc_data/mask_green.tres

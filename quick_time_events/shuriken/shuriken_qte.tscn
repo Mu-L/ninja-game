@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2txfwemrjell" path="res://quick_time_events/shuriken/shuriken_qte.gd" id="1_ftoer"]
 [ext_resource type="Texture2D" uid="uid://q7v03ohstnex" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken.png" id="2_bve4a"]
+[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="3_i83oa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bve4a"]
 radius = 31.780497
@@ -53,6 +54,28 @@ _data = {
 &"move shuriken": SubResource("Animation_bve4a")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_33dld"]
+atlas = ExtResource("3_i83oa")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjo66"]
+atlas = ExtResource("3_i83oa")
+region = Rect2(16, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gu7lr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33dld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjo66")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="ShurikenQTE" type="Node2D" unique_id=2141790524]
 script = ExtResource("1_ftoer")
 radius = 20.0
@@ -88,3 +111,8 @@ shape = SubResource("CircleShape2D_i83oa")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1365618793]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_i83oa")
+
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="." unique_id=1497205323]
+position = Vector2(-47, -1)
+sprite_frames = SubResource("SpriteFrames_gu7lr")
+autoplay = "default"

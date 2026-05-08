@@ -53,8 +53,8 @@ func finish_battle() -> void:
 		await Global.textbox_closed
 		text_box.hide()
 		await player_battler.increase_exp(100)
+		battle_finished.emit()
 	else:
 		display_text("Game Over...")
 		await Global.textbox_closed
-		get_tree().quit()
-	battle_finished.emit()
+		get_tree().change_scene_to_file("res://game/game.tscn")

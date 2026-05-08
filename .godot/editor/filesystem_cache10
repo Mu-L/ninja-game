@@ -1,20 +1,21 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1772893725
+::res://::1778249989
+export_presets.cfg::TextFile::-1::1773059980::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::618367769540306195::1770807542::1770807547::1::::<><><>0<>0<>3dfe518675dc1416ae7cdfa7214a3a10<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 Keyboard Letters and Symbols.png::CompressedTexture2D::901854703946470125::1772813247::1772813279::1::::<><><>0<>0<>41f824814e6338f564232fd2207c1d28<>res://.godot/imported/Keyboard Letters and Symbols.png-098afcbbc95a90c12f32b7104fc23e6e.ctex::
 SFX_RetroMultiplev1.wav::AudioStreamWAV::6388885183420495547::1657714768::1772893727::1::::<><><>0<>0<>40e4b30da4c9b69d932e2b095caa99de<>res://.godot/imported/SFX_RetroMultiplev1.wav-dce449c34ad246a46aec2b43edb2df5b.sample::
 util.gd::GDScript::2531868029663139724::1772816248::0::1::::Util<>Object<><>0<>0<><>::
-::res://battle/::1772892514
-battle.gd::GDScript::1125071678958811820::1772892410::0::1::::Battle<>Node2D<><>0<>0<><>::
-battle.tscn::PackedScene::4902652249734281718::1772892514::0::1::::<><><>0<>0<><>::uid://qa81bx3qbhu7::::res://battle/battle.gd<>uid://l44h5nb2ub5t::::res://player_battler/player_battler.tscn<>uid://b2i8v282cle12::::res://enemy_battler/enemy_battler.tscn<>uid://d4erqddj5td6y::::res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogueBoxSimple.png<>uid://p4gm0mb73spx::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Menu5.wav
+::res://battle/::1772995256
+battle.gd::GDScript::1125071678958811820::1772897306::0::1::::Battle<>Node2D<><>0<>0<><>::
+battle.tscn::PackedScene::4902652249734281718::1772995256::0::1::::<><><>0<>0<><>::uid://qa81bx3qbhu7::::res://battle/battle.gd<>uid://l44h5nb2ub5t::::res://player_battler/player_battler.tscn<>uid://b2i8v282cle12::::res://enemy_battler/enemy_battler.tscn<>uid://d4erqddj5td6y::::res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogueBoxSimple.png<>uid://p4gm0mb73spx::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Menu5.wav<>uid://blhxfbppschy4::::res://Ninja Adventure - Asset Pack/Audio/Musics/17 - Fight.ogg
 ::res://battler/::1772893125
 battler.gd::GDScript::4525353335873349832::1772893125::0::1::::Battler<>Node2D<><>1<>0<><>::
 battler.tscn::PackedScene::2006394572901771401::1772891577::0::1::::<><><>0<>0<><>::uid://csryb4da68guf::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact2.wav
-::res://battler_data/::1772890453
-bat_data.tres::Resource/BattlerData::5218414269591928494::1772887106::0::1::::<><><>0<>0<><>::uid://bi85lablvrto7::::res://resource_classes/battler_data.gd<>uid://bycf0afmvv35g::::res://resource_classes/skill.gd<>uid://cugcnc2mqxgr7::::res://Ninja Adventure - Asset Pack/Actor/Monsters/BlueBat/SpriteSheet.png
-cyclope_data.tres::Resource/BattlerData::6875088694710111281::1772890444::0::1::::<><><>0<>0<><>::uid://bi85lablvrto7::::res://resource_classes/battler_data.gd<>uid://bycf0afmvv35g::::res://resource_classes/skill.gd<>uid://6yr4xveop5h6::::res://Ninja Adventure - Asset Pack/Actor/Monsters/Cyclope/SpriteSheet.png
-ninja_data.tres::Resource/BattlerData::1845949957395563392::1772890384::0::1::::<><><>0<>0<><>::uid://bi85lablvrto7::::res://resource_classes/battler_data.gd<>uid://117th8lgbcdw::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png<>uid://bycf0afmvv35g::::res://resource_classes/skill.gd<>uid://dualqpud1jpvv::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png<>uid://dc777fd6rmieb::::res://skills/weak_heal.tres
-slime_data.tres::Resource/BattlerData::7118932932132599003::1772890453::0::1::::<><><>0<>0<><>::uid://bi85lablvrto7::::res://resource_classes/battler_data.gd<>uid://bycf0afmvv35g::::res://resource_classes/skill.gd<>uid://dt8uhwwsl3qt3::::res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/Slime2.png
+::res://battler_data/::1772995256
+bat_data.tres::Resource/BattlerData::5218414269591928494::1772995256::0::1::::<><><>0<>0<><>::uid://bi85lablvrto7::::res://resource_classes/battler_data.gd<>uid://bycf0afmvv35g::::res://resource_classes/skill.gd<>uid://cugcnc2mqxgr7::::res://Ninja Adventure - Asset Pack/Actor/Monsters/BlueBat/SpriteSheet.png
+cyclope_data.tres::Resource/BattlerData::6875088694710111281::1772995256::0::1::::<><><>0<>0<><>::uid://bi85lablvrto7::::res://resource_classes/battler_data.gd<>uid://bycf0afmvv35g::::res://resource_classes/skill.gd<>uid://6yr4xveop5h6::::res://Ninja Adventure - Asset Pack/Actor/Monsters/Cyclope/SpriteSheet.png
+ninja_data.tres::Resource/BattlerData::1845949957395563392::1772995256::0::1::::<><><>0<>0<><>::uid://bi85lablvrto7::::res://resource_classes/battler_data.gd<>uid://117th8lgbcdw::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png<>uid://bycf0afmvv35g::::res://resource_classes/skill.gd<>uid://dualqpud1jpvv::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png<>uid://dc777fd6rmieb::::res://skills/weak_heal.tres
+slime_data.tres::Resource/BattlerData::7118932932132599003::1772995256::0::1::::<><><>0<>0<><>::uid://bi85lablvrto7::::res://resource_classes/battler_data.gd<>uid://bycf0afmvv35g::::res://resource_classes/skill.gd<>uid://dt8uhwwsl3qt3::::res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/Slime2.png
 ::res://components/::1772459791
 ::res://components/damage/::1772295734
 damage_component.gd::GDScript::4672727666581499298::1771081327::0::1::::DamageComponent<>Area2D<><>0<>0<><>::
@@ -28,9 +29,9 @@ knockback_component.tscn::PackedScene::315348753707151955::1770982804::0::1::::<
 ::res://components/random_walker/::1772816608
 random_walker.gd::GDScript::5155628571938795259::1772300225::0::1::::RandomWalker<>Node2D<><>0<>0<><>::
 random_walker.tscn::PackedScene::2606683563767817187::1772816608::0::1::::<><><>0<>0<><>::uid://cfpopjot7t5h4::::res://components/random_walker/random_walker.gd
-::res://dialogue_box/::1772892987
-dialogue_box.gd::GDScript::3091828513136990430::1772892632::0::1::::<>CanvasLayer<><>0<>0<><>::
-dialogue_box.tscn::PackedScene::2571371793849611642::1772892987::0::1::::<><><>0<>0<><>::uid://bkbx71iylf5h7::::res://dialogue_box/dialogue_box.gd<>uid://bglrvy26s0klr::::res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png<>uid://df1fo5buh34rv::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move1.wav<>uid://ds1hb5vhjf7yi::::res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/Faceset.png
+::res://dialogue_box/::1772894607
+dialogue_box.gd::GDScript::3091828513136990430::1772894083::0::1::::<>CanvasLayer<><>0<>0<><>::
+dialogue_box.tscn::PackedScene::2571371793849611642::1772894607::0::1::::<><><>0<>0<><>::uid://bkbx71iylf5h7::::res://dialogue_box/dialogue_box.gd<>uid://b5xxo0mbmbhb8::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav<>uid://bglrvy26s0klr::::res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png<>uid://ds1hb5vhjf7yi::::res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/Faceset.png
 ::res://enemy/::1772888103
 enemy.gd::GDScript::4946000145808831295::1772816423::0::1::::Enemy<>CharacterBody2D<><>0<>0<><>::
 enemy.tscn::PackedScene::6193916720848803065::1772888103::0::1::::<><><>0<>0<><>::uid://ccp45ufa25hf0::::res://enemy/enemy.gd<>uid://dgdavkudo7r8j::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact.wav<>uid://bdexxyiy6fxdj::::res://components/random_walker/random_walker.tscn
@@ -42,9 +43,9 @@ follower_enemy.gd::GDScript::6743445013889151831::1771079435::0::1::::FollowerEn
 follower_enemy.tscn::PackedScene::119041433501160046::1772033594::0::1::::<><><>0<>0<><>::uid://c3cts3ujnwu8f::::res://follower_enemy/follower_enemy.gd<>uid://dt8uhwwsl3qt3::::res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/Slime2.png<>uid://dvk8ofnxjkd0q::::res://components/damage/damage_component.tscn<>uid://eq00otqnti1x::::res://components/knockback/knockback_component.tscn
 ::res://font/::1772302498
 ByteBounce.ttf::FontFile::1425395914036987840::1690420184::1772302498::1::::<><><>0<>0<>d212e957e1f676debb3e6faae5c2b8f2<>res://.godot/imported/ByteBounce.ttf-6c758a39d33a738dc0684204734f379c.fontdata::
-::res://game/::1772892073
-game.gd::GDScript::6512586254752261737::1772892073::0::1::::<>Node2D<><>0<>0<><>::
-game.tscn::PackedScene::362629549781832658::1772818983::0::1::::<><><>0<>0<><>::uid://cy10lx2djm5r6::::res://game/game.gd<>uid://cvmlvshvoumb5::::res://rooms/room_3.tscn<>uid://b0fhfpv3y5e5y::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Bonus/Bonus.wav
+::res://game/::1772896701
+game.gd::GDScript::6512586254752261737::1772896008::0::1::::<>Node2D<><>0<>0<><>::
+game.tscn::PackedScene::362629549781832658::1772896701::0::1::::<><><>0<>0<><>::uid://cy10lx2djm5r6::::res://game/game.gd<>uid://cvmlvshvoumb5::::res://rooms/room_3.tscn<>uid://btphvg0ta15gb::::res://Ninja Adventure - Asset Pack/Audio/Musics/23 - Road.ogg<>uid://b0fhfpv3y5e5y::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Bonus/Bonus.wav
 ::res://global/::1772452660
 global.gd::GDScript::1093541472206489417::1772452660::0::1::::<>Node<><>0<>0<><>::
 global.tscn::PackedScene::8473768650821461284::1772452533::0::1::::<><><>0<>0<><>::uid://ptyp6lh4kblp::::res://global/global.gd
@@ -1506,7 +1507,7 @@ Success1.wav::AudioStreamWAV::8468423095724887265::1742660886::1770808036::1::::
 Success2.wav::AudioStreamWAV::5723332577233649719::1742660886::1770808036::1::::<><><>0<>0<>542599b1a9f85933cb1d1466397b189c<>res://.godot/imported/Success2.wav-0dc101dcb59edf3d7b709aa831bd2955.sample::
 Success3.wav::AudioStreamWAV::5365079114294205507::1742660886::1770808036::1::::<><><>0<>0<>a4ded0aa4dc4c944bb87380c99677e9f<>res://.godot/imported/Success3.wav-8722fbf81d893ba0bcc249172511183b.sample::
 Success4.wav::AudioStreamWAV::5026170934811251634::1742660886::1770808036::1::::<><><>0<>0<>1f2edc7736ded143c39c3af90327a88e<>res://.godot/imported/Success4.wav-07b820720e46e01a41d27c73825ff6fc.sample::
-::res://Ninja Adventure - Asset Pack/Audio/Musics/::1770808026
+::res://Ninja Adventure - Asset Pack/Audio/Musics/::1772994916
 1 - Adventure Begin.ogg::AudioStreamOggVorbis::175546288902960632::1569096251::1770808026::1::::<><><>0<>0<>26eb10d9ad911767a14d6c12eb7b3a34<>res://.godot/imported/1 - Adventure Begin.ogg-e3909f156f079cc755b48ce07b4df3e9.oggvorbisstr::
 2 - The Cave.ogg::AudioStreamOggVorbis::7595087438580988701::1569096251::1770808026::1::::<><><>0<>0<>9d213b08ccdc6182b23652f9a768bffe<>res://.godot/imported/2 - The Cave.ogg-6051b634d68bc314910a315854be8cc1.oggvorbisstr::
 3 - Revelation.ogg::AudioStreamOggVorbis::6082997672022271371::1569096251::1770808026::1::::<><><>0<>0<>e079bd2594568e651060090507856523<>res://.godot/imported/3 - Revelation.ogg-5e2a9485d70b805c30c43d51ea206342.oggvorbisstr::
@@ -1524,13 +1525,13 @@ Success4.wav::AudioStreamWAV::5026170934811251634::1742660886::1770808036::1::::
 14 - Curse.ogg::AudioStreamOggVorbis::2936244634839375160::1569096251::1770808026::1::::<><><>0<>0<>b4f13ee9f5834d14488a9d26e08c19c4<>res://.godot/imported/14 - Curse.ogg-a083c3120c930e415b69da6e26447eda.oggvorbisstr::
 15 - Credit Theme.ogg::AudioStreamOggVorbis::2523078335007282746::1569096251::1770808026::1::::<><><>0<>0<>c653c69118085607c922f0173aa03432<>res://.godot/imported/15 - Credit Theme.ogg-70efc13cee652630f8e286d314796adb.oggvorbisstr::
 16 - Melancholia.ogg::AudioStreamOggVorbis::5793178606832138341::1614356497::1770808026::1::::<><><>0<>0<>c11814d9b342d795a6ff3abb7dd43b76<>res://.godot/imported/16 - Melancholia.ogg-339ad66fb249062351342637fda6c415.oggvorbisstr::
-17 - Fight.ogg::AudioStreamOggVorbis::3174354104194118201::1614378549::1770808026::1::::<><><>0<>0<>34fc3c9401be54d4763d1b9ebf56c744<>res://.godot/imported/17 - Fight.ogg-5e6c2aef9d86db2ec949c45284a87156.oggvorbisstr::
+17 - Fight.ogg::AudioStreamOggVorbis::3174354104194118201::1614378549::1772994916::1::::<><><>0<>0<>ed8c2e45d01f5c3c6513f88b33275a44<>res://.godot/imported/17 - Fight.ogg-5e6c2aef9d86db2ec949c45284a87156.oggvorbisstr::
 18 - Aquatic.ogg::AudioStreamOggVorbis::4806767083128229444::1614375762::1770808026::1::::<><><>0<>0<>75496a9c0de2d644f19ac4fcdf97ebc3<>res://.godot/imported/18 - Aquatic.ogg-7992ea236638eb1d3fa89fbded8ecc31.oggvorbisstr::
 19 - Ascension.ogg::AudioStreamOggVorbis::8462761392416423194::1614377466::1770808026::1::::<><><>0<>0<>adda4c2c5a82a9e624cc7bb621b25e5a<>res://.godot/imported/19 - Ascension.ogg-c21b8d0d3a59f8aeb68bf1a70c684984.oggvorbisstr::
 20 - Good Time.ogg::AudioStreamOggVorbis::8597736521960205186::1614417603::1770808026::1::::<><><>0<>0<>a5a805bc105ab8dee25105383be79450<>res://.godot/imported/20 - Good Time.ogg-f652a0663778168d2a8a4040c903933c.oggvorbisstr::
 21 - Dungeon.ogg::AudioStreamOggVorbis::7075650921856775133::1619122144::1770808026::1::::<><><>0<>0<>63a105fed4d109ba582a276b2e39c7bb<>res://.godot/imported/21 - Dungeon.ogg-753006ed39be65c2a0f5cafdb0c23694.oggvorbisstr::
 22 - Dream.ogg::AudioStreamOggVorbis::7123302127833774382::1619134501::1770808026::1::::<><><>0<>0<>ec43da7ff2070f160adf9ea0ad14b429<>res://.godot/imported/22 - Dream.ogg-c7b57149c3268a86b0280e2acaf79af8.oggvorbisstr::
-23 - Road.ogg::AudioStreamOggVorbis::3751437254372522165::1619176355::1770808026::1::::<><><>0<>0<>dbaeeab1562971bf998671e7eaf12e11<>res://.godot/imported/23 - Road.ogg-7213c58ddbc58a086d0d02a05da59a21.oggvorbisstr::
+23 - Road.ogg::AudioStreamOggVorbis::3751437254372522165::1619176355::1772994916::1::::<><><>0<>0<>198ae981f275ef80e0ecaf31ac09cb2a<>res://.godot/imported/23 - Road.ogg-7213c58ddbc58a086d0d02a05da59a21.oggvorbisstr::
 24 - Final Area.ogg::AudioStreamOggVorbis::394206436861238918::1619204733::1770808026::1::::<><><>0<>0<>34cab1e68f2a73a242af61b1f663149d<>res://.godot/imported/24 - Final Area.ogg-944692458cc612e688a17c31b868878b.oggvorbisstr::
 25 - End Theme 2.ogg::AudioStreamOggVorbis::8189732775979308522::1619209359::1770808026::1::::<><><>0<>0<>e04219616a0861cc288ec6f3cba3f200<>res://.godot/imported/25 - End Theme 2.ogg-6c2ee331e7737ea13dde2ea8e45a1abb.oggvorbisstr::
 26 - Lost Village.ogg::AudioStreamOggVorbis::7824229231272275073::1692376882::1770808026::1::::<><><>0<>0<>6b02913976930b8dbe44b0ba09e98f93<>res://.godot/imported/26 - Lost Village.ogg-00175c4fc5c1994b3a820028bef97896.oggvorbisstr::
@@ -2428,13 +2429,14 @@ nine_path_panel.png::CompressedTexture2D::6531063156051470046::1713471122::17708
 ::res://npc/::1772892690
 npc.gd::GDScript::1858975156853519672::1772892690::0::1::::NPC<>CharacterBody2D<><>0<>0<><>::
 npc.tscn::PackedScene::7681242231349756042::1772888022::0::1::::<><><>0<>0<><>::uid://1qrbw6c1nrg7::::res://npc/npc.gd<>uid://cqxojkjpu1hpm::::res://components/interact/interact_component.tscn<>uid://bdexxyiy6fxdj::::res://components/random_walker/random_walker.tscn
-::res://npc_data/::1772892677
-boy.tres::Resource/NPCData::1068771276573618647::1772892656::0::1::::<><><>0<>0<><>::uid://10jpfy421udu::::res://resource_classes/npc_data.gd<>uid://ds1hb5vhjf7yi::::res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/Faceset.png<>uid://b58wqvyttpbki::::res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/SpriteSheet.png
-cave_girl.tres::Resource/NPCData::6033902058823132525::1772892663::0::1::::<><><>0<>0<><>::uid://10jpfy421udu::::res://resource_classes/npc_data.gd<>uid://b0gp0tcrh6pma::::res://Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/Faceset.png<>uid://ptrdeftxtrv6::::res://Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/SpriteSheet.png
-princess.tres::Resource/NPCData::1721776565352978350::1772892677::0::1::::<><><>0<>0<><>::uid://blc7op874lclr::::res://Ninja Adventure - Asset Pack/Actor/Characters/Princess/Faceset.png<>uid://10jpfy421udu::::res://resource_classes/npc_data.gd<>uid://bosmtx7frbwxi::::res://Ninja Adventure - Asset Pack/Actor/Characters/Princess/SpriteSheet.png
-monk.tres::Resource/NPCData::4411429725547764596::1772892669::0::1::::<><><>0<>0<><>::uid://c2um8kua6lkvy::::res://Ninja Adventure - Asset Pack/Actor/Characters/Monk2/Faceset.png<>uid://10jpfy421udu::::res://resource_classes/npc_data.gd<>uid://7maeair80fqu::::res://Ninja Adventure - Asset Pack/Actor/Characters/Monk2/SpriteSheet.png
-::res://overworld/::1772301375
-overworld.tscn::PackedScene::370247405546481824::1772301375::0::1::::<><><>0<>0<><>::uid://b7yj4dqffi1si::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png<>uid://scuhh0k57ubf::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png<>uid://brhckb1lkjt2d::::res://player/player.tscn<>uid://bagboqmpx8qyr::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png<>uid://is1hrfuyfueo::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetHouse.png
+::res://npc_data/::1772995256
+boy.tres::Resource/NPCData::1068771276573618647::1772995256::0::1::::<><><>0<>0<><>::uid://10jpfy421udu::::res://resource_classes/npc_data.gd<>uid://ds1hb5vhjf7yi::::res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/Faceset.png<>uid://b58wqvyttpbki::::res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/SpriteSheet.png
+cave_girl.tres::Resource/NPCData::6033902058823132525::1772995256::0::1::::<><><>0<>0<><>::uid://10jpfy421udu::::res://resource_classes/npc_data.gd<>uid://b0gp0tcrh6pma::::res://Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/Faceset.png<>uid://ptrdeftxtrv6::::res://Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/SpriteSheet.png
+mask_green.tres::Resource/NPCData::5387337903599789478::1772995256::0::1::::<><><>0<>0<><>::uid://hv8jhaebevqx::::res://Ninja Adventure - Asset Pack/Actor/Characters/MaskFrog/Faceset.png<>uid://10jpfy421udu::::res://resource_classes/npc_data.gd<>uid://dyuiy4rorpo6a::::res://Ninja Adventure - Asset Pack/Actor/Characters/MaskFrog/SpriteSheet.png
+monk.tres::Resource/NPCData::4411429725547764596::1772995256::0::1::::<><><>0<>0<><>::uid://c2um8kua6lkvy::::res://Ninja Adventure - Asset Pack/Actor/Characters/Monk2/Faceset.png<>uid://10jpfy421udu::::res://resource_classes/npc_data.gd<>uid://7maeair80fqu::::res://Ninja Adventure - Asset Pack/Actor/Characters/Monk2/SpriteSheet.png
+princess.tres::Resource/NPCData::1721776565352978350::1772995256::0::1::::<><><>0<>0<><>::uid://blc7op874lclr::::res://Ninja Adventure - Asset Pack/Actor/Characters/Princess/Faceset.png<>uid://10jpfy421udu::::res://resource_classes/npc_data.gd<>uid://bosmtx7frbwxi::::res://Ninja Adventure - Asset Pack/Actor/Characters/Princess/SpriteSheet.png
+::res://overworld/::1772894362
+overworld.tscn::PackedScene::370247405546481824::1772894362::0::1::::<><><>0<>0<><>::uid://b7yj4dqffi1si::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png<>uid://scuhh0k57ubf::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png<>uid://brhckb1lkjt2d::::res://player/player.tscn<>uid://bagboqmpx8qyr::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png<>uid://is1hrfuyfueo::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetHouse.png
 ::res://player/::1772887988
 player.gd::GDScript::547510077686890147::1772467060::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
 player.tscn::PackedScene::3594221054944446509::1772887988::0::1::::<><><>0<>0<><>::uid://h2hn8dpdkqu2::::res://player/player.gd<>uid://0wqo08ppgyux::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Walk.png<>uid://117th8lgbcdw::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png<>uid://1kgr5f5teeiq::::res://battler_data/ninja_data.tres<>uid://dualqpud1jpvv::::res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png<>uid://dem6v7a3ywgfj::::res://weapon_scene/weapon_scene.tscn<>uid://8cefjqgtmx0e::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh.wav<>uid://81rem6ejea54::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Hit8.wav
@@ -2449,30 +2451,30 @@ quick_time_event.tscn::PackedScene::2874103635732934794::1772538568::0::1::::<><
 ::res://quick_time_events/healing/::1772890644
 healing_qte.gd::GDScript::4782558523158331585::1772543789::0::1::::<>QuickTimeEvent<><>0<>0<><>::
 healing_qte.tscn::PackedScene::5923254485226439479::1772890644::0::1::::<><><>0<>0<><>::uid://bg7icjoeyog5g::::res://quick_time_events/base_class/quick_time_event.tscn<>uid://caeybmnranpuv::::res://quick_time_events/healing/healing_qte.gd<>uid://m34od8p576sn::::res://Keyboard Letters and Symbols.png
-::res://quick_time_events/kunai/::1772536373
+::res://quick_time_events/kunai/::1772995465
 cursor.gd::GDScript::6448093916355249268::1772535105::0::1::::<>Node2D<><>0<>0<><>::
 kunai_qte.gd::GDScript::8708427408118207174::1772536373::0::1::::<>QuickTimeEvent<><>0<>0<><>::
-kunai_qte.tscn::PackedScene::4409368867130379274::1772536356::0::1::::<><><>0<>0<><>::uid://bg7icjoeyog5g::::res://quick_time_events/base_class/quick_time_event.tscn<>uid://dwcor6k6n5iw1::::res://quick_time_events/kunai/kunai_qte.gd<>uid://dxmspdye24xrw::::res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai.png<>uid://cx4rfuokxq10k::::res://quick_time_events/kunai/cursor.gd
+kunai_qte.tscn::PackedScene::4409368867130379274::1772995465::0::1::::<><><>0<>0<><>::uid://bg7icjoeyog5g::::res://quick_time_events/base_class/quick_time_event.tscn<>uid://dwcor6k6n5iw1::::res://quick_time_events/kunai/kunai_qte.gd<>uid://dxmspdye24xrw::::res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai.png<>uid://cx4rfuokxq10k::::res://quick_time_events/kunai/cursor.gd<>uid://m34od8p576sn::::res://Keyboard Letters and Symbols.png
 ::res://quick_time_events/miss_label/::1772536246
 miss_label.gd::GDScript::5498344768792630418::1772536186::0::1::::MissLabel<>Control<><>0<>0<><>::
 miss_label.tscn::PackedScene::5943129772643211423::1772536246::0::1::::<><><>0<>0<><>::uid://cklo615f7movq::::res://quick_time_events/miss_label/miss_label.gd
-::res://quick_time_events/shuriken/::1772892246
+::res://quick_time_events/shuriken/::1772995309
 shuriken_qte.gd::GDScript::4322149221311486697::1772534221::0::1::::<>QuickTimeEvent<><>0<>0<><>::
-shuriken_qte.tscn::PackedScene::5817033480228975772::1772892246::0::1::::<><><>0<>0<><>::uid://b2txfwemrjell::::res://quick_time_events/shuriken/shuriken_qte.gd<>uid://q7v03ohstnex::::res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken.png
+shuriken_qte.tscn::PackedScene::5817033480228975772::1772995309::0::1::::<><><>0<>0<><>::uid://b2txfwemrjell::::res://quick_time_events/shuriken/shuriken_qte.gd<>uid://q7v03ohstnex::::res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken.png<>uid://m34od8p576sn::::res://Keyboard Letters and Symbols.png
 ::res://resource_classes/::1772892509
 battler_data.gd::GDScript::3017897054270628288::1772816084::0::1::::BattlerData<>Resource<><>0<>1<><>::
 healing_skill.gd::GDScript::5640832822530175085::1772540140::0::1::::HealingSkill<>Skill<><>0<>0<><>::
 npc_data.gd::GDScript::1877092919330618218::1772892509::0::1::::NPCData<>Resource<><>0<>1<><>::
 offensive_skill.gd::GDScript::1439156745648078608::1772540071::0::1::::OffensiveSkill<>Skill<><>0<>0<><>::
 skill.gd::GDScript::4075429924623621546::1772542469::0::1::::Skill<>Resource<><>1<>0<><>::
-::res://rooms/::1772892059
+::res://rooms/::1772895852
 room_1.tscn::PackedScene::2596587712886077028::1772049320::0::1::::<><><>0<>0<><>::uid://fjl6kkh371ii::::res://overworld/overworld.tscn<>uid://cuim5yngrx5yj::::res://enemy/enemy.tscn<>uid://c8op1x2s2t0ff::::res://battler_data/slime_data.tres
 room_2.tscn::PackedScene::541734962920454306::1772374256::0::1::::<><><>0<>0<><>::uid://fjl6kkh371ii::::res://overworld/overworld.tscn<>uid://cuim5yngrx5yj::::res://enemy/enemy.tscn<>uid://c8op1x2s2t0ff::::res://battler_data/slime_data.tres<>uid://dho364r52w8t7::::res://npc/npc.tscn
-room_3.tscn::PackedScene::6272285962633619536::1772892059::0::1::::<><><>0<>0<><>::uid://fjl6kkh371ii::::res://overworld/overworld.tscn<>uid://dho364r52w8t7::::res://npc/npc.tscn<>uid://phyrh3kwfj00::::res://npc_data/boy.tres<>uid://ysbn5g1cg5be::::res://npc_data/princess.tres<>uid://cr74qrb8t6xaj::::res://npc_data/cave_girl.tres<>uid://cuim5yngrx5yj::::res://enemy/enemy.tscn<>uid://b336ure0huy0s::::res://npc_data/monk.tres<>uid://cgl3rx2w664co::::res://battler_data/bat_data.tres<>uid://c8op1x2s2t0ff::::res://battler_data/slime_data.tres<>uid://c47lyar7a8cr6::::res://battler_data/cyclope_data.tres
-::res://skills/::1772890644
-kunai.tres::Resource/OffensiveSkill::6490849459126948467::1772887106::0::1::::<><><>0<>0<><>::uid://dqgw15oan6g7c::::res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/SpriteSheet.png<>uid://urex30mn1ce7::::res://resource_classes/offensive_skill.gd<>uid://b326wqe6hkuxm::::res://quick_time_events/kunai/kunai_qte.tscn
-shuriken.tres::Resource/OffensiveSkill::7772414463947008978::1772887106::0::1::::<><><>0<>0<><>::uid://d0cxuk4t6o6fx::::res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken/SpriteSheet.png<>uid://urex30mn1ce7::::res://resource_classes/offensive_skill.gd<>uid://co42xroj8vtds::::res://quick_time_events/shuriken/shuriken_qte.tscn
-weak_heal.tres::Resource/HealingSkill::7367700184341625145::1772890644::0::1::::<><><>0<>0<><>::uid://cmmpxsqdksgf2::::res://resource_classes/healing_skill.gd<>uid://v3ktmsyl60sk::::res://Ninja Adventure - Asset Pack/FX/Magic/Aura/SpriteSheet.png<>uid://cqnjevgkdwovv::::res://quick_time_events/healing/healing_qte.tscn
+room_3.tscn::PackedScene::6272285962633619536::1772895852::0::1::::<><><>0<>0<><>::uid://fjl6kkh371ii::::res://overworld/overworld.tscn<>uid://dho364r52w8t7::::res://npc/npc.tscn<>uid://phyrh3kwfj00::::res://npc_data/boy.tres<>uid://ysbn5g1cg5be::::res://npc_data/princess.tres<>uid://cr74qrb8t6xaj::::res://npc_data/cave_girl.tres<>uid://cuim5yngrx5yj::::res://enemy/enemy.tscn<>uid://b336ure0huy0s::::res://npc_data/monk.tres<>uid://cgl3rx2w664co::::res://battler_data/bat_data.tres<>uid://ci0wwyn317huc::::res://npc_data/mask_green.tres<>uid://c8op1x2s2t0ff::::res://battler_data/slime_data.tres<>uid://c47lyar7a8cr6::::res://battler_data/cyclope_data.tres
+::res://skills/::1772995465
+kunai.tres::Resource/OffensiveSkill::6490849459126948467::1772995465::0::1::::<><><>0<>0<><>::uid://dqgw15oan6g7c::::res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/SpriteSheet.png<>uid://urex30mn1ce7::::res://resource_classes/offensive_skill.gd<>uid://b326wqe6hkuxm::::res://quick_time_events/kunai/kunai_qte.tscn
+shuriken.tres::Resource/OffensiveSkill::7772414463947008978::1772995256::0::1::::<><><>0<>0<><>::uid://d0cxuk4t6o6fx::::res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken/SpriteSheet.png<>uid://urex30mn1ce7::::res://resource_classes/offensive_skill.gd<>uid://co42xroj8vtds::::res://quick_time_events/shuriken/shuriken_qte.tscn
+weak_heal.tres::Resource/HealingSkill::7367700184341625145::1772995256::0::1::::<><><>0<>0<><>::uid://cmmpxsqdksgf2::::res://resource_classes/healing_skill.gd<>uid://v3ktmsyl60sk::::res://Ninja Adventure - Asset Pack/FX/Magic/Aura/SpriteSheet.png<>uid://cqnjevgkdwovv::::res://quick_time_events/healing/healing_qte.tscn
 ::res://ui/::1770982046
 heart_sprite.tscn::PackedScene::4506223525758792445::1770982046::0::1::::<><><>0<>0<><>::uid://dkw6rg84j22rk::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/Heart.png
 ::res://weapon_scene/::1772467017

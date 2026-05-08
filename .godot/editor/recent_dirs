@@ -1,12 +1,13 @@
-C:/Users/Samir/Desktop/game/
+C:/Users/Samir/Desktop/
+res://player_battler/
+res://quick_time_events/shuriken/
+res://quick_time_events/kunai/
 res://Ninja Adventure - Asset Pack/Actor/Characters/MaskFrog/
 res://npc_data/
 res://game/
 res://battle/
 res://overworld/
 res://dialogue_box/
-res://player_battler/
-res://quick_time_events/shuriken/
 res://battler/
 res://enemy_battler/
 res://quick_time_events/healing/
@@ -20,4 +21,3 @@ res://Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/
 res://Ninja Adventure - Asset Pack/Actor/Monsters/Cyclope/
 res://battler_data/
 res://Ninja Adventure - Asset Pack/Actor/Monsters/BlueBat/
-res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/

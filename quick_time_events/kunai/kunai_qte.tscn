@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dwcor6k6n5iw1" path="res://quick_time_events/kunai/kunai_qte.gd" id="2_jwbtx"]
 [ext_resource type="Texture2D" uid="uid://dxmspdye24xrw" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai.png" id="3_3fnvl"]
 [ext_resource type="Script" uid="uid://cx4rfuokxq10k" path="res://quick_time_events/kunai/cursor.gd" id="4_upv07"]
+[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="5_p221v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3fnvl"]
 size = Vector2(20, 8)
@@ -45,6 +46,28 @@ _data = {
 &"move": SubResource("Animation_3fnvl")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_33dld"]
+atlas = ExtResource("5_p221v")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjo66"]
+atlas = ExtResource("5_p221v")
+region = Rect2(16, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70ljc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33dld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjo66")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="KunaiQTE" unique_id=1593403207 instance=ExtResource("1_y8fgg")]
 script = ExtResource("2_jwbtx")
 
@@ -65,3 +88,8 @@ libraries/ = SubResource("AnimationLibrary_upv07")
 [node name="Cursor" type="Node2D" parent="." index="2" unique_id=800510884]
 z_index = 1
 script = ExtResource("4_upv07")
+
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="." index="3" unique_id=2043534128]
+position = Vector2(-72, -1)
+sprite_frames = SubResource("SpriteFrames_70ljc")
+autoplay = "default"

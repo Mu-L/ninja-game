@@ -84,7 +84,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_pusi0")
-strength = 100
+strength = 150
 name = "kunai"
 battle_text = "Ninja threw kunais"
 magic_points_cost = 8

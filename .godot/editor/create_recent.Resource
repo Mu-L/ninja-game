@@ -1,1 +1,1 @@
-res://resource_classes/npc_data.gd
+res://resource_classes/enemy_battler_data.gd

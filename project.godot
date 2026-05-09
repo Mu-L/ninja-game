@@ -23,6 +23,8 @@ DialogueBox="*uid://bcvueaesm4jdi"
 [debug]
 
 gdscript/warnings/unused_signal=0
+gdscript/warnings/shadowed_variable=0
+gdscript/warnings/shadowed_global_identifier=0
 
 [display]
 

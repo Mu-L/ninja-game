@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://l44h5nb2ub5t"]
 
 [ext_resource type="PackedScene" uid="uid://3t6a4pm4ttpx" path="res://battler/battler.tscn" id="1_w0k00"]
-[ext_resource type="Script" uid="uid://dncnfcosfo0ij" path="res://player_battler/player_battler.gd" id="2_qckex"]
+[ext_resource type="Script" uid="uid://dncnfcosfo0ij" path="res://player_battler/ally_battler.gd" id="2_qckex"]
 [ext_resource type="Texture2D" uid="uid://618ncu12hrge" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/SpriteInHand.png" id="3_6tkng"]
 [ext_resource type="Texture2D" uid="uid://vr6wlka602gs" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/Sprite.png" id="4_ksi8t"]
 [ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="5_ri7bm"]

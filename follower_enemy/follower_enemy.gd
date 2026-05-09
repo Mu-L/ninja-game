@@ -34,7 +34,6 @@ func _physics_process(_delta: float) -> void:
 	elif velocity.y < 0:
 		animated_sprite_2d.play("walk up")
 
-
 func _on_damageable_component_took_damage(amount: int) -> void:
 	animation_player.play("hurt")
 	hurt_sound.play()

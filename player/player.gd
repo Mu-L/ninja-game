@@ -16,7 +16,7 @@ class_name Player extends CharacterBody2D
 
 @export var movement_speed: int = 100
 @export var attack_duration := 0.5
-@export var battle_data: BattlerData
+@export var battle_data: AllyBattlerData
 
 class Direction:
 	

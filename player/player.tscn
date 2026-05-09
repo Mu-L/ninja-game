@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://h2hn8dpdkqu2" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://0wqo08ppgyux" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Walk.png" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://117th8lgbcdw" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png" id="1_rkbax"]
-[ext_resource type="Resource" uid="uid://1kgr5f5teeiq" path="res://battler_data/ninja_data.tres" id="2_8t03j"]
+[ext_resource type="Resource" uid="uid://im0h2iyo37dj" path="res://battler_data/allies/ninja_data.tres" id="2_rgyib"]
 [ext_resource type="Texture2D" uid="uid://dualqpud1jpvv" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png" id="2_yw30f"]
 [ext_resource type="PackedScene" uid="uid://dem6v7a3ywgfj" path="res://weapon_scene/weapon_scene.tscn" id="5_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://8cefjqgtmx0e" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh.wav" id="8_hg6s5"]
@@ -285,7 +285,7 @@ collision_layer = 2
 collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_g1dw6")
-battle_data = ExtResource("2_8t03j")
+battle_data = ExtResource("2_rgyib")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=93024993]
 unique_name_in_owner = true

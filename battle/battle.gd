@@ -3,27 +3,42 @@ class_name Battle extends Node2D
 @onready var battlers: Node2D = %Battlers
 @onready var text_box: TextureRect = %TextBox
 @onready var battle_text: Label = %BattleText
-@onready var player_battler: PlayerBattler = %PlayerBattler
-@onready var enemy_battler: EnemyBattler = %EnemyBattler
 @onready var battle_camera: Camera2D = %BattleCamera
 @onready var music: AudioStreamPlayer = %Music
 
 signal battle_finished
 
-var enemy_data: BattlerData
-var player_data: BattlerData
+var enemies_data: Array[EnemyBattlerData]
+var allies_data: Array[AllyBattlerData]
+var _num_of_living_allies := 0
+var _num_of_living_enemies := 0
+var _allies: Array[AllyBattler] = []
 
-func _ready() -> void:
+static func create(allies_data: Array[AllyBattlerData], enemies_data: Array[EnemyBattlerData]) -> Battle:
+	const BATTLE = preload("uid://cb3474ae6wcck")
+	var battle: Battle = BATTLE.instantiate()
+	battle.allies_data = allies_data
+	battle.enemies_data = enemies_data
+	return battle
+
+func start() -> void:
 	Global.display_text.connect(display_text)
-	enemy_battler.data = enemy_data
-	player_battler.data = player_data
+	for data in allies_data:
+		var ally := Battler.create(data)
+		battlers.add_child(ally)
+		_num_of_living_allies += 1
+		_allies.append(ally)
+	for data in enemies_data:
+		var enemy = Battler.create(data)
+		battlers.add_child(enemy)
+		_num_of_living_enemies += 1
 	battle_camera.make_current()
 	text_box.hide()
 	while not is_battle_finished():
 		await get_tree().create_timer(0.1).timeout
 		for battler: Battler in battlers.get_children():
 			battler.decide_action()
-			if battler is PlayerBattler:
+			if battler is AllyBattler:
 				await battler.finished_deciding_action
 		
 		for battler: Battler in battlers.get_children():
@@ -44,15 +59,16 @@ func _process(_delta: float) -> void:
 		Global.textbox_closed.emit()
 
 func is_battle_finished() -> bool:
-	return not enemy_battler or not player_battler
+	return _num_of_living_allies == 0 or _num_of_living_enemies == 0
 
 func finish_battle() -> void:
 	music.stop()
-	if not enemy_battler:
+	if _num_of_living_enemies == 0:
 		display_text("Player Won !")
 		await Global.textbox_closed
 		text_box.hide()
-		await player_battler.increase_exp(100)
+		for ally in _allies:
+			await ally.increase_exp(100)
 		battle_finished.emit()
 	else:
 		display_text("Game Over...")

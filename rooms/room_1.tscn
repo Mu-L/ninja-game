@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://fjl6kkh371ii" path="res://overworld/overworld.tscn" id="1_2otyv"]
 [ext_resource type="PackedScene" uid="uid://cuim5yngrx5yj" path="res://enemy/enemy.tscn" id="2_31r0r"]
-[ext_resource type="Resource" uid="uid://c8op1x2s2t0ff" path="res://battler_data/slime_data.tres" id="3_h00nm"]
+[ext_resource type="Resource" uid="uid://c8op1x2s2t0ff" path="res://battler_data/enemies/slime_data.tres" id="3_h00nm"]
 
 [node name="Room1" unique_id=1645941047 instance=ExtResource("1_2otyv")]
 

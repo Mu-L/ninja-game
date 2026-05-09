@@ -6,7 +6,7 @@
 [node name="EnemyBattler" unique_id=893298890 groups=["enemy battler"] instance=ExtResource("1_fc1jj")]
 script = ExtResource("2_uhnwk")
 
-[node name="DamageLabel" parent="." index="4" unique_id=261734383]
+[node name="NumberLabel" parent="." index="4" unique_id=261734383]
 visible = true
 offset_left = -44.0
 offset_top = -36.0

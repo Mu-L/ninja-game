@@ -13,7 +13,7 @@ func _on_battle_start(enemy: Enemy, player: Player) -> void:
 	battle_start_sound.play()
 	await battle_start_sound.finished
 	over_world.hide()
-	var battle := Battle.create([player.battle_data], [enemy.battle_data])
+	var battle := Battle.create(player.party_members_data, [enemy.battle_data])
 	add_child(battle)
 	battle.start()
 	battle.battle_finished.connect(
@@ -31,6 +31,6 @@ func _on_battle_start(enemy: Enemy, player: Player) -> void:
 			player.set_health(player.battle_data.health)
 	)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()

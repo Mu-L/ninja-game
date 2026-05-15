@@ -14,7 +14,6 @@ radius = 21.095022
 script = ExtResource("1_nhy3c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1606118956]
-animation = &""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1672638396]
 visible = false

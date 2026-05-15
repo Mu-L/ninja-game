@@ -16,7 +16,8 @@ class_name Player extends CharacterBody2D
 
 @export var movement_speed: int = 100
 @export var attack_duration := 0.5
-@export var battle_data: AllyBattlerData
+#@export var battle_data: AllyBattlerData
+@export var party_members_data: Array[AllyBattlerData] = []
 
 class Direction:
 	
@@ -55,8 +56,8 @@ func _ready() -> void:
 	for weapon: WeaponScene in weapons.get_children():
 		weapon.body_entered.connect(_on_weapon_body_entered)
 	direction = Direction.new(Direction.Directions.DOWN, self)
-	set_health(battle_data.max_health)
-	battle_data.magic_points = battle_data.max_magic_points
+	set_health(party_members_data[0].max_health)
+	party_members_data[0].magic_points = party_members_data[0].max_magic_points
 
 func _physics_process(delta: float) -> void:
 	if is_interacting:
@@ -105,7 +106,7 @@ func _on_weapon_body_entered(body: Node2D) -> void:
 		Global.start_battle.emit(body, self)
 
 func set_health(new_val) -> void:
-	battle_data.health = new_val
+	party_members_data[0].health = new_val
 	health_bar.value = new_val
 
 func _on_weapon_timer_timeout() -> void:

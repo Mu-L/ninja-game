@@ -51,8 +51,20 @@ unique_name_in_owner = true
 stream = ExtResource("6_l1kiu")
 autoplay = true
 
-[node name="AllySpawnCircle" type="Marker2D" parent="." unique_id=1351190678]
+[node name="SpawnCircles" type="Node2D" parent="." unique_id=208657046]
+
+[node name="AllySpawnCircle" type="Marker2D" parent="SpawnCircles" unique_id=1351190678]
+unique_name_in_owner = true
 position = Vector2(51, 96)
 
-[node name="SpawnPoint" type="Marker2D" parent="AllySpawnCircle" unique_id=880381202]
+[node name="AllySpawnPoint" type="Marker2D" parent="SpawnCircles/AllySpawnCircle" unique_id=880381202]
+unique_name_in_owner = true
+position = Vector2(40, 0)
+
+[node name="EnemySpawnCircle" type="Marker2D" parent="SpawnCircles" unique_id=1017709420]
+unique_name_in_owner = true
+position = Vector2(240, 97)
+
+[node name="EnemySpawnPoint" type="Marker2D" parent="SpawnCircles/EnemySpawnCircle" unique_id=1627184067]
+unique_name_in_owner = true
 position = Vector2(40, 0)

@@ -14,6 +14,7 @@ func perform_action() -> void:
 		Global.display_text.emit(_action_text)
 		await Global.textbox_closed
 		health_bar.hide()
+		_starting_pos = self.global_position
 		var final_pos := player().global_position + Vector2(25, 0)
 		var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", final_pos, 0.5)

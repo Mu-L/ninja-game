@@ -52,11 +52,12 @@ static func create(data: BattlerData) -> Battler:
 	battler._defense = data.defense
 	battler._speed = data.speed
 	battler._health = data.health
+	battler._sprite_frames = data.sprite_frames
+	battler._animation_speed = data.animation_speed
 	return battler
 
 func _ready() -> void:
 	assert(_is_valid_instance, "create a battler using the static create() method")
-	_starting_pos = self.global_position
 	number_label.hide()
 	animated_sprite_2d.sprite_frames = _sprite_frames
 	animated_sprite_2d.speed_scale = _animation_speed

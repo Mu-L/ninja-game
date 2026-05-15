@@ -1,9 +1,9 @@
+Node2D
 Marker2D
 AudioStreamPlayer
 Label
 TextureRect
 AnimatedSprite2D
-Node2D
 HBoxContainer
 VBoxContainer
 Timer

@@ -56,7 +56,7 @@ func _ready() -> void:
 	$AttackBar.hide()
 	experience_bar.hide()
 	skills_menu.hide()
-	animated_sprite_2d.play("idle")
+	animated_sprite_2d.play("idle right")
 	experience_bar.max_value = _EXP_to_next_level
 	experience_bar.value = _EXP
 	magic_bar.max_value = _max_magic_points
@@ -73,6 +73,7 @@ func perform_action() -> void:
 	if _action_name == "attack":
 		Global.display_text.emit("Ninja Attacked the enemy")
 		await Global.textbox_closed
+		_starting_pos = self.global_position
 		var final_pos := enemy().global_position - Vector2(25, 0)
 		var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", final_pos, 0.5)
@@ -95,7 +96,7 @@ func perform_action() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and _is_attacking:
 		_is_attacking = false
-		animated_sprite_2d.play("attack")
+		animated_sprite_2d.play("attack right")
 		%Sword.show()
 		attack_animation_player.stop(true)
 		var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BOUNCE)
@@ -109,7 +110,7 @@ func _input(event: InputEvent) -> void:
 		await enemy().take_damage(damage)
 		
 		$AttackBar.hide()
-		animated_sprite_2d.play("idle")
+		animated_sprite_2d.play("idle right")
 		%Sword.hide()
 		tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", _starting_pos, 0.5)

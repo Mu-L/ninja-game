@@ -1,6 +1,9 @@
+res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaYellow/
+res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/
+res://battler_data/allies/
+res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaBlue2/
 res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/
 res://battler_data/enemies/
-res://battler_data/allies/
 res://player/
 res://enemy/
 res://resource_classes/
@@ -18,6 +21,3 @@ res://battler/
 res://enemy_battler/
 res://quick_time_events/healing/
 res://Ninja Adventure - Asset Pack/Actor/Characters/Monk2/
-res://rooms/
-res://
-res://npc/

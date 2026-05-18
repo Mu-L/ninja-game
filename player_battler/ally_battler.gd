@@ -1,6 +1,7 @@
 class_name AllyBattler extends Battler
 
 signal finished_deciding_action
+signal died
 
 @onready var ui: CanvasLayer = $UI
 @onready var attack_button: Button = %AttackButton
@@ -14,14 +15,22 @@ signal finished_deciding_action
 @onready var skills_button: Button = %SkillsButton
 @onready var attack_animation_player: AnimationPlayer = %AttackAnimationPlayer
 
+# flags:
 var _is_attacking := false
-var _skill_to_perform: Skill
+var _is_selecting := false
+
+# states:
 var _max_magic_points: int = 25
 var _EXP_to_next_level: int = 100
 var _skills: Array[Skill]
 var _magic_points: int
 var _EXP: int = 0
 var _level: int = 1
+
+# other:
+var _selection_index := 0
+var _skill_to_perform: Skill
+var _dead_allies: Array[AllyBattler]
 
 func set_up_skills(skills: Array[Skill]) -> void:
 	for skill: Skill in skills:
@@ -60,21 +69,32 @@ func _ready() -> void:
 	experience_bar.max_value = _EXP_to_next_level
 	experience_bar.value = _EXP
 	magic_bar.max_value = _max_magic_points
-	set_magic_points(_magic_points)
+	set_magic_points(_max_magic_points)
 	set_up_skills(_skills)
+	print(_magic_points)
 
 func decide_action() -> void:
+	update_battlers_arrays()
 	buttons.show()
 	ui.show()
 	attack_button.grab_focus()
 
+func get_target_enemy() -> EnemyBattler:
+	var enemy := _enemies[_selection_index % _enemies.size()]
+	while not is_instance_valid(enemy):
+		_selection_index += 1
+		enemy = _enemies[_selection_index % _enemies.size()]
+	return enemy
+
 func perform_action() -> void:
+	update_battlers_arrays()
 	hide_stat_bars()
 	if _action_name == "attack":
+		var enemy := get_target_enemy()
 		Global.display_text.emit("Ninja Attacked the enemy")
 		await Global.textbox_closed
 		_starting_pos = self.global_position
-		var final_pos := enemy().global_position - Vector2(25, 0)
+		var final_pos := enemy.global_position - Vector2(25, 0)
 		var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", final_pos, 0.5)
 		await tween.finished
@@ -89,7 +109,7 @@ func perform_action() -> void:
 		if _skill_to_perform is HealingSkill:
 			perform_skill_action(self)
 		elif _skill_to_perform is OffensiveSkill:
-			perform_skill_action(enemy())
+			perform_skill_action(get_target_enemy())
 		else:
 			assert(false, "no match")
 
@@ -107,7 +127,7 @@ func _input(event: InputEvent) -> void:
 		var distance_to_center: int = round(abs(%AttackSlider.position.x - 50))
 		var multiplier: float = (50.0 - distance_to_center) / 50.0
 		var damage: int = round(_strength * multiplier)
-		await enemy().take_damage(damage)
+		await get_target_enemy().take_damage(damage)
 		
 		$AttackBar.hide()
 		animated_sprite_2d.play("idle right")
@@ -117,21 +137,35 @@ func _input(event: InputEvent) -> void:
 		await tween.finished
 		show_stat_bars()
 		finished_performing_action.emit()
+	
+	if _is_selecting:
+		if event.is_action_pressed("move down") or event.is_action_pressed("move right"):
+			get_target_enemy().stop_selection_animation()
+			_selection_index += 1
+			get_target_enemy().play_selection_animation()
+		elif event.is_action_pressed("move up") or event.is_action_pressed("move left"):
+			get_target_enemy().stop_selection_animation()
+			_selection_index -= 1
+			get_target_enemy().play_selection_animation()
+		elif event.is_action_pressed("interact"):
+			_is_selecting = false
+			get_target_enemy().stop_selection_animation()
+			_action_name = "attack"
+			_action_text = "Green Ninja slashed the enemy !"
+			ui.hide()
+			finished_deciding_action.emit()
 
 func _on_attack_button_pressed() -> void:
-	_action_name = "attack"
-	_action_text = "Green Ninja slashed the enemy !"
-	ui.hide()
-	finished_deciding_action.emit()
-
-func enemy() -> EnemyBattler:
-	return get_tree().get_first_node_in_group("enemy battler")
+	buttons.hide()
+	_is_selecting = true
+	_selection_index = 0
+	get_target_enemy().play_selection_animation()
 
 func _on_attack_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
 		_is_attacking = false
 		$AttackBar.hide()
-		await missed_effect(enemy().global_position)
+		await missed_effect(get_target_enemy().global_position)
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", _starting_pos, 0.5)
 		await tween.finished
@@ -170,10 +204,10 @@ func increase_exp(amount: int) -> void:
 				"%s increased by %d" % [key.replace('_',' '), value]
 			)
 			await Global.textbox_closed
-			var old_value = _get(key)
-			_set(key, old_value + value)
+			var old_value = get("_"+key)
+			set(key, old_value + value)
 			if key == "max_health":
-				_set("_health", _health+value)
+				set("_health", _health+value)
 		
 		for skill: Skill in upgrades.new_skills:
 			_skills.append(skill)
@@ -212,7 +246,7 @@ func perform_skill_action(target: Battler) -> void:
 			skill_animation.hide()
 			target.show_stat_bars()
 			if _skill_to_perform is OffensiveSkill:
-				await enemy().take_damage(_strength + _skill_to_perform.strength)
+				await get_target_enemy().take_damage(_strength + _skill_to_perform.strength)
 			elif _skill_to_perform is HealingSkill:
 				await self.heal(_skill_to_perform.heal_amount)
 			await get_tree().create_timer(0.1).timeout
@@ -231,3 +265,16 @@ func show_stat_bars() -> void:
 func hide_stat_bars() -> void:
 	super.hide_stat_bars()
 	magic_bar.hide()
+
+func die() -> void:
+	super.die()
+	died.emit()
+
+func update_battlers_arrays() -> void:
+	super.update_battlers_arrays()
+	_dead_allies = []
+	var allies := get_tree().get_nodes_in_group("player battler")
+	for ally in allies:
+		if ally is AllyBattler:
+			if not ally.is_alive:
+				_dead_allies.append(ally)

@@ -14,10 +14,10 @@ signal battle_finished
 
 var enemies_data: Array[EnemyBattlerData]
 var allies_data: Array[AllyBattlerData]
-var _num_of_living_allies := 0
-var _num_of_living_enemies := 0
 var _allies: Array[AllyBattler] = []
 var _enemies: Array[EnemyBattler] = []
+var _num_of_living_allies := 0
+var _num_of_living_enemies := 0
 
 static func create(allies_data: Array[AllyBattlerData], enemies_data: Array[EnemyBattlerData]) -> Battle:
 	const BATTLE = preload("uid://cb3474ae6wcck")
@@ -31,9 +31,10 @@ func start() -> void:
 	
 	# Spawn allies:
 	for i in range(allies_data.size()):
-		var ally := Battler.create(allies_data[i])
+		var ally := Battler.create(allies_data[i]) as AllyBattler
 		battlers.add_child(ally)
 		_num_of_living_allies += 1
+		ally.died.connect(func(): _num_of_living_allies -= 1)
 		_allies.append(ally)
 		if allies_data.size() == 1:
 			ally.global_position = ally_spawn_circle.global_position
@@ -44,9 +45,10 @@ func start() -> void:
 	
 	# Spawn enemies:
 	for i in range(enemies_data.size()):
-		var enemy := Battler.create(enemies_data[i])
+		var enemy := Battler.create(enemies_data[i]) as EnemyBattler
 		battlers.add_child(enemy)
 		_num_of_living_enemies += 1
+		enemy.died.connect(func(): _num_of_living_enemies -= 1)
 		_enemies.append(enemy)
 		if enemies_data.size() == 1:
 			enemy.global_position = enemy_spawn_circle.global_position
@@ -60,11 +62,14 @@ func start() -> void:
 	while not is_battle_finished():
 		await get_tree().create_timer(0.1).timeout
 		for battler: Battler in battlers.get_children():
-			battler.decide_action()
 			if battler is AllyBattler:
+				battler.decide_action()
 				await battler.finished_deciding_action
-		
+				await get_tree().create_timer(0.1).timeout
+	
 		for battler: Battler in battlers.get_children():
+			if not battler.is_alive:
+				continue
 			battler.perform_action()
 			await battler.finished_performing_action
 			if is_battle_finished():
@@ -81,12 +86,18 @@ func _process(_delta: float) -> void:
 		text_box.hide()
 		Global.textbox_closed.emit()
 
+func allies_won() -> bool:
+	return _num_of_living_enemies == 0
+
+func enemies_won() -> bool:
+	return _num_of_living_allies == 0 
+
 func is_battle_finished() -> bool:
-	return _num_of_living_allies == 0 or _num_of_living_enemies == 0
+	return allies_won() or enemies_won()
 
 func finish_battle() -> void:
 	music.stop()
-	if _num_of_living_enemies == 0:
+	if allies_won():
 		display_text("Player Won !")
 		await Global.textbox_closed
 		text_box.hide()

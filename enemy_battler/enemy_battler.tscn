@@ -6,7 +6,7 @@
 [node name="EnemyBattler" unique_id=893298890 groups=["enemy battler"] instance=ExtResource("1_fc1jj")]
 script = ExtResource("2_uhnwk")
 
-[node name="NumberLabel" parent="." index="4" unique_id=261734383]
+[node name="NumberLabel" parent="." index="5" unique_id=261734383]
 visible = true
 offset_left = -44.0
 offset_top = -36.0
@@ -16,7 +16,7 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HPLabel" parent="." index="5" unique_id=1568770917]
+[node name="HPLabel" parent="." index="6" unique_id=1568770917]
 offset_left = -17.0
 offset_top = -35.0
 offset_right = 23.0

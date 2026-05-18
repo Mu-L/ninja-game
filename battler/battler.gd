@@ -7,10 +7,12 @@ signal finished_performing_action
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var number_label: Label = %NumberLabel
 @onready var hp_label: Label = $HPLabel
+@onready var selection_indicator_animation_player: AnimationPlayer = %SelectionIndicatorAnimationPlayer
+@onready var selection_arrow: Sprite2D = %SelectionArrow
+@onready var selection_arrow_animation_player: AnimationPlayer = %SelectionArrowAnimationPlayer
 
-@warning_ignore("unused_private_class_variable")
+@warning_ignore_start("unused_private_class_variable")
 var _action_name: String
-@warning_ignore("unused_private_class_variable")
 var _action_text: String
 
 # stats:
@@ -29,6 +31,11 @@ var _starting_pos: Vector2
 # flags:
 var _is_valid_instance := false
 var is_alive := true
+
+# Other"
+var _target: Battler
+var _enemies: Array[EnemyBattler]
+var _living_allies: Array[AllyBattler]
 
 static func create(data: BattlerData) -> Battler:
 	var battler: Battler
@@ -62,13 +69,13 @@ func _ready() -> void:
 	animated_sprite_2d.sprite_frames = _sprite_frames
 	animated_sprite_2d.speed_scale = _animation_speed
 	health_bar.max_value = _max_health
-	set_health(_health)
-
-@abstract
-func decide_action() -> void
+	set_health(_max_health)
 
 @abstract
 func perform_action() -> void
+
+func die() -> void:
+	is_alive = false
 
 func take_damage(amount: int) -> void:
 	%HurtSound.play()
@@ -76,7 +83,7 @@ func take_damage(amount: int) -> void:
 	set_health(_health - amount)
 	await bounce_number_label(amount)
 	if _health <= 0:
-		queue_free()
+		die()
 
 func heal(amount: int) -> void:
 	set_health(_health + amount)
@@ -102,3 +109,27 @@ func show_stat_bars() -> void:
 
 func hide_stat_bars() -> void:
 	health_bar.hide()
+
+func play_selection_animation() -> void:
+	selection_indicator_animation_player.play("select")
+	selection_arrow.show()
+	selection_arrow_animation_player.play("select")
+
+func stop_selection_animation() -> void:
+	selection_indicator_animation_player.stop()
+	selection_arrow.hide()
+	selection_arrow_animation_player.stop()
+
+func update_battlers_arrays() -> void:
+	_enemies = []
+	_living_allies = []
+	var battlers := get_tree().get_nodes_in_group("battler")
+	for battler in battlers:
+		if battler is AllyBattler:
+			if battler.is_alive:
+				_living_allies.append(battler)
+		elif battler is EnemyBattler:
+			if battler.is_alive:
+				_enemies.append(battler)
+		else:
+			assert(false, "invalid case...")

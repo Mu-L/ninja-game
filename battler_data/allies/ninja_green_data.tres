@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_tmdsl"]
 [ext_resource type="Resource" uid="uid://dc777fd6rmieb" path="res://skills/weak_heal.tres" id="3_2fpfn"]
 [ext_resource type="Texture2D" uid="uid://dualqpud1jpvv" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png" id="4_p33he"]
+[ext_resource type="Resource" uid="uid://cyqhlvwprkbff" path="res://skills/kunai.tres" id="4_tmdsl"]
 [ext_resource type="Texture2D" uid="uid://117th8lgbcdw" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png" id="5_bkg23"]
 [ext_resource type="Texture2D" uid="uid://0wqo08ppgyux" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Walk.png" id="6_f28gi"]
 
@@ -240,7 +241,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_e24ek")
-skills = Array[ExtResource("2_tmdsl")]([ExtResource("3_2fpfn")])
+skills = Array[ExtResource("2_tmdsl")]([ExtResource("3_2fpfn"), ExtResource("4_tmdsl")])
 name = "Green Ninja"
 sprite_frames = SubResource("SpriteFrames_g6k8r")
 metadata/_custom_type_script = "uid://7qx50intwyfe"

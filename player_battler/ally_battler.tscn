@@ -213,16 +213,6 @@ autoplay = "default"
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_0m672")
 
-[node name="NumberLabel" parent="." index="8" unique_id=261734383]
-visible = true
-offset_left = 7.0
-offset_top = -34.0
-offset_right = 47.0
-offset_bottom = -11.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="SkillAnimation" type="AnimatedSprite2D" parent="." index="9" unique_id=2082438353]
 unique_name_in_owner = true
 visible = false
@@ -232,6 +222,16 @@ position = Vector2(139, 62)
 [node name="SkillSound" type="AudioStreamPlayer" parent="." index="10" unique_id=1774249253]
 unique_name_in_owner = true
 stream = ExtResource("5_xyngr")
+
+[node name="NumberLabel" parent="." index="11" unique_id=261734383]
+visible = true
+offset_left = 7.0
+offset_top = -34.0
+offset_right = 47.0
+offset_bottom = -11.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LevelUpSound" type="AudioStreamPlayer" parent="." index="12" unique_id=789223776]
 unique_name_in_owner = true

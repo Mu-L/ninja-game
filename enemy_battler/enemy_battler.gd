@@ -1,21 +1,22 @@
 class_name EnemyBattler extends Battler
 
+signal died
+
 func _ready() -> void:
 	super._ready()
 	animated_sprite_2d.play("idle left")
-	set_health(_max_health)
-
-func decide_action() -> void:
-	_action_name = "attack"
-	_action_text = "%s attacked green ninja!" % battler_name
 
 func perform_action() -> void:
+	update_battlers_arrays()
+	_action_name = "attack"
+	_action_text = "%s attacked green ninja!" % battler_name
 	if _action_name == "attack":
+		var ally: AllyBattler = _living_allies.pick_random()
 		Global.display_text.emit(_action_text)
 		await Global.textbox_closed
 		health_bar.hide()
 		_starting_pos = self.global_position
-		var final_pos := player().global_position + Vector2(25, 0)
+		var final_pos := ally.global_position + Vector2(25, 0)
 		var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", final_pos, 0.5)
 		await tween.finished
@@ -23,7 +24,7 @@ func perform_action() -> void:
 		animated_sprite_2d.play("walk left")
 		await animated_sprite_2d.animation_finished
 		animated_sprite_2d.sprite_frames.set_animation_loop("walk left", true)
-		await player().take_damage(_strength)
+		await ally.take_damage(_strength)
 		animated_sprite_2d.play("idle left")
 		tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", _starting_pos, 0.5)
@@ -31,5 +32,7 @@ func perform_action() -> void:
 		health_bar.show()
 		finished_performing_action.emit()
 
-func player() -> AllyBattler:
-	return get_tree().get_first_node_in_group("player battler")
+func die() -> void:
+	super.die()
+	self.hide()
+	died.emit()

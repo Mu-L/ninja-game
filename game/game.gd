@@ -13,7 +13,7 @@ func _on_battle_start(enemy: Enemy, player: Player) -> void:
 	battle_start_sound.play()
 	await battle_start_sound.finished
 	over_world.hide()
-	var battle := Battle.create(player.party_members_data, [enemy.battle_data])
+	var battle := Battle.create(player.party_members_data, enemy.battle_data)
 	add_child(battle)
 	battle.start()
 	battle.battle_finished.connect(
@@ -24,11 +24,6 @@ func _on_battle_start(enemy: Enemy, player: Player) -> void:
 			over_world.show()
 			battle.queue_free()
 			enemy.die()
-			var player_battler: AllyBattler = get_tree().get_first_node_in_group("player battler")
-			if not player_battler:
-				return
-			player.health_bar.show()
-			player.set_health(player.battle_data.health)
 	)
 
 func _process(_delta: float) -> void:

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://7qx50intwyfe" path="res://resource_classes/ally_battler_data.gd" id="1_l6mt2"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_2dlt6"]
 [ext_resource type="Texture2D" uid="uid://o6ps62bwer2r" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaYellow/SpriteSheet.png" id="3_2dlt6"]
+[ext_resource type="Resource" uid="uid://cyqhlvwprkbff" path="res://skills/kunai.tres" id="3_5305b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dlt6"]
 atlas = ExtResource("3_2dlt6")
@@ -257,6 +258,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_l6mt2")
+skills = Array[ExtResource("2_2dlt6")]([ExtResource("3_5305b")])
 name = "Yellow Ninja"
 texture = ExtResource("3_2dlt6")
 sprite_frames = SubResource("SpriteFrames_k2bn1")

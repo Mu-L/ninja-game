@@ -39,6 +39,7 @@ window/stretch/mode="viewport"
 "player battler"=""
 "enemy battler"=""
 player=""
+battler=""
 
 [gui]
 

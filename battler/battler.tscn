@@ -3,6 +3,8 @@
 [ext_resource type="AudioStream" uid="uid://csryb4da68guf" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact2.wav" id="1_kj5ye"]
 [ext_resource type="Texture2D" uid="uid://cukoafl7ps86a" path="res://Ninja Adventure - Asset Pack/Ui/Arrow.png" id="2_3mwqo"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mwqo"]
+
 [sub_resource type="Animation" id="Animation_1wwld"]
 length = 0.001
 tracks/0/type = "value"
@@ -114,10 +116,31 @@ _data = {
 &"select": SubResource("Animation_e27bp")
 }
 
-[node name="Battler" type="Node2D" unique_id=893298890 groups=["battler"]]
+[node name="Battler" type="Area2D" unique_id=2077277544 groups=["battler"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2107465465]
 unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=237910253]
+shape = SubResource("CircleShape2D_3mwqo")
+
+[node name="SelectionArrow" type="Sprite2D" parent="." unique_id=1608639596]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -25)
+texture = ExtResource("2_3mwqo")
+
+[node name="HurtAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1772088629]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_f17ml")
+
+[node name="SelectionIndicatorAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1403625307]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_e27bp")
+
+[node name="SelectionArrowAnimationPlayer" type="AnimationPlayer" parent="." unique_id=2131277241]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_523i3")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=1773053405]
 unique_name_in_owner = true
@@ -129,18 +152,6 @@ offset_right = 31.0
 offset_bottom = 25.0
 value = 100.0
 show_percentage = false
-
-[node name="HurtAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1772088629]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_f17ml")
-
-[node name="SelectionIndicatorAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1403625307]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_e27bp")
-
-[node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=1473143112]
-unique_name_in_owner = true
-stream = ExtResource("1_kj5ye")
 
 [node name="NumberLabel" type="Label" parent="." unique_id=261734383]
 unique_name_in_owner = true
@@ -158,12 +169,6 @@ offset_top = -42.0
 offset_right = 26.0
 offset_bottom = -19.0
 
-[node name="SelectionArrow" type="Sprite2D" parent="." unique_id=1608639596]
+[node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=1473143112]
 unique_name_in_owner = true
-visible = false
-position = Vector2(0, -25)
-texture = ExtResource("2_3mwqo")
-
-[node name="SelectionArrowAnimationPlayer" type="AnimationPlayer" parent="." unique_id=2131277241]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_523i3")
+stream = ExtResource("1_kj5ye")

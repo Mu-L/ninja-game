@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c8np1wvc1jkap"]
+
+[ext_resource type="PackedScene" uid="uid://d0eassyffx1wr" path="res://skill_selection_area/skill_selection_area.tscn" id="1_cklfm"]
+[ext_resource type="Script" uid="uid://ci64r8aokch4m" path="res://circle_selection_area.gd" id="2_1lgn6"]
+
+[node name="CircleSelectionArea" unique_id=126199509 instance=ExtResource("1_cklfm")]
+script = ExtResource("2_1lgn6")

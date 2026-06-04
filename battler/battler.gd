@@ -1,5 +1,5 @@
 @abstract
-class_name Battler extends Node2D
+class_name Battler extends Area2D
 
 signal finished_performing_action
 
@@ -40,7 +40,7 @@ var _living_allies: Array[AllyBattler]
 static func create(data: BattlerData) -> Battler:
 	var battler: Battler
 	if data is AllyBattlerData:
-		const ALLY_BATTLER = preload("uid://l44h5nb2ub5t")
+		var ALLY_BATTLER := load("uid://l44h5nb2ub5t")
 		battler = ALLY_BATTLER.instantiate() as AllyBattler
 		battler._max_magic_points = data.max_magic_points
 		battler._magic_points = data.magic_points
@@ -49,7 +49,7 @@ static func create(data: BattlerData) -> Battler:
 		battler._EXP_to_next_level = data.EXP_to_next_level
 		battler._skills = data.skills
 	elif data is EnemyBattlerData:
-		const ENEMY_BATTLER = preload("uid://b2i8v282cle12")
+		var ENEMY_BATTLER = load("uid://b2i8v282cle12")
 		battler = ENEMY_BATTLER.instantiate() as EnemyBattler
 	else:
 		assert(false, "undefined case...")

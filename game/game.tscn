@@ -9,6 +9,8 @@
 process_mode = 3
 script = ExtResource("1_vasa2")
 
+[node name="Room3" parent="." unique_id=1645941047 instance=ExtResource("3_4fuuu")]
+
 [node name="BattleStartSound" type="AudioStreamPlayer" parent="." unique_id=1155609766]
 unique_name_in_owner = true
 stream = ExtResource("3_h7iqs")
@@ -18,5 +20,3 @@ unique_name_in_owner = true
 process_mode = 3
 stream = ExtResource("3_dxrkv")
 autoplay = true
-
-[node name="Room3" parent="." unique_id=1645941047 instance=ExtResource("3_4fuuu")]

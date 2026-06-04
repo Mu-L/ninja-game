@@ -8,9 +8,6 @@
 [node name="Battle" type="Node2D" unique_id=697061231]
 script = ExtResource("1_4mnim")
 
-[node name="Battlers" type="Node2D" parent="." unique_id=882097105]
-unique_name_in_owner = true
-
 [node name="UI" type="CanvasLayer" parent="." unique_id=1810498988]
 
 [node name="TextBox" type="TextureRect" parent="UI" unique_id=1720251685]
@@ -42,20 +39,23 @@ text = "battle text goes here !"
 [node name="DisplayTextSound" type="AudioStreamPlayer" parent="." unique_id=1007540065]
 stream = ExtResource("5_4mnim")
 
-[node name="BattleCamera" type="Camera2D" parent="." unique_id=256184825]
-unique_name_in_owner = true
-position = Vector2(160, 90)
-
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1830405518]
 unique_name_in_owner = true
 stream = ExtResource("6_l1kiu")
 autoplay = true
 
+[node name="Battlers" type="Node2D" parent="." unique_id=882097105]
+unique_name_in_owner = true
+
+[node name="BattleCamera" type="Camera2D" parent="." unique_id=256184825]
+unique_name_in_owner = true
+position = Vector2(160, 90)
+
 [node name="SpawnCircles" type="Node2D" parent="." unique_id=208657046]
 
 [node name="AllySpawnCircle" type="Marker2D" parent="SpawnCircles" unique_id=1351190678]
 unique_name_in_owner = true
-position = Vector2(51, 96)
+position = Vector2(50, 90)
 
 [node name="AllySpawnPoint" type="Marker2D" parent="SpawnCircles/AllySpawnCircle" unique_id=880381202]
 unique_name_in_owner = true
@@ -63,7 +63,7 @@ position = Vector2(40, 0)
 
 [node name="EnemySpawnCircle" type="Marker2D" parent="SpawnCircles" unique_id=1017709420]
 unique_name_in_owner = true
-position = Vector2(240, 97)
+position = Vector2(250, 90)
 
 [node name="EnemySpawnPoint" type="Marker2D" parent="SpawnCircles/EnemySpawnCircle" unique_id=1627184067]
 unique_name_in_owner = true

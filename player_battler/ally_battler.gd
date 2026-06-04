@@ -18,8 +18,9 @@ signal died
 # flags:
 var _is_attacking := false
 var _is_selecting := false
+var _is_selecting_skill := false
 
-# states:
+# stats:
 var _max_magic_points: int = 25
 var _EXP_to_next_level: int = 100
 var _skills: Array[Skill]
@@ -27,37 +28,10 @@ var _magic_points: int
 var _EXP: int = 0
 var _level: int = 1
 
-# other:
 var _selection_index := 0
 var _skill_to_perform: Skill
 var _dead_allies: Array[AllyBattler]
-
-func set_up_skills(skills: Array[Skill]) -> void:
-	for skill: Skill in skills:
-		var button := Button.new()
-		button.text = skill.name
-		skills_container.add_child(button)
-		var label := Label.new()
-		label.text = "%d MP" % skill.magic_points_cost
-		skills_container.add_child(label)
-		button.pressed.connect(func():
-			if _magic_points < skill.magic_points_cost:
-				%ErrorSound.play()
-				return
-			_skill_to_perform = skill
-			skills_menu.hide()
-			ui.hide()
-			finished_deciding_action.emit()
-		)
-	skills_container.add_child(Control.new())
-	var back_button := Button.new()
-	back_button.text = "return"
-	back_button.pressed.connect(func():
-		skills_menu.hide()
-		buttons.show()
-		skills_button.grab_focus()
-	)
-	skills_container.add_child(back_button)
+var area_of_effect: SkillSelectionArea
 
 func _ready() -> void:
 	super._ready()
@@ -70,8 +44,45 @@ func _ready() -> void:
 	experience_bar.value = _EXP
 	magic_bar.max_value = _max_magic_points
 	set_magic_points(_max_magic_points)
-	set_up_skills(_skills)
-	print(_magic_points)
+	
+	# Set up skills:
+	for skill: Skill in _skills:
+		var button := Button.new()
+		button.text = skill.name
+		skills_container.add_child(button)
+		var label := Label.new()
+		label.text = "%d MP" % skill.magic_points_cost
+		skills_container.add_child(label)
+		button.pressed.connect(func():
+			if _magic_points < skill.magic_points_cost:
+				%ErrorSound.play()
+				return
+			if skill.selection_type == Skill.SelectionType.NONE:
+				_skill_to_perform = skill
+				skills_menu.hide()
+				ui.hide()
+				finished_deciding_action.emit()
+				return
+			_is_selecting = true
+			_is_selecting_skill = true
+			ui.hide()
+			_selection_index = 0
+			var area: SkillSelectionArea = skill.area_of_effect.instantiate()
+			add_child(area)
+			area_of_effect = area
+			area.global_position = self.global_position
+		)
+	
+	# Back button for skill menu:
+	skills_container.add_child(Control.new())
+	var back_button := Button.new()
+	back_button.text = "return"
+	back_button.pressed.connect(func():
+		skills_menu.hide()
+		buttons.show()
+		skills_button.grab_focus()
+	)
+	skills_container.add_child(back_button)
 
 func decide_action() -> void:
 	update_battlers_arrays()

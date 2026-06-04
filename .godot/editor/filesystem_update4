@@ -1,8 +1,7 @@
-res://player_battler/ally_battler.gd
-res://player_battler/ally_battler.tscn
+res://battle/battle.tscn
 res://skills/shuriken.tres
-res://skills/kunai.tres
 res://skills/weak_heal.tres
+res://skills/kunai.tres
 res://battler_data/allies/ninja_green_data.tres
 res://battler_data/allies/ninja_blue_data.tres
 res://battler_data/allies/ninja_yellow_data.tres
@@ -14,7 +13,6 @@ res://npc_data/mask_green.tres
 res://battler_data/enemies/slime_data.tres
 res://battler/battler.tscn
 res://game/game.tscn
-res://game/game.gd
-res://enemy_battler/enemy_battler.tscn
-res://enemy_battler/enemy_battler.gd
+res://player_battler/ally_battler.tscn
+res://player_battler/ally_battler.gd
 res://battler/battler.gd

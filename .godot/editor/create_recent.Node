@@ -1,6 +1,10 @@
-AnimationPlayer
-Sprite2D
+CollisionShape2D
+Area2D
 Node2D
+Sprite2D
+CanvasLayer
+ProgressBar
+AnimationPlayer
 Marker2D
 AudioStreamPlayer
 Label
@@ -8,7 +12,3 @@ TextureRect
 AnimatedSprite2D
 HBoxContainer
 VBoxContainer
-Timer
-Control
-CanvasLayer
-MarginContainer

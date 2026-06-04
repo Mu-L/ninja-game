@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d0eassyffx1wr"]
+
+[ext_resource type="Script" uid="uid://b6xwm0vmnwmlp" path="res://skill_selection_area/shape_drawing.gd" id="2_biy53"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7qtug"]
+
+[node name="SkillSelectionArea" type="Area2D" unique_id=126199509]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1862460091]
+shape = SubResource("SegmentShape2D_7qtug")
+
+[node name="ShapeDrawing" type="Node2D" parent="." unique_id=1192983745 node_paths=PackedStringArray("collision_shape_2d", "area_of_effect")]
+script = ExtResource("2_biy53")
+collision_shape_2d = NodePath("../CollisionShape2D")
+area_of_effect = NodePath("..")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,14 +1,14 @@
+Node2D
+Line2D
+QuickTimeEvent
 VBoxContainer
 Sprite2D
 CollisionShape2D
 Area2D
 CanvasLayer
 Label
-Node2D
 ProgressBar
 AnimationPlayer
 Marker2D
 AudioStreamPlayer
 TextureRect
-AnimatedSprite2D
-HBoxContainer

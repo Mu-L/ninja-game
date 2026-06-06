@@ -1,15 +1,16 @@
+res://quick_time_events/kunai/
+res://quick_time_events/sword_stab/
 res://battler/
+res://quick_time_events/spin_attack/
+res://quick_time_events/base_class/
+res://skills/
 res://battle/
 res://enemy_battler/
 res://ally_battler/
 res://skill_selection_area/
-res://quick_time_events/kunai/
-res://quick_time_events/spin_attack/
 res://quick_time_events/
 res://rooms/
 res://game/
-res://skills/
-res://quick_time_events/base_class/
 res://overworld/
 res://Ninja Adventure - Asset Pack/Actor/Monsters/Axolot/
 res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/SeparateAnim/
@@ -19,5 +20,4 @@ res://enemy/
 res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaYellow/
 res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/
 res://battler_data/allies/
-res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaBlue2/
 C:/Users/Samir/Desktop/

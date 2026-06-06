@@ -3,12 +3,10 @@ extends QuickTimeEvent
 @onready var progress_bar: ProgressBar = %ProgressBar
 var actions: PackedStringArray = ["move up", "move right", "move down", "move left"]
 var i := 0
-var ally: AllyBattler
 
 func start(ally: AllyBattler) -> void:
 	await ally.move_to(ally.get_main_target_battler().global_position - Vector2(25,0))
-	started = true
-	self.ally = ally
+	super.start(ally)
 
 func _process(_delta: float) -> void:
 	if not started:
@@ -27,5 +25,5 @@ func _process(_delta: float) -> void:
 		for enemy in ally.targets:
 			enemy.take_damage(50)
 		await get_tree().create_timer(0.1).timeout
-		await ally.move_to(ally._starting_pos)
+		await ally.move_to(ally_starting_pos)
 		finished.emit()

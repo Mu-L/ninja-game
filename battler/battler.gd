@@ -1,8 +1,8 @@
 @abstract
 class_name Battler extends Area2D
 
-signal died
 signal finished_turn
+signal died
 
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 @onready var health_bar: ProgressBar = %HealthBar
@@ -11,6 +11,7 @@ signal finished_turn
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var selection_arrow_animation_player: AnimationPlayer = %SelectionArrowAnimationPlayer
 @onready var selection_arrow: Sprite2D = %SelectionArrow
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 enum ActionType {ATTACK, SKILL}
 var action_to_perform: ActionType
@@ -79,13 +80,16 @@ func play_turn() -> void
 
 func die() -> void:
 	is_alive = false
+	died.emit()
 
 func take_damage(amount: int) -> void:
-	%HurtSound.play()
-	%AnimationPlayer.play("hurt")
 	set_health(_health - amount)
-	await bounce_number_label(amount)
-	if _health <= 0:
+	%HurtSound.play()
+	bounce_number_label(amount)
+	if _health > 0:
+		animation_player.play("hurt")
+		await animation_player.animation_finished
+	else:
 		die()
 
 func heal(amount: int) -> void:

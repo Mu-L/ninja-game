@@ -60,7 +60,6 @@ func start() -> void:
 	battle_camera.make_current()
 	text_box.hide()
 	while not is_battle_finished():
-		await get_tree().create_timer(0.1).timeout
 		for battler: Battler in battlers.get_children():
 			if not battler.is_alive:
 				continue

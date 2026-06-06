@@ -1,7 +1,6 @@
 class_name AllyBattler extends Battler
 
 @onready var ui: CanvasLayer = $UI
-@onready var attack_button: Button = %AttackButton
 @onready var skill_animation: AnimatedSprite2D = %SkillAnimation
 @onready var experience_bar: ProgressBar = %ExperienceBar
 @onready var level_up_manager: LevelUpManager = %LevelUpManager
@@ -10,7 +9,7 @@ class_name AllyBattler extends Battler
 @onready var skills_menu: PanelContainer = %SkillsMenu
 @onready var skills_container: GridContainer = %SkillsContainer
 @onready var skills_button: Button = %SkillsButton
-@onready var attack_animation_player: AnimationPlayer = %AttackAnimationPlayer
+@onready var sword: Sprite2D = %Sword
 
 enum SelectionType {SINGLE_ENEMY, ALL_ENEMIES, ALL_ALLIES, SINGLE_LIVING_ALLY, SINGLE_DEAD_ALLY}
 const NO_SELECTION: Array[SelectionType] = [
@@ -24,7 +23,6 @@ const ENEMY_SELECTION: Array[SelectionType] = [
 ]
 
 # flags:
-var _is_attacking := false
 var _is_selecting := false
 
 # stats:
@@ -40,13 +38,11 @@ var _skill_to_perform: Skill
 var _dead_allies: Array[AllyBattler]
 var skill_selection_area: SkillSelectionArea
 var _selection_type: SelectionType
-
 var targets: Array[Battler] = []
 
 func _ready() -> void:
 	super._ready()
 	ui.hide()
-	$AttackBar.hide()
 	experience_bar.hide()
 	skills_menu.hide()
 	animated_sprite_2d.play("idle right")
@@ -78,12 +74,13 @@ func _ready() -> void:
 			skills_menu.hide()
 			ui.hide()
 			_selection_index = 0
-			var area: SkillSelectionArea = skill.selection_area.instantiate()
-			add_child(area)
-			skill_selection_area = area
 			var target := get_main_target_battler()
 			target.play_selection_animation()
-			skill_selection_area.highlight_target(self, target)
+			if skill.selection_area:
+				var area: SkillSelectionArea = skill.selection_area.instantiate()
+				add_child(area)
+				skill_selection_area = area
+				skill_selection_area.highlight_target(self, target)
 		)
 	
 	# Back button for skill menu:
@@ -101,7 +98,7 @@ func play_turn() -> void:
 	update_battlers_arrays()
 	buttons.show()
 	ui.show()
-	attack_button.grab_focus()
+	skills_button.grab_focus()
 
 func get_main_target_battler() -> Battler:
 	match _selection_type:
@@ -111,29 +108,16 @@ func get_main_target_battler() -> Battler:
 			return _living_allies[_selection_index % _living_allies.size()]
 		SelectionType.SINGLE_DEAD_ALLY:
 			return _dead_allies[_selection_index % _dead_allies.size()]
-
+	
 	assert(false, "unhandled case")
 	# Dead code:
 	return null
 
 func perform_action() -> void:
 	await get_tree().create_timer(0.1).timeout
-	update_battlers_arrays()
 	hide_stat_bars()
 	_starting_pos = self.global_position
-	if action_to_perform == ActionType.ATTACK:
-		var enemy := get_main_target_battler()
-		Global.display_text.emit("Ninja Attacked the enemy")
-		await Global.textbox_closed
-		await move_to( enemy.global_position - Vector2(25, 0))
-		$AttackBar.show()
-		_is_attacking = true
-		attack_animation_player.speed_scale = randf_range(0.5, 1.25)
-		if randf() < 0.5:
-			attack_animation_player.play_backwards("attack")
-		else:
-			attack_animation_player.play("attack")
-	elif action_to_perform == ActionType.SKILL:
+	if action_to_perform == ActionType.SKILL:
 		Global.display_text.emit(_skill_to_perform.battle_text)
 		await Global.textbox_closed
 		var qte: QuickTimeEvent
@@ -141,35 +125,12 @@ func perform_action() -> void:
 		add_child(qte)
 		qte.start(self)
 		qte.finished.connect(func():
-			await get_tree().create_timer(0.5).timeout
 			qte.queue_free()
 			show_stat_bars()
 			finished_turn.emit()
 		)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and _is_attacking:
-		_is_attacking = false
-		animated_sprite_2d.play("attack right")
-		%Sword.show()
-		attack_animation_player.stop(true)
-		var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BOUNCE)
-		tween.tween_property(%AttackSlider, "scale", Vector2.ONE*1.5, 0.1)
-		tween.tween_property(%AttackSlider, "scale", Vector2.ONE, 0.25)
-		await tween.finished
-		
-		var distance_to_center: int = round(abs(%AttackSlider.position.x - 50))
-		var multiplier: float = (50.0 - distance_to_center) / 50.0
-		var damage: int = round(_strength * multiplier)
-		await get_main_target_battler().take_damage(damage)
-		
-		$AttackBar.hide()
-		animated_sprite_2d.play("idle right")
-		%Sword.hide()
-		await move_to(_starting_pos)
-		show_stat_bars()
-		finished_turn.emit()
-	
 	if _is_selecting:
 		if event.is_action_pressed("move down") or event.is_action_pressed("move right"):
 			get_main_target_battler().stop_selection_animation()
@@ -185,30 +146,10 @@ func _input(event: InputEvent) -> void:
 			if skill_selection_area:
 				targets = skill_selection_area.battlers.duplicate()
 				skill_selection_area.queue_free()
-			else:
-				action_to_perform = ActionType.ATTACK
-				_action_text = "Green Ninja slashed the enemy !"
 			ui.hide()
 			perform_action()
 		if skill_selection_area:
 			skill_selection_area.highlight_target(self, get_main_target_battler())
-
-func _on_attack_button_pressed() -> void:
-	buttons.hide()
-	_is_selecting = true
-	_selection_index = 0
-	get_main_target_battler().play_selection_animation()
-
-func _on_attack_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "attack":
-		_is_attacking = false
-		$AttackBar.hide()
-		await missed_effect(get_main_target_battler().global_position)
-		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(self, "global_position", _starting_pos, 0.5)
-		await tween.finished
-		show_stat_bars()
-		finished_turn.emit()
 
 func _on_skills_button_pressed() -> void:
 	if _magic_points <= 0 or _skills.is_empty():
@@ -273,10 +214,6 @@ func hide_stat_bars() -> void:
 	super.hide_stat_bars()
 	magic_bar.hide()
 
-func die() -> void:
-	super.die()
-	died.emit()
-
 func update_battlers_arrays() -> void:
 	super.update_battlers_arrays()
 	_dead_allies = []
@@ -285,3 +222,7 @@ func update_battlers_arrays() -> void:
 		if ally is AllyBattler:
 			if not ally.is_alive:
 				_dead_allies.append(ally)
+
+func die() -> void:
+	super.die()
+	self.modulate.a = 0.5

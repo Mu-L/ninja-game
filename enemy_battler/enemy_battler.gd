@@ -1,7 +1,5 @@
 class_name EnemyBattler extends Battler
 
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-
 func _ready() -> void:
 	super._ready()
 	animated_sprite_2d.play("idle left")
@@ -34,6 +32,5 @@ func play_turn() -> void:
 
 func die() -> void:
 	super.die()
-	self.hide()
-	died.emit()
-	collision_shape_2d.disabled = true
+	collision_shape_2d.set_deferred("disabled", true)
+	create_tween().tween_property(self, "modulate:a", 0.0, 0.5)

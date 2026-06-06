@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cx4rfuokxq10k" path="res://quick_time_events/kunai/cursor.gd" id="1_33n1q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ru6na"]
+radius = 5.0
 
 [node name="Cursor" type="Area2D" unique_id=1174687845]
 z_index = 1

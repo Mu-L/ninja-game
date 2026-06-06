@@ -242,6 +242,7 @@ animations = [{
 [resource]
 script = ExtResource("1_e24ek")
 skills = Array[ExtResource("2_tmdsl")]([ExtResource("3_e24ek"), ExtResource("4_tmdsl")])
+strength = 100
 name = "Green Ninja"
 sprite_frames = SubResource("SpriteFrames_g6k8r")
 metadata/_custom_type_script = "uid://7qx50intwyfe"

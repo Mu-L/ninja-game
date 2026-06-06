@@ -5,6 +5,7 @@
 [ext_resource type="Animation" uid="uid://7wbax7rpn4ah" path="res://ally_battler/blink.res" id="2_e27bp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mwqo"]
+radius = 7.0
 
 [sub_resource type="Animation" id="Animation_1wwld"]
 length = 0.001
@@ -103,14 +104,19 @@ libraries/ = SubResource("AnimationLibrary_f17ml")
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_523i3")
 
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=1773053405]
+[node name="StatBox" type="VBoxContainer" parent="." unique_id=164885233]
+custom_minimum_size = Vector2(15, 0)
+offset_left = -10.0
+offset_top = 8.0
+offset_right = 10.0
+offset_bottom = 12.0
+theme_override_constants/separation = 1
+
+[node name="HealthBar" type="ProgressBar" parent="StatBox" unique_id=1773053405]
 unique_name_in_owner = true
 modulate = Color(1, 0, 0, 1)
-custom_minimum_size = Vector2(50, 10)
-offset_left = -19.0
-offset_top = 15.0
-offset_right = 31.0
-offset_bottom = 25.0
+custom_minimum_size = Vector2(20, 1)
+layout_mode = 2
 value = 100.0
 show_percentage = false
 
@@ -124,7 +130,6 @@ offset_bottom = 55.0
 text = "100"
 
 [node name="HPLabel" type="Label" parent="." unique_id=1568770917]
-visible = false
 offset_left = -14.0
 offset_top = -42.0
 offset_right = 26.0

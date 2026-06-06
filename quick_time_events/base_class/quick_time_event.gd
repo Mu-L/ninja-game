@@ -1,7 +1,7 @@
 @abstract
 class_name QuickTimeEvent extends Node2D
 
-signal finished(result: Dictionary[Battler, int])
+signal finished
 
 var started: bool = false
 

@@ -1,7 +1,8 @@
 @abstract
 class_name Battler extends Area2D
 
-signal finished_performing_action
+signal died
+signal finished_turn
 
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 @onready var health_bar: ProgressBar = %HealthBar
@@ -74,7 +75,7 @@ func _ready() -> void:
 	set_health(_max_health)
 
 @abstract
-func perform_action() -> void
+func play_turn() -> void
 
 func die() -> void:
 	is_alive = false

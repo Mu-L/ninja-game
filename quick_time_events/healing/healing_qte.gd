@@ -9,7 +9,7 @@ extends QuickTimeEvent
 func _ready() -> void:
 	progress_bar.value = 0
 
-func start() -> void:
+func start(ally) -> void:
 	started = true
 	timer.start(qte_duration)
 

@@ -1,12 +1,12 @@
 class_name EnemyBattler extends Battler
 
-signal died
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
 	super._ready()
 	animated_sprite_2d.play("idle left")
 
-func perform_action() -> void:
+func play_turn() -> void:
 	update_battlers_arrays()
 	action_to_perform = ActionType.ATTACK
 	_action_text = "%s attacked green ninja!" % battler_name
@@ -30,10 +30,10 @@ func perform_action() -> void:
 		tween.tween_property(self, "global_position", _starting_pos, 0.5)
 		await tween.finished
 		health_bar.show()
-		finished_performing_action.emit()
+		finished_turn.emit()
 
 func die() -> void:
 	super.die()
 	self.hide()
 	died.emit()
-	print("enemy died")
+	collision_shape_2d.disabled = true

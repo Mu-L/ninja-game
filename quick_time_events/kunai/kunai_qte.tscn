@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_y8fgg"]
 [ext_resource type="Script" uid="uid://dwcor6k6n5iw1" path="res://quick_time_events/kunai/kunai_qte.gd" id="2_jwbtx"]
 [ext_resource type="PackedScene" uid="uid://86kq0xdg6ih6" path="res://quick_time_events/kunai/cursor.tscn" id="4_p221v"]
+[ext_resource type="Texture2D" uid="uid://dxmspdye24xrw" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai.png" id="5_70ljc"]
 [ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="5_p221v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33dld"]
@@ -30,6 +31,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_p221v"]
 radius = 11.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p221v"]
+radius = 3.0
+height = 14.0
+
 [node name="KunaiQTE" unique_id=1593403207 instance=ExtResource("1_y8fgg")]
 script = ExtResource("2_jwbtx")
 
@@ -45,3 +50,15 @@ autoplay = "default"
 
 [node name="SuccessShape" type="CollisionShape2D" parent="SuccessArea" index="0" unique_id=2049954741]
 shape = SubResource("CircleShape2D_p221v")
+
+[node name="Kunai" type="Area2D" parent="." index="3" unique_id=1555254043]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kunai" index="0" unique_id=688793532]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_p221v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Kunai" index="1" unique_id=1726905246]
+texture = ExtResource("5_70ljc")
+
+[connection signal="area_entered" from="Kunai" to="." method="_on_kunai_area_entered"]

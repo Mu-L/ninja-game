@@ -62,16 +62,10 @@ func start() -> void:
 	while not is_battle_finished():
 		await get_tree().create_timer(0.1).timeout
 		for battler: Battler in battlers.get_children():
-			if battler is AllyBattler:
-				battler.decide_action()
-				await battler.finished_deciding_action
-				await get_tree().create_timer(0.1).timeout
-	
-		for battler: Battler in battlers.get_children():
 			if not battler.is_alive:
 				continue
-			battler.perform_action()
-			await battler.finished_performing_action
+			battler.play_turn()
+			await battler.finished_turn
 			if is_battle_finished():
 				break
 	finish_battle()

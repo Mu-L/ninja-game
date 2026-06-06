@@ -7,12 +7,14 @@ signal finished_performing_action
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var number_label: Label = %NumberLabel
 @onready var hp_label: Label = $HPLabel
-@onready var selection_indicator_animation_player: AnimationPlayer = %SelectionIndicatorAnimationPlayer
-@onready var selection_arrow: Sprite2D = %SelectionArrow
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var selection_arrow_animation_player: AnimationPlayer = %SelectionArrowAnimationPlayer
+@onready var selection_arrow: Sprite2D = %SelectionArrow
+
+enum ActionType {ATTACK, SKILL}
+var action_to_perform: ActionType
 
 @warning_ignore_start("unused_private_class_variable")
-var _action_name: String
 var _action_text: String
 
 # stats:
@@ -79,7 +81,7 @@ func die() -> void:
 
 func take_damage(amount: int) -> void:
 	%HurtSound.play()
-	%HurtAnimationPlayer.play("hurt")
+	%AnimationPlayer.play("hurt")
 	set_health(_health - amount)
 	await bounce_number_label(amount)
 	if _health <= 0:
@@ -110,13 +112,17 @@ func show_stat_bars() -> void:
 func hide_stat_bars() -> void:
 	health_bar.hide()
 
+func play_blinking_animation() -> void:
+	animation_player.play("blink")
+
+func stop_blinking_animation() -> void:
+	animation_player.stop()
+
 func play_selection_animation() -> void:
-	selection_indicator_animation_player.play("select")
 	selection_arrow.show()
 	selection_arrow_animation_player.play("select")
 
 func stop_selection_animation() -> void:
-	selection_indicator_animation_player.stop()
 	selection_arrow.hide()
 	selection_arrow_animation_player.stop()
 
@@ -133,3 +139,8 @@ func update_battlers_arrays() -> void:
 				_enemies.append(battler)
 		else:
 			assert(false, "invalid case...")
+
+func move_to(pos: Vector2) -> void:
+	var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "global_position", pos, 0.5)
+	await tween.finished

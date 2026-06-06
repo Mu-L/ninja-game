@@ -8,9 +8,9 @@ func _ready() -> void:
 
 func perform_action() -> void:
 	update_battlers_arrays()
-	_action_name = "attack"
+	action_to_perform = ActionType.ATTACK
 	_action_text = "%s attacked green ninja!" % battler_name
-	if _action_name == "attack":
+	if action_to_perform == ActionType.ATTACK:
 		var ally: AllyBattler = _living_allies.pick_random()
 		Global.display_text.emit(_action_text)
 		await Global.textbox_closed
@@ -36,3 +36,4 @@ func die() -> void:
 	super.die()
 	self.hide()
 	died.emit()
+	print("enemy died")

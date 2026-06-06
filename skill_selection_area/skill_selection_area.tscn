@@ -1,18 +1,26 @@
 [gd_scene format=3 uid="uid://d0eassyffx1wr"]
 
-[ext_resource type="Script" uid="uid://b6xwm0vmnwmlp" path="res://skill_selection_area/shape_drawing.gd" id="2_biy53"]
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_7qtug"]
-
 [node name="SkillSelectionArea" type="Area2D" unique_id=126199509]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1862460091]
-shape = SubResource("SegmentShape2D_7qtug")
 
-[node name="ShapeDrawing" type="Node2D" parent="." unique_id=1192983745 node_paths=PackedStringArray("collision_shape_2d", "area_of_effect")]
-script = ExtResource("2_biy53")
-collision_shape_2d = NodePath("../CollisionShape2D")
-area_of_effect = NodePath("..")
+[node name="ShapeDrawing" type="Node2D" parent="." unique_id=1192983745]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=194900804]
+
+[node name="DebugLabel" type="Label" parent="CanvasLayer" unique_id=1415241336]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -5.5
+offset_right = 20.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

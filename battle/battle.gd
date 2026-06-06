@@ -54,7 +54,7 @@ func start() -> void:
 			enemy.global_position = enemy_spawn_circle.global_position
 		else:
 			var step := 360.0 / enemies_data.size()
-			enemy_spawn_circle.rotation_degrees += step * i
+			enemy_spawn_circle.rotation_degrees = step * i
 			enemy.global_position = enemy_spawn_point.global_position
 	
 	battle_camera.make_current()

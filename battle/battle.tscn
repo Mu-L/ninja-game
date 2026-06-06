@@ -67,4 +67,4 @@ position = Vector2(250, 90)
 
 [node name="EnemySpawnPoint" type="Marker2D" parent="SpawnCircles/EnemySpawnCircle" unique_id=1627184067]
 unique_name_in_owner = true
-position = Vector2(40, 0)
+position = Vector2(20, 0)

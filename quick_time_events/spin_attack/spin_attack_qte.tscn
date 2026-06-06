@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bacn4iqqrwrj7"]
+
+[ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_sfw61"]
+[ext_resource type="Script" uid="uid://cdvqiybo0a55y" path="res://quick_time_events/spin_attack/spin_attack_qte.gd" id="2_06g2p"]
+
+[node name="SpinAttackQTE" unique_id=1593403207 instance=ExtResource("1_sfw61")]
+script = ExtResource("2_06g2p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="0" unique_id=670362833]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" index="0" unique_id=1646063524]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -7.5
+offset_right = 100.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 50.0

@@ -15,10 +15,15 @@ signal died
 @onready var skills_button: Button = %SkillsButton
 @onready var attack_animation_player: AnimationPlayer = %AttackAnimationPlayer
 
+enum SelectionType {SINGLE_ENEMY, ALL_ENEMIES, ALL_ALLIES, SINGLE_LIVING_ALLY, SINGLE_DEAD_ALLY}
+const NO_SELECTION: Array[SelectionType] = [
+	SelectionType.ALL_ENEMIES,
+	SelectionType.ALL_ALLIES
+]
+
 # flags:
 var _is_attacking := false
 var _is_selecting := false
-var _is_selecting_skill := false
 
 # stats:
 var _max_magic_points: int = 25
@@ -31,7 +36,11 @@ var _level: int = 1
 var _selection_index := 0
 var _skill_to_perform: Skill
 var _dead_allies: Array[AllyBattler]
-var area_of_effect: SkillSelectionArea
+var skill_selection_area: SkillSelectionArea
+var _selection_type: SelectionType
+
+var target: Battler
+var targets: Array[Battler] = []
 
 func _ready() -> void:
 	super._ready()
@@ -57,20 +66,22 @@ func _ready() -> void:
 			if _magic_points < skill.magic_points_cost:
 				%ErrorSound.play()
 				return
-			if skill.selection_type == Skill.SelectionType.NONE:
-				_skill_to_perform = skill
+			_skill_to_perform = skill
+			if skill.selection_type in NO_SELECTION:
 				skills_menu.hide()
 				ui.hide()
 				finished_deciding_action.emit()
 				return
 			_is_selecting = true
-			_is_selecting_skill = true
+			_selection_type = skill.selection_type
 			ui.hide()
 			_selection_index = 0
-			var area: SkillSelectionArea = skill.area_of_effect.instantiate()
+			var area: SkillSelectionArea = skill.selection_area.instantiate()
 			add_child(area)
-			area_of_effect = area
-			area.global_position = self.global_position
+			skill_selection_area = area
+			var target := get_target_battler()
+			target.play_selection_animation()
+			skill_selection_area.highlight_target(self, target)
 		)
 	
 	# Back button for skill menu:
@@ -90,25 +101,30 @@ func decide_action() -> void:
 	ui.show()
 	attack_button.grab_focus()
 
-func get_target_enemy() -> EnemyBattler:
-	var enemy := _enemies[_selection_index % _enemies.size()]
-	while not is_instance_valid(enemy):
+func get_target_battler() -> Battler:
+	var arr: Array
+	match _selection_type:
+		SelectionType.SINGLE_ENEMY:
+			arr = _enemies
+		SelectionType.SINGLE_LIVING_ALLY:
+			arr = _living_allies
+		SelectionType.SINGLE_DEAD_ALLY:
+			arr = _dead_allies
+	var battler: Battler = arr[_selection_index % arr.size()]
+	while not is_instance_valid(battler):
 		_selection_index += 1
-		enemy = _enemies[_selection_index % _enemies.size()]
-	return enemy
+		battler = arr[_selection_index % arr.size()]
+	return battler
 
 func perform_action() -> void:
 	update_battlers_arrays()
 	hide_stat_bars()
-	if _action_name == "attack":
-		var enemy := get_target_enemy()
+	_starting_pos = self.global_position
+	if action_to_perform == ActionType.ATTACK:
+		var enemy := get_target_battler()
 		Global.display_text.emit("Ninja Attacked the enemy")
 		await Global.textbox_closed
-		_starting_pos = self.global_position
-		var final_pos := enemy.global_position - Vector2(25, 0)
-		var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(self, "global_position", final_pos, 0.5)
-		await tween.finished
+		await move_to( enemy.global_position - Vector2(25, 0))
 		$AttackBar.show()
 		_is_attacking = true
 		attack_animation_player.speed_scale = randf_range(0.5, 1.25)
@@ -116,13 +132,26 @@ func perform_action() -> void:
 			attack_animation_player.play_backwards("attack")
 		else:
 			attack_animation_player.play("attack")
-	elif _action_name == "skill":
-		if _skill_to_perform is HealingSkill:
-			perform_skill_action(self)
-		elif _skill_to_perform is OffensiveSkill:
-			perform_skill_action(get_target_enemy())
-		else:
-			assert(false, "no match")
+	elif action_to_perform == ActionType.SKILL:
+		Global.display_text.emit(_skill_to_perform.battle_text)
+		await Global.textbox_closed
+		var qte: QuickTimeEvent
+		qte = _skill_to_perform.quick_time_event.instantiate()
+		add_child(qte)
+		qte.start(self)
+		qte.finished.connect(func(result: Dictionary[Battler,int]):
+			for battler in result:
+				for i in range(result[battler]):
+					if _skill_to_perform is OffensiveSkill:
+						await battler.take_damage(_skill_to_perform.strength)
+					elif _skill_to_perform is HealingSkill:
+						await battler.heal(_skill_to_perform.heal_amount)
+					await get_tree().create_timer(0.1).timeout
+					if not battler.is_alive:
+						break
+			qte.queue_free()
+			finished_performing_action.emit()
+		)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and _is_attacking:
@@ -138,45 +167,50 @@ func _input(event: InputEvent) -> void:
 		var distance_to_center: int = round(abs(%AttackSlider.position.x - 50))
 		var multiplier: float = (50.0 - distance_to_center) / 50.0
 		var damage: int = round(_strength * multiplier)
-		await get_target_enemy().take_damage(damage)
+		await get_target_battler().take_damage(damage)
 		
 		$AttackBar.hide()
 		animated_sprite_2d.play("idle right")
 		%Sword.hide()
-		tween = create_tween().set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(self, "global_position", _starting_pos, 0.5)
-		await tween.finished
+		await move_to(_starting_pos)
 		show_stat_bars()
 		finished_performing_action.emit()
 	
 	if _is_selecting:
 		if event.is_action_pressed("move down") or event.is_action_pressed("move right"):
-			get_target_enemy().stop_selection_animation()
+			get_target_battler().stop_selection_animation()
 			_selection_index += 1
-			get_target_enemy().play_selection_animation()
+			get_target_battler().play_selection_animation()
 		elif event.is_action_pressed("move up") or event.is_action_pressed("move left"):
-			get_target_enemy().stop_selection_animation()
+			get_target_battler().stop_selection_animation()
 			_selection_index -= 1
-			get_target_enemy().play_selection_animation()
+			get_target_battler().play_selection_animation()
 		elif event.is_action_pressed("interact"):
+			get_target_battler().stop_selection_animation()
 			_is_selecting = false
-			get_target_enemy().stop_selection_animation()
-			_action_name = "attack"
-			_action_text = "Green Ninja slashed the enemy !"
+			if skill_selection_area:
+				targets = skill_selection_area.battlers.duplicate()
+				target = get_target_battler()
+				skill_selection_area.queue_free()
+			else:
+				_action_text = "Green Ninja slashed the enemy !"
 			ui.hide()
 			finished_deciding_action.emit()
+		if skill_selection_area:
+			skill_selection_area.highlight_target(self, get_target_battler())
 
 func _on_attack_button_pressed() -> void:
 	buttons.hide()
 	_is_selecting = true
+	action_to_perform = ActionType.ATTACK
 	_selection_index = 0
-	get_target_enemy().play_selection_animation()
+	get_target_battler().play_selection_animation()
 
 func _on_attack_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
 		_is_attacking = false
 		$AttackBar.hide()
-		await missed_effect(get_target_enemy().global_position)
+		await missed_effect(get_target_battler().global_position)
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", _starting_pos, 0.5)
 		await tween.finished
@@ -187,7 +221,7 @@ func _on_skills_button_pressed() -> void:
 	if _magic_points <= 0 or _skills.is_empty():
 		%ErrorSound.play()
 		return
-	_action_name = "skill"
+	action_to_perform = ActionType.SKILL
 	buttons.hide()
 	skills_menu.show()
 	(skills_container.get_child(0) as Control).grab_focus()
@@ -245,7 +279,7 @@ func perform_skill_action(target: Battler) -> void:
 	add_child(qte)
 	qte.global_position = target.global_position
 	target.hide_stat_bars()
-	qte.start()
+	qte.start(self)
 	qte.finished.connect(func(success: bool):
 		if success:
 			skill_animation.sprite_frames = _skill_to_perform.animation
@@ -257,7 +291,7 @@ func perform_skill_action(target: Battler) -> void:
 			skill_animation.hide()
 			target.show_stat_bars()
 			if _skill_to_perform is OffensiveSkill:
-				await get_target_enemy().take_damage(_strength + _skill_to_perform.strength)
+				await get_target_battler().take_damage(_strength + _skill_to_perform.strength)
 			elif _skill_to_perform is HealingSkill:
 				await self.heal(_skill_to_perform.heal_amount)
 			await get_tree().create_timer(0.1).timeout

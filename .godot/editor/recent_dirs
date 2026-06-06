@@ -1,8 +1,18 @@
 res://skill_selection_area/
+res://quick_time_events/
+res://rooms/
+res://ally_battler/
+res://quick_time_events/spin_attack/
+res://enemy_battler/
+res://game/
+res://battle/
+res://skills/
+res://quick_time_events/base_class/
+res://overworld/
+res://Ninja Adventure - Asset Pack/Actor/Monsters/Axolot/
 res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/SeparateAnim/
 res://
 res://player/
-res://game/
 res://enemy/
 res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaYellow/
 res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/
@@ -10,14 +20,4 @@ res://battler_data/allies/
 res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaBlue2/
 res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime2/
 res://battler_data/enemies/
-res://resource_classes/
 C:/Users/Samir/Desktop/
-res://player_battler/
-res://quick_time_events/shuriken/
-res://quick_time_events/kunai/
-res://Ninja Adventure - Asset Pack/Actor/Characters/MaskFrog/
-res://npc_data/
-res://battle/
-res://overworld/
-res://dialogue_box/
-res://battler/

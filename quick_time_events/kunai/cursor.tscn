@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://86kq0xdg6ih6"]
+
+[ext_resource type="Script" uid="uid://cx4rfuokxq10k" path="res://quick_time_events/kunai/cursor.gd" id="1_33n1q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ru6na"]
+
+[node name="Cursor" type="Area2D" unique_id=1174687845]
+z_index = 1
+script = ExtResource("1_33n1q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1956470986]
+shape = SubResource("CircleShape2D_ru6na")

@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 @export var cursor_size: int = 7
 @export var thickness: int = 3

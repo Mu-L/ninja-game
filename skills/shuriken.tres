@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d0cxuk4t6o6fx" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Shuriken/SpriteSheet.png" id="1_5y727"]
 [ext_resource type="Script" uid="uid://urex30mn1ce7" path="res://resource_classes/offensive_skill.gd" id="1_mnhxg"]
 [ext_resource type="PackedScene" uid="uid://co42xroj8vtds" path="res://quick_time_events/shuriken/shuriken_qte.tscn" id="2_1s0p5"]
+[ext_resource type="PackedScene" uid="uid://c8np1wvc1jkap" path="res://skill_selection_area/circle_selection_area.tscn" id="4_hca4k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_81gny"]
 atlas = ExtResource("1_5y727")
@@ -90,4 +91,5 @@ battle_text = "Ninja threw shurikens"
 magic_points_cost = 5
 animation = SubResource("SpriteFrames_okrur")
 quick_time_event = ExtResource("2_1s0p5")
+selection_area = ExtResource("4_hca4k")
 metadata/_custom_type_script = "uid://urex30mn1ce7"

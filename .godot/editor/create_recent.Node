@@ -1,13 +1,13 @@
 CollisionShape2D
 Area2D
+CanvasLayer
+Label
 Node2D
 Sprite2D
-CanvasLayer
 ProgressBar
 AnimationPlayer
 Marker2D
 AudioStreamPlayer
-Label
 TextureRect
 AnimatedSprite2D
 HBoxContainer

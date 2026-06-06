@@ -49,7 +49,7 @@ data = ExtResource("7_suwb7")
 
 [node name="Enemy" parent="Enemies" index="0" unique_id=1588866589 instance=ExtResource("5_6mom2")]
 position = Vector2(-62, -184)
-battle_data = Array[ExtResource("9_0v5my")]([ExtResource("8_7j5ef"), ExtResource("8_7j5ef")])
+battle_data = Array[ExtResource("9_0v5my")]([ExtResource("8_7j5ef"), ExtResource("8_7j5ef"), ExtResource("8_7j5ef"), ExtResource("8_7j5ef"), ExtResource("8_7j5ef")])
 
 [node name="Enemy2" parent="Enemies" index="1" unique_id=1565068812 instance=ExtResource("5_6mom2")]
 position = Vector2(-35, -298)

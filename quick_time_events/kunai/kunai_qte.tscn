@@ -2,49 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_y8fgg"]
 [ext_resource type="Script" uid="uid://dwcor6k6n5iw1" path="res://quick_time_events/kunai/kunai_qte.gd" id="2_jwbtx"]
-[ext_resource type="Texture2D" uid="uid://dxmspdye24xrw" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai.png" id="3_3fnvl"]
-[ext_resource type="Script" uid="uid://cx4rfuokxq10k" path="res://quick_time_events/kunai/cursor.gd" id="4_upv07"]
+[ext_resource type="PackedScene" uid="uid://86kq0xdg6ih6" path="res://quick_time_events/kunai/cursor.tscn" id="4_p221v"]
 [ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="5_p221v"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fnvl"]
-size = Vector2(20, 8)
-
-[sub_resource type="Animation" id="Animation_upv07"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Kunai:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -30)]
-}
-
-[sub_resource type="Animation" id="Animation_3fnvl"]
-resource_name = "move"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Kunai:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-50, -20), Vector2(-50, 20)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_upv07"]
-_data = {
-&"RESET": SubResource("Animation_upv07"),
-&"move": SubResource("Animation_3fnvl")
-}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33dld"]
 atlas = ExtResource("5_p221v")
@@ -68,28 +27,21 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_p221v"]
+radius = 11.0
+
 [node name="KunaiQTE" unique_id=1593403207 instance=ExtResource("1_y8fgg")]
 script = ExtResource("2_jwbtx")
 
-[node name="Kunai" type="Area2D" parent="." index="0" unique_id=1220032484]
-unique_name_in_owner = true
-position = Vector2(0, -30)
+[node name="Cursor" parent="." index="0" unique_id=1659896821 instance=ExtResource("4_p221v")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Kunai" index="0" unique_id=1998143014]
-texture = ExtResource("3_3fnvl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kunai" index="1" unique_id=1145880198]
-shape = SubResource("RectangleShape2D_3fnvl")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=278220752]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_upv07")
-
-[node name="Cursor" type="Node2D" parent="." index="2" unique_id=800510884]
-z_index = 1
-script = ExtResource("4_upv07")
-
-[node name="ButtonPrompt" type="AnimatedSprite2D" parent="." index="3" unique_id=2043534128]
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="." index="1" unique_id=2043534128]
+visible = false
 position = Vector2(-72, -1)
 sprite_frames = SubResource("SpriteFrames_70ljc")
 autoplay = "default"
+
+[node name="SuccessArea" type="Area2D" parent="." index="2" unique_id=1940333359]
+
+[node name="SuccessShape" type="CollisionShape2D" parent="SuccessArea" index="0" unique_id=2049954741]
+shape = SubResource("CircleShape2D_p221v")

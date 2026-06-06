@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cu4kpttnq8dxt"]
+
+[ext_resource type="PackedScene" uid="uid://d0eassyffx1wr" path="res://skill_selection_area/skill_selection_area.tscn" id="1_we7m2"]
+[ext_resource type="Script" uid="uid://ctcydr8degaa5" path="res://skill_selection_area/line_selection_area.gd" id="2_dxm2t"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dxm2t"]
+
+[node name="LineSelectionArea" unique_id=126199509 instance=ExtResource("1_we7m2")]
+script = ExtResource("2_dxm2t")
+target_type = 1
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1862460091]
+shape = SubResource("SegmentShape2D_dxm2t")
+
+[node name="DebugLabel" parent="CanvasLayer" parent_id_path=PackedInt32Array(194900804) index="0" unique_id=1415241336]
+text = "dfdf"

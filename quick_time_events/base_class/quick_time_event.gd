@@ -1,9 +1,9 @@
 @abstract
 class_name QuickTimeEvent extends Node2D
 
-signal finished(success: bool)
+signal finished(result: Dictionary[Battler, int])
 
 var started: bool = false
 
 @abstract
-func start() -> void
+func start(ally: AllyBattler) -> void

@@ -75,7 +75,8 @@ func _ready() -> void:
 			ui.hide()
 			_selection_index = 0
 			var target := get_main_target_battler()
-			target.play_selection_animation()
+			Global.set_cursor_visible.emit(true)
+			Global.move_cursor_to.emit(target.global_position)
 			if skill.selection_area:
 				var area: SkillSelectionArea = skill.selection_area.instantiate()
 				add_child(area)
@@ -96,6 +97,8 @@ func _ready() -> void:
 
 func play_turn() -> void:
 	update_battlers_arrays()
+	Global.set_cursor_visible.emit(true)
+	Global.move_cursor_to.emit(self.global_position)
 	buttons.show()
 	ui.show()
 	skills_button.grab_focus()
@@ -133,15 +136,13 @@ func perform_action() -> void:
 func _input(event: InputEvent) -> void:
 	if _is_selecting:
 		if event.is_action_pressed("move down") or event.is_action_pressed("move right"):
-			get_main_target_battler().stop_selection_animation()
 			_selection_index += 1
-			get_main_target_battler().play_selection_animation()
+			Global.move_cursor_to.emit(get_main_target_battler().global_position)
 		elif event.is_action_pressed("move up") or event.is_action_pressed("move left"):
-			get_main_target_battler().stop_selection_animation()
 			_selection_index -= 1
-			get_main_target_battler().play_selection_animation()
+			Global.move_cursor_to.emit(get_main_target_battler().global_position)
 		elif event.is_action_pressed("interact"):
-			get_main_target_battler().stop_selection_animation()
+			Global.set_cursor_visible.emit(false)
 			_is_selecting = false
 			if skill_selection_area:
 				targets = skill_selection_area.battlers.duplicate()

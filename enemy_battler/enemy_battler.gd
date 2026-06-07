@@ -5,6 +5,8 @@ func _ready() -> void:
 	animated_sprite_2d.play("idle left")
 
 func play_turn() -> void:
+	Global.set_cursor_visible.emit(true)
+	Global.move_cursor_to.emit(self.global_position)
 	update_battlers_arrays()
 	action_to_perform = ActionType.ATTACK
 	_action_text = "%s attacked green ninja!" % battler_name
@@ -12,6 +14,7 @@ func play_turn() -> void:
 		var ally: AllyBattler = _living_allies.pick_random()
 		Global.display_text.emit(_action_text)
 		await Global.textbox_closed
+		Global.set_cursor_visible.emit(false)
 		health_bar.hide()
 		_starting_pos = self.global_position
 		var final_pos := ally.global_position + Vector2(25, 0)

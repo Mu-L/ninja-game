@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://qa81bx3qbhu7" path="res://battle/battle.gd" id="1_4mnim"]
 [ext_resource type="Texture2D" uid="uid://d4erqddj5td6y" path="res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogueBoxSimple.png" id="4_4mnim"]
 [ext_resource type="AudioStream" uid="uid://p4gm0mb73spx" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Menu5.wav" id="5_4mnim"]
+[ext_resource type="PackedScene" uid="uid://4ku024axqoix" path="res://selection_cursor/selection_cursor.tscn" id="5_l1kiu"]
 [ext_resource type="AudioStream" uid="uid://blhxfbppschy4" path="res://Ninja Adventure - Asset Pack/Audio/Musics/17 - Fight.ogg" id="6_l1kiu"]
 
 [node name="Battle" type="Node2D" unique_id=697061231]
@@ -68,3 +69,6 @@ position = Vector2(250, 90)
 [node name="EnemySpawnPoint" type="Marker2D" parent="SpawnCircles/EnemySpawnCircle" unique_id=1627184067]
 unique_name_in_owner = true
 position = Vector2(20, 0)
+
+[node name="SelectionCursor" parent="." unique_id=24772584 instance=ExtResource("5_l1kiu")]
+visible = false

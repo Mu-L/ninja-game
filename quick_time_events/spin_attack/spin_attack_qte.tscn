@@ -2,6 +2,30 @@
 
 [ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_sfw61"]
 [ext_resource type="Script" uid="uid://cdvqiybo0a55y" path="res://quick_time_events/spin_attack/spin_attack_qte.gd" id="2_06g2p"]
+[ext_resource type="Texture2D" uid="uid://chbbb5uptgyqe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadUp.png" id="3_k3olt"]
+[ext_resource type="Texture2D" uid="uid://3xi8bef7ntg0" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadRight.png" id="4_wtdug"]
+[ext_resource type="Texture2D" uid="uid://7ss5b3nyeayk" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadDown.png" id="5_4cbcp"]
+[ext_resource type="Texture2D" uid="uid://c4125hkblhyi0" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadLeft.png" id="6_s8er4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qa15t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k3olt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wtdug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4cbcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s8er4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [node name="SpinAttackQTE" unique_id=1593403207 instance=ExtResource("1_sfw61")]
 script = ExtResource("2_06g2p")
@@ -23,3 +47,27 @@ offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
 max_value = 50.0
+
+[node name="InstructionsLabel" type="RichTextLabel" parent="CanvasLayer" index="1" unique_id=1802988848]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -89.0
+offset_right = 20.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5]Spin![/shake]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer" index="2" unique_id=758282528]
+position = Vector2(159, 64)
+sprite_frames = SubResource("SpriteFrames_qa15t")
+autoplay = "default"
+frame_progress = 0.082052164

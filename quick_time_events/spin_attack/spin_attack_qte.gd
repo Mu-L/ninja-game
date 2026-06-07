@@ -1,6 +1,7 @@
 extends QuickTimeEvent
 
 @onready var progress_bar: ProgressBar = %ProgressBar
+@onready var instructions_label: RichTextLabel = %InstructionsLabel
 var actions: PackedStringArray = ["move up", "move right", "move down", "move left"]
 var i := 0
 

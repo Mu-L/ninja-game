@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d0eassyffx1wr"]
 
 [node name="SkillSelectionArea" type="Area2D" unique_id=126199509]
+z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1862460091]
 

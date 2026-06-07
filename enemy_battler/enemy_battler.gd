@@ -9,10 +9,9 @@ func play_turn() -> void:
 	Global.move_cursor_to.emit(self.global_position)
 	update_battlers_arrays()
 	action_to_perform = ActionType.ATTACK
-	_action_text = "%s attacked green ninja!" % battler_name
 	if action_to_perform == ActionType.ATTACK:
 		var ally: AllyBattler = _living_allies.pick_random()
-		Global.display_text.emit(_action_text)
+		Global.display_text.emit("%s attacked %s" % [battler_name, ally.battler_name])
 		await Global.textbox_closed
 		Global.set_cursor_visible.emit(false)
 		health_bar.hide()

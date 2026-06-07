@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 		progress_bar.value = i
 	if progress_bar.value == progress_bar.max_value:
 		started = false
-		progress_bar.hide()
+		self.hide()
 		const ANIM_NAMES = ["up", "right", "down", "left"]
 		for i in range(8):
 			ally.animated_sprite_2d.play("idle %s" % ANIM_NAMES[i % ANIM_NAMES.size()])

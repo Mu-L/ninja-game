@@ -72,3 +72,4 @@ position = Vector2(20, 0)
 
 [node name="SelectionCursor" parent="." unique_id=24772584 instance=ExtResource("5_l1kiu")]
 visible = false
+z_index = 2

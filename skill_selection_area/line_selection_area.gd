@@ -14,5 +14,5 @@ func _draw() -> void:
 	draw_line(
 		Vector2.ZERO,
 		collision_shape_2d.shape.b,
-		Color.BLACK,
+		shape_color,
 		1)

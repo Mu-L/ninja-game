@@ -15,7 +15,7 @@ func _ready() -> void:
 	assert(detection_area_shape.shape is CircleShape2D)
 	(detection_area_shape.shape as CircleShape2D).radius = radius
 
-func start(ally) -> void:
+func start(_ally) -> void:
 	started = true
 	animation_player.play("move shuriken")
 

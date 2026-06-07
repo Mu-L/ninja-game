@@ -65,6 +65,7 @@ static func create(data: BattlerData) -> Battler:
 	battler._health = data.health
 	battler._sprite_frames = data.sprite_frames
 	battler._animation_speed = data.animation_speed
+	battler.battler_name = data.name
 	return battler
 
 func _ready() -> void:

@@ -1,22 +1,22 @@
 res://enemy_battler/
-res://battle/
 res://ally_battler/
-res://selection_cursor/
-res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/
+res://
 res://quick_time_events/spin_attack/
 res://quick_time_events/kunai/
+res://battle/
+res://skill_selection_area/
+res://selection_cursor/
+res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/
 res://quick_time_events/sword_stab/
 res://battler/
 res://quick_time_events/base_class/
 res://skills/
-res://skill_selection_area/
 res://quick_time_events/
 res://rooms/
 res://game/
 res://overworld/
 res://Ninja Adventure - Asset Pack/Actor/Monsters/Axolot/
 res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/SeparateAnim/
-res://
 res://player/
 res://enemy/
 res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaYellow/

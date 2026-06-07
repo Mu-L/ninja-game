@@ -8,3 +8,16 @@ res://ally_battler/ally_battler.gd
 res://global/global.gd
 res://enemy_battler/enemy_battler.tscn
 res://enemy_battler/enemy_battler.gd
+res://skill_selection_area/circle_selection_area.tscn
+res://skill_selection_area/line_selection_area.tscn
+res://skill_selection_area/skill_selection_area.tscn
+res://skill_selection_area/line_selection_area.gd
+res://quick_time_events/kunai/kunai_qte.tscn
+res://quick_time_events/spin_attack/spin_attack_qte.tscn
+res://quick_time_events/spin_attack/spin_attack_qte.gd
+res://skill_selection_area/circle_selection_area.gd
+res://quick_time_events/shuriken/shuriken_qte.gd
+res://battler_data/allies/ninja_green_data.tres
+res://battler_data/allies/ninja_blue_data.tres
+res://battler_data/allies/ninja_yellow_data.tres
+res://battler/battler.gd

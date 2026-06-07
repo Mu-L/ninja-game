@@ -7,6 +7,7 @@
 
 [node name="LineSelectionArea" unique_id=126199509 instance=ExtResource("1_we7m2")]
 script = ExtResource("2_dxm2t")
+shape_color = Color(0, 0.5421636, 0.8302411, 1)
 target_type = 1
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1862460091]

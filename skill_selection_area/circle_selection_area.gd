@@ -8,6 +8,6 @@ func highlight_target(_attacker: AllyBattler, target: Battler) -> void:
 
 func _draw() -> void:
 	var shape := collision_shape_2d.shape
-	shape_color.a = 0.5
+	shape_color.a = 0.1
 	draw_circle(Vector2.ZERO, shape.radius, Color.WHITE, false)
 	draw_circle(Vector2.ZERO, shape.radius, shape_color)

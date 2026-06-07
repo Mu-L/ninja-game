@@ -121,7 +121,7 @@ func perform_action() -> void:
 	hide_stat_bars()
 	_starting_pos = self.global_position
 	if action_to_perform == ActionType.SKILL:
-		Global.display_text.emit(_skill_to_perform.battle_text)
+		Global.display_text.emit(_skill_to_perform.battle_text % battler_name)
 		await Global.textbox_closed
 		var qte: QuickTimeEvent
 		qte = _skill_to_perform.quick_time_event.instantiate()

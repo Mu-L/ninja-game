@@ -56,8 +56,6 @@ func _ready() -> void:
 	for weapon: WeaponScene in weapons.get_children():
 		weapon.body_entered.connect(_on_weapon_body_entered)
 	direction = Direction.new(Direction.Directions.DOWN, self)
-	set_health(party_members_data[0].max_health)
-	party_members_data[0].magic_points = party_members_data[0].max_magic_points
 
 func _physics_process(delta: float) -> void:
 	if is_interacting:
@@ -104,10 +102,6 @@ func _on_weapon_body_entered(body: Node2D) -> void:
 	if body is Enemy:
 		health_bar.hide()
 		Global.start_battle.emit(body, self)
-
-func set_health(new_val) -> void:
-	party_members_data[0].health = new_val
-	health_bar.value = new_val
 
 func _on_weapon_timer_timeout() -> void:
 	current_weapon.hide()

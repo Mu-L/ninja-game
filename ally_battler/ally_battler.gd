@@ -3,7 +3,6 @@ class_name AllyBattler extends Battler
 @onready var ui: CanvasLayer = $UI
 @onready var skill_animation: AnimatedSprite2D = %SkillAnimation
 @onready var experience_bar: ProgressBar = %ExperienceBar
-@onready var level_up_manager: LevelUpManager = %LevelUpManager
 @onready var magic_bar: ProgressBar = %MagicBar
 @onready var buttons: HBoxContainer = %Buttons
 @onready var skills_menu: PanelContainer = %SkillsMenu
@@ -26,12 +25,10 @@ const ENEMY_SELECTION: Array[SelectionType] = [
 var _is_selecting := false
 
 # stats:
+var _data: AllyBattlerData
 var _max_magic_points: int = 25
-var _EXP_to_next_level: int = 100
 var _skills: Array[Skill]
 var _magic_points: int
-var _EXP: int = 0
-var _level: int = 1
 
 var _selection_index := 0
 var _skill_to_perform: Skill
@@ -46,8 +43,8 @@ func _ready() -> void:
 	experience_bar.hide()
 	skills_menu.hide()
 	animated_sprite_2d.play("idle right")
-	experience_bar.max_value = _EXP_to_next_level
-	experience_bar.value = _EXP
+	experience_bar.max_value = _data.EXP_to_next_level
+	experience_bar.value = _data.EXP
 	magic_bar.max_value = _max_magic_points
 	set_magic_points(_max_magic_points)
 	
@@ -162,35 +159,42 @@ func _on_skills_button_pressed() -> void:
 	(skills_container.get_child(0) as Control).grab_focus()
 
 func increase_exp(amount: int) -> void:
+	# We update stats first:
+	_data.health =_health
+	_data.magic_points =_magic_points
+	_data.skills =_skills
+	
 	experience_bar.show()
-	_EXP += amount
+	_data.EXP += amount
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(experience_bar, "value", _EXP, 1.0)
+	tween.tween_property(experience_bar, "value", _data.EXP, 1.0)
 	await tween.finished
 	# Check if leveled up:
-	if _EXP >= _EXP_to_next_level:
-		_level += 1
+	if _data.EXP >= _data.EXP_to_next_level:
+		_data.level += 1
 		%LevelUpSound.play()
-		var new_EXP := _EXP - _EXP_to_next_level
-		_EXP = new_EXP
+		var new_EXP: int = _data.EXP - _data.EXP_to_next_level
+		_data.EXP = new_EXP
 		@warning_ignore("narrowing_conversion")
-		_EXP_to_next_level *= 1.25
-		Global.display_text.emit("Ninja reached level %d" % _level)
+		_data.EXP_to_next_level *= 1.25
+		Global.display_text.emit("Ninja reached level %d" % _data.level)
 		await Global.textbox_closed
-		var upgrades := level_up_manager.upgrades[_level]
-		for key: String in upgrades.stats:
-			var value: int = upgrades.stats[key]
+		# Check if reached max level:
+		if _data.level-1 > len(_data.level_ups):
+			return
+		var level_up := _data.level_ups[_data.level-2]
+		for stat: LevelUp.Stat in level_up.stat_increases.keys():
+			var increase_amount: int = level_up.stat_increases[stat]
+			var stat_string: String = LevelUp.Stat.keys()[stat]
+			stat_string = stat_string.to_lower()
 			Global.display_text.emit(
-				"%s increased by %d" % [key.replace('_',' '), value]
+				"%s increased by %d" % [stat_string.replace('_',' '), increase_amount]
 			)
 			await Global.textbox_closed
-			var old_value = get("_"+key)
-			set(key, old_value + value)
-			if key == "max_health":
-				set("_health", _health+value)
-		
-		for skill: Skill in upgrades.new_skills:
-			_skills.append(skill)
+			var original_value = _data.get(stat_string)
+			_data.set(stat_string, original_value + increase_amount)
+		for skill: Skill in level_up.skills:
+			_data.skills.append(skill)
 			Global.display_text.emit("New Skill Unlocked: %s" % skill.name) 
 			await Global.textbox_closed
 

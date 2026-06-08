@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="LevelUp" format=3 uid="uid://xknh3iftij1f"]
+
+[ext_resource type="Script" uid="uid://3cf25bcqwuo5" path="res://resource_classes/level_up.gd" id="1_2lptk"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_ohxrx"]
+[ext_resource type="Resource" uid="uid://boahska7yvd1f" path="res://skills/sword_stab.tres" id="3_ohxrx"]
+
+[resource]
+script = ExtResource("1_2lptk")
+stat_increases = Dictionary[int, int]({
+0: 10,
+3: 5
+})
+skills = Array[ExtResource("2_ohxrx")]([ExtResource("3_ohxrx")])
+metadata/_custom_type_script = "uid://3cf25bcqwuo5"

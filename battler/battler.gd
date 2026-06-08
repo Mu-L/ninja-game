@@ -46,11 +46,9 @@ static func create(data: BattlerData) -> Battler:
 	if data is AllyBattlerData:
 		var ALLY_BATTLER := load("uid://l44h5nb2ub5t")
 		battler = ALLY_BATTLER.instantiate() as AllyBattler
+		battler._data = data
 		battler._max_magic_points = data.max_magic_points
 		battler._magic_points = data.magic_points
-		battler._level = data.level
-		battler._EXP = data.EXP
-		battler._EXP_to_next_level = data.EXP_to_next_level
 		battler._skills = data.skills
 	elif data is EnemyBattlerData:
 		var ENEMY_BATTLER = load("uid://b2i8v282cle12")
@@ -74,7 +72,7 @@ func _ready() -> void:
 	animated_sprite_2d.sprite_frames = _sprite_frames
 	animated_sprite_2d.speed_scale = _animation_speed
 	health_bar.max_value = _max_health
-	set_health(_max_health)
+	set_health(_health)
 
 @abstract
 func play_turn() -> void

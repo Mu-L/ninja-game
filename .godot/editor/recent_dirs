@@ -1,9 +1,14 @@
-res://enemy_battler/
+res://level_up_data/yellow_ninja/
+res://level_up_data/blue_ninja/
+res://level_up_data/green_ninja/
 res://ally_battler/
+res://player/
+res://battle/
+res://game/
+res://enemy_battler/
 res://
 res://quick_time_events/spin_attack/
 res://quick_time_events/kunai/
-res://battle/
 res://skill_selection_area/
 res://selection_cursor/
 res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/
@@ -13,11 +18,6 @@ res://quick_time_events/base_class/
 res://skills/
 res://quick_time_events/
 res://rooms/
-res://game/
 res://overworld/
 res://Ninja Adventure - Asset Pack/Actor/Monsters/Axolot/
-res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/SeparateAnim/
-res://player/
-res://enemy/
-res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaYellow/
 C:/Users/Samir/Desktop/

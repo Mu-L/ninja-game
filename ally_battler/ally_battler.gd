@@ -60,6 +60,7 @@ func _ready() -> void:
 			if _magic_points < skill.magic_points_cost:
 				%ErrorSound.play()
 				return
+			set_magic_points(_magic_points - skill.magic_points_cost)
 			_skill_to_perform = skill
 			if skill.selection_type in NO_SELECTION:
 				skills_menu.hide()

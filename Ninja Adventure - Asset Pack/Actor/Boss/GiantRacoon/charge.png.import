@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cluocahgxtfjv"
-path="res://.godot/imported/charge.png-e1822b475dbcd5c4d384919c6831b723.ctex"
+uid="uid://rwq0qnxuf6vv"
+path="res://.godot/imported/Charge.png-34eca87b9f5be5c266ca84dfcaa53753.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ninja Adventure - Asset Pack/Actor/Boss/GiantRacoon/charge.png"
-dest_files=["res://.godot/imported/charge.png-e1822b475dbcd5c4d384919c6831b723.ctex"]
+source_file="res://Ninja Adventure - Asset Pack/Actor/Boss/GiantRacoon/Charge.png"
+dest_files=["res://.godot/imported/Charge.png-34eca87b9f5be5c266ca84dfcaa53753.ctex"]
 
 [params]
 

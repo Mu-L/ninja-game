@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://iuggp7pxayvo" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Alert/Alert.wav" id="8_ksi8t"]
 [ext_resource type="AudioStream" uid="uid://76ycilithniw" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Magic & Skill/Heal.wav" id="9_t0871"]
 
-[node name="PlayerBattler" unique_id=893298890 groups=["player battler"] instance=ExtResource("1_w0k00")]
+[node name="AllyBattler" unique_id=893298890 groups=["player battler"] instance=ExtResource("1_w0k00")]
 script = ExtResource("2_qckex")
 
 [node name="Sword" type="Sprite2D" parent="AnimatedSprite2D" parent_id_path=PackedInt32Array(2107465465) index="0" unique_id=1030885112]

@@ -27,28 +27,22 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_k3olt"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wtdug"]
+gradient = SubResource("Gradient_k3olt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4cbcp"]
+texture = SubResource("GradientTexture1D_wtdug")
+
 [node name="SpinAttackQTE" unique_id=1593403207 instance=ExtResource("1_sfw61")]
 script = ExtResource("2_06g2p")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0" unique_id=670362833]
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" index="0" unique_id=1646063524]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -7.5
-offset_right = 100.0
-offset_bottom = 7.5
-grow_horizontal = 2
-grow_vertical = 2
-max_value = 50.0
-
-[node name="InstructionsLabel" type="RichTextLabel" parent="CanvasLayer" index="1" unique_id=1802988848]
+[node name="InstructionsLabel" type="RichTextLabel" parent="CanvasLayer" index="0" unique_id=1802988848]
 unique_name_in_owner = true
 anchors_preset = 7
 anchor_left = 0.5
@@ -56,18 +50,44 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -20.0
-offset_top = -89.0
+offset_top = -98.0
 offset_right = 20.0
-offset_bottom = -49.0
+offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/outline_size = 6
 bbcode_enabled = true
-text = "[shake rate=20.0 level=5]Spin![/shake]"
+text = "Spin!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer" index="2" unique_id=758282528]
-position = Vector2(159, 64)
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer" index="1" unique_id=758282528]
+position = Vector2(159, 49)
 sprite_frames = SubResource("SpriteFrames_qa15t")
 autoplay = "default"
 frame_progress = 0.082052164
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" index="2" unique_id=665416437]
+custom_minimum_size = Vector2(210, 25)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/PanelContainer" index="0" unique_id=1646063524]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_styles/fill = SubResource("StyleBoxTexture_4cbcp")
+max_value = 50.0

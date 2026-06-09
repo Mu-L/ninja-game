@@ -127,6 +127,7 @@ offset_left = -17.0
 offset_top = 32.0
 offset_right = 23.0
 offset_bottom = 55.0
+theme_override_constants/outline_size = 4
 text = "100"
 
 [node name="HPLabel" type="Label" parent="." unique_id=1568770917]

@@ -1,3 +1,5 @@
+Skill
+EnemyBattlerData
+BattleData
 LevelUp
-OffensiveSkill
 AllyBattlerData

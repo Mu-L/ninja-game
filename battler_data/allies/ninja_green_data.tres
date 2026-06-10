@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://cw010mglf210w" path="res://level_up_data/green_ninja/green_ninja_level_up_2.tres" id="2_2fpfn"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_tmdsl"]
 [ext_resource type="Texture2D" uid="uid://dualqpud1jpvv" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Attack.png" id="4_p33he"]
-[ext_resource type="Resource" uid="uid://boahska7yvd1f" path="res://skills/sword_stab.tres" id="5_2fpfn"]
+[ext_resource type="Resource" uid="uid://ct22ugnf43yq5" path="res://skills/sword_stab.tres" id="5_2fpfn"]
 [ext_resource type="Texture2D" uid="uid://117th8lgbcdw" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png" id="5_bkg23"]
 [ext_resource type="Texture2D" uid="uid://0wqo08ppgyux" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Walk.png" id="6_f28gi"]
 
@@ -244,7 +244,8 @@ animations = [{
 script = ExtResource("1_e24ek")
 skills = Array[ExtResource("2_tmdsl")]([ExtResource("5_2fpfn")])
 level_ups = Array[ExtResource("1_bkg23")]([ExtResource("2_2fpfn")])
-strength = 100
+strength = 20
+defense = 10
 name = "Green Ninja"
 sprite_frames = SubResource("SpriteFrames_g6k8r")
 metadata/_custom_type_script = "uid://7qx50intwyfe"

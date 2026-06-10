@@ -24,7 +24,7 @@ func play_turn() -> void:
 		animated_sprite_2d.play("walk left")
 		await animated_sprite_2d.animation_finished
 		animated_sprite_2d.sprite_frames.set_animation_loop("walk left", true)
-		await ally.take_damage(_strength)
+		await ally.take_damage(_strength, 1)
 		animated_sprite_2d.play("idle left")
 		tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", _starting_pos, 0.5)

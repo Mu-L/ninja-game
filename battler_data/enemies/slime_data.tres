@@ -188,6 +188,9 @@ animations = [{
 
 [resource]
 script = ExtResource("1_do0vq")
+max_health = 50
+strength = 20
+defense = 3
 name = "Slime"
 sprite_frames = SubResource("SpriteFrames_smdbw")
 metadata/_custom_type_script = "uid://dt43sb7vd25ke"

@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="OffensiveSkill" format=3 uid="uid://3v27r02clymg"]
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://3v27r02clymg"]
 
 [ext_resource type="PackedScene" uid="uid://bacn4iqqrwrj7" path="res://quick_time_events/spin_attack/spin_attack_qte.tscn" id="1_gi2eb"]
-[ext_resource type="Script" uid="uid://urex30mn1ce7" path="res://resource_classes/offensive_skill.gd" id="1_ojb0o"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="1_ojb0o"]
 [ext_resource type="PackedScene" uid="uid://c8np1wvc1jkap" path="res://skill_selection_area/circle_selection_area.tscn" id="3_qwku2"]
 
 [resource]
 script = ExtResource("1_ojb0o")
 name = "Spin Attack"
-battle_text = "%s did a spin attack"
-magic_points_cost = 1
-quick_time_event = ExtResource("1_gi2eb")
+battle_text = "%s spun around"
+magic_points_cost = 5
 selection_area = ExtResource("3_qwku2")
-metadata/_custom_type_script = "uid://urex30mn1ce7"
+quick_time_event = ExtResource("1_gi2eb")
+metadata/_custom_type_script = "uid://bycf0afmvv35g"

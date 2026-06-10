@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="OffensiveSkill" format=3 uid="uid://boahska7yvd1f"]
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://ct22ugnf43yq5"]
 
-[ext_resource type="Script" uid="uid://urex30mn1ce7" path="res://resource_classes/offensive_skill.gd" id="1_50ooa"]
 [ext_resource type="PackedScene" uid="uid://c0hqvtcl74s66" path="res://quick_time_events/sword_stab/sword_stab_qte.tscn" id="1_jyy13"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_jyy13"]
 
 [resource]
-script = ExtResource("1_50ooa")
-name = "Stab"
-battle_text = "%s did a stab attack"
+script = ExtResource("2_jyy13")
+name = "Sword Stab"
+battle_text = "%s stabbed the enemy with their sword"
 quick_time_event = ExtResource("1_jyy13")
-metadata/_custom_type_script = "uid://urex30mn1ce7"
+metadata/_custom_type_script = "uid://bycf0afmvv35g"

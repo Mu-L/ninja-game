@@ -81,7 +81,8 @@ func die() -> void:
 	is_alive = false
 	died.emit()
 
-func take_damage(amount: int) -> void:
+func take_damage(battler_strength: int, skill_multiplier: float) -> void:
+	var amount: int = round(battler_strength * skill_multiplier - _defense)
 	set_health(_health - amount)
 	%HurtSound.play()
 	bounce_number_label(amount)

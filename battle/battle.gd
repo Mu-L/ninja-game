@@ -7,27 +7,32 @@ class_name Battle extends Node2D
 @onready var music: AudioStreamPlayer = %Music
 @onready var ally_spawn_circle: Marker2D = %AllySpawnCircle
 @onready var ally_spawn_point: Marker2D = %AllySpawnPoint
-@onready var enemy_spawn_circle: Marker2D = %EnemySpawnCircle
-@onready var enemy_spawn_point: Marker2D = %EnemySpawnPoint
+@onready var enemy_spawn_origin_point: Marker2D = %EnemySpawnOriginPoint
+
 
 signal battle_finished
 
-var enemies_data: Array[EnemyBattlerData]
+var battle_data: BattleData
 var allies_data: Array[AllyBattlerData]
 var _allies: Array[AllyBattler] = []
 var _enemies: Array[EnemyBattler] = []
 var _num_of_living_allies := 0
 var _num_of_living_enemies := 0
 
-static func create(allies_data: Array[AllyBattlerData], enemies_data: Array[EnemyBattlerData]) -> Battle:
+static func create(allies_data: Array[AllyBattlerData], battle_data: BattleData) -> Battle:
 	const BATTLE = preload("uid://cb3474ae6wcck")
 	var battle: Battle = BATTLE.instantiate()
 	battle.allies_data = allies_data
-	battle.enemies_data = enemies_data
+	battle.battle_data = battle_data
 	return battle
 
 func start() -> void:
 	Global.display_text.connect(display_text)
+	
+	# Spawn background:
+	var background_scene := BattleData.BACKGROUNDS[battle_data.background_type]
+	var background: Node2D = background_scene.instantiate()
+	add_child(background)
 	
 	# Spawn allies:
 	for i in range(allies_data.size()):
@@ -44,18 +49,15 @@ func start() -> void:
 			ally.global_position = ally_spawn_point.global_position
 	
 	# Spawn enemies:
-	for i in range(enemies_data.size()):
-		var enemy := Battler.create(enemies_data[i]) as EnemyBattler
+	for enemy_pos: Vector2 in battle_data.enemy_positions:
+		var enemy_data := battle_data.enemy_positions[enemy_pos]
+		var enemy := Battler.create(enemy_data) as EnemyBattler
 		battlers.add_child(enemy)
 		_num_of_living_enemies += 1
 		enemy.died.connect(func(): _num_of_living_enemies -= 1)
 		_enemies.append(enemy)
-		if enemies_data.size() == 1:
-			enemy.global_position = enemy_spawn_circle.global_position
-		else:
-			var step := 360.0 / enemies_data.size()
-			enemy_spawn_circle.rotation_degrees = step * i
-			enemy.global_position = enemy_spawn_point.global_position
+		enemy.global_position = (
+			enemy_spawn_origin_point.global_position + enemy_pos)
 	
 	battle_camera.make_current()
 	text_box.hide()

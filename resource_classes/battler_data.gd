@@ -4,8 +4,8 @@ class_name BattlerData extends Resource
 
 @export_category("stats")
 @export var max_health: int = 100
-@export var strength: int = 25
-@export var defense: int = 20
+@export var strength: int = 10
+@export var defense: int = 7
 @export var speed: int = 20
 
 var health: int = self.max_health

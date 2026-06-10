@@ -50,4 +50,4 @@ func _draw() -> void:
 
 func _on_kunai_area_entered(area: Area2D) -> void:
 	if area is EnemyBattler:
-		area.take_damage(50)
+		area.take_damage(ally._strength, 1.5)

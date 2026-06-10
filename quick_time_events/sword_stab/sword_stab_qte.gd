@@ -38,8 +38,8 @@ func _input(event: InputEvent) -> void:
 		
 		var distance_to_center: int = round(abs(attack_slider.position.x - 50))
 		var multiplier: float = (50.0 - distance_to_center) / 50.0
-		var damage: int = round(ally._strength * multiplier)
-		await ally.get_main_target_battler().take_damage(damage)
+		multiplier *= 2
+		await ally.get_main_target_battler().take_damage(ally._strength, multiplier)
 		
 		attack_bar.hide()
 		ally.animated_sprite_2d.play("idle right")

@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 			await get_tree().create_timer(0.1).timeout
 		ally.animated_sprite_2d.play("idle right")
 		for enemy in ally.targets:
-			enemy.take_damage(50)
+			enemy.take_damage(ally._strength, 1.2)
 		await get_tree().create_timer(0.1).timeout
 		await ally.move_to(ally_starting_pos)
 		finished.emit()

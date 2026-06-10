@@ -8,8 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cuim5yngrx5yj" path="res://enemy/enemy.tscn" id="5_6mom2"]
 [ext_resource type="Resource" uid="uid://b336ure0huy0s" path="res://npc_data/monk.tres" id="6_0v5my"]
 [ext_resource type="Resource" uid="uid://ci0wwyn317huc" path="res://npc_data/mask_green.tres" id="7_suwb7"]
-[ext_resource type="Resource" uid="uid://btloskel7kcby" path="res://battler_data/enemies/slime_data.tres" id="8_7j5ef"]
-[ext_resource type="Script" uid="uid://dt43sb7vd25ke" path="res://resource_classes/enemy_battler_data.gd" id="9_0v5my"]
 
 [node name="Room3" unique_id=1645941047 instance=ExtResource("1_ugu2v")]
 
@@ -49,20 +47,15 @@ data = ExtResource("7_suwb7")
 
 [node name="Enemy" parent="Enemies" index="0" unique_id=1588866589 instance=ExtResource("5_6mom2")]
 position = Vector2(-62, -184)
-battle_data = Array[ExtResource("9_0v5my")]([ExtResource("8_7j5ef"), ExtResource("8_7j5ef")])
 
 [node name="Enemy2" parent="Enemies" index="1" unique_id=1565068812 instance=ExtResource("5_6mom2")]
 position = Vector2(-35, -298)
-battle_data = Array[ExtResource("9_0v5my")]([ExtResource("8_7j5ef"), ExtResource("8_7j5ef")])
 
 [node name="Enemy3" parent="Enemies" index="2" unique_id=1859696176 instance=ExtResource("5_6mom2")]
 position = Vector2(323, -201)
-battle_data = Array[ExtResource("9_0v5my")]([ExtResource("8_7j5ef"), ExtResource("8_7j5ef")])
 
 [node name="Enemy4" parent="Enemies" index="3" unique_id=1379470160 instance=ExtResource("5_6mom2")]
 position = Vector2(182, -300)
-battle_data = Array[ExtResource("9_0v5my")]([ExtResource("8_7j5ef"), ExtResource("8_7j5ef")])
 
 [node name="Enemy5" parent="Enemies" index="4" unique_id=1936707250 instance=ExtResource("5_6mom2")]
 position = Vector2(319, -61)
-battle_data = Array[ExtResource("9_0v5my")]([ExtResource("8_7j5ef"), ExtResource("8_7j5ef")])

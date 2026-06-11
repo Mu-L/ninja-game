@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_7dacu"]
 [ext_resource type="Script" uid="uid://caeybmnranpuv" path="res://quick_time_events/healing/healing_qte.gd" id="2_wp865"]
 [ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="3_c75k3"]
+[ext_resource type="AudioStream" uid="uid://b26g7jsixo2kg" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Magic & Skill/Heal2.wav" id="4_33dld"]
 
 [sub_resource type="Gradient" id="Gradient_33dld"]
 offsets = PackedFloat32Array(0, 0.5, 1)
@@ -90,5 +91,9 @@ frame_progress = 0.63176584
 [node name="Timer" type="Timer" parent="." index="1" unique_id=754833619]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="HealingSound" type="AudioStreamPlayer" parent="." index="2" unique_id=792120993]
+unique_name_in_owner = true
+stream = ExtResource("4_33dld")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

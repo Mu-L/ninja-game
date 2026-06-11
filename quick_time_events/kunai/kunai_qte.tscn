@@ -40,6 +40,8 @@ script = ExtResource("2_jwbtx")
 
 [node name="Cursor" parent="." index="0" unique_id=1659896821 instance=ExtResource("4_p221v")]
 unique_name_in_owner = true
+thickness = 2
+color = Color(0, 0, 0, 1)
 
 [node name="ButtonPrompt" type="AnimatedSprite2D" parent="." index="1" unique_id=2043534128]
 position = Vector2(-72, -1)

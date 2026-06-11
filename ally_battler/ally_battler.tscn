@@ -96,6 +96,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Skills"
 
+[node name="SwapButton" type="Button" parent="UI/MarginContainer/Buttons" index="1" unique_id=373215811]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Swap"
+
 [node name="SkillsMenu" type="PanelContainer" parent="UI" index="1" unique_id=540849287]
 unique_name_in_owner = true
 anchors_preset = 8
@@ -124,3 +132,4 @@ theme_override_constants/h_separation = 24
 columns = 2
 
 [connection signal="pressed" from="UI/MarginContainer/Buttons/SkillsButton" to="." method="_on_skills_button_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/Buttons/SwapButton" to="." method="_on_swap_button_pressed"]

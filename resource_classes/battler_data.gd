@@ -8,12 +8,10 @@ class_name BattlerData extends Resource
 @export var defense: int = 7
 @export var speed: int = 20
 
-var health: int = self.max_health
+var health: int
 
 @export_category("visuals")
 @export var name: String
 @export var texture: Texture2D
 @export var sprite_frames: SpriteFrames
 @export var animation_speed: float = 5.0
-@export_tool_button("generate sprite_frames boilerplate") var button := func():
-	sprite_frames = Util.generate_sprite_frames(animation_speed, texture)

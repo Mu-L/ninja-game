@@ -9,4 +9,4 @@ class_name NPCData extends Resource
 @export var animation_speed := 5.0
 
 @export_tool_button("generate sprite_frames boilerplate") var button := func():
-	sprite_frames = Util.generate_sprite_frames(animation_speed, texture)
+	sprite_frames = Util.generate_sprite_frames(texture, false, animation_speed)

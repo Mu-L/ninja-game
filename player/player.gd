@@ -56,6 +56,8 @@ func _ready() -> void:
 	for weapon: WeaponScene in weapons.get_children():
 		weapon.body_entered.connect(_on_weapon_body_entered)
 	direction = Direction.new(Direction.Directions.DOWN, self)
+	for data in party_members_data:
+		data.health = data.max_health
 
 func _physics_process(delta: float) -> void:
 	if is_interacting:

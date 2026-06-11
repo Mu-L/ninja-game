@@ -9,8 +9,19 @@ class_name AllyBattler extends Battler
 @onready var skills_container: GridContainer = %SkillsContainer
 @onready var skills_button: Button = %SkillsButton
 @onready var sword: Sprite2D = %Sword
+@onready var error_sound: AudioStreamPlayer = %ErrorSound
+@onready var swap_button: Button = %SwapButton
 
-enum SelectionType {SINGLE_ENEMY, ALL_ENEMIES, ALL_ALLIES, SINGLE_LIVING_ALLY, SINGLE_DEAD_ALLY}
+static var number_of_swaps_left := 1
+
+enum SelectionType {
+	SINGLE_ENEMY,
+	ALL_ENEMIES,
+	ALL_ALLIES,
+	SINGLE_LIVING_ALLY,
+	SINGLE_DEAD_ALLY,
+	SINGLE_LIVING_ALLY_NOT_ME,
+}
 const NO_SELECTION: Array[SelectionType] = [
 	SelectionType.ALL_ENEMIES, SelectionType.ALL_ALLIES
 ]
@@ -33,6 +44,7 @@ var _magic_points: int
 var _selection_index := 0
 var _skill_to_perform: Skill
 var _dead_allies: Array[AllyBattler]
+var _living_allies_not_me: Array[AllyBattler]
 var skill_selection_area: SkillSelectionArea
 var _selection_type: SelectionType
 var targets: Array[Battler] = []
@@ -109,6 +121,8 @@ func get_main_target_battler() -> Battler:
 			return _living_allies[_selection_index % _living_allies.size()]
 		SelectionType.SINGLE_DEAD_ALLY:
 			return _dead_allies[_selection_index % _dead_allies.size()]
+		SelectionType.SINGLE_LIVING_ALLY_NOT_ME:
+			return _living_allies_not_me[_selection_index % _living_allies_not_me.size()]
 	
 	assert(false, "unhandled case")
 	# Dead code:
@@ -130,25 +144,36 @@ func perform_action() -> void:
 			show_stat_bars()
 			finished_turn.emit()
 		)
+	if action_to_perform == ActionType.SWAP:
+		var other := get_main_target_battler()
+		AllyBattler.number_of_swaps_left -= 1
+		Global.display_text.emit("%s swapped places with %s" % [battler_name, other.battler_name])
+		await Global.textbox_closed
+		self.move_to(other.global_position)
+		await other.move_to(_starting_pos)
+		show_stat_bars()
+		play_turn()
 
 func _input(event: InputEvent) -> void:
-	if _is_selecting:
-		if event.is_action_pressed("move down") or event.is_action_pressed("move right"):
-			_selection_index += 1
-			Global.move_cursor_to.emit(get_main_target_battler().global_position)
-		elif event.is_action_pressed("move up") or event.is_action_pressed("move left"):
-			_selection_index -= 1
-			Global.move_cursor_to.emit(get_main_target_battler().global_position)
-		elif event.is_action_pressed("interact"):
-			Global.set_cursor_visible.emit(false)
-			_is_selecting = false
-			if skill_selection_area:
-				targets = skill_selection_area.battlers.duplicate()
-				skill_selection_area.queue_free()
-			ui.hide()
-			perform_action()
+	if not _is_selecting:
+		return
+	
+	if event.is_action_pressed("move down") or event.is_action_pressed("move right"):
+		_selection_index += 1
+		Global.move_cursor_to.emit(get_main_target_battler().global_position)
+	elif event.is_action_pressed("move up") or event.is_action_pressed("move left"):
+		_selection_index -= 1
+		Global.move_cursor_to.emit(get_main_target_battler().global_position)
+	elif event.is_action_pressed("interact"):
+		Global.set_cursor_visible.emit(false)
+		_is_selecting = false
 		if skill_selection_area:
-			skill_selection_area.highlight_target(self, get_main_target_battler())
+			targets = skill_selection_area.battlers.duplicate()
+			skill_selection_area.queue_free()
+		ui.hide()
+		perform_action()
+	if skill_selection_area:
+		skill_selection_area.highlight_target(self, get_main_target_battler())
 
 func _on_skills_button_pressed() -> void:
 	if _magic_points <= 0 or _skills.is_empty():
@@ -223,12 +248,44 @@ func hide_stat_bars() -> void:
 func update_battlers_arrays() -> void:
 	super.update_battlers_arrays()
 	_dead_allies = []
+	_living_allies_not_me = []
 	var allies := get_tree().get_nodes_in_group("player battler")
 	for ally in allies:
 		if ally is AllyBattler:
 			if not ally.is_alive:
 				_dead_allies.append(ally)
+			else:
+				if ally != self:
+					_living_allies_not_me.append(ally)
 
 func die() -> void:
 	super.die()
 	self.modulate.a = 0.5
+
+
+func _on_swap_button_pressed() -> void:
+	if AllyBattler.number_of_swaps_left == 0:
+		ui.hide()
+		error_sound.play()
+		Global.display_text.emit("Can't swap places anymore this turn")
+		await Global.textbox_closed
+		ui.show()
+		swap_button.grab_focus()
+		return
+	if len(_living_allies_not_me) == 0:
+		ui.hide()
+		error_sound.play()
+		Global.display_text.emit("Nobody left alive to swap with")
+		await Global.textbox_closed
+		ui.show()
+		swap_button.grab_focus()
+		return
+	_is_selecting = true
+	_selection_type = SelectionType.SINGLE_LIVING_ALLY_NOT_ME
+	action_to_perform = ActionType.SWAP
+	skills_menu.hide()
+	ui.hide()
+	_selection_index = 0
+	var target := get_main_target_battler()
+	Global.set_cursor_visible.emit(true)
+	Global.move_cursor_to.emit(target.global_position)

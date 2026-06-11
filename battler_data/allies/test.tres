@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AllyBattlerData" format=3 uid="uid://dbopd7vqk6g56"]
+
+[ext_resource type="Script" uid="uid://3cf25bcqwuo5" path="res://resource_classes/level_up.gd" id="1_spdp4"]
+[ext_resource type="Script" uid="uid://7qx50intwyfe" path="res://resource_classes/ally_battler_data.gd" id="2_rhbg0"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="3_sy5oy"]
+[ext_resource type="Texture2D" uid="uid://c470c6ypkbdmh" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed/SpriteSheet.png" id="4_rhbg0"]
+
+[resource]
+script = ExtResource("2_rhbg0")
+texture = ExtResource("4_rhbg0")
+metadata/_custom_type_script = "uid://7qx50intwyfe"

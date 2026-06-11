@@ -10,7 +10,10 @@ class_name Enemy extends CharacterBody2D
 
 func _ready() -> void:
 	animated_sprite_2d.sprite_frames = (
-		battle_data.enemy_positions.values()[0].sprite_frames)
+		battle_data.enemy_positions
+		.values()[battle_data.overworld_enemy_index]
+		.sprite_frames
+	)
 
 func die() -> void:
 	random_walker.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)

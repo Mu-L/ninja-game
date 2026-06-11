@@ -13,7 +13,7 @@ signal died
 @onready var selection_arrow: Sprite2D = %SelectionArrow
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-enum ActionType {ATTACK, SKILL}
+enum ActionType {ATTACK, SKILL, SWAP}
 var action_to_perform: ActionType
 
 @warning_ignore_start("unused_private_class_variable")
@@ -47,12 +47,14 @@ static func create(data: BattlerData) -> Battler:
 		var ALLY_BATTLER := load("uid://l44h5nb2ub5t")
 		battler = ALLY_BATTLER.instantiate() as AllyBattler
 		battler._data = data
+		battler._health = data.health
 		battler._max_magic_points = data.max_magic_points
 		battler._magic_points = data.magic_points
 		battler._skills = data.skills
 	elif data is EnemyBattlerData:
 		var ENEMY_BATTLER = load("uid://b2i8v282cle12")
 		battler = ENEMY_BATTLER.instantiate() as EnemyBattler
+		battler._health = data.max_health
 	else:
 		assert(false, "undefined case...")
 	battler._is_valid_instance = true
@@ -60,7 +62,6 @@ static func create(data: BattlerData) -> Battler:
 	battler._strength = data.strength
 	battler._defense = data.defense
 	battler._speed = data.speed
-	battler._health = data.health
 	battler._sprite_frames = data.sprite_frames
 	battler._animation_speed = data.animation_speed
 	battler.battler_name = data.name
@@ -95,7 +96,7 @@ func take_damage(battler_strength: int, skill_multiplier: float) -> void:
 func heal(amount: int) -> void:
 	set_health(_health + amount)
 	%HealSound.play()
-	%HurtAnimationPlayer.play("hurt")
+	animation_player.play("hurt")
 	await bounce_number_label(amount)
 
 func bounce_number_label(amount: int) -> void:

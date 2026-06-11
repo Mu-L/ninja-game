@@ -1,3 +1,4 @@
+AudioStreamPlayer
 Marker2D
 RichTextLabel
 PanelContainer
@@ -12,4 +13,3 @@ Label
 AnimatedSprite2D
 Line2D
 QuickTimeEvent
-VBoxContainer

@@ -12,8 +12,8 @@ func start(ally: AllyBattler) -> void:
 func _process(_delta: float) -> void:
 	if not started:
 		return
-	if Input.is_action_pressed(actions[i % len(actions)]):
-		i += 1
+	if Input.is_action_just_pressed(actions[i % len(actions)]):
+		i += 5
 		progress_bar.value = i
 	if progress_bar.value == progress_bar.max_value:
 		started = false

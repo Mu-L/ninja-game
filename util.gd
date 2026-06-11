@@ -1,6 +1,6 @@
 class_name Util extends Object
 
-static func generate_sprite_frames(animation_speed: float, texture: Texture2D) -> SpriteFrames:
+static func generate_sprite_frames(texture: Texture, is_ally: bool=false ,animation_speed: float=5.0) -> SpriteFrames:
 	var sprite_frames = SpriteFrames.new()
 	sprite_frames.remove_animation("default")
 	var directions := ["down", "up", "left", "right"]
@@ -29,6 +29,9 @@ static func generate_sprite_frames(animation_speed: float, texture: Texture2D) -
 			atlas.atlas = texture
 			atlas.region = Rect2(i*16, j*16, 16, 16)
 			sprite_frames.add_frame(name, atlas)
+	
+	if not is_ally:
+		return sprite_frames
 	
 	# Attack animations:
 	for i in range(len(directions)):

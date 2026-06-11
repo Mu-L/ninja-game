@@ -18,6 +18,7 @@ var _allies: Array[AllyBattler] = []
 var _enemies: Array[EnemyBattler] = []
 var _num_of_living_allies := 0
 var _num_of_living_enemies := 0
+var exp_gained: int
 
 static func create(allies_data: Array[AllyBattlerData], battle_data: BattleData) -> Battle:
 	const BATTLE = preload("uid://cb3474ae6wcck")
@@ -51,6 +52,7 @@ func start() -> void:
 	# Spawn enemies:
 	for enemy_pos: Vector2 in battle_data.enemy_positions:
 		var enemy_data := battle_data.enemy_positions[enemy_pos]
+		exp_gained += enemy_data.exp_worth
 		var enemy := Battler.create(enemy_data) as EnemyBattler
 		battlers.add_child(enemy)
 		_num_of_living_enemies += 1
@@ -62,6 +64,7 @@ func start() -> void:
 	battle_camera.make_current()
 	text_box.hide()
 	while not is_battle_finished():
+		AllyBattler.number_of_swaps_left = 1
 		for battler: Battler in battlers.get_children():
 			if not battler.is_alive:
 				continue
@@ -97,7 +100,7 @@ func finish_battle() -> void:
 		await Global.textbox_closed
 		text_box.hide()
 		for ally in _allies:
-			await ally.increase_exp(100)
+			await ally.increase_exp(exp_gained)
 		battle_finished.emit()
 	else:
 		display_text("Game Over...")

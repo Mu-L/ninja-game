@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cuim5yngrx5yj"]
 
 [ext_resource type="Script" uid="uid://ccp45ufa25hf0" path="res://enemy/enemy.gd" id="1_p200p"]
-[ext_resource type="Resource" uid="uid://wxd173j3jak1" path="res://battle_data/fields_1.tres" id="2_p200p"]
 [ext_resource type="AudioStream" uid="uid://dgdavkudo7r8j" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact.wav" id="3_ppra6"]
 [ext_resource type="PackedScene" uid="uid://bdexxyiy6fxdj" path="res://components/random_walker/random_walker.tscn" id="4_p200p"]
 
@@ -50,7 +49,6 @@ collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_p200p")
-battle_data = ExtResource("2_p200p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=155526234]
 unique_name_in_owner = true

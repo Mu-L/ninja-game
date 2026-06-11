@@ -7,5 +7,6 @@ const BACKGROUNDS: Dictionary[BackgroundType, PackedScene] = {
 }
 
 @export var enemy_positions: Dictionary[Vector2, EnemyBattlerData]
+@export var overworld_enemy_index: int = 0
 @export var background_type: BackgroundType
 @export var song: AudioStream

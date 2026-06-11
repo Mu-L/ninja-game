@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://bip5kdt7gplwx"]
+
+[ext_resource type="PackedScene" uid="uid://cqnjevgkdwovv" path="res://quick_time_events/healing/healing_qte.tscn" id="1_0tsin"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="1_kcluu"]
+
+[resource]
+script = ExtResource("1_kcluu")
+name = "Single Heal"
+battle_text = "%s healed their ally"
+magic_points_cost = 3
+selection_type = 3
+quick_time_event = ExtResource("1_0tsin")
+metadata/_custom_type_script = "uid://bycf0afmvv35g"

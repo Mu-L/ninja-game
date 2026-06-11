@@ -7,7 +7,7 @@ func highlight_target(attacker: AllyBattler, target: Battler) -> void:
 	collision_shape_2d.shape.b = b
 	queue_redraw()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	queue_redraw()
 
 func _draw() -> void:

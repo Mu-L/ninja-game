@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://ct22ugnf43yq5" path="res://skills/sword_stab.tres" id="5_2fpfn"]
 [ext_resource type="Texture2D" uid="uid://117th8lgbcdw" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png" id="5_bkg23"]
 [ext_resource type="Texture2D" uid="uid://0wqo08ppgyux" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Walk.png" id="6_f28gi"]
+[ext_resource type="Resource" uid="uid://bip5kdt7gplwx" path="res://skills/single_heal.tres" id="6_p33he"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjvpn"]
 atlas = ExtResource("4_p33he")
@@ -242,7 +243,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_e24ek")
-skills = Array[ExtResource("2_tmdsl")]([ExtResource("5_2fpfn")])
+skills = Array[ExtResource("2_tmdsl")]([ExtResource("5_2fpfn"), ExtResource("6_p33he")])
 level_ups = Array[ExtResource("1_bkg23")]([ExtResource("2_2fpfn")])
 strength = 20
 defense = 10

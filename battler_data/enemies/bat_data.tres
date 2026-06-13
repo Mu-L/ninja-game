@@ -1,0 +1,248 @@
+[gd_resource type="Resource" script_class="EnemyBattlerData" format=3 uid="uid://bfcluj5kpkdrt"]
+
+[ext_resource type="Script" uid="uid://dt43sb7vd25ke" path="res://resource_classes/enemy_battler_data.gd" id="1_k2tdd"]
+[ext_resource type="Texture2D" uid="uid://cugcnc2mqxgr7" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/BlueBat/SpriteSheet.png" id="2_70omo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70omo"]
+atlas = ExtResource("2_70omo")
+region = Rect2(32, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bil5"]
+atlas = ExtResource("2_70omo")
+region = Rect2(32, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0e58"]
+atlas = ExtResource("2_70omo")
+region = Rect2(32, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alp4w"]
+atlas = ExtResource("2_70omo")
+region = Rect2(32, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4e4q"]
+atlas = ExtResource("2_70omo")
+region = Rect2(0, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um0a3"]
+atlas = ExtResource("2_70omo")
+region = Rect2(0, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5htgy"]
+atlas = ExtResource("2_70omo")
+region = Rect2(0, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4oe4"]
+atlas = ExtResource("2_70omo")
+region = Rect2(0, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j772j"]
+atlas = ExtResource("2_70omo")
+region = Rect2(48, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_camct"]
+atlas = ExtResource("2_70omo")
+region = Rect2(48, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gci04"]
+atlas = ExtResource("2_70omo")
+region = Rect2(48, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox4ey"]
+atlas = ExtResource("2_70omo")
+region = Rect2(48, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai7ya"]
+atlas = ExtResource("2_70omo")
+region = Rect2(16, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4jg2"]
+atlas = ExtResource("2_70omo")
+region = Rect2(16, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quniv"]
+atlas = ExtResource("2_70omo")
+region = Rect2(16, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b76lg"]
+atlas = ExtResource("2_70omo")
+region = Rect2(16, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mb5yr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70omo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bil5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0e58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alp4w")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4e4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um0a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5htgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4oe4")
+}],
+"loop": true,
+"name": &"idle down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70omo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bil5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0e58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alp4w")
+}],
+"loop": true,
+"name": &"idle left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j772j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_camct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gci04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox4ey")
+}],
+"loop": true,
+"name": &"idle right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai7ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4jg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quniv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b76lg")
+}],
+"loop": true,
+"name": &"idle up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4e4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um0a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5htgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4oe4")
+}],
+"loop": true,
+"name": &"walk down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70omo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bil5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0e58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alp4w")
+}],
+"loop": true,
+"name": &"walk left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j772j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_camct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gci04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox4ey")
+}],
+"loop": true,
+"name": &"walk right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai7ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4jg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quniv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b76lg")
+}],
+"loop": true,
+"name": &"walk up",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_k2tdd")
+name = "Bat"
+texture = ExtResource("2_70omo")
+sprite_frames = SubResource("SpriteFrames_mb5yr")
+flying = true
+metadata/_custom_type_script = "uid://dt43sb7vd25ke"

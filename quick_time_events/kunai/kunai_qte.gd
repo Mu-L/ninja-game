@@ -45,7 +45,22 @@ func _draw() -> void:
 		Vector2.ZERO,
 		(success_shape.shape as CircleShape2D).radius,
 		Color.WHITE,
-		false
+		false,
+		2
+	)
+	draw_circle(
+		Vector2.ZERO,
+		(success_shape.shape as CircleShape2D).radius+1,
+		Color.BLACK,
+		false,
+		1
+	)
+	draw_circle(
+		Vector2.ZERO,
+		(success_shape.shape as CircleShape2D).radius-1,
+		Color.BLACK,
+		false,
+		1
 	)
 
 func _on_kunai_area_entered(area: Area2D) -> void:

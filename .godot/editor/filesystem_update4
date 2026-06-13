@@ -1,11 +1,3 @@
-res://ally_battler/ally_battler.tscn
-res://ally_battler/ally_battler.gd
-res://battle/battle.gd
-res://battler/battler.gd
-res://battler_data/enemies/slime_data.tres
-res://battle/battle.tscn
-res://skill_selection_area/skill_selection_area.tscn
-res://battle_data/test.tres
 res://rooms/room_3.tscn
 res://battler_data/allies/ninja_green_data.tres
 res://battler_data/allies/ninja_blue_data.tres
@@ -15,6 +7,13 @@ res://npc_data/princess.tres
 res://npc_data/cave_girl.tres
 res://npc_data/monk.tres
 res://npc_data/mask_green.tres
+res://battler_data/enemies/slime_data.tres
+res://battler_data/enemies/bat_data.tres
 res://battler_data/enemies/bear_data.tres
-res://skill_selection_area/line_selection_area.gd
-res://level_up_data/blue_ninja/blue_ninja_level_up_2.tres
+res://battle_data/fields_1.tres
+res://util.gd
+res://battler_data/enemies/bamboo_data.tres
+res://skill_selection_area/line_selection_area.tscn
+res://battler/battler.tscn
+res://battler/battler.gd
+res://ally_battler/ally_battler.tscn

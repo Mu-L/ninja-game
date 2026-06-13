@@ -3,14 +3,15 @@
 [ext_resource type="Script" uid="uid://dt43sb7vd25ke" path="res://resource_classes/enemy_battler_data.gd" id="1_bjwtn"]
 [ext_resource type="Script" uid="uid://diil4nttlc7oo" path="res://resource_classes/battle_data.gd" id="2_18o27"]
 [ext_resource type="Resource" uid="uid://btloskel7kcby" path="res://battler_data/enemies/slime_data.tres" id="2_a12mb"]
+[ext_resource type="Resource" uid="uid://bfcluj5kpkdrt" path="res://battler_data/enemies/bat_data.tres" id="3_05ckq"]
 [ext_resource type="AudioStream" uid="uid://blhxfbppschy4" path="res://Ninja Adventure - Asset Pack/Audio/Musics/17 - Fight.ogg" id="4_a12mb"]
 
 [resource]
 script = ExtResource("2_18o27")
 enemy_positions = Dictionary[Vector2, ExtResource("1_bjwtn")]({
-Vector2(-25, 0): ExtResource("2_a12mb"),
-Vector2(0, 0): ExtResource("2_a12mb"),
-Vector2(25, 0): ExtResource("2_a12mb")
+Vector2(0, 0): ExtResource("3_05ckq"),
+Vector2(10, -20): ExtResource("2_a12mb"),
+Vector2(10, 20): ExtResource("2_a12mb")
 })
 song = ExtResource("4_a12mb")
 metadata/_custom_type_script = "uid://diil4nttlc7oo"

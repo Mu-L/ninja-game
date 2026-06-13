@@ -15,3 +15,4 @@ var health: int
 @export var texture: Texture2D
 @export var sprite_frames: SpriteFrames
 @export var animation_speed: float = 5.0
+@export var flying: bool = false

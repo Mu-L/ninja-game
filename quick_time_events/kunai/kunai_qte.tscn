@@ -6,6 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://dxmspdye24xrw" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai.png" id="5_70ljc"]
 [ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="5_p221v"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_p221v"]
+radius = 11.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p221v"]
+radius = 1.0
+height = 14.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_33dld"]
 atlas = ExtResource("5_p221v")
 region = Rect2(16, 80, 16, 16)
@@ -28,32 +35,19 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p221v"]
-radius = 11.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p221v"]
-radius = 1.0
-height = 14.0
-
 [node name="KunaiQTE" unique_id=1593403207 instance=ExtResource("1_y8fgg")]
 script = ExtResource("2_jwbtx")
 
 [node name="Cursor" parent="." index="0" unique_id=1659896821 instance=ExtResource("4_p221v")]
 unique_name_in_owner = true
 thickness = 2
-color = Color(0, 0, 0, 1)
 
-[node name="ButtonPrompt" type="AnimatedSprite2D" parent="." index="1" unique_id=2043534128]
-position = Vector2(-72, -1)
-sprite_frames = SubResource("SpriteFrames_70ljc")
-autoplay = "default"
-
-[node name="SuccessArea" type="Area2D" parent="." index="2" unique_id=1940333359]
+[node name="SuccessArea" type="Area2D" parent="." index="1" unique_id=1940333359]
 
 [node name="SuccessShape" type="CollisionShape2D" parent="SuccessArea" index="0" unique_id=2049954741]
 shape = SubResource("CircleShape2D_p221v")
 
-[node name="Kunai" type="Area2D" parent="." index="3" unique_id=1555254043]
+[node name="Kunai" type="Area2D" parent="." index="2" unique_id=1555254043]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kunai" index="0" unique_id=688793532]
@@ -63,10 +57,16 @@ shape = SubResource("CapsuleShape2D_p221v")
 [node name="Sprite2D" type="Sprite2D" parent="Kunai" index="1" unique_id=1726905246]
 texture = ExtResource("5_70ljc")
 
-[node name="RotationPoint" type="Node2D" parent="." index="4" unique_id=940870349]
+[node name="RotationPoint" type="Node2D" parent="." index="3" unique_id=940870349]
 
 [node name="Spawn" type="Node2D" parent="RotationPoint" index="0" unique_id=1283737461]
 unique_name_in_owner = true
 position = Vector2(70, 0)
+
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="." index="4" unique_id=899408944]
+z_index = 2
+position = Vector2(-72, -1)
+sprite_frames = SubResource("SpriteFrames_70ljc")
+autoplay = "default"
 
 [connection signal="area_entered" from="Kunai" to="." method="_on_kunai_area_entered"]

@@ -6,7 +6,7 @@ class_name AllyBattlerData extends BattlerData
 @export var skills: Array[Skill]
 @export var level_ups: Array[LevelUp]
 @export_tool_button("generate sprite_frames animations from texture") var button := func():
-	sprite_frames = Util.generate_sprite_frames(texture, true, animation_speed)
+	sprite_frames = Util.generate_sprite_frames(texture, true, animation_speed, flying)
 
 var magic_points: int
 var EXP: int = 0

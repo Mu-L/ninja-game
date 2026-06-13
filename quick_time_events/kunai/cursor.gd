@@ -9,5 +9,9 @@ func _process(delta: float) -> void:
 	rotate(delta * rotation_speed)
 
 func _draw() -> void:
+	draw_line(Vector2(-cursor_size-2, 0), Vector2(cursor_size+2, 0), Color.BLACK, thickness+4)
+	draw_line(Vector2(0, cursor_size+2), Vector2(0, -cursor_size-2), Color.BLACK, thickness+4)
+	
 	draw_line(Vector2(-cursor_size, 0), Vector2(cursor_size, 0), color, thickness)
 	draw_line(Vector2(0, cursor_size), Vector2(0, -cursor_size), color, thickness)
+	

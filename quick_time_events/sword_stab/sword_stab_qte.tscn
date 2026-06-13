@@ -111,6 +111,7 @@ position = Vector2(0, -6)
 texture = ExtResource("3_oaxoj")
 
 [node name="ButtonPrompt" type="AnimatedSprite2D" parent="AttackBar" index="1" unique_id=525287169]
+z_index = 2
 position = Vector2(50, 23)
 sprite_frames = SubResource("SpriteFrames_ltr5u")
 autoplay = "default"

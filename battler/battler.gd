@@ -71,7 +71,6 @@ func _ready() -> void:
 	assert(_is_valid_instance, "create a battler using the static create() method")
 	number_label.hide()
 	animated_sprite_2d.sprite_frames = _sprite_frames
-	animated_sprite_2d.speed_scale = _animation_speed
 	health_bar.max_value = _max_health
 	set_health(_health)
 
@@ -83,7 +82,7 @@ func die() -> void:
 	died.emit()
 
 func take_damage(battler_strength: int, skill_multiplier: float) -> void:
-	var amount: int = round(battler_strength * skill_multiplier - _defense)
+	var amount: int = max(1, round(battler_strength * skill_multiplier - _defense))
 	set_health(_health - amount)
 	%HurtSound.play()
 	bounce_number_label(amount)

@@ -105,6 +105,7 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_523i3")
 
 [node name="StatBox" type="VBoxContainer" parent="." unique_id=164885233]
+z_index = 1
 custom_minimum_size = Vector2(15, 0)
 offset_left = -10.0
 offset_top = 8.0
@@ -123,6 +124,7 @@ show_percentage = false
 [node name="NumberLabel" type="Label" parent="." unique_id=261734383]
 unique_name_in_owner = true
 visible = false
+z_index = 1
 offset_left = -17.0
 offset_top = 32.0
 offset_right = 23.0

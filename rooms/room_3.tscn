@@ -12,7 +12,6 @@
 [ext_resource type="Resource" uid="uid://bq0joluvm4p0q" path="res://battle_data/fields_2.tres" id="10_0v5my"]
 [ext_resource type="Resource" uid="uid://b456hb0skjtq8" path="res://battle_data/fields_3.tres" id="11_suwb7"]
 [ext_resource type="Resource" uid="uid://x76sty2km14f" path="res://battle_data/fields_4.tres" id="12_52qvr"]
-[ext_resource type="Resource" uid="uid://ctbsktp8mlkw2" path="res://battle_data/test.tres" id="13_pkq75"]
 
 [node name="Room3" unique_id=1645941047 instance=ExtResource("1_ugu2v")]
 
@@ -51,21 +50,17 @@ data = ExtResource("7_suwb7")
 [node name="Enemies" type="Node2D" parent="." index="2" unique_id=978227973]
 
 [node name="Enemy" parent="Enemies" index="0" unique_id=1588866589 instance=ExtResource("5_6mom2")]
-position = Vector2(-62, -184)
+position = Vector2(0, -175)
 battle_data = ExtResource("9_sti2h")
 
-[node name="Enemy2" parent="Enemies" index="1" unique_id=1565068812 instance=ExtResource("5_6mom2")]
-position = Vector2(-35, -298)
+[node name="Enemy2" parent="Enemies" index="1" unique_id=1096407443 instance=ExtResource("5_6mom2")]
+position = Vector2(174, -301)
 battle_data = ExtResource("10_0v5my")
 
-[node name="Enemy3" parent="Enemies" index="2" unique_id=2120808796 instance=ExtResource("5_6mom2")]
-position = Vector2(206, -299)
+[node name="Enemy3" parent="Enemies" index="2" unique_id=1196200302 instance=ExtResource("5_6mom2")]
+position = Vector2(316, -118)
 battle_data = ExtResource("11_suwb7")
 
-[node name="Enemy4" parent="Enemies" index="3" unique_id=846984247 instance=ExtResource("5_6mom2")]
-position = Vector2(5, -62)
+[node name="Enemy4" parent="Enemies" index="3" unique_id=825515509 instance=ExtResource("5_6mom2")]
+position = Vector2(322, 30)
 battle_data = ExtResource("12_52qvr")
-
-[node name="Enemy5" parent="Enemies" index="4" unique_id=1615867910 instance=ExtResource("5_6mom2")]
-position = Vector2(80, -30)
-battle_data = ExtResource("13_pkq75")

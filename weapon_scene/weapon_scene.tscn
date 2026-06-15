@@ -7,6 +7,7 @@
 size = Vector2(7, 13)
 
 [node name="WeaponScene" type="Area2D" unique_id=1969658148]
+y_sort_enabled = true
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_1q51k")

@@ -262,6 +262,7 @@ animations = [{
 script = ExtResource("1_myyhs")
 skills = Array[ExtResource("2_onl1n")]([ExtResource("4_kje81")])
 level_ups = Array[ExtResource("1_fot7k")]([ExtResource("2_kje81")])
+text_color = Color(0.14876744, 0.45391697, 0.64065844, 1)
 strength = 18
 defense = 15
 name = "Blue Ninja"

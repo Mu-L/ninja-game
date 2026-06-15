@@ -11,7 +11,8 @@ func play_turn() -> void:
 	action_to_perform = ActionType.ATTACK
 	if action_to_perform == ActionType.ATTACK:
 		var ally: AllyBattler = _living_allies.pick_random()
-		Global.display_text.emit("%s attacked %s" % [battler_name, ally.battler_name])
+		var args := [battler_name, Util.BBcode_color(ally.battler_name, ally.text_color)]
+		Global.display_text.emit("%s attacked %s" % args)
 		await Global.textbox_closed
 		Global.set_cursor_visible.emit(false)
 		health_bar.hide()

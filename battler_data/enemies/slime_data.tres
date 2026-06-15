@@ -222,7 +222,7 @@ animations = [{
 [resource]
 script = ExtResource("1_do0vq")
 max_health = 50
-strength = 20
+strength = 40
 defense = 3
 name = "Slime"
 texture = ExtResource("2_4wt7h")

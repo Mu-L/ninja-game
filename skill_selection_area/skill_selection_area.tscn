@@ -4,6 +4,7 @@
 z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1862460091]
+unique_name_in_owner = true
 
 [node name="ShapeDrawing" type="Node2D" parent="." unique_id=1192983745]
 

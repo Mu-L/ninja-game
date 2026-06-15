@@ -2079,13 +2079,16 @@ y_sort_enabled = true
 
 [node name="Field" type="TileMapLayer" parent="TileMap" unique_id=1537506207]
 z_index = -1
+y_sort_enabled = true
 tile_set = SubResource("TileSet_h5o24")
 
 [node name="Path" type="TileMapLayer" parent="TileMap" unique_id=1208994098]
 z_index = -1
+y_sort_enabled = true
 tile_set = SubResource("TileSet_uniiq")
 
 [node name="Houses" type="TileMapLayer" parent="TileMap" unique_id=112874046]
+y_sort_enabled = true
 tile_set = SubResource("TileSet_xp5fb")
 
 [node name="Nature" type="TileMapLayer" parent="TileMap" unique_id=1853906746]

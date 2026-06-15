@@ -3,7 +3,7 @@ class_name SkillSelectionArea extends Area2D
 
 enum TargetType {ALLIES, ENEMIES}
 
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
 @export var shape_color: Color
 @export var target_type: TargetType
 var battlers: Array[Battler] = []

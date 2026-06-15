@@ -2,7 +2,7 @@ class_name Battle extends Node2D
 
 @onready var battlers: Node2D = %Battlers
 @onready var text_box: TextureRect = %TextBox
-@onready var battle_text: Label = %BattleText
+@onready var battle_text: RichTextLabel = %BattleText
 @onready var battle_camera: Camera2D = %BattleCamera
 @onready var music: AudioStreamPlayer = %Music
 @onready var ally_spawn_circle: Marker2D = %AllySpawnCircle

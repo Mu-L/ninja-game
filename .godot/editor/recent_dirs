@@ -1,16 +1,17 @@
+res://battle/
+res://quick_time_events/spin_attack/
+res://battler/
+res://Ninja Adventure - Asset Pack/Actor/Monster/Axolot/
 res://skill_selection_area/
 res://ally_battler/
-res://battler/
 res://enemy_battler/
 res://quick_time_events/sword_stab/
 res://quick_time_events/kunai/
 res://rooms/
 res://battler_data/enemies/
-res://battle/
 res://battle_data/
 res://selection_cursor/
 res://quick_time_events/shuriken/
-res://quick_time_events/spin_attack/
 res://skills/
 res://player/
 res://battler_data/allies/
@@ -19,5 +20,4 @@ res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/
 res://level_up_data/yellow_ninja/
 res://level_up_data/blue_ninja/
 res://level_up_data/green_ninja/
-res://game/
 C:/Users/Samir/Desktop/

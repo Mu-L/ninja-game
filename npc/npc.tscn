@@ -11,12 +11,13 @@ radius = 6.0
 radius = 21.095022
 
 [node name="NPC" type="CharacterBody2D" unique_id=546455887]
+y_sort_enabled = true
+position = Vector2(0, -8)
 script = ExtResource("1_nhy3c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1606118956]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1672638396]
-visible = false
 shape = SubResource("CircleShape2D_2xp5l")
 
 [node name="InteractComponent" parent="." unique_id=1420502684 instance=ExtResource("3_3i1kj")]

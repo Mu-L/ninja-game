@@ -51,6 +51,7 @@ static func create(data: BattlerData) -> Battler:
 		battler._max_magic_points = data.max_magic_points
 		battler._magic_points = data.magic_points
 		battler._skills = data.skills
+		battler.text_color = data.text_color
 	elif data is EnemyBattlerData:
 		var ENEMY_BATTLER = load("uid://b2i8v282cle12")
 		battler = ENEMY_BATTLER.instantiate() as EnemyBattler

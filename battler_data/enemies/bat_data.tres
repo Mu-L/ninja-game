@@ -241,6 +241,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_k2tdd")
+strength = 30
 name = "Bat"
 texture = ExtResource("2_70omo")
 sprite_frames = SubResource("SpriteFrames_mb5yr")

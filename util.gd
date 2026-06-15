@@ -55,3 +55,32 @@ static func generate_sprite_frames(texture: Texture, is_ally: bool=false ,animat
 		sprite_frames.add_frame(name, atlas)
 	
 	return sprite_frames
+
+static func seconds_to_minutes(time: float) -> String:
+	var minutes: int = floor(time / 60.0)
+	var seconds: float = fmod(time, 60)
+	return "%02d:%02d" % [minutes, seconds]
+
+@warning_ignore("shadowed_global_identifier")
+static func BBCode_pulse(text: String, freq := 1.0, ease := -2.0, color := Color.WHITE) -> String:
+	var args := [freq, color.to_html(), ease, text]
+	return "[pulse freq=%f color=%s ease=%f]%s[/pulse]" % args
+
+static func BBCode_wave(text: String, amp := 50.0, freq := 5.0, connected := 1) -> String:
+	var args := [amp, freq, connected, text]
+	return "[wave amp=%f freq=%f connected=%d]%s[/wave]" % args
+
+static func BBCode_tornado(text: String, radius := 10.0, freq := 1.0, connected := 1) -> String:
+	var args := [radius, freq, connected, text]
+	return "[tornado radius=%f freq=%f connected=%d]%s[/tornado]" % args
+
+static func BBCode_shake(text: String, rate := 20.0, level := 5, connected := 1) -> String:
+	var args := [rate, level, connected, text]
+	return "[shake rate=%f level=%d connected=%d]%s[/shake]" % args
+
+static func BBCode_rainbow(text: String, freq:=1.0, sat:=0.8, val:=0.8, speed=1.0) -> String:
+	var args := [freq, sat, val, speed, text]
+	return "[rainbow freq=%f sat=%f val=%f speed=%f]%s[/rainbow]" % args
+
+static func BBcode_color(text: String, color: Color) -> String:
+	return "[color=#%s]%s[/color]" % [color.to_html(), text]

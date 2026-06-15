@@ -44,20 +44,22 @@ script = ExtResource("2_06g2p")
 
 [node name="InstructionsLabel" type="RichTextLabel" parent="CanvasLayer" index="0" unique_id=1802988848]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -98.0
-offset_right = 20.0
-offset_bottom = -58.0
+offset_left = -40.0
+offset_top = -106.0
+offset_right = 40.0
+offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/outline_size = 6
 bbcode_enabled = true
-text = "Spin!"
+text = "[tornado radius=10.0 freq=3.0 connected=1]Spin![/tornado]"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -1,5 +1,7 @@
 class_name Battle extends Node2D
 
+@export var distance_between_battlers: int = 40
+
 @onready var battlers: Node2D = %Battlers
 @onready var text_box: TextureRect = %TextBox
 @onready var battle_text: RichTextLabel = %BattleText
@@ -8,7 +10,6 @@ class_name Battle extends Node2D
 @onready var ally_spawn_circle: Marker2D = %AllySpawnCircle
 @onready var ally_spawn_point: Marker2D = %AllySpawnPoint
 @onready var enemy_spawn_origin_point: Marker2D = %EnemySpawnOriginPoint
-
 
 signal battle_finished
 
@@ -35,9 +36,35 @@ func start() -> void:
 	var background: Node2D = background_scene.instantiate()
 	add_child(background)
 	
+	var enemies_grid: Array[EnemyBattlerRow] = []
+	for i in range(battle_data.grid_size):
+		var row := EnemyBattlerRow.new()
+		enemies_grid.append(row)
+		row.elements.resize(battle_data.grid_size)
+	
+	# Spawn enemies:
+	for i in range(battle_data.enemies_data_grid.size()):
+		var row := battle_data.enemies_data_grid[i].elements
+		for j in range(row.size()):
+			if row[j] == null:
+				continue
+			exp_gained += row[j].exp_worth
+			var enemy := Battler.create(row[j]) as EnemyBattler
+			battlers.add_child(enemy)
+			_num_of_living_enemies += 1
+			enemy.died.connect(func(): _num_of_living_enemies -= 1)
+			_enemies.append(enemy)
+			enemies_grid[i].elements[j] = enemy
+			enemy.global_position = (
+				enemy_spawn_origin_point.global_position + Vector2(
+				distance_between_battlers * i,
+				distance_between_battlers * j
+			))
+	
 	# Spawn allies:
 	for i in range(allies_data.size()):
 		var ally := Battler.create(allies_data[i]) as AllyBattler
+		ally._enemies_grid = enemies_grid
 		battlers.add_child(ally)
 		_num_of_living_allies += 1
 		ally.died.connect(func(): _num_of_living_allies -= 1)
@@ -45,21 +72,9 @@ func start() -> void:
 		if allies_data.size() == 1:
 			ally.global_position = ally_spawn_circle.global_position
 		else:
-			var step := 360.0 / allies_data.size()
-			ally_spawn_circle.rotation_degrees = step * i
+			var step := 360.0 / 4
+			ally_spawn_circle.rotation_degrees += step
 			ally.global_position = ally_spawn_point.global_position
-	
-	# Spawn enemies:
-	for enemy_pos: Vector2 in battle_data.enemy_positions:
-		var enemy_data := battle_data.enemy_positions[enemy_pos]
-		exp_gained += enemy_data.exp_worth
-		var enemy := Battler.create(enemy_data) as EnemyBattler
-		battlers.add_child(enemy)
-		_num_of_living_enemies += 1
-		enemy.died.connect(func(): _num_of_living_enemies -= 1)
-		_enemies.append(enemy)
-		enemy.global_position = (
-			enemy_spawn_origin_point.global_position + enemy_pos)
 	
 	battle_camera.make_current()
 	text_box.hide()

@@ -9,10 +9,10 @@ class_name Enemy extends CharacterBody2D
 @export var battle_data: BattleData
 
 func _ready() -> void:
+	var index = battle_data.overworld_enemy_index
 	animated_sprite_2d.sprite_frames = (
-		battle_data.enemy_positions
-		.values()[battle_data.overworld_enemy_index]
-		.sprite_frames
+		battle_data.enemies_data_grid[index.x].
+		elements[index.y].sprite_frames
 	)
 
 func die() -> void:

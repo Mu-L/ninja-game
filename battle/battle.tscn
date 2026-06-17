@@ -60,12 +60,13 @@ z_index = 2
 
 [node name="AllySpawnCircle" type="Marker2D" parent="." unique_id=1351190678]
 unique_name_in_owner = true
-position = Vector2(50, 90)
+position = Vector2(92, 90)
+rotation = 3.1415927
 
 [node name="AllySpawnPoint" type="Marker2D" parent="AllySpawnCircle" unique_id=880381202]
 unique_name_in_owner = true
-position = Vector2(40, 0)
+position = Vector2(0, 40)
 
 [node name="EnemySpawnOriginPoint" type="Marker2D" parent="." unique_id=1398596301]
 unique_name_in_owner = true
-position = Vector2(270, 90)
+position = Vector2(200, 50)

@@ -1,5 +1,11 @@
-res://selection_cursor/
 res://ally_battler/
+res://player/
+res://battler_data/allies/
+res://battle/
+res://battler/
+res://rooms/
+res://enemy/
+res://selection_cursor/
 res://dialogue_box/
 res://quick_time_events/sword_stab/
 res://
@@ -8,16 +14,10 @@ res://quick_time_events/spin_attack/
 res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/
 res://quick_time_events/healing/
 res://quick_time_events/kunai/
-res://battle/
-res://battler/
 res://Ninja Adventure - Asset Pack/Actor/Monster/Axolot/
 res://skill_selection_area/
 res://enemy_battler/
-res://rooms/
 res://battler_data/enemies/
 res://battle_data/
 res://quick_time_events/shuriken/
-res://skills/
-res://player/
-res://battler_data/allies/
 C:/Users/Samir/Desktop/

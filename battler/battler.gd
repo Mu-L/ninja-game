@@ -13,6 +13,9 @@ signal died
 @onready var selection_arrow: Sprite2D = %SelectionArrow
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+class Row:
+	var elements: Array[EnemyBattler]
+
 enum ActionType {ATTACK, SKILL, SWAP}
 var action_to_perform: ActionType
 
@@ -39,6 +42,7 @@ var is_alive := true
 # Other"
 var _target: Battler
 var _enemies: Array[EnemyBattler]
+var _enemies_grid: Array[EnemyBattlerRow]
 var _living_allies: Array[AllyBattler]
 
 static func create(data: BattlerData) -> Battler:
@@ -74,6 +78,9 @@ func _ready() -> void:
 	animated_sprite_2d.sprite_frames = _sprite_frames
 	health_bar.max_value = _max_health
 	set_health(_health)
+
+func select_me() -> void:
+	Global.move_cursor_to.emit(self.global_position)
 
 @abstract
 func play_turn() -> void

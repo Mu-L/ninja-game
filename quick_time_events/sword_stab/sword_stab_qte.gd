@@ -6,17 +6,17 @@ extends QuickTimeEvent
 
 var _is_attacking := false
 
-func start(ally: AllyBattler) -> void:
-	super.start(ally)
-	var enemy := ally.get_main_target_battler()
-	await ally.move_to(enemy.global_position - Vector2(25, 0))
-	attack_bar.show()
-	_is_attacking = true
-	attack_animation_player.speed_scale = randf_range(0.5, 1.25)
-	if randf() < 0.5:
-		attack_animation_player.play_backwards("attack")
-	else:
-		attack_animation_player.play("attack")
+#func start(ally: AllyBattler) -> void:
+	#super.start(ally)
+	#var enemy := ally.get_main_target_battler()
+	#await ally.move_to(enemy.global_position - Vector2(25, 0))
+	#attack_bar.show()
+	#_is_attacking = true
+	#attack_animation_player.speed_scale = randf_range(0.5, 1.25)
+	#if randf() < 0.5:
+		#attack_animation_player.play_backwards("attack")
+	#else:
+		#attack_animation_player.play("attack")
 
 func _on_attack_animation_player_animation_finished(_anim_name: StringName) -> void:
 	_is_attacking = false

@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://bps2woo0whbcp" path="res://battler_data/allies/ninja_blue_data.tres" id="4_2ieo8"]
 [ext_resource type="Resource" uid="uid://bwgm8v55qol28" path="res://battler_data/allies/ninja_yellow_data.tres" id="5_2ieo8"]
 [ext_resource type="PackedScene" uid="uid://dem6v7a3ywgfj" path="res://weapon_scene/weapon_scene.tscn" id="5_hg6s5"]
+[ext_resource type="Resource" uid="uid://dynqpwxurdeaw" path="res://battler_data/allies/ninja_red_data.tres" id="6_ebec5"]
 [ext_resource type="AudioStream" uid="uid://8cefjqgtmx0e" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh.wav" id="8_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://81rem6ejea54" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Hit8.wav" id="8_rgyib"]
 
@@ -289,7 +290,7 @@ collision_layer = 2
 collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_g1dw6")
-party_members_data = Array[ExtResource("3_8t03j")]([ExtResource("2_rgyib"), ExtResource("4_2ieo8"), ExtResource("5_2ieo8")])
+party_members_data = Array[ExtResource("3_8t03j")]([ExtResource("2_rgyib"), ExtResource("4_2ieo8"), ExtResource("5_2ieo8"), ExtResource("6_ebec5")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=93024993]
 unique_name_in_owner = true

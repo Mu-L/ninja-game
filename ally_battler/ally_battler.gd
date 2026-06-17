@@ -159,6 +159,7 @@ func _input(event: InputEvent) -> void:
 	if not _is_selecting:
 		return
 	
+	
 	if event.is_action_pressed("move down") or event.is_action_pressed("move right"):
 		_selection_index += 1
 		Global.move_cursor_to.emit(get_main_target_battler().global_position)

@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://t8gmi6eudqc2" path="res://quick_time_events/sword_stab/sword_stab_qte.gd" id="2_7v1pp"]
 [ext_resource type="Texture2D" uid="uid://vr6wlka602gs" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/Sprite.png" id="3_oaxoj"]
 [ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="4_keu8v"]
+[ext_resource type="Texture2D" uid="uid://svgoryfws50q" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Idle.png" id="7_u5ido"]
+[ext_resource type="Texture2D" uid="uid://j1w5g25snexe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Pressed.png" id="8_uk1al"]
 
 [sub_resource type="Gradient" id="Gradient_6tkng"]
 offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
@@ -29,6 +31,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tjo66")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8pd71"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_u5ido")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uk1al")
 }],
 "loop": true,
 "name": &"default",
@@ -110,13 +126,20 @@ unique_name_in_owner = true
 position = Vector2(0, -6)
 texture = ExtResource("3_oaxoj")
 
-[node name="ButtonPrompt" type="AnimatedSprite2D" parent="AttackBar" index="1" unique_id=525287169]
+[node name="KeyPrompt" type="AnimatedSprite2D" parent="AttackBar" index="1" unique_id=525287169]
 z_index = 2
-position = Vector2(50, 23)
+position = Vector2(65, 23)
 sprite_frames = SubResource("SpriteFrames_ltr5u")
 autoplay = "default"
+frame_progress = 0.25160697
 
-[node name="AttackAnimationPlayer" type="AnimationPlayer" parent="AttackBar" index="2" unique_id=1868707531]
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="AttackBar" index="2" unique_id=795615323]
+position = Vector2(42, 22)
+sprite_frames = SubResource("SpriteFrames_8pd71")
+autoplay = "default"
+frame_progress = 0.17524345
+
+[node name="AttackAnimationPlayer" type="AnimationPlayer" parent="AttackBar" index="3" unique_id=1868707531]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_lsiek")
 

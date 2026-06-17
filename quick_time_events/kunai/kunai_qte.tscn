@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://86kq0xdg6ih6" path="res://quick_time_events/kunai/cursor.tscn" id="4_p221v"]
 [ext_resource type="Texture2D" uid="uid://dxmspdye24xrw" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai.png" id="5_70ljc"]
 [ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="5_p221v"]
+[ext_resource type="Texture2D" uid="uid://svgoryfws50q" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Idle.png" id="6_btp4b"]
+[ext_resource type="Texture2D" uid="uid://j1w5g25snexe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Pressed.png" id="7_chxmr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p221v"]
 radius = 11.0
@@ -29,6 +31,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tjo66")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p221v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_btp4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_chxmr")
 }],
 "loop": true,
 "name": &"default",
@@ -63,10 +79,15 @@ texture = ExtResource("5_70ljc")
 unique_name_in_owner = true
 position = Vector2(70, 0)
 
-[node name="ButtonPrompt" type="AnimatedSprite2D" parent="." index="4" unique_id=899408944]
+[node name="KeyPrompt" type="AnimatedSprite2D" parent="." index="4" unique_id=899408944]
 z_index = 2
 position = Vector2(-72, -1)
 sprite_frames = SubResource("SpriteFrames_70ljc")
+autoplay = "default"
+
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="." index="5" unique_id=1554232937]
+position = Vector2(-54, -2)
+sprite_frames = SubResource("SpriteFrames_p221v")
 autoplay = "default"
 
 [connection signal="area_entered" from="Kunai" to="." method="_on_kunai_area_entered"]

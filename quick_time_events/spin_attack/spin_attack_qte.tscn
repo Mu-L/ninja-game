@@ -6,6 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://3xi8bef7ntg0" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadRight.png" id="4_wtdug"]
 [ext_resource type="Texture2D" uid="uid://7ss5b3nyeayk" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadDown.png" id="5_4cbcp"]
 [ext_resource type="Texture2D" uid="uid://c4125hkblhyi0" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadLeft.png" id="6_s8er4"]
+[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="7_wtdug"]
+
+[sub_resource type="Gradient" id="Gradient_k3olt"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wtdug"]
+gradient = SubResource("Gradient_k3olt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4cbcp"]
+texture = SubResource("GradientTexture1D_wtdug")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qa15t"]
 animations = [{
@@ -27,59 +38,129 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_k3olt"]
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtdug"]
+atlas = ExtResource("7_wtdug")
+region = Rect2(0, 112, 16, 16)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_wtdug"]
-gradient = SubResource("Gradient_k3olt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cbcp"]
+atlas = ExtResource("7_wtdug")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4cbcp"]
-texture = SubResource("GradientTexture1D_wtdug")
+[sub_resource type="SpriteFrames" id="SpriteFrames_s8er4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtdug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cbcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cbcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cbcp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdpmd"]
+atlas = ExtResource("7_wtdug")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slqvo"]
+atlas = ExtResource("7_wtdug")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ek5b8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdpmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slqvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdpmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdpmd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8er4"]
+atlas = ExtResource("7_wtdug")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa15t"]
+atlas = ExtResource("7_wtdug")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gdpmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8er4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8er4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa15t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8er4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek5b8"]
+atlas = ExtResource("7_wtdug")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i232"]
+atlas = ExtResource("7_wtdug")
+region = Rect2(32, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxhdi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek5b8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek5b8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek5b8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i232")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="SpinAttackQTE" unique_id=1593403207 instance=ExtResource("1_sfw61")]
 script = ExtResource("2_06g2p")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0" unique_id=670362833]
 
-[node name="InstructionsLabel" type="RichTextLabel" parent="CanvasLayer" index="0" unique_id=1802988848]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 80)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -106.0
-offset_right = 40.0
-offset_bottom = -26.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/outline_size = 6
-bbcode_enabled = true
-text = "[tornado radius=10.0 freq=3.0 connected=1]Spin![/tornado]"
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer" index="1" unique_id=758282528]
-position = Vector2(159, 49)
-sprite_frames = SubResource("SpriteFrames_qa15t")
-autoplay = "default"
-frame_progress = 0.082052164
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" index="2" unique_id=665416437]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" index="0" unique_id=665416437]
 custom_minimum_size = Vector2(210, 25)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -20.0
-offset_right = 100.0
-offset_bottom = -5.0
+offset_left = 55.0
+offset_top = 70.0
+offset_right = 265.0
+offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -93,3 +174,32 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_styles/fill = SubResource("StyleBoxTexture_4cbcp")
 max_value = 50.0
+
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer" index="1" unique_id=758282528]
+position = Vector2(183, 57)
+sprite_frames = SubResource("SpriteFrames_qa15t")
+autoplay = "default"
+frame_progress = 0.082052164
+
+[node name="KeyPrompt" type="Node2D" parent="CanvasLayer" index="2" unique_id=1907264335]
+position = Vector2(145, 45)
+
+[node name="UpKey" type="AnimatedSprite2D" parent="CanvasLayer/KeyPrompt" index="0" unique_id=1479016657]
+sprite_frames = SubResource("SpriteFrames_s8er4")
+autoplay = "default"
+
+[node name="RightKey" type="AnimatedSprite2D" parent="CanvasLayer/KeyPrompt" index="1" unique_id=697625633]
+position = Vector2(15, 13)
+sprite_frames = SubResource("SpriteFrames_ek5b8")
+autoplay = "default"
+frame_progress = 0.41689077
+
+[node name="DownKey" type="AnimatedSprite2D" parent="CanvasLayer/KeyPrompt" index="2" unique_id=303237738]
+position = Vector2(0, 13)
+sprite_frames = SubResource("SpriteFrames_gdpmd")
+autoplay = "default"
+
+[node name="LeftKey" type="AnimatedSprite2D" parent="CanvasLayer/KeyPrompt" index="3" unique_id=1582303508]
+position = Vector2(-15, 13)
+sprite_frames = SubResource("SpriteFrames_cxhdi")
+autoplay = "default"

@@ -34,7 +34,11 @@ func _process(_delta: float) -> void:
 			InteractableComponent.is_interacting = false
 			get_tree().paused = false
 		else:
-			scroll_line(lines_to_display.pop_front())
+			if label.visible_ratio == 1.0:
+				scroll_line(lines_to_display.pop_front())
+			else:
+				label.visible_ratio = 1.0
+				timer.stop()
 
 func clear_text() -> void:
 	timer.stop()

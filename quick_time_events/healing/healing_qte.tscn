@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_7dacu"]
 [ext_resource type="Script" uid="uid://caeybmnranpuv" path="res://quick_time_events/healing/healing_qte.gd" id="2_wp865"]
 [ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="3_c75k3"]
+[ext_resource type="Texture2D" uid="uid://svgoryfws50q" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Idle.png" id="4_5slos"]
 [ext_resource type="AudioStream" uid="uid://b26g7jsixo2kg" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Magic & Skill/Heal2.wav" id="4_33dld"]
+[ext_resource type="Texture2D" uid="uid://j1w5g25snexe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Pressed.png" id="5_opfbh"]
 
 [sub_resource type="Gradient" id="Gradient_33dld"]
 offsets = PackedFloat32Array(0, 0.5, 1)
@@ -34,6 +36,20 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_33dld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5slos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_opfbh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
 }]
 
 [node name="HealingQTE" unique_id=1593403207 instance=ExtResource("1_7dacu")]
@@ -83,10 +99,16 @@ texture_progress = SubResource("GradientTexture2D_tjo66")
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer/VBoxContainer/Control" index="0" unique_id=1382428013]
+[node name="KeyPrompt" type="AnimatedSprite2D" parent="CanvasLayer/VBoxContainer/Control" index="0" unique_id=1382428013]
+position = Vector2(12, 0)
 sprite_frames = SubResource("SpriteFrames_8r2ej")
 autoplay = "default"
 frame_progress = 0.63176584
+
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer/VBoxContainer/Control" index="1" unique_id=1280301042]
+position = Vector2(-8, 0)
+sprite_frames = SubResource("SpriteFrames_33dld")
+autoplay = "default"
 
 [node name="Timer" type="Timer" parent="." index="1" unique_id=754833619]
 unique_name_in_owner = true

@@ -10,10 +10,11 @@ class_name AllyBattler extends Battler
 @onready var skills_button: Button = %SkillsButton
 @onready var sword: Sprite2D = %Sword
 @onready var error_sound: AudioStreamPlayer = %ErrorSound
-@onready var swap_button: Button = %SwapButton
-@onready var index_label: Label = %IndexLabel
+@onready var rotate_button: Button = %RotateButton
+@onready var rotation_count_label: Label = %RotationCountLabel
 
-static var number_of_swaps_left := 1
+
+static var number_of_rotations_left := 1
 
 enum SelectionType {
 	SINGLE_ENEMY,
@@ -35,6 +36,8 @@ const ENEMY_SELECTION: Array[SelectionType] = [
 
 # flags:
 var _is_selecting := false
+var _is_choosing_rotating := false
+var _is_rotating := false
 
 # stats:
 var _data: AllyBattlerData
@@ -75,7 +78,6 @@ func _ready() -> void:
 			if _magic_points < skill.magic_points_cost:
 				%ErrorSound.play()
 				return
-			set_magic_points(_magic_points - skill.magic_points_cost)
 			_skill_to_perform = skill
 			if skill.selection_type in NO_SELECTION:
 				skills_menu.hide()
@@ -149,6 +151,7 @@ func perform_action() -> void:
 	hide_stat_bars()
 	_starting_pos = self.global_position
 	if action_to_perform == ActionType.SKILL:
+		set_magic_points(_magic_points - _skill_to_perform.magic_points_cost)
 		Global.display_text.emit(_skill_to_perform.battle_text % Util.BBcode_color(battler_name, text_color))
 		await Global.textbox_closed
 		var qte: QuickTimeEvent
@@ -160,9 +163,9 @@ func perform_action() -> void:
 			show_stat_bars()
 			finished_turn.emit()
 		)
-	if action_to_perform == ActionType.SWAP:
+	if action_to_perform == ActionType.ROTATE:
 		var other := get_main_target_battler()
-		AllyBattler.number_of_swaps_left -= 1
+		AllyBattler.number_of_rotations_left -= 1
 		Global.display_text.emit("%s swapped places with %s" % [battler_name, other.battler_name])
 		await Global.textbox_closed
 		self.move_to(other.global_position)
@@ -174,38 +177,73 @@ var _input_buffer_timer := 0.0
 const _INPUT_DELAY := 0.05
 var _buffered_index_offset := Vector2i.ZERO
 
+func _input(event: InputEvent) -> void:
+	if not _is_choosing_rotating:
+		return
+	
+	var dir: int
+	if event.is_action_pressed("move down"):
+		dir = -1
+	if event.is_action_pressed("move up"):
+		dir = 1
+	if dir != 0:
+		for i in range(_living_allies.size()):
+			_living_allies[i].move_to(_living_allies[(i+dir) % _living_allies.size()].global_position)
+
 func _process(delta: float) -> void:
 	if not _is_selecting or not Input.is_anything_pressed() or Global.is_cursor_moving:
 		_input_buffer_timer = 0.0
 		_buffered_index_offset = Vector2i.ZERO
 		return
 	
-	var index_offset := Vector2i.ZERO
-	if Input.is_action_pressed("move right"):
-		index_offset.y = 1
-	if Input.is_action_pressed("move left"):
-		index_offset.y = -1
-	if Input.is_action_pressed("move up"):
-		index_offset.x = -1
-	if Input.is_action_pressed("move down"):
-		index_offset.x = 1
+	# Cancel selection:
+	if Input.is_action_just_pressed("attack"):
+		_is_selecting = false
+		skills_menu.show()
+		ui.show()
+		(skills_container.get_child(0) as Control).grab_focus()
+		Global.move_cursor_to.emit(self.global_position)
+		if skill_selection_area:
+			skill_selection_area.queue_free()
 	
-	if index_offset.x != 0:
-		_buffered_index_offset.x = index_offset.x
-	if index_offset.y != 0:
-		_buffered_index_offset.y = index_offset.y
+	if _selection_type == SelectionType.SINGLE_ENEMY:
+		var index_offset := Vector2i.ZERO
+		if Input.is_action_pressed("move right"):
+			index_offset.y = 1
+		if Input.is_action_pressed("move left"):
+			index_offset.y = -1
+		if Input.is_action_pressed("move up"):
+			index_offset.x = -1
+		if Input.is_action_pressed("move down"):
+			index_offset.x = 1
+		
+		if index_offset.x != 0:
+			_buffered_index_offset.x = index_offset.x
+		if index_offset.y != 0:
+			_buffered_index_offset.y = index_offset.y
+		
+		_input_buffer_timer += delta
+		if _input_buffer_timer >= _INPUT_DELAY:
+			_input_buffer_timer = 0.0
+			_buffered_index_offset = Vector2i.ZERO
+			var enemy: EnemyBattler 
+			while enemy == null:
+				_enemy_selection_index += index_offset
+				_enemy_selection_index %= _enemies_grid.size()
+				enemy = _enemies_grid[_enemy_selection_index.x].elements[_enemy_selection_index.y]
+			Global.move_cursor_to.emit(enemy.global_position)
 	
-	_input_buffer_timer += delta
+	elif _selection_type == SelectionType.SINGLE_LIVING_ALLY:
+		if Input.is_action_pressed("move right"):
+			_selection_index = 0
+		if Input.is_action_pressed("move down"):
+			_selection_index = 1
+		if Input.is_action_pressed("move left"):
+			_selection_index = 2
+		if Input.is_action_pressed("move up"):
+			_selection_index = 3
+		Global.move_cursor_to.emit(get_main_target_battler().global_position)
 	
-	if _input_buffer_timer >= _INPUT_DELAY:
-		_input_buffer_timer = 0.0
-		_buffered_index_offset = Vector2i.ZERO
-		var enemy: EnemyBattler 
-		while enemy == null:
-			_enemy_selection_index += index_offset
-			_enemy_selection_index %= _enemies_grid.size()
-			enemy = _enemies_grid[_enemy_selection_index.x].elements[_enemy_selection_index.y]
-		Global.move_cursor_to.emit(enemy.global_position)
 	
 	if Input.is_action_pressed("interact"):
 		Global.set_cursor_visible.emit(false)
@@ -305,30 +343,18 @@ func die() -> void:
 	super.die()
 	self.modulate.a = 0.5
 
-
-func _on_swap_button_pressed() -> void:
-	if AllyBattler.number_of_swaps_left == 0:
+func _on_rotate_button_pressed() -> void:
+	if AllyBattler.number_of_rotations_left == 0:
 		ui.hide()
 		error_sound.play()
-		Global.display_text.emit("Can't swap places anymore this turn")
+		Global.display_text.emit("Can't rotate anymore this turn")
 		await Global.textbox_closed
 		ui.show()
-		swap_button.grab_focus()
+		rotate_button.grab_focus()
 		return
-	if len(_living_allies_not_me) == 0:
-		ui.hide()
-		error_sound.play()
-		Global.display_text.emit("Nobody left alive to swap with")
-		await Global.textbox_closed
-		ui.show()
-		swap_button.grab_focus()
-		return
-	_is_selecting = true
-	_selection_type = SelectionType.SINGLE_LIVING_ALLY_NOT_ME
-	action_to_perform = ActionType.SWAP
+	Global.set_cursor_visible.emit(false)
 	skills_menu.hide()
-	ui.hide()
-	_selection_index = 0
-	var target := get_main_target_battler()
-	Global.set_cursor_visible.emit(true)
-	Global.move_cursor_to.emit(target.global_position)
+	buttons.hide()
+	rotation_count_label.show()
+	rotation_count_label.text = "Rotations Left: %d" % AllyBattler.number_of_rotations_left
+	_is_choosing_rotating = true

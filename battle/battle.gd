@@ -20,6 +20,7 @@ var _enemies: Array[EnemyBattler] = []
 var _num_of_living_allies := 0
 var _num_of_living_enemies := 0
 var exp_gained: int
+var ally_selection_index := 0
 
 static func create(allies_data: Array[AllyBattlerData], battle_data: BattleData) -> Battle:
 	const BATTLE = preload("uid://cb3474ae6wcck")
@@ -76,18 +77,16 @@ func start() -> void:
 				distance_between_battlers * i
 			))
 	
-	
 	battle_camera.make_current()
 	text_box.hide()
 	while not is_battle_finished():
-		AllyBattler.number_of_swaps_left = 1
-		for battler: Battler in battlers.get_children():
-			if not battler.is_alive:
-				continue
-			battler.play_turn()
-			await battler.finished_turn
-			if is_battle_finished():
-				break
+		AllyBattler.number_of_rotations_left = 6
+		# Ally turn:
+		Global.set_cursor_visible.emit(false)
+		Global.move_cursor_to.emit(_allies[0].global_position)
+		
+		if is_battle_finished():
+			break
 	finish_battle()
 
 func display_text(text: String) -> void:

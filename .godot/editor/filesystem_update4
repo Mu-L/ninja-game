@@ -10,3 +10,8 @@ res://npc_data/monk.tres
 res://npc_data/mask_green.tres
 res://battler_data/enemies/bat_data.tres
 res://battle_data/fields_1.tres
+res://ally_battler/ally_battler.tscn
+res://ally_battler/ally_battler.gd
+res://battler/battler.gd
+res://battle/battle.tscn
+res://battle/battle.gd

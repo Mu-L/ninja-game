@@ -16,7 +16,7 @@ signal died
 class Row:
 	var elements: Array[EnemyBattler]
 
-enum ActionType {ATTACK, SKILL, SWAP}
+enum ActionType {ATTACK, SKILL, ROTATE}
 var action_to_perform: ActionType
 
 @warning_ignore_start("unused_private_class_variable")

@@ -8,3 +8,5 @@ signal display_text(text: String)
 signal textbox_closed
 signal move_cursor_to(pos: Vector2)
 signal set_cursor_visible(val: bool)
+
+var is_cursor_moving := false

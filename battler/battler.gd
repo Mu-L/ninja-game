@@ -41,7 +41,6 @@ var is_alive := true
 
 # Other"
 var _target: Battler
-var _enemies: Array[EnemyBattler]
 var _enemies_grid: Array[EnemyBattlerRow]
 var _living_allies: Array[AllyBattler]
 
@@ -140,18 +139,18 @@ func stop_selection_animation() -> void:
 	selection_arrow_animation_player.stop()
 
 func update_battlers_arrays() -> void:
-	_enemies = []
 	_living_allies = []
 	var battlers := get_tree().get_nodes_in_group("battler")
 	for battler in battlers:
 		if battler is AllyBattler:
 			if battler.is_alive:
 				_living_allies.append(battler)
-		elif battler is EnemyBattler:
-			if battler.is_alive:
-				_enemies.append(battler)
-		else:
-			assert(false, "invalid case...")
+	
+	for i in range(_enemies_grid.size()):
+		for j in range(_enemies_grid[i].elements.size()):
+			var enemy := _enemies_grid[i].elements[j]
+			if enemy and not enemy.is_alive:
+				_enemies_grid[i].elements[j] = null
 
 func move_to(pos: Vector2) -> void:
 	var tween := create_tween().set_trans(Tween.TRANS_CUBIC)

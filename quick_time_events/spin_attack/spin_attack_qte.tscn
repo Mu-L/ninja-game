@@ -154,6 +154,7 @@ animations = [{
 script = ExtResource("2_06g2p")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0" unique_id=670362833]
+unique_name_in_owner = true
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" index="0" unique_id=665416437]
 custom_minimum_size = Vector2(210, 25)

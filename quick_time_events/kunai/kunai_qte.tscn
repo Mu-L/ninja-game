@@ -80,13 +80,14 @@ unique_name_in_owner = true
 position = Vector2(70, 0)
 
 [node name="KeyPrompt" type="AnimatedSprite2D" parent="." index="4" unique_id=899408944]
-z_index = 2
-position = Vector2(-72, -1)
+z_index = 1
+position = Vector2(-10, -20.5)
 sprite_frames = SubResource("SpriteFrames_70ljc")
 autoplay = "default"
 
 [node name="ButtonPrompt" type="AnimatedSprite2D" parent="." index="5" unique_id=1554232937]
-position = Vector2(-54, -2)
+z_index = 1
+position = Vector2(10, -22.5)
 sprite_frames = SubResource("SpriteFrames_p221v")
 autoplay = "default"
 

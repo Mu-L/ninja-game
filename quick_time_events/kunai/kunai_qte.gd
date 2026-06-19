@@ -11,6 +11,7 @@ var tween: Tween
 
 func start(ally: AllyBattler) -> void:
 	super.start(ally)
+	target.hide_stat_bars()
 	self.global_position = target.global_position
 	kunai.global_position = ally.global_position
 	kunai.look_at(target.global_position)
@@ -32,13 +33,15 @@ func _input(event: InputEvent) -> void:
 			var tween := create_tween()
 			tween.tween_property(kunai, "global_position", target.global_position, 1.0)
 			tween.finished.connect(func():
+				target.show_stat_bars()
 				finished.emit())
 		else:
 			fail()
 
 func fail() -> void:
-		await ally.missed_effect(target.global_position)
-		finished.emit()
+	target.show_stat_bars()
+	await ally.missed_effect(target.global_position)
+	finished.emit()
 
 func _draw() -> void:
 	draw_circle(

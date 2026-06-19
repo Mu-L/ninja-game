@@ -7,9 +7,11 @@ func _ready() -> void:
 	)
 
 func move_to(pos: Vector2) -> void:
+	Global.is_cursor_moving = true
 	var tween := (
 		create_tween().
 		set_ease(Tween.EASE_IN_OUT).
 		set_trans(Tween.TRANS_CUBIC)
 	)
-	tween.tween_property(self, "global_position", pos, 0.1)
+	tween.tween_property(self, "global_position", pos, 0.15)
+	tween.finished.connect(func(): Global.is_cursor_moving = false)

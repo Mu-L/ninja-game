@@ -42,6 +42,21 @@ func start() -> void:
 		enemies_grid.append(row)
 		row.elements.resize(battle_data.grid_size)
 	
+	# Spawn allies:
+	for i in range(allies_data.size()):
+		var ally := Battler.create(allies_data[i]) as AllyBattler
+		ally._enemies_grid = enemies_grid
+		battlers.add_child(ally)
+		_num_of_living_allies += 1
+		ally.died.connect(func(): _num_of_living_allies -= 1)
+		_allies.append(ally)
+		if allies_data.size() == 1:
+			ally.global_position = ally_spawn_circle.global_position
+		else:
+			var step := 360.0 / 4
+			ally_spawn_circle.rotation_degrees += step
+			ally.global_position = ally_spawn_point.global_position
+	
 	# Spawn enemies:
 	for i in range(battle_data.enemies_data_grid.size()):
 		var row := battle_data.enemies_data_grid[i].elements
@@ -57,24 +72,10 @@ func start() -> void:
 			enemies_grid[i].elements[j] = enemy
 			enemy.global_position = (
 				enemy_spawn_origin_point.global_position + Vector2(
-				distance_between_battlers * i,
-				distance_between_battlers * j
+				distance_between_battlers * j,
+				distance_between_battlers * i
 			))
 	
-	# Spawn allies:
-	for i in range(allies_data.size()):
-		var ally := Battler.create(allies_data[i]) as AllyBattler
-		ally._enemies_grid = enemies_grid
-		battlers.add_child(ally)
-		_num_of_living_allies += 1
-		ally.died.connect(func(): _num_of_living_allies -= 1)
-		_allies.append(ally)
-		if allies_data.size() == 1:
-			ally.global_position = ally_spawn_circle.global_position
-		else:
-			var step := 360.0 / 4
-			ally_spawn_circle.rotation_degrees += step
-			ally.global_position = ally_spawn_point.global_position
 	
 	battle_camera.make_current()
 	text_box.hide()

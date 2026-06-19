@@ -11,6 +11,7 @@ class_name AllyBattler extends Battler
 @onready var sword: Sprite2D = %Sword
 @onready var error_sound: AudioStreamPlayer = %ErrorSound
 @onready var swap_button: Button = %SwapButton
+@onready var index_label: Label = %IndexLabel
 
 static var number_of_swaps_left := 1
 
@@ -43,6 +44,7 @@ var _magic_points: int
 
 var text_color: Color
 var _selection_index := 0
+var _enemy_selection_index: Vector2i = Vector2.ZERO
 var _skill_to_perform: Skill
 var _dead_allies: Array[AllyBattler]
 var _living_allies_not_me: Array[AllyBattler]
@@ -85,6 +87,7 @@ func _ready() -> void:
 			skills_menu.hide()
 			ui.hide()
 			_selection_index = 0
+			_enemy_selection_index = Vector2.ZERO
 			var target := get_main_target_battler()
 			Global.set_cursor_visible.emit(true)
 			Global.move_cursor_to.emit(target.global_position)
@@ -116,18 +119,30 @@ func play_turn() -> void:
 
 func get_main_target_battler() -> Battler:
 	match _selection_type:
-		SelectionType.SINGLE_ENEMY:
-			return _enemies[_selection_index % _enemies.size()]
 		SelectionType.SINGLE_LIVING_ALLY:
 			return _living_allies[_selection_index % _living_allies.size()]
 		SelectionType.SINGLE_DEAD_ALLY:
 			return _dead_allies[_selection_index % _dead_allies.size()]
 		SelectionType.SINGLE_LIVING_ALLY_NOT_ME:
 			return _living_allies_not_me[_selection_index % _living_allies_not_me.size()]
-	
-	assert(false, "unhandled case")
-	# Dead code:
-	return null
+		SelectionType.SINGLE_ENEMY:
+			var enemy := _enemies_grid[_enemy_selection_index.x].elements[_enemy_selection_index.y]
+			if enemy:
+				return enemy
+			_enemy_selection_index.x = 0
+			while _enemy_selection_index.x < _enemies_grid.size():
+				_enemy_selection_index.y = 0
+				while _enemy_selection_index.y < _enemies_grid[_enemy_selection_index.x].elements.size():
+					enemy = _enemies_grid[_enemy_selection_index.x].elements[_enemy_selection_index.y]
+					if enemy:
+						return enemy
+					_enemy_selection_index.y += 1
+				_enemy_selection_index.x += 1
+			return enemy
+		_:
+			assert(false, "%s is unhandled case!" % SelectionType.keys()[_selection_type])
+			return null
+
 
 func perform_action() -> void:
 	await get_tree().create_timer(0.1).timeout
@@ -155,18 +170,44 @@ func perform_action() -> void:
 		show_stat_bars()
 		play_turn()
 
-func _input(event: InputEvent) -> void:
-	if not _is_selecting:
+var _input_buffer_timer := 0.0
+const _INPUT_DELAY := 0.05
+var _buffered_index_offset := Vector2i.ZERO
+
+func _process(delta: float) -> void:
+	if not _is_selecting or not Input.is_anything_pressed() or Global.is_cursor_moving:
+		_input_buffer_timer = 0.0
+		_buffered_index_offset = Vector2i.ZERO
 		return
 	
+	var index_offset := Vector2i.ZERO
+	if Input.is_action_pressed("move right"):
+		index_offset.y = 1
+	if Input.is_action_pressed("move left"):
+		index_offset.y = -1
+	if Input.is_action_pressed("move up"):
+		index_offset.x = -1
+	if Input.is_action_pressed("move down"):
+		index_offset.x = 1
 	
-	if event.is_action_pressed("move down") or event.is_action_pressed("move right"):
-		_selection_index += 1
-		Global.move_cursor_to.emit(get_main_target_battler().global_position)
-	elif event.is_action_pressed("move up") or event.is_action_pressed("move left"):
-		_selection_index -= 1
-		Global.move_cursor_to.emit(get_main_target_battler().global_position)
-	elif event.is_action_pressed("interact"):
+	if index_offset.x != 0:
+		_buffered_index_offset.x = index_offset.x
+	if index_offset.y != 0:
+		_buffered_index_offset.y = index_offset.y
+	
+	_input_buffer_timer += delta
+	
+	if _input_buffer_timer >= _INPUT_DELAY:
+		_input_buffer_timer = 0.0
+		_buffered_index_offset = Vector2i.ZERO
+		var enemy: EnemyBattler 
+		while enemy == null:
+			_enemy_selection_index += index_offset
+			_enemy_selection_index %= _enemies_grid.size()
+			enemy = _enemies_grid[_enemy_selection_index.x].elements[_enemy_selection_index.y]
+		Global.move_cursor_to.emit(enemy.global_position)
+	
+	if Input.is_action_pressed("interact"):
 		Global.set_cursor_visible.emit(false)
 		_is_selecting = false
 		if skill_selection_area:

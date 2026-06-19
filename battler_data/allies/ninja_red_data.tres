@@ -261,6 +261,7 @@ animations = [{
 script = ExtResource("2_3npe3")
 skills = Array[ExtResource("3_fdhvn")]([ExtResource("4_3npe3")])
 text_color = Color(0.7954895, 0, 0.24469921, 1)
+strength = 999
 name = "Red Ninja"
 texture = ExtResource("5_fdhvn")
 sprite_frames = SubResource("SpriteFrames_4mgw6")

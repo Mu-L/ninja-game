@@ -6,7 +6,7 @@
 radius = 5.0
 
 [node name="Cursor" type="Area2D" unique_id=1174687845]
-z_index = 1
+z_index = 2
 script = ExtResource("1_33n1q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1956470986]

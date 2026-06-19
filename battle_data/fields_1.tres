@@ -8,18 +8,19 @@
 
 [sub_resource type="Resource" id="Resource_05ckq"]
 script = ExtResource("1_18o27")
-elements = Array[ExtResource("1_bjwtn")]([ExtResource("3_gadv0"), null, null])
+elements = Array[ExtResource("1_bjwtn")]([ExtResource("3_gadv0"), null, ExtResource("3_gadv0")])
+
+[sub_resource type="Resource" id="Resource_a12mb"]
+script = ExtResource("1_18o27")
+elements = Array[ExtResource("1_bjwtn")]([null, ExtResource("3_gadv0"), null])
+metadata/_custom_type_script = "uid://csuoyklhbiowk"
 
 [sub_resource type="Resource" id="Resource_wux73"]
 script = ExtResource("1_18o27")
-elements = Array[ExtResource("1_bjwtn")]([null, ExtResource("3_gadv0"), null])
-
-[sub_resource type="Resource" id="Resource_gadv0"]
-script = ExtResource("1_18o27")
-elements = Array[ExtResource("1_bjwtn")]([null, null, ExtResource("3_gadv0")])
+elements = Array[ExtResource("1_bjwtn")]([ExtResource("3_gadv0"), null, ExtResource("3_gadv0")])
 
 [resource]
 script = ExtResource("2_18o27")
-enemies_data_grid = Array[ExtResource("1_18o27")]([SubResource("Resource_05ckq"), SubResource("Resource_wux73"), SubResource("Resource_gadv0")])
+enemies_data_grid = Array[ExtResource("1_18o27")]([SubResource("Resource_05ckq"), SubResource("Resource_a12mb"), SubResource("Resource_wux73")])
 song = ExtResource("4_a12mb")
 metadata/_custom_type_script = "uid://diil4nttlc7oo"

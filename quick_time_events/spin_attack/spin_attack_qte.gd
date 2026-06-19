@@ -1,6 +1,7 @@
 extends QuickTimeEvent
 
 @onready var progress_bar: ProgressBar = %ProgressBar
+@onready var canvas_layer: CanvasLayer = %CanvasLayer
 var actions: PackedStringArray = ["move up", "move right", "move down", "move left"]
 var i := 0
 
@@ -17,6 +18,7 @@ func _process(_delta: float) -> void:
 	if progress_bar.value == progress_bar.max_value:
 		started = false
 		self.hide()
+		canvas_layer.hide()
 		const ANIM_NAMES = ["up", "right", "down", "left"]
 		for i in range(8):
 			ally.animated_sprite_2d.play("idle %s" % ANIM_NAMES[i % ANIM_NAMES.size()])

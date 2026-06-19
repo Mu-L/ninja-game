@@ -1,3 +1,6 @@
+res://quick_time_events/kunai/
+res://quick_time_events/spin_attack/
+res://quick_time_events/sword_stab/
 res://ally_battler/
 res://player/
 res://battler_data/allies/
@@ -7,13 +10,10 @@ res://rooms/
 res://enemy/
 res://selection_cursor/
 res://dialogue_box/
-res://quick_time_events/sword_stab/
 res://
 res://Ninja Adventure - Asset Pack/Ui/Input/
-res://quick_time_events/spin_attack/
 res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/
 res://quick_time_events/healing/
-res://quick_time_events/kunai/
 res://Ninja Adventure - Asset Pack/Actor/Monster/Axolot/
 res://skill_selection_area/
 res://enemy_battler/

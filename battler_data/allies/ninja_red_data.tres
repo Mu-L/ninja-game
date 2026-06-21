@@ -6,24 +6,29 @@
 [ext_resource type="Resource" uid="uid://ct22ugnf43yq5" path="res://skills/sword_stab.tres" id="4_3npe3"]
 [ext_resource type="Texture2D" uid="uid://c470c6ypkbdmh" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed/SpriteSheet.png" id="5_fdhvn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vjadx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdhvn"]
 atlas = ExtResource("5_fdhvn")
 region = Rect2(0, 64, 16, 16)
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3qgrr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjadx"]
 atlas = ExtResource("5_fdhvn")
 region = Rect2(32, 64, 16, 16)
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wek01"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qgrr"]
 atlas = ExtResource("5_fdhvn")
 region = Rect2(48, 64, 16, 16)
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gioh2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wek01"]
 atlas = ExtResource("5_fdhvn")
 region = Rect2(16, 64, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gioh2"]
+atlas = ExtResource("5_fdhvn")
+region = Rect2(0, 96, 16, 16)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cklcs"]
@@ -126,7 +131,7 @@ filter_clip = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vjadx")
+"texture": SubResource("AtlasTexture_fdhvn")
 }],
 "loop": true,
 "name": &"attack down",
@@ -134,7 +139,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3qgrr")
+"texture": SubResource("AtlasTexture_vjadx")
 }],
 "loop": true,
 "name": &"attack left",
@@ -142,7 +147,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wek01")
+"texture": SubResource("AtlasTexture_3qgrr")
 }],
 "loop": true,
 "name": &"attack right",
@@ -150,10 +155,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gioh2")
+"texture": SubResource("AtlasTexture_wek01")
 }],
 "loop": true,
 "name": &"attack up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gioh2")
+}],
+"loop": true,
+"name": &"dead",
 "speed": 5.0
 }, {
 "frames": [{
@@ -261,7 +274,7 @@ animations = [{
 script = ExtResource("2_3npe3")
 skills = Array[ExtResource("3_fdhvn")]([ExtResource("4_3npe3")])
 text_color = Color(0.7954895, 0, 0.24469921, 1)
-strength = 999
+strength = 30
 name = "Red Ninja"
 texture = ExtResource("5_fdhvn")
 sprite_frames = SubResource("SpriteFrames_4mgw6")

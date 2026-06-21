@@ -1,4 +1,4 @@
-res://quick_time_events/sword_stab/sword_stab_qte.tscn
+res://battle/battle.tscn
 res://battler_data/allies/ninja_green_data.tres
 res://battler_data/allies/ninja_blue_data.tres
 res://battler_data/allies/ninja_yellow_data.tres
@@ -9,9 +9,8 @@ res://npc_data/cave_girl.tres
 res://npc_data/monk.tres
 res://npc_data/mask_green.tres
 res://battler_data/enemies/bat_data.tres
+res://battler_data/enemies/slime_data.tres
 res://battle_data/fields_1.tres
-res://ally_battler/ally_battler.tscn
-res://ally_battler/ally_battler.gd
-res://battler/battler.gd
-res://battle/battle.tscn
 res://battle/battle.gd
+res://resource_classes/battle_data.gd
+res://skill_selection_area/circle_selection_area.tscn

@@ -96,14 +96,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Skills"
 
-[node name="RotateButton" type="Button" parent="UI/MarginContainer/Buttons" index="1" unique_id=373215811]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(75, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Rotate"
-
 [node name="SkillsMenu" type="PanelContainer" parent="UI" index="1" unique_id=540849287]
 unique_name_in_owner = true
 anchors_preset = 8
@@ -131,21 +123,4 @@ layout_mode = 2
 theme_override_constants/h_separation = 24
 columns = 2
 
-[node name="RotationCountLabel" type="Label" parent="UI" index="2" unique_id=2049566406]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -111.0
-offset_top = -19.0
-offset_right = -4.0
-offset_bottom = -8.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Rotations Left: %d"
-
 [connection signal="pressed" from="UI/MarginContainer/Buttons/SkillsButton" to="." method="_on_skills_button_pressed"]
-[connection signal="pressed" from="UI/MarginContainer/Buttons/RotateButton" to="." method="_on_rotate_button_pressed"]

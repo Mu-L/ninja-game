@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ci64r8aokch4m" path="res://skill_selection_area/circle_selection_area.gd" id="2_1lgn6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cklfm"]
-radius = 30.0
+radius = 40.0
 
 [node name="CircleSelectionArea" unique_id=126199509 instance=ExtResource("1_cklfm")]
 script = ExtResource("2_1lgn6")

@@ -10,11 +10,6 @@ class_name AllyBattler extends Battler
 @onready var skills_button: Button = %SkillsButton
 @onready var sword: Sprite2D = %Sword
 @onready var error_sound: AudioStreamPlayer = %ErrorSound
-@onready var rotate_button: Button = %RotateButton
-@onready var rotation_count_label: Label = %RotationCountLabel
-
-
-static var number_of_rotations_left := 1
 
 enum SelectionType {
 	SINGLE_ENEMY,
@@ -36,8 +31,7 @@ const ENEMY_SELECTION: Array[SelectionType] = [
 
 # flags:
 var _is_selecting := false
-var _is_choosing_rotating := false
-var _is_rotating := false
+var played_turn := false
 
 # stats:
 var _data: AllyBattlerData
@@ -147,25 +141,25 @@ func get_main_target_battler() -> Battler:
 
 
 func perform_action() -> void:
+	played_turn = true
 	await get_tree().create_timer(0.1).timeout
 	hide_stat_bars()
 	_starting_pos = self.global_position
-	if action_to_perform == ActionType.SKILL:
-		set_magic_points(_magic_points - _skill_to_perform.magic_points_cost)
-		Global.display_text.emit(_skill_to_perform.battle_text % Util.BBcode_color(battler_name, text_color))
-		await Global.textbox_closed
-		var qte: QuickTimeEvent
-		qte = _skill_to_perform.quick_time_event.instantiate()
-		add_child(qte)
-		qte.start(self)
-		qte.finished.connect(func():
-			qte.queue_free()
-			show_stat_bars()
-			finished_turn.emit()
-		)
+	set_magic_points(_magic_points - _skill_to_perform.magic_points_cost)
+	Global.display_text.emit(_skill_to_perform.battle_text % Util.BBcode_color(battler_name, text_color))
+	await Global.textbox_closed
+	var qte: QuickTimeEvent
+	qte = _skill_to_perform.quick_time_event.instantiate()
+	add_child(qte)
+	qte.start(self)
+	qte.finished.connect(func():
+		qte.queue_free()
+		show_stat_bars()
+		self.animated_sprite_2d.modulate.a = 0.75
+		finished_turn.emit()
+	)
 	if action_to_perform == ActionType.ROTATE:
 		var other := get_main_target_battler()
-		AllyBattler.number_of_rotations_left -= 1
 		Global.display_text.emit("%s swapped places with %s" % [battler_name, other.battler_name])
 		await Global.textbox_closed
 		self.move_to(other.global_position)
@@ -176,19 +170,6 @@ func perform_action() -> void:
 var _input_buffer_timer := 0.0
 const _INPUT_DELAY := 0.05
 var _buffered_index_offset := Vector2i.ZERO
-
-func _input(event: InputEvent) -> void:
-	if not _is_choosing_rotating:
-		return
-	
-	var dir: int
-	if event.is_action_pressed("move down"):
-		dir = -1
-	if event.is_action_pressed("move up"):
-		dir = 1
-	if dir != 0:
-		for i in range(_living_allies.size()):
-			_living_allies[i].move_to(_living_allies[(i+dir) % _living_allies.size()].global_position)
 
 func _process(delta: float) -> void:
 	if not _is_selecting or not Input.is_anything_pressed() or Global.is_cursor_moving:
@@ -243,7 +224,6 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("move up"):
 			_selection_index = 3
 		Global.move_cursor_to.emit(get_main_target_battler().global_position)
-	
 	
 	if Input.is_action_pressed("interact"):
 		Global.set_cursor_visible.emit(false)
@@ -341,20 +321,5 @@ func update_battlers_arrays() -> void:
 
 func die() -> void:
 	super.die()
-	self.modulate.a = 0.5
-
-func _on_rotate_button_pressed() -> void:
-	if AllyBattler.number_of_rotations_left == 0:
-		ui.hide()
-		error_sound.play()
-		Global.display_text.emit("Can't rotate anymore this turn")
-		await Global.textbox_closed
-		ui.show()
-		rotate_button.grab_focus()
-		return
-	Global.set_cursor_visible.emit(false)
-	skills_menu.hide()
-	buttons.hide()
-	rotation_count_label.show()
-	rotation_count_label.text = "Rotations Left: %d" % AllyBattler.number_of_rotations_left
-	_is_choosing_rotating = true
+	animated_sprite_2d.modulate.a = 0.75
+	animated_sprite_2d.play("dead")

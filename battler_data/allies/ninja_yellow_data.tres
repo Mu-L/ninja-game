@@ -7,127 +7,132 @@
 [ext_resource type="Texture2D" uid="uid://o6ps62bwer2r" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaYellow/SpriteSheet.png" id="3_2dlt6"]
 [ext_resource type="Resource" uid="uid://3v27r02clymg" path="res://skills/spin_attack.tres" id="4_x7hti"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2dlt6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta1n6"]
 atlas = ExtResource("3_2dlt6")
 region = Rect2(0, 64, 16, 16)
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5305b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6job"]
 atlas = ExtResource("3_2dlt6")
 region = Rect2(32, 64, 16, 16)
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x7hti"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x22me"]
 atlas = ExtResource("3_2dlt6")
 region = Rect2(48, 64, 16, 16)
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ta1n6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqjr8"]
 atlas = ExtResource("3_2dlt6")
 region = Rect2(16, 64, 16, 16)
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n6job"]
-atlas = ExtResource("3_2dlt6")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x22me"]
-atlas = ExtResource("3_2dlt6")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uqjr8"]
-atlas = ExtResource("3_2dlt6")
-region = Rect2(48, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_w58c1"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(0, 96, 16, 16)
+filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3es6"]
 atlas = ExtResource("3_2dlt6")
 region = Rect2(0, 0, 16, 16)
-filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekkbx"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(0, 16, 16, 16)
-filter_clip = true
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mu23i"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(0, 32, 16, 16)
-filter_clip = true
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohtiy"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(0, 48, 16, 16)
-filter_clip = true
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rm18x"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(0, 0, 16, 16)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1yara"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(32, 16, 16, 16)
+region = Rect2(0, 16, 16, 16)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i8qyk"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(32, 32, 16, 16)
+region = Rect2(0, 32, 16, 16)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3rkhs"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(32, 48, 16, 16)
+region = Rect2(0, 48, 16, 16)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnsy7"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(32, 0, 16, 16)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qprfi"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(48, 16, 16, 16)
+region = Rect2(32, 16, 16, 16)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bliwf"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(48, 32, 16, 16)
+region = Rect2(32, 32, 16, 16)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2se5"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(48, 48, 16, 16)
+region = Rect2(32, 48, 16, 16)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rou74"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(48, 0, 16, 16)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57v2j"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(16, 16, 16, 16)
+region = Rect2(48, 16, 16, 16)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0j6au"]
 atlas = ExtResource("3_2dlt6")
-region = Rect2(16, 32, 16, 16)
+region = Rect2(48, 32, 16, 16)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_slebi"]
 atlas = ExtResource("3_2dlt6")
+region = Rect2(48, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2bn1"]
+atlas = ExtResource("3_2dlt6")
+region = Rect2(16, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qsn6"]
+atlas = ExtResource("3_2dlt6")
+region = Rect2(16, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq5dl"]
+atlas = ExtResource("3_2dlt6")
+region = Rect2(16, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br0a5"]
+atlas = ExtResource("3_2dlt6")
 region = Rect2(16, 48, 16, 16)
 filter_clip = true
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_k2bn1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_iovfj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2dlt6")
+"texture": SubResource("AtlasTexture_ta1n6")
 }],
 "loop": true,
 "name": &"attack down",
@@ -135,7 +140,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5305b")
+"texture": SubResource("AtlasTexture_n6job")
 }],
 "loop": true,
 "name": &"attack left",
@@ -143,7 +148,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x7hti")
+"texture": SubResource("AtlasTexture_x22me")
 }],
 "loop": true,
 "name": &"attack right",
@@ -151,7 +156,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ta1n6")
+"texture": SubResource("AtlasTexture_uqjr8")
 }],
 "loop": true,
 "name": &"attack up",
@@ -159,7 +164,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n6job")
+"texture": SubResource("AtlasTexture_w58c1")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3es6")
 }],
 "loop": true,
 "name": &"idle down",
@@ -167,7 +180,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x22me")
+"texture": SubResource("AtlasTexture_ekkbx")
 }],
 "loop": true,
 "name": &"idle left",
@@ -175,7 +188,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uqjr8")
+"texture": SubResource("AtlasTexture_mu23i")
 }],
 "loop": true,
 "name": &"idle right",
@@ -183,27 +196,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w58c1")
-}],
-"loop": true,
-"name": &"idle up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j3es6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ekkbx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mu23i")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ohtiy")
 }],
 "loop": true,
-"name": &"walk down",
+"name": &"idle up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -220,7 +216,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_3rkhs")
 }],
 "loop": true,
-"name": &"walk left",
+"name": &"walk down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -237,7 +233,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_u2se5")
 }],
 "loop": true,
-"name": &"walk right",
+"name": &"walk left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -254,6 +250,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_slebi")
 }],
 "loop": true,
+"name": &"walk right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2bn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qsn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq5dl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br0a5")
+}],
+"loop": true,
 "name": &"walk up",
 "speed": 5.0
 }]
@@ -264,9 +277,9 @@ skills = Array[ExtResource("2_2dlt6")]([ExtResource("4_x7hti")])
 level_ups = Array[ExtResource("1_x7hti")]([ExtResource("2_ta1n6")])
 text_color = Color(0.9451067, 0.77413297, 0, 1)
 max_health = 120
-strength = 999
+strength = 30
 defense = 2
 name = "Yellow Ninja"
 texture = ExtResource("3_2dlt6")
-sprite_frames = SubResource("SpriteFrames_k2bn1")
+sprite_frames = SubResource("SpriteFrames_iovfj")
 metadata/_custom_type_script = "uid://7qx50intwyfe"

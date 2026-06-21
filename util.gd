@@ -54,6 +54,15 @@ static func generate_sprite_frames(texture: Texture, is_ally: bool=false ,animat
 		atlas.region = Rect2(i*16, 64, 16, 16)
 		sprite_frames.add_frame(name, atlas)
 	
+	# Death animation:
+	sprite_frames.add_animation("dead")
+	var atlas := AtlasTexture.new()
+	atlas.filter_clip = true
+	atlas.atlas = texture
+	atlas.region = Rect2(0, 6*16, 16, 16)
+	sprite_frames.add_frame("dead", atlas)
+	
+	
 	return sprite_frames
 
 static func seconds_to_minutes(time: float) -> String:

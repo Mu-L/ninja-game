@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://qa81bx3qbhu7" path="res://battle/battle.gd" id="1_4mnim"]
 [ext_resource type="Texture2D" uid="uid://d4erqddj5td6y" path="res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogueBoxSimple.png" id="4_4mnim"]
 [ext_resource type="AudioStream" uid="uid://p4gm0mb73spx" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Menu5.wav" id="5_4mnim"]
+[ext_resource type="AudioStream" uid="uid://iuggp7pxayvo" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Alert/Alert.wav" id="5_7fucf"]
 [ext_resource type="PackedScene" uid="uid://4ku024axqoix" path="res://selection_cursor/selection_cursor.tscn" id="5_l1kiu"]
 [ext_resource type="AudioStream" uid="uid://blhxfbppschy4" path="res://Ninja Adventure - Asset Pack/Audio/Musics/17 - Fight.ogg" id="6_l1kiu"]
 
@@ -39,6 +40,22 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "battle text goes here !"
 
+[node name="RotationCountLabel" type="Label" parent="UI" unique_id=1034172948]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = -19.0
+offset_right = -4.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Rotations Left: %d"
+
 [node name="DisplayTextSound" type="AudioStreamPlayer" parent="." unique_id=1007540065]
 stream = ExtResource("5_4mnim")
 
@@ -46,6 +63,13 @@ stream = ExtResource("5_4mnim")
 unique_name_in_owner = true
 stream = ExtResource("6_l1kiu")
 autoplay = true
+
+[node name="ErrorSound" type="AudioStreamPlayer" parent="." unique_id=1713634468]
+unique_name_in_owner = true
+stream = ExtResource("5_7fucf")
+
+[node name="RotationTimer" type="Timer" parent="." unique_id=2035176898]
+unique_name_in_owner = true
 
 [node name="Battlers" type="Node2D" parent="." unique_id=882097105]
 unique_name_in_owner = true
@@ -60,7 +84,7 @@ z_index = 2
 
 [node name="AllySpawnCircle" type="Marker2D" parent="." unique_id=1351190678]
 unique_name_in_owner = true
-position = Vector2(92, 90)
+position = Vector2(113, 90)
 rotation = 3.1415927
 
 [node name="AllySpawnPoint" type="Marker2D" parent="AllySpawnCircle" unique_id=880381202]
@@ -69,4 +93,7 @@ position = Vector2(0, 40)
 
 [node name="EnemySpawnOriginPoint" type="Marker2D" parent="." unique_id=1398596301]
 unique_name_in_owner = true
-position = Vector2(200, 50)
+position = Vector2(193, 50)
+gizmo_extents = 36.1
+
+[connection signal="timeout" from="RotationTimer" to="." method="_on_rotation_timer_timeout"]

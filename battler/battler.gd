@@ -4,6 +4,8 @@ class_name Battler extends Area2D
 signal finished_turn
 signal died
 
+@export var movement_speed := 0.5
+
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var number_label: Label = %NumberLabel
@@ -154,5 +156,5 @@ func update_battlers_arrays() -> void:
 
 func move_to(pos: Vector2) -> void:
 	var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(self, "global_position", pos, 0.5)
+	tween.tween_property(self, "global_position", pos, movement_speed)
 	await tween.finished

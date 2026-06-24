@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dwcor6k6n5iw1" path="res://quick_time_events/kunai/kunai_qte.gd" id="2_jwbtx"]
 [ext_resource type="PackedScene" uid="uid://86kq0xdg6ih6" path="res://quick_time_events/kunai/cursor.tscn" id="4_p221v"]
 [ext_resource type="Texture2D" uid="uid://dxmspdye24xrw" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai.png" id="5_70ljc"]
-[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="5_p221v"]
+[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://ui/Keyboard Letters and Symbols.png" id="5_p221v"]
 [ext_resource type="Texture2D" uid="uid://svgoryfws50q" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Idle.png" id="6_btp4b"]
 [ext_resource type="Texture2D" uid="uid://j1w5g25snexe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Pressed.png" id="7_chxmr"]
 
@@ -73,6 +73,9 @@ shape = SubResource("CapsuleShape2D_p221v")
 [node name="Sprite2D" type="Sprite2D" parent="Kunai" index="1" unique_id=1726905246]
 texture = ExtResource("5_70ljc")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Kunai" index="2" unique_id=150482818]
+rect = Rect2(-12, -13, 24, 25)
+
 [node name="RotationPoint" type="Node2D" parent="." index="3" unique_id=940870349]
 
 [node name="Spawn" type="Node2D" parent="RotationPoint" index="0" unique_id=1283737461]
@@ -92,3 +95,4 @@ sprite_frames = SubResource("SpriteFrames_p221v")
 autoplay = "default"
 
 [connection signal="area_entered" from="Kunai" to="." method="_on_kunai_area_entered"]
+[connection signal="screen_exited" from="Kunai/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

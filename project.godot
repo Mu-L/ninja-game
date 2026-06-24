@@ -44,6 +44,7 @@ battler=""
 
 [gui]
 
+theme/custom="uid://r8nrangxoa1v"
 theme/custom_font="uid://ukqcegt3tehk"
 
 [input]

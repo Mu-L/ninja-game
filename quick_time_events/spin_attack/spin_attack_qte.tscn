@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://3xi8bef7ntg0" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadRight.png" id="4_wtdug"]
 [ext_resource type="Texture2D" uid="uid://7ss5b3nyeayk" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadDown.png" id="5_4cbcp"]
 [ext_resource type="Texture2D" uid="uid://c4125hkblhyi0" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadLeft.png" id="6_s8er4"]
-[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="7_wtdug"]
+[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://ui/Keyboard Letters and Symbols.png" id="7_wtdug"]
 
 [sub_resource type="Gradient" id="Gradient_k3olt"]
 offsets = PackedFloat32Array(0, 0.5, 1)

@@ -1,7 +1,11 @@
+VScrollBar
+ScrollContainer
+Button
+NinePatchRect
+VisibleOnScreenNotifier2D
 Timer
 Label
 CanvasLayer
-Button
 Control
 VBoxContainer
 AnimatedSprite2D
@@ -9,6 +13,3 @@ Node2D
 RichTextLabel
 AudioStreamPlayer
 Marker2D
-PanelContainer
-TileMapLayer
-ColorRect

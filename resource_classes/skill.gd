@@ -1,6 +1,7 @@
 class_name Skill extends Resource
 
 @export var name: String
+@export var icon: Texture
 @export_multiline() var battle_text: String
 @export var magic_points_cost: int
 @export var selection_type: AllyBattler.SelectionType

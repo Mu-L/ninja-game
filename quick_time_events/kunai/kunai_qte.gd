@@ -8,6 +8,7 @@ extends QuickTimeEvent
 @onready var spawn: Node2D = %Spawn
 
 var tween: Tween
+var kunai_speed := 0
 
 func start(ally: AllyBattler) -> void:
 	super.start(ally)
@@ -30,13 +31,12 @@ func _input(event: InputEvent) -> void:
 		tween.kill()
 		started = false
 		if success_area in cursor.get_overlapping_areas():
-			var tween := create_tween()
-			tween.tween_property(kunai, "global_position", target.global_position, 1.0)
-			tween.finished.connect(func():
-				target.show_stat_bars()
-				finished.emit())
+			kunai_speed = 200
 		else:
 			fail()
+
+func _physics_process(delta: float) -> void:
+	kunai.global_position += kunai.transform.x * delta * kunai_speed
 
 func fail() -> void:
 	target.show_stat_bars()
@@ -69,3 +69,8 @@ func _draw() -> void:
 func _on_kunai_area_entered(area: Area2D) -> void:
 	if area is EnemyBattler:
 		area.take_damage(ally._strength, 1.5)
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	target.show_stat_bars()
+	finished.emit()

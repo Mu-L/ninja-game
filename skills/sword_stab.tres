@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="Skill" format=3 uid="uid://ct22ugnf43yq5"]
 
+[ext_resource type="Texture2D" uid="uid://dsuv2nkjuga0u" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/Guard.png" id="1_334v3"]
 [ext_resource type="PackedScene" uid="uid://c0hqvtcl74s66" path="res://quick_time_events/sword_stab/sword_stab_qte.tscn" id="1_jyy13"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_jyy13"]
 
 [resource]
 script = ExtResource("2_jyy13")
 name = "Sword Stab"
+icon = ExtResource("1_334v3")
 battle_text = "%s stabbed the enemy with their sword"
 quick_time_event = ExtResource("1_jyy13")
 metadata/_custom_type_script = "uid://bycf0afmvv35g"

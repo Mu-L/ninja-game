@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dmhiavs4eo8nr"]
+
+[ext_resource type="Theme" uid="uid://r8nrangxoa1v" path="res://ui/main_theme.tres" id="1_e35ah"]
+[ext_resource type="Texture2D" uid="uid://dk1dvkq125oc3" path="res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/nine_path_panel.png" id="1_vk4rt"]
+[ext_resource type="Texture2D" uid="uid://ddiwy5yqxce0k" path="res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/nine_path_bg_2.png" id="2_vk4rt"]
+
+[node name="MyNinePatchRect" type="NinePatchRect" unique_id=985872370]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_e35ah")
+texture = ExtResource("1_vk4rt")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1693474024]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=1889410555]
+layout_mode = 2
+texture = ExtResource("2_vk4rt")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3

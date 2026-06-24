@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://618ncu12hrge" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/SpriteInHand.png" id="3_6tkng"]
 [ext_resource type="AudioStream" uid="uid://3lf7ysdioi16" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh2.wav" id="5_xyngr"]
 [ext_resource type="AudioStream" uid="uid://d4jyouinuchho" path="res://Ninja Adventure - Asset Pack/Audio/Jingles/LevelUp1.wav" id="6_65rad"]
+[ext_resource type="PackedScene" uid="uid://dmhiavs4eo8nr" path="res://ui/my_nine_patch_rect.tscn" id="8_14ci8"]
 [ext_resource type="AudioStream" uid="uid://iuggp7pxayvo" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Alert/Alert.wav" id="8_ksi8t"]
 [ext_resource type="AudioStream" uid="uid://76ycilithniw" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Magic & Skill/Heal.wav" id="9_t0871"]
 
@@ -88,7 +89,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 8
 
-[node name="SkillsButton" type="Button" parent="UI/MarginContainer/Buttons" index="0" unique_id=1407909011]
+[node name="ViewSkillListButton" type="Button" parent="UI/MarginContainer/Buttons" index="0" unique_id=1407909011]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 30)
 layout_mode = 2
@@ -96,31 +97,44 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Skills"
 
-[node name="SkillsMenu" type="PanelContainer" parent="UI" index="1" unique_id=540849287]
+[node name="SkillsMenu" parent="UI" index="1" unique_id=985872370 instance=ExtResource("8_14ci8")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 135)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -87.5
-offset_top = -43.0
-offset_right = 87.5
-offset_bottom = 43.0
+offset_left = -100.0
+offset_top = -67.5
+offset_right = 100.0
+offset_bottom = 67.5
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/SkillsMenu" index="1" unique_id=1184542012]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/SkillsMenu" index="0" unique_id=1184542012]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="SkillsContainer" type="GridContainer" parent="UI/SkillsMenu/MarginContainer" index="0" unique_id=306723044]
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/SkillsMenu/MarginContainer2" index="0" unique_id=1220595286]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/h_separation = 24
-columns = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 
-[connection signal="pressed" from="UI/MarginContainer/Buttons/SkillsButton" to="." method="_on_skills_button_pressed"]
+[node name="SkillsContainer" type="GridContainer" parent="UI/SkillsMenu/MarginContainer2/ScrollContainer" index="0" unique_id=306723044]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/h_separation = 20
+columns = 3
+
+[connection signal="pressed" from="UI/MarginContainer/Buttons/ViewSkillListButton" to="." method="_on_view_skill_list_button_pressed"]

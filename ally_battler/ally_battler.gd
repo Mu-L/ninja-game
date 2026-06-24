@@ -5,9 +5,9 @@ class_name AllyBattler extends Battler
 @onready var experience_bar: ProgressBar = %ExperienceBar
 @onready var magic_bar: ProgressBar = %MagicBar
 @onready var buttons: HBoxContainer = %Buttons
-@onready var skills_menu: PanelContainer = %SkillsMenu
+@onready var skills_menu: NinePatchRect = %SkillsMenu
 @onready var skills_container: GridContainer = %SkillsContainer
-@onready var skills_button: Button = %SkillsButton
+@onready var view_skill_list_button: Button = %ViewSkillListButton
 @onready var sword: Sprite2D = %Sword
 @onready var error_sound: AudioStreamPlayer = %ErrorSound
 
@@ -41,12 +41,13 @@ var _magic_points: int
 
 var text_color: Color
 var _selection_index := 0
-var _enemy_selection_index: Vector2i = Vector2.ZERO
+var _enemy_selection_index := Vector2i.ZERO
 var _skill_to_perform: Skill
+var _selection_type: SelectionType
+var skill_selection_area: SkillSelectionArea
+
 var _dead_allies: Array[AllyBattler]
 var _living_allies_not_me: Array[AllyBattler]
-var skill_selection_area: SkillSelectionArea
-var _selection_type: SelectionType
 var targets: Array[Battler] = []
 
 func _ready() -> void:
@@ -62,37 +63,17 @@ func _ready() -> void:
 	
 	# Set up skills:
 	for skill: Skill in _skills:
-		var button := Button.new()
-		button.text = skill.name
-		skills_container.add_child(button)
+		var texture_rect := TextureRect.new()
+		texture_rect.texture = skill.icon
+		skills_container.add_child(texture_rect)
 		var label := Label.new()
-		label.text = "%d MP" % skill.magic_points_cost
+		label.text = skill.name
 		skills_container.add_child(label)
-		button.pressed.connect(func():
-			if _magic_points < skill.magic_points_cost:
-				%ErrorSound.play()
-				return
-			_skill_to_perform = skill
-			if skill.selection_type in NO_SELECTION:
-				skills_menu.hide()
-				ui.hide()
-				perform_action()
-				return
-			_is_selecting = true
-			_selection_type = skill.selection_type
-			skills_menu.hide()
-			ui.hide()
-			_selection_index = 0
-			_enemy_selection_index = Vector2.ZERO
-			var target := get_main_target_battler()
-			Global.set_cursor_visible.emit(true)
-			Global.move_cursor_to.emit(target.global_position)
-			if skill.selection_area:
-				var area: SkillSelectionArea = skill.selection_area.instantiate()
-				add_child(area)
-				skill_selection_area = area
-				skill_selection_area.highlight_target(self, target)
-		)
+		var button := Button.new()
+		button.custom_minimum_size.x = 36
+		button.text = "%d MP" % skill.magic_points_cost
+		skills_container.add_child(button)
+		button.pressed.connect(_on_skill_button_pressed.bind(skill))
 	
 	# Back button for skill menu:
 	skills_container.add_child(Control.new())
@@ -101,9 +82,34 @@ func _ready() -> void:
 	back_button.pressed.connect(func():
 		skills_menu.hide()
 		buttons.show()
-		skills_button.grab_focus()
+		view_skill_list_button.grab_focus()
 	)
 	skills_container.add_child(back_button)
+
+func _on_skill_button_pressed(skill: Skill) -> void:
+	if _magic_points < skill.magic_points_cost:
+		%ErrorSound.play()
+		return
+	_skill_to_perform = skill
+	if skill.selection_type in NO_SELECTION:
+		skills_menu.hide()
+		ui.hide()
+		perform_action()
+		return
+	_is_selecting = true
+	_selection_type = skill.selection_type
+	skills_menu.hide()
+	ui.hide()
+	_selection_index = 0
+	_enemy_selection_index = Vector2.ZERO
+	var target := get_main_target_battler()
+	Global.set_cursor_visible.emit(true)
+	Global.move_cursor_to.emit(target.global_position)
+	if skill.selection_area:
+		var area: SkillSelectionArea = skill.selection_area.instantiate()
+		add_child(area)
+		skill_selection_area = area
+		skill_selection_area.highlight_target(self, target)
 
 func play_turn() -> void:
 	update_battlers_arrays()
@@ -111,7 +117,7 @@ func play_turn() -> void:
 	Global.move_cursor_to.emit(self.global_position)
 	buttons.show()
 	ui.show()
-	skills_button.grab_focus()
+	view_skill_list_button.grab_focus()
 
 func get_main_target_battler() -> Battler:
 	match _selection_type:
@@ -139,7 +145,6 @@ func get_main_target_battler() -> Battler:
 			assert(false, "%s is unhandled case!" % SelectionType.keys()[_selection_type])
 			return null
 
-
 func perform_action() -> void:
 	played_turn = true
 	await get_tree().create_timer(0.1).timeout
@@ -158,14 +163,6 @@ func perform_action() -> void:
 		self.animated_sprite_2d.modulate.a = 0.75
 		finished_turn.emit()
 	)
-	if action_to_perform == ActionType.ROTATE:
-		var other := get_main_target_battler()
-		Global.display_text.emit("%s swapped places with %s" % [battler_name, other.battler_name])
-		await Global.textbox_closed
-		self.move_to(other.global_position)
-		await other.move_to(_starting_pos)
-		show_stat_bars()
-		play_turn()
 
 var _input_buffer_timer := 0.0
 const _INPUT_DELAY := 0.05
@@ -236,14 +233,18 @@ func _process(delta: float) -> void:
 	if skill_selection_area:
 		skill_selection_area.highlight_target(self, get_main_target_battler())
 
-func _on_skills_button_pressed() -> void:
+func _on_view_skill_list_button_pressed() -> void:
 	if _magic_points <= 0 or _skills.is_empty():
 		%ErrorSound.play()
 		return
 	action_to_perform = ActionType.SKILL
 	buttons.hide()
 	skills_menu.show()
-	(skills_container.get_child(0) as Control).grab_focus()
+	for child in skills_container.get_children():
+		if child is BaseButton:
+			child.grab_focus()
+			break
+	%ScrollContainer.scroll_vertical = 0
 
 func increase_exp(amount: int) -> void:
 	# We update stats first:

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_s17de"]
 [ext_resource type="Script" uid="uid://t8gmi6eudqc2" path="res://quick_time_events/sword_stab/sword_stab_qte.gd" id="2_7v1pp"]
 [ext_resource type="Texture2D" uid="uid://vr6wlka602gs" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/Sprite.png" id="3_oaxoj"]
-[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://Keyboard Letters and Symbols.png" id="4_keu8v"]
+[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://ui/Keyboard Letters and Symbols.png" id="4_keu8v"]
 [ext_resource type="Texture2D" uid="uid://svgoryfws50q" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Idle.png" id="7_u5ido"]
 [ext_resource type="Texture2D" uid="uid://j1w5g25snexe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Pressed.png" id="8_uk1al"]
 

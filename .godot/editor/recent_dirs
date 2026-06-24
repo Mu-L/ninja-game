@@ -1,12 +1,13 @@
+res://ui/
+res://ally_battler/
+res://battle/
+res://quick_time_events/kunai/
 res://skill_selection_area/
 res://quick_time_events/spin_attack/
 res://enemy_battler/
-res://quick_time_events/kunai/
 res://quick_time_events/sword_stab/
-res://ally_battler/
 res://player/
 res://battler_data/allies/
-res://battle/
 res://battler/
 res://rooms/
 res://enemy/
@@ -19,5 +20,4 @@ res://quick_time_events/healing/
 res://Ninja Adventure - Asset Pack/Actor/Monster/Axolot/
 res://battler_data/enemies/
 res://battle_data/
-res://quick_time_events/shuriken/
 C:/Users/Samir/Desktop/

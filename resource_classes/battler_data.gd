@@ -12,6 +12,7 @@ var health: int
 
 @export_category("visuals")
 @export var name: String
+@export var portrait: Texture
 @export var texture: Texture2D
 @export var sprite_frames: SpriteFrames
 @export var animation_speed: float = 5.0

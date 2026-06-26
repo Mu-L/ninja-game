@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyBattlerData" format=3 uid="uid://bfcluj5kpkdrt"]
 
+[ext_resource type="Texture2D" uid="uid://dq6ptgc4e2i4l" path="res://Ninja Adventure - Asset Pack/Actor/Monster/BlueBat/Faceset.png" id="1_7bil5"]
 [ext_resource type="Script" uid="uid://dt43sb7vd25ke" path="res://resource_classes/enemy_battler_data.gd" id="1_k2tdd"]
 [ext_resource type="Texture2D" uid="uid://cugcnc2mqxgr7" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/BlueBat/SpriteSheet.png" id="2_70omo"]
 
@@ -243,6 +244,7 @@ animations = [{
 script = ExtResource("1_k2tdd")
 strength = 30
 name = "Bat"
+portrait = ExtResource("1_7bil5")
 texture = ExtResource("2_70omo")
 sprite_frames = SubResource("SpriteFrames_mb5yr")
 flying = true

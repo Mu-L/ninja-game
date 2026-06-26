@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3cf25bcqwuo5" path="res://resource_classes/level_up.gd" id="1_4y8tn"]
 [ext_resource type="Script" uid="uid://7qx50intwyfe" path="res://resource_classes/ally_battler_data.gd" id="2_3npe3"]
+[ext_resource type="Texture2D" uid="uid://db23jm450uv1q" path="res://Ninja Adventure - Asset Pack/Actor/Character/NinjaRed/Faceset.png" id="2_vjadx"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="3_fdhvn"]
 [ext_resource type="Resource" uid="uid://ct22ugnf43yq5" path="res://skills/sword_stab.tres" id="4_3npe3"]
 [ext_resource type="Texture2D" uid="uid://c470c6ypkbdmh" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed/SpriteSheet.png" id="5_fdhvn"]
@@ -276,6 +277,8 @@ skills = Array[ExtResource("3_fdhvn")]([ExtResource("4_3npe3")])
 text_color = Color(0.7954895, 0, 0.24469921, 1)
 strength = 30
 name = "Red Ninja"
+portrait = ExtResource("2_vjadx")
 texture = ExtResource("5_fdhvn")
 sprite_frames = SubResource("SpriteFrames_4mgw6")
+flying = true
 metadata/_custom_type_script = "uid://7qx50intwyfe"

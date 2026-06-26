@@ -13,6 +13,11 @@ class_name Battle extends Node2D
 @onready var rotation_count_label: Label = %RotationCountLabel
 @onready var error_sound: AudioStreamPlayer = %ErrorSound
 @onready var rotation_timer: Timer = %RotationTimer
+@onready var battler_portrait: TextureRect = %BattlerPortrait
+@onready var battler_name_label: Label = %BattlerNameLabel
+@onready var health_receptacle: Receptacle = %HealthReceptacle
+@onready var magic_receptacle: Receptacle = %MagicReceptacle
+@onready var battler_data_ui: NinePatchRect = %BattlerDataUI
 
 signal battle_finished
 
@@ -64,6 +69,7 @@ func start() -> void:
 		_num_of_living_allies += 1
 		ally.died.connect(func(): _num_of_living_allies -= 1)
 		ally.finished_turn.connect(_on_ally_finished_turn)
+		ally.update_battler_ui.connect(update_battler_data_ui)
 		_allies.append(ally)
 		if allies_data.size() == 1:
 			ally.global_position = ally_spawn_circle.global_position
@@ -101,6 +107,7 @@ func start_ally_turn() -> void:
 	is_selcting_ally = true
 	Global.set_cursor_visible.emit(true)
 	_ally_selection_index = _allies.find(has_not_played_turn[0])
+	update_battler_data_ui(_allies[_ally_selection_index])
 	Global.move_cursor_to.emit(has_not_played_turn[0].global_position)
 
 func enemy_turn() -> void:
@@ -132,6 +139,7 @@ func _on_ally_finished_turn() -> void:
 		is_selcting_ally = true
 		Global.set_cursor_visible.emit(true)
 		_ally_selection_index = _allies.find(has_not_played_turn[0])
+		update_battler_data_ui(_allies[_ally_selection_index])
 		Global.move_cursor_to.emit(has_not_played_turn[0].global_position)
 
 func _input(event: InputEvent) -> void:
@@ -160,6 +168,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("move up"):
 			_ally_selection_index = 3
 		Global.move_cursor_to.emit(_allies[_ally_selection_index].global_position)
+		update_battler_data_ui(_allies[_ally_selection_index])
 		
 		if event.is_action_pressed("interact"):
 			var ally := _allies[_ally_selection_index]
@@ -200,8 +209,20 @@ func _input(event: InputEvent) -> void:
 			Global.set_cursor_visible.emit(true)
 			Global.move_cursor_to.emit(_allies[0].global_position)
 
+func update_battler_data_ui(battler: Battler) -> void:
+	battler_data_ui.show()
+	battler_name_label.text = battler.battler_name
+	battler_portrait.texture = battler.portrait
+	health_receptacle.update(float(battler._health) / battler._max_health)
+	if battler is AllyBattler:
+		magic_receptacle.show()
+		magic_receptacle.update(float(battler._magic_points) / battler._max_magic_points)
+	else:
+		magic_receptacle.hide()
+
 func display_text(text: String) -> void:
 	$DisplayTextSound.play()
+	battler_data_ui.hide()
 	text_box.show()
 	battle_text.text = text
 

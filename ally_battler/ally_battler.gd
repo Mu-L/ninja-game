@@ -74,6 +74,9 @@ func _ready() -> void:
 		button.text = "%d MP" % skill.magic_points_cost
 		skills_container.add_child(button)
 		button.pressed.connect(_on_skill_button_pressed.bind(skill))
+		button.focus_entered.connect(func():
+			pass
+			)
 	
 	# Back button for skill menu:
 	skills_container.add_child(Control.new())
@@ -105,6 +108,7 @@ func _on_skill_button_pressed(skill: Skill) -> void:
 	var target := get_main_target_battler()
 	Global.set_cursor_visible.emit(true)
 	Global.move_cursor_to.emit(target.global_position)
+	update_battler_ui.emit(target)
 	if skill.selection_area:
 		var area: SkillSelectionArea = skill.selection_area.instantiate()
 		add_child(area)
@@ -210,6 +214,7 @@ func _process(delta: float) -> void:
 				_enemy_selection_index %= _enemies_grid.size()
 				enemy = _enemies_grid[_enemy_selection_index.x].elements[_enemy_selection_index.y]
 			Global.move_cursor_to.emit(enemy.global_position)
+			update_battler_ui.emit(enemy)
 	
 	elif _selection_type == SelectionType.SINGLE_LIVING_ALLY:
 		if Input.is_action_pressed("move right"):

@@ -3,6 +3,7 @@ class_name Battler extends Area2D
 
 signal finished_turn
 signal died
+signal update_battler_ui(battler: Battler)
 
 @export var movement_speed := 0.5
 
@@ -36,6 +37,7 @@ var battler_name: String
 var _sprite_frames: SpriteFrames
 var _animation_speed: float = 5.0
 var _starting_pos: Vector2
+var portrait: Texture
 
 # flags:
 var _is_valid_instance := false
@@ -71,6 +73,7 @@ static func create(data: BattlerData) -> Battler:
 	battler._sprite_frames = data.sprite_frames
 	battler._animation_speed = data.animation_speed
 	battler.battler_name = data.name
+	battler.portrait = data.portrait
 	return battler
 
 func _ready() -> void:

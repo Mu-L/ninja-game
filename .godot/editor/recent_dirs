@@ -1,10 +1,10 @@
+res://enemy_battler/
 res://ui/
-res://ally_battler/
 res://battle/
+res://ally_battler/
 res://quick_time_events/kunai/
 res://skill_selection_area/
 res://quick_time_events/spin_attack/
-res://enemy_battler/
 res://quick_time_events/sword_stab/
 res://player/
 res://battler_data/allies/

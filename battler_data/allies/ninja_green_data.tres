@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://7qx50intwyfe" path="res://resource_classes/ally_battler_data.gd" id="1_e24ek"]
 [ext_resource type="Resource" uid="uid://cw010mglf210w" path="res://level_up_data/green_ninja/green_ninja_level_up_2.tres" id="2_2fpfn"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_tmdsl"]
+[ext_resource type="Texture2D" uid="uid://c2xtnwyilcr35" path="res://Ninja Adventure - Asset Pack/Actor/Character/NinjaGreen/Faceset.png" id="3_bkg23"]
 [ext_resource type="Resource" uid="uid://ct22ugnf43yq5" path="res://skills/sword_stab.tres" id="5_2fpfn"]
 [ext_resource type="Resource" uid="uid://bip5kdt7gplwx" path="res://skills/single_heal.tres" id="6_p33he"]
 [ext_resource type="Resource" uid="uid://3v27r02clymg" path="res://skills/spin_attack.tres" id="7_p33he"]
@@ -282,6 +283,8 @@ text_color = Color(0.21600002, 0.48, 0, 1)
 strength = 30
 defense = 10
 name = "Green Ninja"
+portrait = ExtResource("3_bkg23")
 texture = ExtResource("7_tmdsl")
 sprite_frames = SubResource("SpriteFrames_t77tj")
+flying = true
 metadata/_custom_type_script = "uid://7qx50intwyfe"

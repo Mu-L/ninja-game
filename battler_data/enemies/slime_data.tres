@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyBattlerData" format=3 uid="uid://btloskel7kcby"]
 
 [ext_resource type="Script" uid="uid://dt43sb7vd25ke" path="res://resource_classes/enemy_battler_data.gd" id="1_do0vq"]
+[ext_resource type="Texture2D" uid="uid://cmcm8sbqkjn58" path="res://Ninja Adventure - Asset Pack/Actor/Monster/Slime/Faceset.png" id="1_r72u6"]
 [ext_resource type="Texture2D" uid="uid://do54tvds8hvxs" path="res://Ninja Adventure - Asset Pack/Actor/Monster/Slime/Slime.png" id="2_4wt7h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4wt7h"]
@@ -225,6 +226,7 @@ max_health = 50
 strength = 30
 defense = 3
 name = "Slime"
+portrait = ExtResource("1_r72u6")
 texture = ExtResource("2_4wt7h")
 sprite_frames = SubResource("SpriteFrames_kbkah")
 metadata/_custom_type_script = "uid://dt43sb7vd25ke"

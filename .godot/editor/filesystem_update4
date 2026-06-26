@@ -1,9 +1,6 @@
-res://ally_battler/ally_battler.tscn
+res://ui/magic_receptacle.tscn
 res://ui/main_theme.tres
-res://skills/kunai.tres
-res://skills/spin_attack.tres
-res://skills/single_heal.tres
-res://skills/sword_stab.tres
+res://new_shader.gdshader
+res://ui/receptacle.gd
 res://ally_battler/ally_battler.gd
-res://ui/my_nine_patch_rect.tscn
-res://battler_data/allies/ninja_green_data.tres
+res://ui/health_receptacle.tscn

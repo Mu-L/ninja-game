@@ -1,9 +1,11 @@
 class_name Util extends Object
 
-static func generate_sprite_frames(texture: Texture, is_ally: bool=false ,animation_speed: float=5.0, is_flying:bool=false) -> SpriteFrames:
+static func generate_sprite_frames(texture: Texture, is_ally: bool=false ,animation_speed: float=5.0, is_flying:bool=false, weird:bool=false) -> SpriteFrames:
 	var sprite_frames = SpriteFrames.new()
 	sprite_frames.remove_animation("default")
 	var directions := ["down", "up", "left", "right"]
+	if weird:
+		directions = ["down", "left", "up", "right"]
 	
 	# Walk animations:
 	for i in range(len(directions)):

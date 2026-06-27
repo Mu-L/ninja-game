@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyBattlerData" format=3 uid="uid://borxdhtao2br8"]
 
+[ext_resource type="Texture2D" uid="uid://bqpm2o7csk6u" path="res://Ninja Adventure - Asset Pack/Actor/Monster/Bamboo/Faceset.png" id="1_00jfx"]
 [ext_resource type="Script" uid="uid://dt43sb7vd25ke" path="res://resource_classes/enemy_battler_data.gd" id="1_1vyle"]
 [ext_resource type="Texture2D" uid="uid://bc2gs5nmeosm" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/Bamboo/SpriteSheet.png" id="2_sslt5"]
 
@@ -222,6 +223,7 @@ animations = [{
 [resource]
 script = ExtResource("1_1vyle")
 name = "Bamboo"
+portrait = ExtResource("1_00jfx")
 texture = ExtResource("2_sslt5")
 sprite_frames = SubResource("SpriteFrames_l5ttq")
 metadata/_custom_type_script = "uid://dt43sb7vd25ke"

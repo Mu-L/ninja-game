@@ -17,3 +17,4 @@ var health: int
 @export var sprite_frames: SpriteFrames
 @export var animation_speed: float = 5.0
 @export var flying: bool = false
+@export var weird: bool = false

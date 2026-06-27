@@ -2,91 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://cr7mmvdr4dh8d" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/BackgroundRed.png" id="1_dymme"]
 [ext_resource type="Script" uid="uid://dnkr33pdtji8i" path="res://ui/receptacle.gd" id="2_qvkcq"]
-[ext_resource type="Shader" uid="uid://cbnl8yjj205al" path="res://new_shader.gdshader" id="2_vgsqg"]
+[ext_resource type="Shader" uid="uid://cbnl8yjj205al" path="res://ui/new_shader.gdshader" id="2_vgsqg"]
 [ext_resource type="Texture2D" uid="uid://ctk1ai4ly7xrp" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/ProgressGreen.png" id="4_qvkcq"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qi0nb"]
-shader = ExtResource("2_vgsqg")
-shader_parameter/water_color_1 = Color(0, 0.99607843, 0.2784314, 0)
-shader_parameter/water_color_2 = Color(0, 0.99607843, 0.2784314, 0)
-shader_parameter/water_level_percentage = 0.762000036195
-shader_parameter/wave_frequency_1 = 10.0
-shader_parameter/wave_amplitude_1 = 0.05
-shader_parameter/wave_frequency_2 = 15.0
-shader_parameter/wave_amplitude_2 = 0.03
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vgsqg"]
 shader = ExtResource("2_vgsqg")
-shader_parameter/water_color_1 = Color(0, 0.99607843, 0.2784314, 0)
-shader_parameter/water_color_2 = Color(0, 0.99607843, 0.2784314, 0)
+shader_parameter/water_color_1 = Color(0.2, 0.6, 0.8, 0)
+shader_parameter/water_color_2 = Color(0.101960786, 0.5019608, 0.69803923, 0)
 shader_parameter/water_level_percentage = 1.0
 shader_parameter/wave_frequency_1 = 10.0
 shader_parameter/wave_amplitude_1 = 0.05
 shader_parameter/wave_frequency_2 = 15.0
 shader_parameter/wave_amplitude_2 = 0.03
 
-[sub_resource type="Animation" id="Animation_vgsqg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FillingDifference:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_qvkcq"]
-resource_name = "flash"
-length = 0.2
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FillingDifference:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qi0nb"]
-_data = {
-&"RESET": SubResource("Animation_vgsqg"),
-&"flash": SubResource("Animation_qvkcq")
-}
-
 [node name="MagicReceptacle" type="TextureRect" unique_id=1367369809]
 texture = ExtResource("1_dymme")
 script = ExtResource("2_qvkcq")
 
-[node name="FillingDifference" type="TextureRect" parent="." unique_id=292027841]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_qi0nb")
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -11.0
-offset_top = -11.0
-offset_right = 11.0
-offset_bottom = 11.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_qvkcq")
-
 [node name="ActualFilling" type="TextureRect" parent="." unique_id=805919512]
 unique_name_in_owner = true
-visible = false
 material = SubResource("ShaderMaterial_vgsqg")
 layout_mode = 1
 anchors_preset = 8
@@ -101,6 +35,3 @@ offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_qvkcq")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2055513718]
-libraries/ = SubResource("AnimationLibrary_qi0nb")

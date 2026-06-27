@@ -17,6 +17,10 @@ class_name Battle extends Node2D
 @onready var battler_name_label: Label = %BattlerNameLabel
 @onready var health_receptacle: Receptacle = %HealthReceptacle
 @onready var magic_receptacle: Receptacle = %MagicReceptacle
+@onready var battler_health_label: Label = %BattlerHealthLabel
+@onready var battler_magic_label: Label = %BattlerMagicLabel
+@onready var health_container: HBoxContainer = $UI/BattlerDataUI/VboxContainer/HealthContainer
+@onready var magic_container: HBoxContainer = $UI/BattlerDataUI/VboxContainer/MagicContainer
 @onready var battler_data_ui: NinePatchRect = %BattlerDataUI
 
 signal battle_finished
@@ -214,11 +218,13 @@ func update_battler_data_ui(battler: Battler) -> void:
 	battler_name_label.text = battler.battler_name
 	battler_portrait.texture = battler.portrait
 	health_receptacle.update(float(battler._health) / battler._max_health)
+	battler_health_label.text = "HP\n%d/%d" % [battler._health, battler._max_health]
 	if battler is AllyBattler:
-		magic_receptacle.show()
+		magic_container.show()
 		magic_receptacle.update(float(battler._magic_points) / battler._max_magic_points)
+		battler_magic_label.text = "MP\n%d/%d" % [battler._magic_points, battler._max_magic_points]
 	else:
-		magic_receptacle.hide()
+		magic_container.hide()
 
 func display_text(text: String) -> void:
 	$DisplayTextSound.play()

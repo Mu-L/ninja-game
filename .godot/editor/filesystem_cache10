@@ -1,12 +1,11 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1782507433
+::res://::1782547111
 export_presets.cfg::TextFile::-1::1773059980::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::618367769540306195::1770807542::1770807547::1::::<><><>0<>0<>3dfe518675dc1416ae7cdfa7214a3a10<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-new_shader.gdshader::Shader::4870595214855964635::1782471999::0::1::::<><><>0<>0<><>::
 SFX_RetroMultiplev1.wav::AudioStreamWAV::6388885183420495547::1657714768::1772893727::1::::<><><>0<>0<>40e4b30da4c9b69d932e2b095caa99de<>res://.godot/imported/SFX_RetroMultiplev1.wav-dce449c34ad246a46aec2b43edb2df5b.sample::
 util.gd::GDScript::2531868029663139724::1781964933::0::1::::Util<>Object<><>0<>0<><>::
-::res://ally_battler/::1782495695
-ally_battler.gd::GDScript::8076644151256393085::1782495695::0::1::::AllyBattler<>Battler<><>0<>0<><>::
+::res://ally_battler/::1782507645
+ally_battler.gd::GDScript::8076644151256393085::1782507645::0::1::::AllyBattler<>Battler<><>0<>0<><>::
 ally_battler.tscn::PackedScene::833719124098917955::1782299659::0::1::::<><><>0<>0<><>::uid://3t6a4pm4ttpx::::res://battler/battler.tscn<>uid://dncnfcosfo0ij::::res://ally_battler/ally_battler.gd<>uid://618ncu12hrge::::res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/SpriteInHand.png<>uid://3lf7ysdioi16::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh2.wav<>uid://d4jyouinuchho::::res://Ninja Adventure - Asset Pack/Audio/Jingles/LevelUp1.wav<>uid://dmhiavs4eo8nr::::res://ui/my_nine_patch_rect.tscn<>uid://iuggp7pxayvo::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Alert/Alert.wav<>uid://76ycilithniw::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Magic & Skill/Heal.wav
 blink.res::Animation::2291521282262904179::1780662460::0::1::::<><><>0<>0<><>::
 ::res://battle/::1782467914
@@ -4024,14 +4023,15 @@ line_selection_area.gd::GDScript::6112021661242432430::1781198508::0::1::::<>Ski
 line_selection_area.tscn::PackedScene::6237120179759101205::1781342297::0::1::::<><><>0<>0<><>::uid://d0eassyffx1wr::::res://skill_selection_area/skill_selection_area.tscn<>uid://ctcydr8degaa5::::res://skill_selection_area/line_selection_area.gd
 skill_selection_area.gd::GDScript::6656189191558294566::1781343324::0::1::::SkillSelectionArea<>Area2D<><>1<>0<><>::
 skill_selection_area.tscn::PackedScene::8922273780067042189::1781343324::0::1::::<><><>0<>0<><>::
-::res://ui/::1782473612
-health_receptacle.tscn::PackedScene::6940949420138916193::1782472284::0::1::::<><><>0<>0<><>::uid://cisf5p3iirnch::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/BackgroundBottle.png<>uid://dnkr33pdtji8i::::res://ui/receptacle.gd<>uid://cbnl8yjj205al::::res://new_shader.gdshader<>uid://dtgdib00mp88v::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/ProgressHealth.png
+::res://ui/::1782547260
+health_receptacle.tscn::PackedScene::6940949420138916193::1782547421::0::1::::<><><>0<>0<><>::uid://cisf5p3iirnch::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/BackgroundBottle.png<>uid://dnkr33pdtji8i::::res://ui/receptacle.gd<>uid://cbnl8yjj205al::::res://new_shader.gdshader<>uid://dtgdib00mp88v::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/ProgressHealth.png
 heart_sprite.tscn::PackedScene::4506223525758792445::1770982046::0::1::::<><><>0<>0<><>::uid://dkw6rg84j22rk::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/Heart.png
 Keyboard Letters and Symbols.png::CompressedTexture2D::901854703946470125::1772813247::1782295084::1::::<><><>0<>0<>1a1bc7a4788d7b00690930d17549d432<>res://.godot/imported/Keyboard Letters and Symbols.png-e9ac0ef189ebd350630e9dc64d0c7cec.ctex::
-magic_receptacle.tscn::PackedScene::3299138253748935436::1782473612::0::1::::<><><>0<>0<><>::uid://cr7mmvdr4dh8d::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/BackgroundRed.png<>uid://dnkr33pdtji8i::::res://ui/receptacle.gd<>uid://cbnl8yjj205al::::res://new_shader.gdshader<>uid://667a01rliwvm::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/ProgressBlack.png
-main_theme.tres::Theme::1262154507519227241::1782471999::0::1::::<><><>0<>0<><>::uid://j8aob4ktfksl::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_disabled.png<>uid://dbapmm8vd5567::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_hover.png<>uid://f68ehj2ynl48::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_normal.png<>uid://dspqmda6odumx::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_pressed.png
+magic_receptacle.tscn::PackedScene::3299138253748935436::1782547421::0::1::::<><><>0<>0<><>::uid://cr7mmvdr4dh8d::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/BackgroundRed.png<>uid://dnkr33pdtji8i::::res://ui/receptacle.gd<>uid://cbnl8yjj205al::::res://new_shader.gdshader<>uid://ctk1ai4ly7xrp::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/ProgressGreen.png
+main_theme.tres::Theme::1262154507519227241::1782547111::0::1::::<><><>0<>0<><>::uid://j8aob4ktfksl::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_disabled.png<>uid://dbapmm8vd5567::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_hover.png<>uid://f68ehj2ynl48::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_normal.png<>uid://dspqmda6odumx::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_pressed.png
 my_nine_patch_rect.tscn::PackedScene::8016465687076635935::1782465464::0::1::::<><><>0<>0<><>::uid://r8nrangxoa1v::::res://ui/main_theme.tres<>uid://dk1dvkq125oc3::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/nine_path_panel.png<>uid://ddiwy5yqxce0k::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/nine_path_bg_2.png
-receptacle.gd::GDScript::8093444481008619938::1782473612::0::1::::Receptacle<>TextureRect<><>0<>0<><>::
+receptacle.gd::GDScript::8093444481008619938::1782547260::0::1::::Receptacle<>TextureRect<><>0<>0<><>::
+new_shader.gdshader::Shader::4870595214855964635::1782547111::0::1::::<><><>0<>0<><>::
 ::res://weapon_scene/::1781506705
 weapon_scene.gd::GDScript::8763087749443360358::1772467017::0::1::::WeaponScene<>Area2D<><>0<>0<><>::
 weapon_scene.tscn::PackedScene::7466711369180253563::1781506705::0::1::::<><><>0<>0<><>::uid://dw351l24dx8p3::::res://weapon_scene/weapon_scene.gd<>uid://618ncu12hrge::::res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/SpriteInHand.png

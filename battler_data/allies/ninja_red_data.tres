@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="3_fdhvn"]
 [ext_resource type="Resource" uid="uid://ct22ugnf43yq5" path="res://skills/sword_stab.tres" id="4_3npe3"]
 [ext_resource type="Texture2D" uid="uid://c470c6ypkbdmh" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed/SpriteSheet.png" id="5_fdhvn"]
+[ext_resource type="Resource" uid="uid://bip5kdt7gplwx" path="res://skills/single_heal.tres" id="5_vjadx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdhvn"]
 atlas = ExtResource("5_fdhvn")
@@ -273,7 +274,8 @@ animations = [{
 
 [resource]
 script = ExtResource("2_3npe3")
-skills = Array[ExtResource("3_fdhvn")]([ExtResource("4_3npe3")])
+max_magic_points = 18
+skills = Array[ExtResource("3_fdhvn")]([ExtResource("4_3npe3"), ExtResource("5_vjadx")])
 text_color = Color(0.7954895, 0, 0.24469921, 1)
 strength = 30
 name = "Red Ninja"

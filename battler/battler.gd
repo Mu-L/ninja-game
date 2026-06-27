@@ -8,7 +8,7 @@ signal update_battler_ui(battler: Battler)
 @export var movement_speed := 0.5
 
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
-@onready var health_bar: ProgressBar = %HealthBar
+@onready var health_bar: TextureProgressBar = %HealthBar
 @onready var number_label: Label = %NumberLabel
 @onready var hp_label: Label = $HPLabel
 @onready var animation_player: AnimationPlayer = %AnimationPlayer

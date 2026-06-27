@@ -66,8 +66,10 @@ text = "Rotations Left: %d"
 unique_name_in_owner = true
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 74.0
+offset_right = 88.0
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("3_qybyd")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -113,22 +115,50 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Green Ninja"
 
-[node name="HealthReceptacle" parent="UI/BattlerDataUI/VboxContainer" unique_id=1770957786 instance=ExtResource("10_t8p1f")]
+[node name="HealthContainer" type="HBoxContainer" parent="UI/BattlerDataUI/VboxContainer" unique_id=622395736]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="HealthReceptacle" parent="UI/BattlerDataUI/VboxContainer/HealthContainer" unique_id=1770957786 instance=ExtResource("10_t8p1f")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Filling" parent="UI/BattlerDataUI/VboxContainer/HealthReceptacle" index="0" unique_id=228067659]
+[node name="ActualFilling" parent="UI/BattlerDataUI/VboxContainer/HealthContainer/HealthReceptacle" index="0" unique_id=228067659]
 offset_left = -11.0
 offset_right = 11.0
 
-[node name="MagicReceptacle" parent="UI/BattlerDataUI/VboxContainer" unique_id=201830105 instance=ExtResource("5_rxlun")]
+[node name="BattlerHealthLabel" type="Label" parent="UI/BattlerDataUI/VboxContainer/HealthContainer" unique_id=1293268666]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "HP
+100/999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MagicContainer" type="HBoxContainer" parent="UI/BattlerDataUI/VboxContainer" unique_id=2085948744]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="MagicReceptacle" parent="UI/BattlerDataUI/VboxContainer/MagicContainer" unique_id=201830105 instance=ExtResource("5_rxlun")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("6_qybyd")
+
+[node name="BattlerMagicLabel" type="Label" parent="UI/BattlerDataUI/VboxContainer/MagicContainer" unique_id=1974429114]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "MP
+100/999"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DisplayTextSound" type="AudioStreamPlayer" parent="." unique_id=1007540065]
 stream = ExtResource("5_4mnim")
@@ -158,7 +188,7 @@ z_index = 2
 
 [node name="AllySpawnCircle" type="Marker2D" parent="." unique_id=1351190678]
 unique_name_in_owner = true
-position = Vector2(130, 90)
+position = Vector2(138, 90)
 rotation = 3.1415927
 
 [node name="AllySpawnPoint" type="Marker2D" parent="AllySpawnCircle" unique_id=880381202]
@@ -167,9 +197,9 @@ position = Vector2(0, 40)
 
 [node name="EnemySpawnOriginPoint" type="Marker2D" parent="." unique_id=1398596301]
 unique_name_in_owner = true
-position = Vector2(210, 50)
+position = Vector2(218, 50)
 gizmo_extents = 36.1
 
 [connection signal="timeout" from="RotationTimer" to="." method="_on_rotation_timer_timeout"]
 
-[editable path="UI/BattlerDataUI/VboxContainer/HealthReceptacle"]
+[editable path="UI/BattlerDataUI/VboxContainer/HealthContainer/HealthReceptacle"]

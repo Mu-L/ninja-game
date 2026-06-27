@@ -2,14 +2,13 @@ class_name AllyBattler extends Battler
 
 @onready var ui: CanvasLayer = $UI
 @onready var skill_animation: AnimatedSprite2D = %SkillAnimation
-@onready var experience_bar: ProgressBar = %ExperienceBar
-@onready var magic_bar: ProgressBar = %MagicBar
 @onready var buttons: HBoxContainer = %Buttons
 @onready var skills_menu: NinePatchRect = %SkillsMenu
 @onready var skills_container: GridContainer = %SkillsContainer
 @onready var view_skill_list_button: Button = %ViewSkillListButton
 @onready var sword: Sprite2D = %Sword
 @onready var error_sound: AudioStreamPlayer = %ErrorSound
+@onready var experience_bar: TextureProgressBar = %ExperienceBar
 
 enum SelectionType {
 	SINGLE_ENEMY,
@@ -58,7 +57,6 @@ func _ready() -> void:
 	animated_sprite_2d.play("idle right")
 	experience_bar.max_value = _data.EXP_to_next_level
 	experience_bar.value = _data.EXP
-	magic_bar.max_value = _max_magic_points
 	set_magic_points(_max_magic_points)
 	
 	# Set up skills:
@@ -293,7 +291,6 @@ func increase_exp(amount: int) -> void:
 
 func set_magic_points(new_val: int) -> void:
 	_magic_points = new_val
-	magic_bar.value = new_val
 
 func missed_effect(pos: Vector2) -> void:
 	const MISS_LABEL = preload("uid://cqw5qj1ygekwl")
@@ -306,11 +303,9 @@ func missed_effect(pos: Vector2) -> void:
 
 func show_stat_bars() -> void:
 	super.show_stat_bars()
-	magic_bar.show()
 
 func hide_stat_bars() -> void:
 	super.hide_stat_bars()
-	magic_bar.hide()
 
 func update_battlers_arrays() -> void:
 	super.update_battlers_arrays()

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://do5bflwxi2lgq" path="res://Ninja Adventure - Asset Pack/Actor/Character/NinjaBlue2/Faceset.png" id="3_fot7k"]
 [ext_resource type="Texture2D" uid="uid://cvr10wwumk30i" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaBlue2/SpriteSheet.png" id="4_3bax8"]
 [ext_resource type="Resource" uid="uid://cyqhlvwprkbff" path="res://skills/kunai.tres" id="4_kje81"]
+[ext_resource type="Resource" uid="uid://bip5kdt7gplwx" path="res://skills/single_heal.tres" id="7_s6yrx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kje81"]
 atlas = ExtResource("4_3bax8")
@@ -274,9 +275,11 @@ animations = [{
 
 [resource]
 script = ExtResource("1_myyhs")
-skills = Array[ExtResource("2_onl1n")]([ExtResource("4_kje81")])
+max_magic_points = 27
+skills = Array[ExtResource("2_onl1n")]([ExtResource("4_kje81"), ExtResource("7_s6yrx")])
 level_ups = Array[ExtResource("1_fot7k")]([ExtResource("2_kje81")])
 text_color = Color(0.44287938, 0.6725646, 0.99785954, 1)
+max_health = 110
 strength = 30
 defense = 15
 name = "Blue Ninja"

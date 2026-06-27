@@ -3,6 +3,8 @@
 [ext_resource type="AudioStream" uid="uid://csryb4da68guf" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact2.wav" id="1_kj5ye"]
 [ext_resource type="Texture2D" uid="uid://cukoafl7ps86a" path="res://Ninja Adventure - Asset Pack/Ui/Arrow.png" id="2_3mwqo"]
 [ext_resource type="Animation" uid="uid://7wbax7rpn4ah" path="res://ally_battler/blink.res" id="2_e27bp"]
+[ext_resource type="Texture2D" uid="uid://byoohdpms7418" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/LifeBarMiniUnder.png" id="3_gmf5j"]
+[ext_resource type="Texture2D" uid="uid://b8j0xm6wq4ba5" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/LifeBarMiniProgress.png" id="4_ox4b6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mwqo"]
 radius = 7.0
@@ -104,23 +106,6 @@ libraries/ = SubResource("AnimationLibrary_f17ml")
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_523i3")
 
-[node name="StatBox" type="VBoxContainer" parent="." unique_id=164885233]
-z_index = 1
-custom_minimum_size = Vector2(15, 0)
-offset_left = -10.0
-offset_top = 8.0
-offset_right = 10.0
-offset_bottom = 12.0
-theme_override_constants/separation = 1
-
-[node name="HealthBar" type="ProgressBar" parent="StatBox" unique_id=1773053405]
-unique_name_in_owner = true
-modulate = Color(1, 0, 0, 1)
-custom_minimum_size = Vector2(20, 1)
-layout_mode = 2
-value = 100.0
-show_percentage = false
-
 [node name="NumberLabel" type="Label" parent="." unique_id=261734383]
 unique_name_in_owner = true
 visible = false
@@ -141,3 +126,21 @@ offset_bottom = -19.0
 [node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=1473143112]
 unique_name_in_owner = true
 stream = ExtResource("1_kj5ye")
+
+[node name="StatsContainer" type="VBoxContainer" parent="." unique_id=528664899]
+unique_name_in_owner = true
+offset_left = -9.0
+offset_top = 9.0
+offset_right = 9.0
+offset_bottom = 13.0
+theme_override_constants/separation = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="StatsContainer" unique_id=857112302]
+unique_name_in_owner = true
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 100.0
+texture_under = ExtResource("3_gmf5j")
+texture_progress = ExtResource("4_ox4b6")

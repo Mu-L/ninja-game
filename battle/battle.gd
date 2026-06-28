@@ -13,15 +13,12 @@ class_name Battle extends Node2D
 @onready var rotation_count_label: Label = %RotationCountLabel
 @onready var error_sound: AudioStreamPlayer = %ErrorSound
 @onready var rotation_timer: Timer = %RotationTimer
-@onready var battler_portrait: TextureRect = %BattlerPortrait
-@onready var battler_name_label: Label = %BattlerNameLabel
-@onready var health_receptacle: Receptacle = %HealthReceptacle
-@onready var magic_receptacle: Receptacle = %MagicReceptacle
+
 @onready var battler_health_label: Label = %BattlerHealthLabel
 @onready var battler_magic_label: Label = %BattlerMagicLabel
-@onready var health_container: HBoxContainer = $UI/BattlerDataUI/VboxContainer/HealthContainer
-@onready var magic_container: HBoxContainer = $UI/BattlerDataUI/VboxContainer/MagicContainer
-@onready var battler_data_ui: NinePatchRect = %BattlerDataUI
+@onready var battler_data_ui: VBoxContainer = %BattlerDataUI
+@onready var health_receptacle: Receptacle = %HealthReceptacle
+@onready var magic_receptacle: Receptacle = %MagicReceptacle
 
 signal battle_finished
 
@@ -74,6 +71,7 @@ func start() -> void:
 		ally.died.connect(func(): _num_of_living_allies -= 1)
 		ally.finished_turn.connect(_on_ally_finished_turn)
 		ally.update_battler_ui.connect(update_battler_data_ui)
+		ally.skill_button_focused.connect(_on_skill_button_focused)
 		_allies.append(ally)
 		if allies_data.size() == 1:
 			ally.global_position = ally_spawn_circle.global_position
@@ -156,6 +154,7 @@ func _input(event: InputEvent) -> void:
 		Global.textbox_closed.emit()
 	
 	elif event.is_action_pressed("menu"):
+		battler_data_ui.hide()
 		rotation_count_label.show()
 		rotation_count_label.text = "Rotations Left: %d" % number_of_rotations_left
 		is_selcting_ally = false
@@ -214,17 +213,17 @@ func _input(event: InputEvent) -> void:
 			Global.move_cursor_to.emit(_allies[0].global_position)
 
 func update_battler_data_ui(battler: Battler) -> void:
-	battler_data_ui.show()
-	battler_name_label.text = battler.battler_name
-	battler_portrait.texture = battler.portrait
-	health_receptacle.update(float(battler._health) / battler._max_health)
-	battler_health_label.text = "HP\n%d/%d" % [battler._health, battler._max_health]
 	if battler is AllyBattler:
-		magic_container.show()
+		battler_data_ui.show()
+		battler_health_label.text = "HP %d/%d" % [battler._health, battler._max_health]
+		health_receptacle.show()
+		health_receptacle.update(float(battler._health) / battler._max_health)
+		magic_receptacle.show()
 		magic_receptacle.update(float(battler._magic_points) / battler._max_magic_points)
-		battler_magic_label.text = "MP\n%d/%d" % [battler._magic_points, battler._max_magic_points]
+		battler_magic_label.show()
+		battler_magic_label.text = "MP %d/%d" % [battler._magic_points, battler._max_magic_points]
 	else:
-		magic_container.hide()
+		battler_data_ui.hide()
 
 func display_text(text: String) -> void:
 	$DisplayTextSound.play()
@@ -256,6 +255,10 @@ func finish_battle() -> void:
 		await Global.textbox_closed
 		get_tree().change_scene_to_file("res://game/game.tscn")
 
+func _on_skill_button_focused(skill_cost: int, current_magic: int, max_magic: int) -> void:
+	magic_receptacle.update(
+		float(current_magic - skill_cost) / max_magic
+	)
 
 func _on_rotation_timer_timeout() -> void:
 	_is_rotating = false

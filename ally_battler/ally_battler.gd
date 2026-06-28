@@ -1,5 +1,7 @@
 class_name AllyBattler extends Battler
 
+signal skill_button_focused(skill_cost: int, current_magic: int, max_magic: int)
+
 @onready var ui: CanvasLayer = $UI
 @onready var skill_animation: AnimatedSprite2D = %SkillAnimation
 @onready var buttons: HBoxContainer = %Buttons
@@ -73,8 +75,8 @@ func _ready() -> void:
 		skills_container.add_child(button)
 		button.pressed.connect(_on_skill_button_pressed.bind(skill))
 		button.focus_entered.connect(func():
-			pass
-			)
+			skill_button_focused.emit(skill.magic_points_cost, _magic_points, _max_magic_points)
+		)
 	
 	# Back button for skill menu:
 	skills_container.add_child(Control.new())

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c55iom3i1e8ev"]
 
-[ext_resource type="Texture2D" uid="uid://cisf5p3iirnch" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/BackgroundBottle.png" id="1_fdkwe"]
-[ext_resource type="Script" uid="uid://dnkr33pdtji8i" path="res://ui/receptacle.gd" id="2_7hprc"]
+[ext_resource type="Texture2D" uid="uid://di4fifl0bsynk" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/BackgroundFlask.png" id="1_7hprc"]
+[ext_resource type="Script" uid="uid://dnkr33pdtji8i" path="res://ui/receptacle/receptacle.gd" id="2_7hprc"]
 [ext_resource type="Shader" uid="uid://cbnl8yjj205al" path="res://ui/new_shader.gdshader" id="2_rj1ym"]
-[ext_resource type="Texture2D" uid="uid://dtgdib00mp88v" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/ProgressHealth.png" id="3_7hprc"]
+[ext_resource type="Texture2D" uid="uid://bayv66ydulju1" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/ProgressHealth.png" id="4_5m5sl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7hprc"]
 shader = ExtResource("2_rj1ym")
@@ -16,9 +16,9 @@ shader_parameter/wave_frequency_2 = 15.0
 shader_parameter/wave_amplitude_2 = 0.03
 
 [node name="HealthReceptacle" type="TextureRect" unique_id=1770957786]
-offset_right = 40.0
-offset_bottom = 63.0
-texture = ExtResource("1_fdkwe")
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_7hprc")
 script = ExtResource("2_7hprc")
 
 [node name="ActualFilling" type="TextureRect" parent="." unique_id=228067659]
@@ -30,10 +30,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -14.0
-offset_top = -16.5
-offset_right = 14.0
-offset_bottom = 23.5
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_7hprc")
+texture = ExtResource("4_5m5sl")

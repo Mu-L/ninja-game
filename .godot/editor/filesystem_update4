@@ -30,3 +30,9 @@ res://npc_data/mask_green.tres
 res://util.gd
 res://resource_classes/battler_data.gd
 res://resource_classes/enemy_battler_data.gd
+res://quick_time_events/shuriken/shuriken_quick_time_event.tscn
+res://quick_time_events/shuriken/shuriken_qte.tscn
+res://quick_time_events/shuriken/shuriken_qte.gd
+res://quick_time_events/spin_attack/spin_attack_qte.tscn
+res://ui/receptacle/health_receptacle.tscn
+res://ui/receptacle/magic_receptacle.tscn

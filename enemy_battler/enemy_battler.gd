@@ -7,10 +7,10 @@ func _ready() -> void:
 func play_turn() -> void:
 	Global.set_cursor_visible.emit(true)
 	Global.move_cursor_to.emit(self.global_position)
-	update_battlers_arrays()
 	action_to_perform = ActionType.ATTACK
 	if action_to_perform == ActionType.ATTACK:
-		var ally: AllyBattler = _living_allies.pick_random()
+		var living_allies := _allies.filter(func(b: Battler): return b.is_alive)
+		var ally: AllyBattler = living_allies.pick_random()
 		var args := [battler_name, ally.get_colored_name()]
 		Global.display_text.emit("%s attacked %s" % args)
 		await Global.textbox_closed

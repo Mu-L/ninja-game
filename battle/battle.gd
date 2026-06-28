@@ -13,7 +13,6 @@ class_name Battle extends Node2D
 @onready var rotation_count_label: Label = %RotationCountLabel
 @onready var error_sound: AudioStreamPlayer = %ErrorSound
 @onready var rotation_timer: Timer = %RotationTimer
-
 @onready var battler_health_label: Label = %BattlerHealthLabel
 @onready var battler_magic_label: Label = %BattlerMagicLabel
 @onready var battler_data_ui: VBoxContainer = %BattlerDataUI
@@ -24,22 +23,27 @@ signal battle_finished
 
 var battle_data: BattleData
 var allies_data: Array[AllyBattlerData]
-var _allies: Array[AllyBattler] = []
+
+var allies: Array[AllyBattler] = []
 var enemies_grid: Array[EnemyBattlerRow] = []
 var has_not_played_turn: Array[AllyBattler] = []
-var _num_of_living_allies := 0
-var _num_of_living_enemies := 0
+
+var num_of_living_allies := 0
+var num_of_living_enemies := 0
 var exp_gained: int
-var _ally_selection_index := 0
-var turn: Turn
+var ally_selection_index := 0
 var number_of_rotations_left := 0
 
 # flags"
-var is_selcting_ally := false
-var _is_choosing_rotation := false
-var _is_rotating := false
+var is_rotating := false
 
-enum Turn {ALLIES, ENEMIES}
+enum States {
+	NOTHING,
+	SELECTING_ALLY,
+	ROTATING,
+	CHOOSING_ROTATION,
+}
+var state := States.NOTHING
 
 static func create(allies_data: Array[AllyBattlerData], battle_data: BattleData) -> Battle:
 	const BATTLE = preload("uid://cb3474ae6wcck")
@@ -62,23 +66,22 @@ func start() -> void:
 		enemies_grid.append(row)
 		row.elements.resize(battle_data.grid_size)
 	
+	allies = []
 	# Spawn allies:
-	for i in range(allies_data.size()):
-		var ally := Battler.create(allies_data[i]) as AllyBattler
+	for data in allies_data:
+		var ally := Battler.create(data) as AllyBattler
 		ally._enemies_grid = enemies_grid
+		ally._allies = allies
 		battlers.add_child(ally)
-		_num_of_living_allies += 1
-		ally.died.connect(func(): _num_of_living_allies -= 1)
+		num_of_living_allies += 1
+		ally.died.connect(func(): num_of_living_allies -= 1)
 		ally.finished_turn.connect(_on_ally_finished_turn)
 		ally.update_battler_ui.connect(update_battler_data_ui)
 		ally.skill_button_focused.connect(_on_skill_button_focused)
-		_allies.append(ally)
-		if allies_data.size() == 1:
-			ally.global_position = ally_spawn_circle.global_position
-		else:
-			var step := 360.0 / 4
-			ally_spawn_circle.rotation_degrees += step
-			ally.global_position = ally_spawn_point.global_position
+		allies.append(ally)
+		var step := 360.0 / 4
+		ally_spawn_circle.rotation_degrees += step
+		ally.global_position = ally_spawn_point.global_position
 	
 	# Spawn enemies:
 	for i in range(battle_data.enemies_data_grid.size()):
@@ -88,9 +91,11 @@ func start() -> void:
 				continue
 			exp_gained += row[j].exp_worth
 			var enemy := Battler.create(row[j]) as EnemyBattler
+			enemy._enemies_grid = enemies_grid
+			enemy._allies = allies
 			battlers.add_child(enemy)
-			_num_of_living_enemies += 1
-			enemy.died.connect(func(): _num_of_living_enemies -= 1)
+			num_of_living_enemies += 1
+			enemy.died.connect(func(): num_of_living_enemies -= 1)
 			enemies_grid[i].elements[j] = enemy
 			enemy.global_position = (
 				enemy_spawn_origin_point.global_position + Vector2(
@@ -103,17 +108,15 @@ func start() -> void:
 	start_ally_turn()
 
 func start_ally_turn() -> void:
-	has_not_played_turn = _allies.filter(func(ally: AllyBattler): return ally.is_alive)
+	has_not_played_turn = allies.filter(func(ally: AllyBattler): return ally.is_alive)
 	number_of_rotations_left = 6
-	turn = Turn.ALLIES
-	is_selcting_ally = true
+	state = States.SELECTING_ALLY
 	Global.set_cursor_visible.emit(true)
-	_ally_selection_index = _allies.find(has_not_played_turn[0])
-	update_battler_data_ui(_allies[_ally_selection_index])
-	Global.move_cursor_to.emit(has_not_played_turn[0].global_position)
+	ally_selection_index = allies.find(has_not_played_turn[0])
+	update_battler_data_ui(allies[ally_selection_index])
+	Global.move_cursor_to.emit(allies[ally_selection_index].global_position)
 
 func enemy_turn() -> void:
-	turn = Turn.ENEMIES
 	for row in enemies_grid:
 		for enemy in row.elements:
 			if not enemy or not enemy.is_alive:
@@ -131,22 +134,22 @@ func _on_ally_finished_turn() -> void:
 		finish_battle()
 		return
 	if has_not_played_turn.size() == 0:
-		for a in _allies:
+		for a in allies:
 			a.played_turn = false
 			if a.is_alive:
 				a.animated_sprite_2d.modulate.a = 1.0
 		await get_tree().create_timer(0.1).timeout
 		enemy_turn()
 	else:
-		is_selcting_ally = true
+		state = States.SELECTING_ALLY
 		Global.set_cursor_visible.emit(true)
-		_ally_selection_index = _allies.find(has_not_played_turn[0])
-		update_battler_data_ui(_allies[_ally_selection_index])
-		Global.move_cursor_to.emit(has_not_played_turn[0].global_position)
+		ally_selection_index = allies.find(has_not_played_turn[0])
+		update_battler_data_ui(allies[ally_selection_index])
+		Global.move_cursor_to.emit(allies[ally_selection_index].global_position)
 
 func _input(event: InputEvent) -> void:
 	
-	if _is_rotating:
+	if state == States.ROTATING:
 		return
 	
 	if text_box.visible and event.is_action_pressed("interact"):
@@ -157,60 +160,59 @@ func _input(event: InputEvent) -> void:
 		battler_data_ui.hide()
 		rotation_count_label.show()
 		rotation_count_label.text = "Rotations Left: %d" % number_of_rotations_left
-		is_selcting_ally = false
-		_is_choosing_rotation = true
+		state = States.CHOOSING_ROTATION
 		Global.set_cursor_visible.emit(false)
 	
-	elif is_selcting_ally:
+	elif state == States.SELECTING_ALLY:
 		if event.is_action_pressed("move right"):
-			_ally_selection_index = 0
+			ally_selection_index = 0
 		if event.is_action_pressed("move down"):
-			_ally_selection_index = 1
+			ally_selection_index = 1
 		if event.is_action_pressed("move left"):
-			_ally_selection_index = 2
+			ally_selection_index = 2
 		if event.is_action_pressed("move up"):
-			_ally_selection_index = 3
-		Global.move_cursor_to.emit(_allies[_ally_selection_index].global_position)
-		update_battler_data_ui(_allies[_ally_selection_index])
+			ally_selection_index = 3
+		Global.move_cursor_to.emit(allies[ally_selection_index].global_position)
+		update_battler_data_ui(allies[ally_selection_index])
 		
 		if event.is_action_pressed("interact"):
-			var ally := _allies[_ally_selection_index]
+			var ally := allies[ally_selection_index]
 			if ally.played_turn or not ally.is_alive:
 				ally.error_sound.play()
 				return
 			has_not_played_turn.erase(ally)
-			is_selcting_ally = false
+			state = States.NOTHING
 			await get_tree().create_timer(0.1).timeout
 			ally.play_turn()
 	
-	elif _is_choosing_rotation:
+	elif state == States.CHOOSING_ROTATION:
 		var dir: int
 		if event.is_action_pressed("move down"):
 			dir = -1
 		if event.is_action_pressed("move up"):
 			dir = 1
 		if dir != 0:
-			_is_rotating = true
+			state = States.ROTATING
 			if number_of_rotations_left <= 0:
 				error_sound.play()
 				return
 			number_of_rotations_left -= 1
 			rotation_count_label.text = "Rotations Left: %d" % number_of_rotations_left
-			rotation_timer.start(_allies[0].movement_speed)
-			for i in range(_allies.size()):
-				_allies[i].move_to(_allies[(i+dir) % _allies.size()].global_position)
+			rotation_timer.start(allies[0].movement_speed)
+			for i in range(allies.size()):
+				allies[i].move_to(allies[(i+dir) % allies.size()].global_position)
 			if dir == 1:
-				var last: AllyBattler = _allies.pop_back()
-				_allies.push_front(last)
+				var last: AllyBattler = allies.pop_back()
+				allies.push_front(last)
 			else:
-				var first: AllyBattler = _allies.pop_front()
-				_allies.append(first)
+				var first: AllyBattler = allies.pop_front()
+				allies.append(first)
 		elif event.is_action_pressed("attack"):
-			_is_choosing_rotation = false
+			rotation_timer.stop()
 			rotation_count_label.hide()
-			is_selcting_ally = true
+			state = States.SELECTING_ALLY
 			Global.set_cursor_visible.emit(true)
-			Global.move_cursor_to.emit(_allies[0].global_position)
+			Global.move_cursor_to.emit(allies[0].global_position)
 
 func update_battler_data_ui(battler: Battler) -> void:
 	if battler is AllyBattler:
@@ -232,10 +234,10 @@ func display_text(text: String) -> void:
 	battle_text.text = text
 
 func allies_won() -> bool:
-	return _num_of_living_enemies == 0
+	return num_of_living_enemies == 0
 
 func enemies_won() -> bool:
-	return _num_of_living_allies == 0 
+	return num_of_living_allies == 0 
 
 func is_battle_finished() -> bool:
 	return allies_won() or enemies_won()
@@ -246,7 +248,7 @@ func finish_battle() -> void:
 		display_text("Player Won !")
 		await Global.textbox_closed
 		text_box.hide()
-		for ally in _allies:
+		for ally in allies:
 			if ally.is_alive:
 				await ally.increase_exp(exp_gained)
 		battle_finished.emit()
@@ -261,4 +263,4 @@ func _on_skill_button_focused(skill_cost: int, current_magic: int, max_magic: in
 	)
 
 func _on_rotation_timer_timeout() -> void:
-	_is_rotating = false
+	state = States.CHOOSING_ROTATION

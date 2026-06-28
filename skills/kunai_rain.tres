@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Skill" format=3 uid="uid://ct22ugnf43yq5"]
 
+[ext_resource type="Texture2D" uid="uid://0j5uuj0ockd5" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/KunaiDisabled.png" id="1_2g88t"]
 [ext_resource type="Texture2D" uid="uid://cbvmh2n1471ji" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/Kunai.png" id="1_ecb5n"]
 [ext_resource type="PackedScene" uid="uid://c0hqvtcl74s66" path="res://quick_time_events/kunai_rain/kunai_rain.tscn" id="1_jyy13"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_jyy13"]
@@ -8,7 +9,9 @@
 script = ExtResource("2_jyy13")
 name = "Kunai Rain"
 icon = ExtResource("1_ecb5n")
+disabled_icon = ExtResource("1_2g88t")
 battle_text = "%s threw Kunais at the enemy"
 magic_points_cost = 3
 quick_time_event = ExtResource("1_jyy13")
+constraints = Array[int]([0])
 metadata/_custom_type_script = "uid://bycf0afmvv35g"

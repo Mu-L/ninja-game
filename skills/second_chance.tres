@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://pvnxvlvfw274"]
+
+[ext_resource type="Texture2D" uid="uid://be2246c65ereu" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Spell/LuckUpgradeDisabled.png" id="1_85lal"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="1_qjrak"]
+[ext_resource type="Texture2D" uid="uid://cwkn4qihlgtdk" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Spell/LuckUpgrade.png" id="2_hb2er"]
+[ext_resource type="PackedScene" uid="uid://bsn5sabh637rh" path="res://quick_time_events/second_chance/second_chance_qte.tscn" id="3_hb2er"]
+
+[resource]
+script = ExtResource("1_qjrak")
+name = "Second Chance"
+icon = ExtResource("2_hb2er")
+disabled_icon = ExtResource("1_85lal")
+battle_text = "%s cast a spell on their ally"
+magic_points_cost = 3
+selection_type = 1
+quick_time_event = ExtResource("3_hb2er")
+constraints = Array[int]([0, 2])
+metadata/_custom_type_script = "uid://bycf0afmvv35g"

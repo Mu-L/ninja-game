@@ -1,5 +1,5 @@
+Skill
 AllyBattlerData
 EnemyBattlerData
 BattleData
-Skill
 LevelUp

@@ -13,5 +13,5 @@ class_name Skill extends Resource
 enum Constraints {
 	TARGET_MUST_BE_ALIVE,
 	TARGET_MUST_BE_DEAD,
-	
+	TARGET_MUST_HAVE_PLAYED_TURN
 }

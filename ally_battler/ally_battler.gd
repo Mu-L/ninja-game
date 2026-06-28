@@ -267,6 +267,9 @@ func check_constraints() -> bool:
 			Skill.Constraints.TARGET_MUST_BE_DEAD:
 				if target.is_alive:
 					return false
+			Skill.Constraints.TARGET_MUST_HAVE_PLAYED_TURN:
+				if not (target as AllyBattler).played_turn:
+					return false
 	return true
 
 func _on_view_skill_list_button_pressed() -> void:

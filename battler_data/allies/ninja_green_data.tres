@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://ct22ugnf43yq5" path="res://skills/kunai_rain.tres" id="5_2fpfn"]
 [ext_resource type="Resource" uid="uid://bip5kdt7gplwx" path="res://skills/single_heal.tres" id="6_p33he"]
 [ext_resource type="Texture2D" uid="uid://d2mfphyp3bhuq" path="res://Ninja Adventure - Asset Pack/Actor/Character/NinjaGreen/SpriteSheet.png" id="7_tmdsl"]
+[ext_resource type="Resource" uid="uid://pvnxvlvfw274" path="res://skills/second_chance.tres" id="8_p33he"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tmdsl"]
 atlas = ExtResource("7_tmdsl")
@@ -275,7 +276,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_e24ek")
-skills = Array[ExtResource("2_tmdsl")]([ExtResource("5_2fpfn"), ExtResource("6_p33he")])
+skills = Array[ExtResource("2_tmdsl")]([ExtResource("5_2fpfn"), ExtResource("6_p33he"), ExtResource("8_p33he")])
 level_ups = Array[ExtResource("1_bkg23")]([ExtResource("2_2fpfn")])
 text_color = Color(0.21600002, 0.48, 0, 1)
 max_health = 140

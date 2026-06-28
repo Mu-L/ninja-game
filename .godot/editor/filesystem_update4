@@ -24,3 +24,6 @@ res://resource_classes/skill.gd
 res://battle/battle.tscn
 res://battle/battle.gd
 res://battler_data/enemies/bear_data.tres
+res://skills/second_chance.tres
+res://quick_time_events/second_chance/second_chance_qte.tscn
+res://quick_time_events/second_chance/second_chance_qte.gd

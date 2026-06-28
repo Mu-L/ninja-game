@@ -1,14 +1,14 @@
-Label
+AudioStreamPlayer
 AnimatedSprite2D
+QuickTimeEvent
+Label
 RichTextLabel
 TextureProgressBar
-AudioStreamPlayer
 MarginContainer
 HBoxContainer
 VBoxContainer
 Sprite2D
 TextureRect
 CanvasLayer
-QuickTimeEvent
 Enemy
 GridContainer

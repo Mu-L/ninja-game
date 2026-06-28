@@ -68,6 +68,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Buttons" type="HBoxContainer" parent="UI/MarginContainer" index="0" unique_id=826519428]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 8

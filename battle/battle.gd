@@ -38,12 +38,12 @@ var number_of_rotations_left := 0
 var is_rotating := false
 
 enum States {
-	NOTHING,
+	BATTLER_PLAYING_TURNS,
 	SELECTING_ALLY,
 	ROTATING,
 	CHOOSING_ROTATION,
 }
-var state := States.NOTHING
+var state := States.BATTLER_PLAYING_TURNS
 
 static func create(allies_data: Array[AllyBattlerData], battle_data: BattleData) -> Battle:
 	const BATTLE = preload("uid://cb3474ae6wcck")
@@ -75,9 +75,10 @@ func start() -> void:
 		battlers.add_child(ally)
 		num_of_living_allies += 1
 		ally.died.connect(func(): num_of_living_allies -= 1)
-		ally.finished_turn.connect(_on_ally_finished_turn)
+		ally.finished_turn.connect(_on_ally_finished_turn.bind(ally))
 		ally.update_battler_ui.connect(update_battler_data_ui)
 		ally.skill_button_focused.connect(_on_skill_button_focused)
+		ally.cancel_my_turn.connect(cancel_ally_turn)
 		allies.append(ally)
 		var step := 360.0 / 4
 		ally_spawn_circle.rotation_degrees += step
@@ -128,12 +129,12 @@ func enemy_turn() -> void:
 				return
 	start_ally_turn()
 
-func _on_ally_finished_turn() -> void:
+func _on_ally_finished_turn(ally: AllyBattler) -> void:
 	await get_tree().create_timer(0.1).timeout
 	if is_battle_finished():
 		finish_battle()
 		return
-	if has_not_played_turn.size() == 0:
+	if has_not_played_turn.size() == 1:
 		for a in allies:
 			a.played_turn = false
 			if a.is_alive:
@@ -141,9 +142,10 @@ func _on_ally_finished_turn() -> void:
 		await get_tree().create_timer(0.1).timeout
 		enemy_turn()
 	else:
+		has_not_played_turn.erase(ally)
 		state = States.SELECTING_ALLY
-		Global.set_cursor_visible.emit(true)
 		ally_selection_index = allies.find(has_not_played_turn[0])
+		Global.set_cursor_visible.emit(true)
 		update_battler_data_ui(allies[ally_selection_index])
 		Global.move_cursor_to.emit(allies[ally_selection_index].global_position)
 
@@ -156,7 +158,7 @@ func _input(event: InputEvent) -> void:
 		text_box.hide()
 		Global.textbox_closed.emit()
 	
-	elif event.is_action_pressed("menu"):
+	elif event.is_action_pressed("menu") and state == States.SELECTING_ALLY:
 		battler_data_ui.hide()
 		rotation_count_label.show()
 		rotation_count_label.text = "Rotations Left: %d" % number_of_rotations_left
@@ -180,8 +182,7 @@ func _input(event: InputEvent) -> void:
 			if ally.played_turn or not ally.is_alive:
 				ally.error_sound.play()
 				return
-			has_not_played_turn.erase(ally)
-			state = States.NOTHING
+			state = States.BATTLER_PLAYING_TURNS
 			await get_tree().create_timer(0.1).timeout
 			ally.play_turn()
 	
@@ -264,3 +265,9 @@ func _on_skill_button_focused(skill_cost: int, current_magic: int, max_magic: in
 
 func _on_rotation_timer_timeout() -> void:
 	state = States.CHOOSING_ROTATION
+
+func cancel_ally_turn() -> void:
+	state = States.SELECTING_ALLY
+
+func _process(_delta: float) -> void:
+	%StateLabel.text = States.keys()[state]

@@ -21,3 +21,6 @@ res://skills/arrow.tres
 res://skills/spin_attack.tres
 res://skills/single_heal.tres
 res://resource_classes/skill.gd
+res://battle/battle.tscn
+res://battle/battle.gd
+res://battler_data/enemies/bear_data.tres

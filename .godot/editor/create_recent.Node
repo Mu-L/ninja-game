@@ -1,3 +1,4 @@
+Label
 AnimatedSprite2D
 RichTextLabel
 TextureProgressBar
@@ -10,5 +11,4 @@ TextureRect
 CanvasLayer
 QuickTimeEvent
 Enemy
-Label
 GridContainer

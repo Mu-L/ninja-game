@@ -1,6 +1,7 @@
 class_name AllyBattler extends Battler
 
 signal skill_button_focused(skill_cost: int, current_magic: int, max_magic: int)
+signal cancel_my_turn
 
 @onready var ui: CanvasLayer = $UI
 @onready var skill_animation: AnimatedSprite2D = %SkillAnimation
@@ -93,12 +94,18 @@ func _on_skill_button_pressed(skill: Skill) -> void:
 		_skill_selection_area.highlight_target(self, target)
 
 func play_turn() -> void:
-	populate_skills_menu()
-	Global.set_cursor_visible.emit(true)
-	Global.move_cursor_to.emit(self.global_position)
-	buttons.show()
+	await populate_skills_menu()
 	ui.show()
-	view_skill_list_button.grab_focus()
+	skills_menu.show()
+	for child in skills_container.get_children():
+		if child is BaseButton:
+			child.grab_focus()
+			break
+	#Global.set_cursor_visible.emit(true)
+	#Global.move_cursor_to.emit(self.global_position)
+	#buttons.show()
+	#ui.show()
+	#view_skill_list_button.grab_focus()
 
 func populate_skills_menu() -> void:
 	for child in skills_container.get_children():
@@ -129,8 +136,9 @@ func populate_skills_menu() -> void:
 	back_button.text = "return"
 	back_button.pressed.connect(func():
 		skills_menu.hide()
-		buttons.show()
-		view_skill_list_button.grab_focus()
+		cancel_my_turn.emit()
+		#buttons.show()
+		#view_skill_list_button.grab_focus()
 	)
 	skills_container.add_child(back_button)
 
@@ -176,6 +184,11 @@ func perform_action() -> void:
 	)
 
 func _process(delta: float) -> void:
+	
+	if skills_menu.visible and Input.is_action_just_pressed("attack"):
+		skills_menu.hide()
+		cancel_my_turn.emit()
+	
 	if not _is_selecting or not Input.is_anything_pressed() or Global.is_cursor_moving:
 		_input_buffer_timer = 0.0
 		_buffered_index_offset = Vector2i.ZERO
@@ -186,7 +199,7 @@ func _process(delta: float) -> void:
 		_is_selecting = false
 		skills_menu.show()
 		ui.show()
-		(skills_container.get_child(0) as Control).grab_focus()
+		focus_on_first_skill_button()
 		Global.move_cursor_to.emit(self.global_position)
 		if _skill_selection_area:
 			_skill_selection_area.queue_free()
@@ -263,11 +276,14 @@ func _on_view_skill_list_button_pressed() -> void:
 	action_to_perform = ActionType.SKILL
 	buttons.hide()
 	skills_menu.show()
+	focus_on_first_skill_button()
+	%ScrollContainer.scroll_vertical = 0
+
+func focus_on_first_skill_button():
 	for child in skills_container.get_children():
 		if child is BaseButton:
 			child.grab_focus()
 			break
-	%ScrollContainer.scroll_vertical = 0
 
 func increase_exp(amount: int) -> void:
 	# We update stats first:

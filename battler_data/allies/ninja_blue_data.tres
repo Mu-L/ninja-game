@@ -275,7 +275,6 @@ animations = [{
 
 [resource]
 script = ExtResource("1_myyhs")
-max_magic_points = 5
 skills = Array[ExtResource("2_onl1n")]([ExtResource("4_kje81"), ExtResource("7_s6yrx")])
 level_ups = Array[ExtResource("1_fot7k")]([ExtResource("2_kje81")])
 text_color = Color(0.44287938, 0.6725646, 0.99785954, 1)

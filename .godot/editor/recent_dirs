@@ -1,14 +1,16 @@
+res://quick_time_events/arrow/
+res://quick_time_events/spin_attack/
+res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/
+res://Ninja Adventure - Asset Pack/FX/Smoke/Smoke/
+res://Ninja Adventure - Asset Pack/FX/Slash/
 res://ally_battler/
 res://ui/
 C:/Users/Samir/Desktop/
 res://battle/
-res://quick_time_events/spin_attack/
 res://quick_time_events/base_class/
 res://battler/
 res://enemy_battler/
-res://quick_time_events/kunai/
 res://skill_selection_area/
-res://quick_time_events/sword_stab/
 res://player/
 res://battler_data/allies/
 res://rooms/
@@ -19,4 +21,3 @@ res://
 res://Ninja Adventure - Asset Pack/Ui/Input/
 res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/
 res://quick_time_events/healing/
-res://Ninja Adventure - Asset Pack/Actor/Monster/Axolot/

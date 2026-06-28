@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://7qx50intwyfe" path="res://resource_classes/ally_battler_data.gd" id="2_3npe3"]
 [ext_resource type="Texture2D" uid="uid://db23jm450uv1q" path="res://Ninja Adventure - Asset Pack/Actor/Character/NinjaRed/Faceset.png" id="2_vjadx"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="3_fdhvn"]
-[ext_resource type="Resource" uid="uid://ct22ugnf43yq5" path="res://skills/sword_stab.tres" id="4_3npe3"]
+[ext_resource type="Resource" uid="uid://ct22ugnf43yq5" path="res://skills/kunai_rain.tres" id="4_3npe3"]
 [ext_resource type="Texture2D" uid="uid://c470c6ypkbdmh" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed/SpriteSheet.png" id="5_fdhvn"]
 [ext_resource type="Resource" uid="uid://bip5kdt7gplwx" path="res://skills/single_heal.tres" id="5_vjadx"]
 

@@ -1,3 +1,5 @@
+AudioStreamPlayer
+AnimatedSprite2D
 MarginContainer
 HBoxContainer
 VBoxContainer
@@ -10,5 +12,3 @@ Label
 GridContainer
 TextureProgressBar
 ProgressBar
-AnimationPlayer
-NinePatchRect

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://cyqhlvwprkbff"]
+
+[ext_resource type="Texture2D" uid="uid://ptrv05qd0gv6" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/Arrow.png" id="1_2i1h4"]
+[ext_resource type="PackedScene" uid="uid://b326wqe6hkuxm" path="res://quick_time_events/arrow/arrow_qte.tscn" id="2_2i1h4"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="3_n3g2q"]
+[ext_resource type="PackedScene" uid="uid://cu4kpttnq8dxt" path="res://skill_selection_area/line_selection_area.tscn" id="4_e6wqi"]
+
+[resource]
+script = ExtResource("3_n3g2q")
+name = "Arrow"
+icon = ExtResource("1_2i1h4")
+battle_text = "%s shot an Arrow at the enemies "
+magic_points_cost = 3
+selection_area = ExtResource("4_e6wqi")
+quick_time_event = ExtResource("2_2i1h4")
+metadata/_custom_type_script = "uid://bycf0afmvv35g"

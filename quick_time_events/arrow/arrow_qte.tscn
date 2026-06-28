@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://b326wqe6hkuxm"]
+
+[ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_sg33a"]
+[ext_resource type="Script" uid="uid://dwcor6k6n5iw1" path="res://quick_time_events/arrow/arrow_qte.gd" id="2_4ijqc"]
+[ext_resource type="PackedScene" uid="uid://86kq0xdg6ih6" path="res://quick_time_events/arrow/cursor.tscn" id="3_wwyx3"]
+[ext_resource type="Texture2D" uid="uid://cujky1r7xlnls" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Arrow.png" id="4_prdyr"]
+[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://ui/Keyboard Letters and Symbols.png" id="5_svspc"]
+[ext_resource type="Texture2D" uid="uid://svgoryfws50q" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Idle.png" id="6_7cgne"]
+[ext_resource type="Texture2D" uid="uid://j1w5g25snexe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Pressed.png" id="7_wqw2a"]
+[ext_resource type="AudioStream" uid="uid://dj75gse50dexq" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Slash4.wav" id="8_557ip"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p221v"]
+radius = 11.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p221v"]
+radius = 1.0
+height = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33dld"]
+atlas = ExtResource("5_svspc")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjo66"]
+atlas = ExtResource("5_svspc")
+region = Rect2(16, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70ljc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33dld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjo66")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p221v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7cgne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wqw2a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="KunaiQTE" unique_id=1593403207 instance=ExtResource("1_sg33a")]
+script = ExtResource("2_4ijqc")
+
+[node name="Cursor" parent="." index="0" unique_id=1659896821 instance=ExtResource("3_wwyx3")]
+unique_name_in_owner = true
+thickness = 2
+
+[node name="SuccessArea" type="Area2D" parent="." index="1" unique_id=1940333359]
+
+[node name="SuccessShape" type="CollisionShape2D" parent="SuccessArea" index="0" unique_id=2049954741]
+shape = SubResource("CircleShape2D_p221v")
+
+[node name="Arrow" type="Area2D" parent="." index="2" unique_id=1555254043]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow" index="0" unique_id=688793532]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_p221v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Arrow" index="1" unique_id=1726905246]
+texture = ExtResource("4_prdyr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Arrow" index="2" unique_id=150482818]
+rect = Rect2(-12, -13, 24, 25)
+
+[node name="RotationPoint" type="Node2D" parent="." index="3" unique_id=940870349]
+
+[node name="Spawn" type="Node2D" parent="RotationPoint" index="0" unique_id=1283737461]
+unique_name_in_owner = true
+position = Vector2(70, 0)
+
+[node name="KeyPrompt" type="AnimatedSprite2D" parent="." index="4" unique_id=899408944]
+z_index = 1
+position = Vector2(-10, -20.5)
+sprite_frames = SubResource("SpriteFrames_70ljc")
+autoplay = "default"
+
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="." index="5" unique_id=1554232937]
+z_index = 1
+position = Vector2(10, -22.5)
+sprite_frames = SubResource("SpriteFrames_p221v")
+autoplay = "default"
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="." index="6" unique_id=1983751338]
+unique_name_in_owner = true
+stream = ExtResource("8_557ip")
+
+[connection signal="area_entered" from="Arrow" to="." method="_on_arrow_area_entered"]
+[connection signal="screen_exited" from="Arrow/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Skill" format=3 uid="uid://3v27r02clymg"]
 
-[ext_resource type="PackedScene" uid="uid://bacn4iqqrwrj7" path="res://quick_time_events/spin_attack/spin_attack_qte.tscn" id="1_gi2eb"]
+[ext_resource type="PackedScene" uid="uid://bacn4iqqrwrj7" path="res://quick_time_events/spin_attack/spin_attack.tscn" id="1_gi2eb"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="1_ojb0o"]
-[ext_resource type="Texture2D" uid="uid://b6c6igbop8ojt" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Job & Action/Punch.png" id="1_qwku2"]
+[ext_resource type="Texture2D" uid="uid://d5f5xn20qa4n" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Spell/MagicWeapon.png" id="1_qwku2"]
 [ext_resource type="PackedScene" uid="uid://c8np1wvc1jkap" path="res://skill_selection_area/circle_selection_area.tscn" id="3_qwku2"]
 
 [resource]

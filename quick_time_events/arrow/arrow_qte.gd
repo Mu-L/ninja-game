@@ -3,19 +3,20 @@ extends QuickTimeEvent
 @onready var cursor: Area2D = %Cursor
 @onready var success_shape: CollisionShape2D = $SuccessArea/SuccessShape
 @onready var success_area: Area2D = $SuccessArea
-@onready var kunai: Area2D = %Kunai
+@onready var arrow: Area2D = %Arrow
 @onready var rotation_point: Node2D = $RotationPoint
 @onready var spawn: Node2D = %Spawn
+@onready var shoot_sound: AudioStreamPlayer = %ShootSound
 
 var tween: Tween
-var kunai_speed := 0
+var arrow_speed := 0
 
 func start(ally: AllyBattler) -> void:
 	super.start(ally)
 	target.hide_stat_bars()
 	self.global_position = target.global_position
-	kunai.global_position = ally.global_position
-	kunai.look_at(target.global_position)
+	arrow.global_position = ally.global_position
+	arrow.look_at(target.global_position)
 	
 	rotation_point.rotation_degrees = randi_range(0, 360)
 	cursor.global_position = spawn.global_position
@@ -31,12 +32,13 @@ func _input(event: InputEvent) -> void:
 		tween.kill()
 		started = false
 		if success_area in cursor.get_overlapping_areas():
-			kunai_speed = 200
+			shoot_sound.play()
+			arrow_speed = 200
 		else:
 			fail()
 
 func _physics_process(delta: float) -> void:
-	kunai.global_position += kunai.transform.x * delta * kunai_speed
+	arrow.global_position += arrow.transform.x * delta * arrow_speed
 
 func fail() -> void:
 	target.show_stat_bars()
@@ -66,7 +68,7 @@ func _draw() -> void:
 		1
 	)
 
-func _on_kunai_area_entered(area: Area2D) -> void:
+func _on_arrow_area_entered(area: Area2D) -> void:
 	if area is EnemyBattler:
 		area.take_damage(ally._strength, 1.5)
 

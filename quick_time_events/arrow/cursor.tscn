@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://86kq0xdg6ih6"]
 
-[ext_resource type="Script" uid="uid://cx4rfuokxq10k" path="res://quick_time_events/kunai/cursor.gd" id="1_33n1q"]
+[ext_resource type="Script" uid="uid://cx4rfuokxq10k" path="res://quick_time_events/arrow/cursor.gd" id="1_33n1q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ru6na"]
 radius = 5.0

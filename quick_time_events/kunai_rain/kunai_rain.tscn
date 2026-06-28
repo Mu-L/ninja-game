@@ -1,0 +1,322 @@
+[gd_scene format=3 uid="uid://c0hqvtcl74s66"]
+
+[ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_s17de"]
+[ext_resource type="Script" uid="uid://t8gmi6eudqc2" path="res://quick_time_events/kunai_rain/kunai_rain.gd" id="2_7v1pp"]
+[ext_resource type="Texture2D" uid="uid://c3ifexpcbxqky" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/Ammokunai.png" id="3_mfekd"]
+[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://ui/Keyboard Letters and Symbols.png" id="4_keu8v"]
+[ext_resource type="AudioStream" uid="uid://3lf7ysdioi16" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh2.wav" id="7_1j6nw"]
+[ext_resource type="Texture2D" uid="uid://bwromjmoxcfjf" path="res://Ninja Adventure - Asset Pack/FX/Smoke/Smoke/SpriteSheet.png" id="7_410aj"]
+[ext_resource type="Texture2D" uid="uid://svgoryfws50q" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Idle.png" id="7_u5ido"]
+[ext_resource type="Texture2D" uid="uid://j1w5g25snexe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Pressed.png" id="8_uk1al"]
+[ext_resource type="AudioStream" uid="uid://b5xxo0mbmbhb8" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav" id="9_b02pj"]
+[ext_resource type="Texture2D" uid="uid://dqgw15oan6g7c" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/SpriteSheet.png" id="9_j35pl"]
+[ext_resource type="AudioStream" uid="uid://bl1ui30kkjxnp" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Slash3.wav" id="10_1j6nw"]
+
+[sub_resource type="Gradient" id="Gradient_6tkng"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mfekd"]
+gradient = SubResource("Gradient_6tkng")
+width = 100
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33dld"]
+atlas = ExtResource("4_keu8v")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjo66"]
+atlas = ExtResource("4_keu8v")
+region = Rect2(16, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltr5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33dld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjo66")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8pd71"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_u5ido")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uk1al")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_0m672"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer/MarginContainer/TextureRect/AttackSlider:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -6)]
+}
+
+[sub_resource type="Animation" id="Animation_6tkng"]
+resource_name = "attack"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer/MarginContainer/TextureRect/AttackSlider:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(100, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lsiek"]
+_data = {
+&"RESET": SubResource("Animation_0m672"),
+&"attack": SubResource("Animation_6tkng")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgwr3"]
+atlas = ExtResource("7_410aj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j35pl"]
+atlas = ExtResource("7_410aj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j6nw"]
+atlas = ExtResource("7_410aj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b02pj"]
+atlas = ExtResource("7_410aj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdox6"]
+atlas = ExtResource("7_410aj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i6b8"]
+atlas = ExtResource("7_410aj")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dhu75"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgwr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j35pl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j6nw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b02pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdox6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i6b8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhu75"]
+atlas = ExtResource("9_j35pl")
+region = Rect2(0, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urv2p"]
+atlas = ExtResource("9_j35pl")
+region = Rect2(65, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p68fd"]
+atlas = ExtResource("9_j35pl")
+region = Rect2(130, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hme4"]
+atlas = ExtResource("9_j35pl")
+region = Rect2(195, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ntvr"]
+atlas = ExtResource("9_j35pl")
+region = Rect2(260, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7axn"]
+atlas = ExtResource("9_j35pl")
+region = Rect2(325, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh7vl"]
+atlas = ExtResource("9_j35pl")
+region = Rect2(390, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yujnp"]
+atlas = ExtResource("9_j35pl")
+region = Rect2(455, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsf2j"]
+atlas = ExtResource("9_j35pl")
+region = Rect2(520, 0, 65, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh5sk"]
+atlas = ExtResource("9_j35pl")
+region = Rect2(585, 0, 65, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_um0uf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhu75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urv2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p68fd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hme4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ntvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7axn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh7vl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yujnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsf2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh5sk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="KunaiRainQTE" unique_id=1593403207 instance=ExtResource("1_s17de")]
+script = ExtResource("2_7v1pp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="0" unique_id=774176225]
+
+[node name="AttackBar" type="Control" parent="CanvasLayer" index="0" unique_id=1440338329]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/AttackBar" index="0" unique_id=387471100]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -5.5
+offset_right = 55.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/AttackBar/PanelContainer" index="0" unique_id=1645782924]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/AttackBar/PanelContainer/MarginContainer" index="0" unique_id=314478767]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("GradientTexture1D_mfekd")
+
+[node name="AttackSlider" type="Sprite2D" parent="CanvasLayer/AttackBar/PanelContainer/MarginContainer/TextureRect" index="0" unique_id=1710036820]
+unique_name_in_owner = true
+position = Vector2(0, -6)
+rotation = 1.5707964
+texture = ExtResource("3_mfekd")
+
+[node name="KeyPrompt" type="AnimatedSprite2D" parent="CanvasLayer/AttackBar" index="1" unique_id=525287169]
+z_index = 2
+position = Vector2(32, 37.5)
+sprite_frames = SubResource("SpriteFrames_ltr5u")
+autoplay = "default"
+frame_progress = 0.25160697
+
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer/AttackBar" index="2" unique_id=795615323]
+position = Vector2(9, 36.5)
+sprite_frames = SubResource("SpriteFrames_8pd71")
+autoplay = "default"
+frame_progress = 0.17524345
+
+[node name="AttackAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/AttackBar" index="3" unique_id=1868707531]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_lsiek")
+
+[node name="SmokeSound" type="AudioStreamPlayer" parent="." index="1" unique_id=1444070365]
+unique_name_in_owner = true
+stream = ExtResource("7_1j6nw")
+
+[node name="KunaiSound" type="AudioStreamPlayer" parent="." index="2" unique_id=845522068]
+unique_name_in_owner = true
+stream = ExtResource("10_1j6nw")
+
+[node name="AcceptSound" type="AudioStreamPlayer" parent="." index="3" unique_id=942743521]
+unique_name_in_owner = true
+stream = ExtResource("9_b02pj")
+
+[node name="SmokeEffect" type="AnimatedSprite2D" parent="." index="4" unique_id=1851790982]
+unique_name_in_owner = true
+visible = false
+sprite_frames = SubResource("SpriteFrames_dhu75")
+frame = 5
+frame_progress = 1.0
+
+[node name="KunaiRain" type="AnimatedSprite2D" parent="." index="5" unique_id=1095005340]
+unique_name_in_owner = true
+visible = false
+sprite_frames = SubResource("SpriteFrames_um0uf")
+frame = 9
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="CanvasLayer/AttackBar/AttackAnimationPlayer" to="." method="_on_attack_animation_player_animation_finished"]

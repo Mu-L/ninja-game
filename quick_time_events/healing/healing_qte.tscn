@@ -6,15 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://svgoryfws50q" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Idle.png" id="4_5slos"]
 [ext_resource type="AudioStream" uid="uid://b26g7jsixo2kg" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Magic & Skill/Heal2.wav" id="4_33dld"]
 [ext_resource type="Texture2D" uid="uid://j1w5g25snexe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Pressed.png" id="5_opfbh"]
-
-[sub_resource type="Gradient" id="Gradient_33dld"]
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tjo66"]
-gradient = SubResource("Gradient_33dld")
-width = 100
-height = 10
+[ext_resource type="PackedScene" uid="uid://c55iom3i1e8ev" path="res://ui/receptacle/health_receptacle.tscn" id="6_opfbh"]
+[ext_resource type="Texture2D" uid="uid://v3ktmsyl60sk" path="res://Ninja Adventure - Asset Pack/FX/Magic/Aura/SpriteSheet.png" id="8_s47li"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33dld"]
 atlas = ExtResource("3_c75k3")
@@ -52,10 +45,54 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_e85ly"]
+atlas = ExtResource("8_s47li")
+region = Rect2(0, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r2ej"]
+atlas = ExtResource("8_s47li")
+region = Rect2(25, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql1qa"]
+atlas = ExtResource("8_s47li")
+region = Rect2(50, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf7mp"]
+atlas = ExtResource("8_s47li")
+region = Rect2(75, 0, 25, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdnqc"]
+atlas = ExtResource("8_s47li")
+region = Rect2(100, 0, 25, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opfbh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e85ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8r2ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql1qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf7mp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdnqc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="HealingQTE" unique_id=1593403207 instance=ExtResource("1_7dacu")]
 script = ExtResource("2_wp865")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0" unique_id=924224680]
+unique_name_in_owner = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" index="0" unique_id=1094170238]
 anchors_preset = 8
@@ -78,22 +115,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "5.05"
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/VBoxContainer" index="1" unique_id=1109557002]
-custom_minimum_size = Vector2(100, 10)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/PanelContainer" index="0" unique_id=1368410900]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer/VBoxContainer/PanelContainer/MarginContainer" index="0" unique_id=94241738]
+[node name="HealthReceptacle" parent="CanvasLayer/VBoxContainer" index="1" unique_id=1770957786 instance=ExtResource("6_opfbh")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-texture_progress = SubResource("GradientTexture2D_tjo66")
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Control" type="Control" parent="CanvasLayer/VBoxContainer" index="2" unique_id=913261272]
 layout_mode = 2
@@ -110,6 +136,18 @@ position = Vector2(-8, 0)
 sprite_frames = SubResource("SpriteFrames_33dld")
 autoplay = "default"
 
+[node name="InstructionLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" index="3" unique_id=1322131788]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/outline_size = 3
+bbcode_enabled = true
+text = "Fill Up %s's Health!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Timer" type="Timer" parent="." index="1" unique_id=754833619]
 unique_name_in_owner = true
 one_shot = true
@@ -117,5 +155,13 @@ one_shot = true
 [node name="HealingSound" type="AudioStreamPlayer" parent="." index="2" unique_id=792120993]
 unique_name_in_owner = true
 stream = ExtResource("4_33dld")
+
+[node name="HealingEffect" type="AnimatedSprite2D" parent="." index="3" unique_id=1747639443]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_opfbh")
+frame = 4
+frame_progress = 1.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

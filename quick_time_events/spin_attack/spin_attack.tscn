@@ -9,16 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://ui/Keyboard Letters and Symbols.png" id="7_sgyib"]
 [ext_resource type="Texture2D" uid="uid://co0j5b11i1vfx" path="res://Ninja Adventure - Asset Pack/FX/Slash/SpriteSheetCircular.png" id="8_ye2l0"]
 [ext_resource type="AudioStream" uid="uid://b6rhy0uwkrb0l" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Slash5.wav" id="9_ads52"]
-
-[sub_resource type="Gradient" id="Gradient_k3olt"]
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_wtdug"]
-gradient = SubResource("Gradient_k3olt")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4cbcp"]
-texture = SubResource("GradientTexture1D_wtdug")
+[ext_resource type="Texture2D" uid="uid://yw2mmd5e1uls" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/BackgroundWood.png" id="10_7i38e"]
+[ext_resource type="Texture2D" uid="uid://dtgdib00mp88v" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/ProgressHealth.png" id="10_v2r84"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qa15t"]
 animations = [{
@@ -208,33 +200,13 @@ script = ExtResource("2_ads52")
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0" unique_id=670362833]
 unique_name_in_owner = true
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" index="0" unique_id=665416437]
-custom_minimum_size = Vector2(210, 25)
-offset_left = 55.0
-offset_top = 70.0
-offset_right = 265.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/PanelContainer" index="0" unique_id=1646063524]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_styles/fill = SubResource("StyleBoxTexture_4cbcp")
-max_value = 50.0
-
-[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer" index="1" unique_id=758282528]
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer" index="0" unique_id=758282528]
 position = Vector2(183, 57)
 sprite_frames = SubResource("SpriteFrames_qa15t")
 autoplay = "default"
 frame_progress = 0.082052164
 
-[node name="KeyPrompt" type="Node2D" parent="CanvasLayer" index="2" unique_id=1907264335]
+[node name="KeyPrompt" type="Node2D" parent="CanvasLayer" index="1" unique_id=1907264335]
 position = Vector2(145, 45)
 
 [node name="UpKey" type="AnimatedSprite2D" parent="CanvasLayer/KeyPrompt" index="0" unique_id=1479016657]
@@ -256,6 +228,46 @@ autoplay = "default"
 position = Vector2(-15, 13)
 sprite_frames = SubResource("SpriteFrames_cxhdi")
 autoplay = "default"
+
+[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer" index="2" unique_id=518449723]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -21.0
+offset_right = 66.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+max_value = 50.0
+fill_mode = 3
+texture_under = ExtResource("10_7i38e")
+texture_progress = ExtResource("10_v2r84")
+texture_progress_offset = Vector2(6, 8)
+
+[node name="InstructionsLabel" type="RichTextLabel" parent="CanvasLayer" index="3" unique_id=1609310199]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 25)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 16.0
+offset_right = 75.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 3
+bbcode_enabled = true
+text = "Charge Up Your Spin!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SlashEffect" type="AnimatedSprite2D" parent="." index="1" unique_id=1967090279]
 unique_name_in_owner = true

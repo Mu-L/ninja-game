@@ -107,7 +107,10 @@ func take_damage(battler_strength: int, skill_multiplier: float) -> void:
 func heal(amount: int) -> void:
 	set_health(_health + amount)
 	%HealSound.play()
+	var current_alpha := animated_sprite_2d.modulate.a
 	animation_player.play("hurt")
+	await animation_player.animation_finished
+	animated_sprite_2d.modulate.a = current_alpha
 	await bounce_number_label(amount)
 
 func bounce_number_label(amount: int) -> void:

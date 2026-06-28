@@ -2,36 +2,47 @@ extends QuickTimeEvent
 
 @export var qte_duration: float = 5.0
 
-@onready var progress_bar: TextureProgressBar = %ProgressBar
+@onready var health_receptacle: Receptacle = %HealthReceptacle
 @onready var timer: Timer = %Timer
 @onready var time_left_label: Label = %TimeLeftLabel
 @onready var healing_sound: AudioStreamPlayer = %HealingSound
+@onready var instruction_label: RichTextLabel = %InstructionLabel
+@onready var healing_effect: AnimatedSprite2D = %HealingEffect
+@onready var canvas_layer: CanvasLayer = %CanvasLayer
 
-func _ready() -> void:
-	progress_bar.value = 0
+var healing_amount := 0
 
 func start(ally: AllyBattler) -> void:
 	super.start(ally)
+	instruction_label.text = Util.BBCode_wave(
+		instruction_label.text % (target as AllyBattler).get_colored_name()
+	)
+	health_receptacle.update(
+		float(target._health) / target._max_health
+	)
 	timer.start(qte_duration)
 
 func _process(_delta: float) -> void:
-	
 	if not started:
 		return
 	
 	time_left_label.text = "%.2f" % timer.time_left
 	
 	if Input.is_action_just_pressed("interact"):
-		var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-		tween.tween_property(progress_bar, "value", progress_bar.value+5, 0.1)
-		await tween.finished
+		healing_amount += 3
+		health_receptacle.update(
+			float(target._health + healing_amount) / target._max_health
+		)
 	
-	if progress_bar.value == progress_bar.max_value:
+	if health_receptacle.is_full() or timer.is_stopped():
+		canvas_layer.hide()
 		started = false
 		healing_sound.play()
-		await ally.get_main_target_battler().heal(randi_range(40,60))
-		finished.emit()
-	elif timer.is_stopped():
-		started = false
-		await ally.missed_effect(ally.get_main_target_battler().global_position)
+		healing_effect.show()
+		healing_effect.global_position = target.global_position
+		ally.get_main_target_battler().heal(healing_amount)
+		healing_effect.play("default")
+		await healing_effect.animation_finished
+		healing_effect.hide()
+		await get_tree().create_timer(0.1).timeout
 		finished.emit()

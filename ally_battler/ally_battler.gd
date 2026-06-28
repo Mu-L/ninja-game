@@ -155,7 +155,7 @@ func perform_action() -> void:
 	hide_stat_bars()
 	_starting_pos = self.global_position
 	set_magic_points(_magic_points - _skill_to_perform.magic_points_cost)
-	Global.display_text.emit(_skill_to_perform.battle_text % Util.BBcode_color(battler_name, text_color))
+	Global.display_text.emit(_skill_to_perform.battle_text % get_colored_name())
 	await Global.textbox_closed
 	var qte: QuickTimeEvent
 	qte = _skill_to_perform.quick_time_event.instantiate()
@@ -326,3 +326,6 @@ func die() -> void:
 	super.die()
 	animated_sprite_2d.modulate.a = 0.75
 	animated_sprite_2d.play("dead")
+
+func get_colored_name() -> String:
+	return Util.BBcode_color(battler_name, text_color)

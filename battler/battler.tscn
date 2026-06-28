@@ -1,10 +1,22 @@
 [gd_scene format=3 uid="uid://3t6a4pm4ttpx"]
 
 [ext_resource type="AudioStream" uid="uid://csryb4da68guf" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact2.wav" id="1_kj5ye"]
+[ext_resource type="Texture2D" uid="uid://dyywsav3kh3wl" path="res://Ninja Adventure - Asset Pack/Actor/Character/Boy/SeparateAnim/Item.png" id="1_ox4b6"]
 [ext_resource type="Texture2D" uid="uid://cukoafl7ps86a" path="res://Ninja Adventure - Asset Pack/Ui/Arrow.png" id="2_3mwqo"]
 [ext_resource type="Animation" uid="uid://7wbax7rpn4ah" path="res://ally_battler/blink.res" id="2_e27bp"]
 [ext_resource type="Texture2D" uid="uid://byoohdpms7418" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/LifeBarMiniUnder.png" id="3_gmf5j"]
 [ext_resource type="Texture2D" uid="uid://b8j0xm6wq4ba5" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/LifeBarMiniProgress.png" id="4_ox4b6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ssul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ox4b6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mwqo"]
 radius = 7.0
@@ -22,6 +34,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_pmsee"]
@@ -88,8 +112,10 @@ _data = {
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2107465465]
 unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_1ssul")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=237910253]
+visible = false
 shape = SubResource("CircleShape2D_3mwqo")
 
 [node name="SelectionArrow" type="Sprite2D" parent="." unique_id=1608639596]

@@ -11,7 +11,7 @@ func play_turn() -> void:
 	action_to_perform = ActionType.ATTACK
 	if action_to_perform == ActionType.ATTACK:
 		var ally: AllyBattler = _living_allies.pick_random()
-		var args := [battler_name, Util.BBcode_color(ally.battler_name, ally.text_color)]
+		var args := [battler_name, ally.get_colored_name()]
 		Global.display_text.emit("%s attacked %s" % args)
 		await Global.textbox_closed
 		Global.set_cursor_visible.emit(false)

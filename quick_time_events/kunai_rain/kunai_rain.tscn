@@ -7,10 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://3lf7ysdioi16" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh2.wav" id="7_1j6nw"]
 [ext_resource type="Texture2D" uid="uid://bwromjmoxcfjf" path="res://Ninja Adventure - Asset Pack/FX/Smoke/Smoke/SpriteSheet.png" id="7_410aj"]
 [ext_resource type="Texture2D" uid="uid://svgoryfws50q" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Idle.png" id="7_u5ido"]
+[ext_resource type="AudioStream" uid="uid://dv85u0m7sm67b" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact4.wav" id="8_b02pj"]
 [ext_resource type="Texture2D" uid="uid://j1w5g25snexe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Pressed.png" id="8_uk1al"]
 [ext_resource type="AudioStream" uid="uid://b5xxo0mbmbhb8" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav" id="9_b02pj"]
 [ext_resource type="Texture2D" uid="uid://dqgw15oan6g7c" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/SpriteSheet.png" id="9_j35pl"]
-[ext_resource type="AudioStream" uid="uid://bl1ui30kkjxnp" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Slash3.wav" id="10_1j6nw"]
 
 [sub_resource type="Gradient" id="Gradient_6tkng"]
 offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
@@ -299,7 +299,7 @@ stream = ExtResource("7_1j6nw")
 
 [node name="KunaiSound" type="AudioStreamPlayer" parent="." index="2" unique_id=845522068]
 unique_name_in_owner = true
-stream = ExtResource("10_1j6nw")
+stream = ExtResource("8_b02pj")
 
 [node name="AcceptSound" type="AudioStreamPlayer" parent="." index="3" unique_id=942743521]
 unique_name_in_owner = true

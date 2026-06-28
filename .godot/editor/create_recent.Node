@@ -1,5 +1,7 @@
-AudioStreamPlayer
 AnimatedSprite2D
+RichTextLabel
+TextureProgressBar
+AudioStreamPlayer
 MarginContainer
 HBoxContainer
 VBoxContainer
@@ -10,5 +12,3 @@ QuickTimeEvent
 Enemy
 Label
 GridContainer
-TextureProgressBar
-ProgressBar

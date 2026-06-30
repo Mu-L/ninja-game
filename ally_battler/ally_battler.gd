@@ -12,6 +12,7 @@ signal cancel_my_turn
 @onready var sword: Sprite2D = %Sword
 @onready var error_sound: AudioStreamPlayer = %ErrorSound
 @onready var experience_bar: TextureProgressBar = %ExperienceBar
+@onready var scroll_container: ScrollContainer = %ScrollContainer
 
 enum SelectionType {
 	SINGLE_ENEMY,
@@ -129,18 +130,7 @@ func populate_skills_menu() -> void:
 		button.focus_entered.connect(func():
 			skill_button_focused.emit(skill.magic_points_cost, _magic_points, _max_magic_points)
 		)
-	
-	# Back button for skill menu:
-	skills_container.add_child(Control.new())
-	var back_button := Button.new()
-	back_button.text = "return"
-	back_button.pressed.connect(func():
-		skills_menu.hide()
-		cancel_my_turn.emit()
-		#buttons.show()
-		#view_skill_list_button.grab_focus()
-	)
-	skills_container.add_child(back_button)
+
 
 func get_main_target_battler() -> Battler:
 	match _selection_type:
@@ -184,6 +174,8 @@ func perform_action() -> void:
 	)
 
 func _process(delta: float) -> void:
+	
+	%DebugLabel.text = str(scroll_container.scroll_vertical)
 	
 	if skills_menu.visible and Input.is_action_just_pressed("attack"):
 		skills_menu.hide()
@@ -280,12 +272,12 @@ func _on_view_skill_list_button_pressed() -> void:
 	buttons.hide()
 	skills_menu.show()
 	focus_on_first_skill_button()
-	%ScrollContainer.scroll_vertical = 0
 
 func focus_on_first_skill_button():
 	for child in skills_container.get_children():
 		if child is BaseButton:
 			child.grab_focus()
+			scroll_container.set_deferred("scroll_vertical", 0)
 			break
 
 func increase_exp(amount: int) -> void:

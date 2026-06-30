@@ -14,7 +14,7 @@ class_name Battle extends Node2D
 @onready var error_sound: AudioStreamPlayer = %ErrorSound
 @onready var rotation_timer: Timer = %RotationTimer
 @onready var battler_health_label: Label = %BattlerHealthLabel
-@onready var battler_magic_label: Label = %BattlerMagicLabel
+@onready var battler_magic_label: RichTextLabel = %BattlerMagicLabel
 @onready var battler_data_ui: VBoxContainer = %BattlerDataUI
 @onready var health_receptacle: Receptacle = %HealthReceptacle
 @onready var magic_receptacle: Receptacle = %MagicReceptacle
@@ -54,7 +54,7 @@ static func create(allies_data: Array[AllyBattlerData], battle_data: BattleData)
 
 func start() -> void:
 	Global.display_text.connect(display_text)
-	
+	Global.give_extra_turn.connect(give_extra_turn)
 	# Spawn background:
 	var background_scene := BattleData.BACKGROUNDS[battle_data.background_type]
 	var background: Node2D = background_scene.instantiate()
@@ -193,10 +193,10 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("move up"):
 			dir = 1
 		if dir != 0:
-			state = States.ROTATING
 			if number_of_rotations_left <= 0:
 				error_sound.play()
 				return
+			state = States.ROTATING
 			number_of_rotations_left -= 1
 			rotation_count_label.text = "Rotations Left: %d" % number_of_rotations_left
 			rotation_timer.start(allies[0].movement_speed)
@@ -259,9 +259,9 @@ func finish_battle() -> void:
 		get_tree().change_scene_to_file("res://game/game.tscn")
 
 func _on_skill_button_focused(skill_cost: int, current_magic: int, max_magic: int) -> void:
-	magic_receptacle.update(
-		float(current_magic - skill_cost) / max_magic
-	)
+	var magic_after_using_skill := float(current_magic - skill_cost)
+	battler_magic_label.text = "MP %d/%d" % [magic_after_using_skill, max_magic]
+	magic_receptacle.update(magic_after_using_skill / max_magic)
 
 func _on_rotation_timer_timeout() -> void:
 	state = States.CHOOSING_ROTATION
@@ -271,3 +271,9 @@ func cancel_ally_turn() -> void:
 
 func _process(_delta: float) -> void:
 	%StateLabel.text = States.keys()[state]
+
+func give_extra_turn(ally: AllyBattler) -> void:
+	ally.played_turn = false
+	if ally.is_alive:
+		ally.animated_sprite_2d.modulate.a = 1.0
+	has_not_played_turn.append(ally)

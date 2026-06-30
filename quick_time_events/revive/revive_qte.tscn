@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c0f25vxjj0gpb"]
+
+[ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_hfhlo"]
+[ext_resource type="Script" uid="uid://bnihwnlikhs3l" path="res://quick_time_events/revive/revive_qte.gd" id="2_ja15s"]
+[ext_resource type="Texture2D" uid="uid://mi13jix1ds7h" path="res://Ninja Adventure - Asset Pack/FX/Magic/Spirit/SpriteSheetDouble.png" id="3_joi73"]
+[ext_resource type="AudioStream" uid="uid://i7iprjq7yi24" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Magic & Skill/Magic3.wav" id="4_3khxa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0gxh"]
+atlas = ExtResource("3_joi73")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykiq6"]
+atlas = ExtResource("3_joi73")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keri0"]
+atlas = ExtResource("3_joi73")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg40e"]
+atlas = ExtResource("3_joi73")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj36e"]
+atlas = ExtResource("3_joi73")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ey1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0gxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykiq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keri0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg40e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj36e")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ReviveQTE" unique_id=1593403207 instance=ExtResource("1_hfhlo")]
+script = ExtResource("2_ja15s")
+
+[node name="Effect" type="AnimatedSprite2D" parent="." index="0" unique_id=1616031283]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_5ey1l")
+
+[node name="Sound" type="AudioStreamPlayer" parent="." index="1" unique_id=1846665138]
+unique_name_in_owner = true
+stream = ExtResource("4_3khxa")

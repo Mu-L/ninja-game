@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://b30fuflliesen"]
+
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="1_13iur"]
+[ext_resource type="Texture2D" uid="uid://bp4jr7al77ra5" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Spell/NecromancyDisabled.png" id="1_acvgv"]
+[ext_resource type="Texture2D" uid="uid://bjhydhor11m5w" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Spell/Necromancy.png" id="2_agi8w"]
+[ext_resource type="PackedScene" uid="uid://c0f25vxjj0gpb" path="res://quick_time_events/revive/revive_qte.tscn" id="3_agi8w"]
+
+[resource]
+script = ExtResource("1_13iur")
+name = "Revive"
+icon = ExtResource("2_agi8w")
+disabled_icon = ExtResource("1_acvgv")
+battle_text = "%s revived their ally with magic"
+magic_points_cost = 8
+selection_type = 1
+quick_time_event = ExtResource("3_agi8w")
+constraints = Array[int]([1])
+metadata/_custom_type_script = "uid://bycf0afmvv35g"

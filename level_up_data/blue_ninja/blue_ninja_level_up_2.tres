@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3cf25bcqwuo5" path="res://resource_classes/level_up.gd" id="1_2lptk"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_ohxrx"]
-[ext_resource type="Resource" uid="uid://ct22ugnf43yq5" path="res://skills/kunai_rain.tres" id="3_ohxrx"]
+[ext_resource type="Resource" uid="uid://b30fuflliesen" path="res://skills/revive.tres" id="3_ohxrx"]
 
 [resource]
 script = ExtResource("1_2lptk")

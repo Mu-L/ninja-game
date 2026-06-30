@@ -95,13 +95,18 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="BattlerMagicLabel" type="Label" parent="UI/MarginContainer/BattlerDataUI" unique_id=1974429114]
+[node name="BattlerMagicLabel" type="RichTextLabel" parent="UI/MarginContainer/BattlerDataUI" unique_id=1413617785]
 unique_name_in_owner = true
+clip_contents = false
+custom_minimum_size = Vector2(75, 15)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_constants/outline_size = 4
+bbcode_enabled = true
 text = "MP 100/999"
+fit_content = true
+scroll_active = false
 vertical_alignment = 1
 
 [node name="StateLabel" type="Label" parent="UI" unique_id=796297155]

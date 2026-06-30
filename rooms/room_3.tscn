@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://ci0wwyn317huc" path="res://npc_data/mask_green.tres" id="7_suwb7"]
 [ext_resource type="Resource" uid="uid://wxd173j3jak1" path="res://battle_data/fields_1.tres" id="9_sti2h"]
 [ext_resource type="Resource" uid="uid://bq0joluvm4p0q" path="res://battle_data/fields_2.tres" id="10_0v5my"]
+[ext_resource type="Resource" uid="uid://b456hb0skjtq8" path="res://battle_data/fields_3.tres" id="11_suwb7"]
 
 [node name="Room3" unique_id=1645941047 instance=ExtResource("1_ugu2v")]
 
@@ -56,3 +57,7 @@ battle_data = ExtResource("9_sti2h")
 [node name="Enemy2" parent="Enemies" index="1" unique_id=73776637 instance=ExtResource("5_6mom2")]
 position = Vector2(8, -142)
 battle_data = ExtResource("10_0v5my")
+
+[node name="Enemy3" parent="Enemies" index="2" unique_id=637048694 instance=ExtResource("5_6mom2")]
+position = Vector2(74, 8)
+battle_data = ExtResource("11_suwb7")

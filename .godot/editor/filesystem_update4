@@ -1,4 +1,4 @@
-res://ally_battler/ally_battler.tscn
+res://quick_time_events/spin_attack/spin_attack.tscn
 res://ui/main_theme.tres
 res://ui/new_shader.gdshader
 res://battler_data/allies/ninja_green_data.tres
@@ -17,14 +17,5 @@ res://battler_data/enemies/bear_data.tres
 res://battler_data/enemies/bamboo_data.tres
 res://battle_data/fields_2.tres
 res://battle_data/fields_3.tres
-res://ally_battler/ally_battler.gd
-res://battle/battle.tscn
-res://battle/battle.gd
-res://skills/single_heal.tres
-res://skills/second_chance.tres
-res://skills/revive.tres
-res://quick_time_events/arrow/arrow_qte.tscn
-res://quick_time_events/arrow/arrow_qte.gd
-res://level_up_data/blue_ninja/blue_ninja_level_up_2.tres
-res://level_up_data/green_ninja/green_ninja_level_up_2.tres
-res://level_up_data/yellow_ninja/yellow_ninja_level_up_2.tres
+res://quick_time_events/spin_attack/spin_attack.gd
+res://quick_time_events/healing/healing_qte.tscn

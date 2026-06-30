@@ -2,9 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_d4hmt"]
 [ext_resource type="Script" uid="uid://cdvqiybo0a55y" path="res://quick_time_events/spin_attack/spin_attack.gd" id="2_ads52"]
-[ext_resource type="Texture2D" uid="uid://chbbb5uptgyqe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadUp.png" id="3_v2r84"]
 [ext_resource type="Texture2D" uid="uid://3xi8bef7ntg0" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadRight.png" id="4_7i38e"]
-[ext_resource type="Texture2D" uid="uid://7ss5b3nyeayk" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadDown.png" id="5_myl1o"]
 [ext_resource type="Texture2D" uid="uid://c4125hkblhyi0" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadLeft.png" id="6_outii"]
 [ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://ui/Keyboard Letters and Symbols.png" id="7_sgyib"]
 [ext_resource type="Texture2D" uid="uid://co0j5b11i1vfx" path="res://Ninja Adventure - Asset Pack/FX/Slash/SpriteSheetCircular.png" id="8_ye2l0"]
@@ -12,104 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://yw2mmd5e1uls" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/BackgroundWood.png" id="10_7i38e"]
 [ext_resource type="Texture2D" uid="uid://dtgdib00mp88v" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/ProgressHealth.png" id="10_v2r84"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qa15t"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_v2r84")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_7i38e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_myl1o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_outii")
-}],
-"loop": true,
-"name": &"default",
-"speed": 7.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wtdug"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_slqvo"]
 atlas = ExtResource("7_sgyib")
-region = Rect2(0, 112, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4cbcp"]
-atlas = ExtResource("7_sgyib")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_s8er4"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wtdug")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4cbcp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4cbcp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4cbcp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+region = Rect2(48, 112, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gdpmd"]
 atlas = ExtResource("7_sgyib")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_slqvo"]
-atlas = ExtResource("7_sgyib")
-region = Rect2(48, 112, 16, 16)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ek5b8"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gdpmd")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_slqvo")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gdpmd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gdpmd")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s8er4"]
-atlas = ExtResource("7_sgyib")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qa15t"]
-atlas = ExtResource("7_sgyib")
-region = Rect2(16, 112, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gdpmd"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s8er4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s8er4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qa15t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s8er4")
 }],
 "loop": true,
 "name": &"default",
@@ -131,13 +47,21 @@ animations = [{
 "texture": SubResource("AtlasTexture_ek5b8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ek5b8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ek5b8")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_7i232")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qa15t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7i38e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_outii")
 }],
 "loop": true,
 "name": &"default",
@@ -200,69 +124,69 @@ script = ExtResource("2_ads52")
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0" unique_id=670362833]
 unique_name_in_owner = true
 
-[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer" index="0" unique_id=758282528]
-position = Vector2(183, 57)
-sprite_frames = SubResource("SpriteFrames_qa15t")
-autoplay = "default"
-frame_progress = 0.082052164
-
-[node name="KeyPrompt" type="Node2D" parent="CanvasLayer" index="1" unique_id=1907264335]
-position = Vector2(145, 45)
-
-[node name="UpKey" type="AnimatedSprite2D" parent="CanvasLayer/KeyPrompt" index="0" unique_id=1479016657]
-sprite_frames = SubResource("SpriteFrames_s8er4")
-autoplay = "default"
-
-[node name="RightKey" type="AnimatedSprite2D" parent="CanvasLayer/KeyPrompt" index="1" unique_id=697625633]
-position = Vector2(15, 13)
-sprite_frames = SubResource("SpriteFrames_ek5b8")
-autoplay = "default"
-frame_progress = 0.41689077
-
-[node name="DownKey" type="AnimatedSprite2D" parent="CanvasLayer/KeyPrompt" index="2" unique_id=303237738]
-position = Vector2(0, 13)
-sprite_frames = SubResource("SpriteFrames_gdpmd")
-autoplay = "default"
-
-[node name="LeftKey" type="AnimatedSprite2D" parent="CanvasLayer/KeyPrompt" index="3" unique_id=1582303508]
-position = Vector2(-15, 13)
-sprite_frames = SubResource("SpriteFrames_cxhdi")
-autoplay = "default"
-
-[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer" index="2" unique_id=518449723]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 26.0
-offset_top = -21.0
-offset_right = 66.0
-offset_bottom = 35.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 1.5707964
-max_value = 50.0
-fill_mode = 3
-texture_under = ExtResource("10_7i38e")
-texture_progress = ExtResource("10_v2r84")
-texture_progress_offset = Vector2(6, 8)
-
-[node name="InstructionsLabel" type="RichTextLabel" parent="CanvasLayer" index="3" unique_id=1609310199]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 25)
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" index="0" unique_id=362190171]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -75.0
-offset_top = 16.0
+offset_top = -52.0
 offset_right = 75.0
-offset_bottom = 41.0
+offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer/VBoxContainer" index="0" unique_id=1853423684]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 3
+text = "5.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer/VBoxContainer" index="1" unique_id=518449723]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 50.0
+fill_mode = 3
+texture_under = ExtResource("10_7i38e")
+texture_progress = ExtResource("10_v2r84")
+texture_progress_offset = Vector2(6, 8)
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer" index="2" unique_id=1349439889]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="KeyPrompt" type="Node2D" parent="CanvasLayer/VBoxContainer/Control" index="0" unique_id=1907264335]
+position = Vector2(-15, 0)
+
+[node name="RightKey" type="AnimatedSprite2D" parent="CanvasLayer/VBoxContainer/Control/KeyPrompt" index="0" unique_id=697625633]
+position = Vector2(8, 0)
+sprite_frames = SubResource("SpriteFrames_ek5b8")
+autoplay = "default"
+frame_progress = 0.26405296
+
+[node name="LeftKey" type="AnimatedSprite2D" parent="CanvasLayer/VBoxContainer/Control/KeyPrompt" index="1" unique_id=1582303508]
+position = Vector2(-8, 0)
+sprite_frames = SubResource("SpriteFrames_cxhdi")
+autoplay = "default"
+frame_progress = 0.7165821
+
+[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer/VBoxContainer/Control" index="1" unique_id=758282528]
+position = Vector2(15, 0)
+sprite_frames = SubResource("SpriteFrames_qa15t")
+autoplay = "default"
+frame_progress = 0.36347777
+
+[node name="InstructionsLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" index="3" unique_id=1609310199]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 25)
+layout_mode = 2
 theme_override_constants/outline_size = 3
 bbcode_enabled = true
 text = "Charge Up Your Spin!"
@@ -279,3 +203,11 @@ frame_progress = 1.0
 [node name="SlashSound" type="AudioStreamPlayer" parent="." index="2" unique_id=1449404501]
 unique_name_in_owner = true
 stream = ExtResource("9_ads52")
+
+[node name="Timer" type="Timer" parent="." index="3" unique_id=183601996]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,6 @@
+res://quick_time_events/healing/
 res://quick_time_events/arrow/
+res://quick_time_events/spin_attack/
 res://battle/
 res://Ninja Adventure - Asset Pack/FX/Magic/Spirit/
 res://quick_time_events/revive/
@@ -12,7 +14,6 @@ res://Ninja Adventure - Asset Pack/FX/Magic/Aura/
 res://Ninja Adventure - Asset Pack/Actor/Character/Boy/SeparateAnim/
 res://Ninja Adventure - Asset Pack/FX/Magic/Boost/
 res://quick_time_events/kunai_rain/
-res://quick_time_events/spin_attack/
 res://Ninja Adventure - Asset Pack/FX/Projectile/Kunai/
 res://Ninja Adventure - Asset Pack/FX/Smoke/Smoke/
 res://Ninja Adventure - Asset Pack/FX/Slash/
@@ -20,4 +21,3 @@ res://ui/
 C:/Users/Samir/Desktop/
 res://battler/
 res://enemy_battler/
-res://skill_selection_area/

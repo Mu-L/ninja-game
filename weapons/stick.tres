@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://3ee4n1qtivh7"]
+
+[ext_resource type="Script" uid="uid://cgvtrxt4utm1b" path="res://resource_classes/weapon.gd" id="1_mvyqk"]
+[ext_resource type="Texture2D" uid="uid://cy7yhx7m4mc3f" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Stick/SpriteInHand.png" id="2_u44j5"]
+
+[resource]
+script = ExtResource("1_mvyqk")
+name = "Stick"
+multiplier = 1.1
+texture = ExtResource("2_u44j5")
+metadata/_custom_type_script = "uid://cgvtrxt4utm1b"

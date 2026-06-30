@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://do5bflwxi2lgq" path="res://Ninja Adventure - Asset Pack/Actor/Character/NinjaBlue2/Faceset.png" id="3_fot7k"]
 [ext_resource type="Texture2D" uid="uid://cvr10wwumk30i" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaBlue2/SpriteSheet.png" id="4_3bax8"]
 [ext_resource type="Resource" uid="uid://cyqhlvwprkbff" path="res://skills/arrow.tres" id="4_kje81"]
+[ext_resource type="Resource" uid="uid://vr5hhfyr4k1m" path="res://skills/use_weapon.tres" id="7_s6yrx"]
+[ext_resource type="Resource" uid="uid://3ee4n1qtivh7" path="res://weapons/stick.tres" id="9_du5wg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kje81"]
 atlas = ExtResource("4_3bax8")
@@ -275,7 +277,8 @@ animations = [{
 [resource]
 script = ExtResource("1_myyhs")
 max_magic_points = 28
-skills = Array[ExtResource("2_onl1n")]([ExtResource("4_kje81")])
+skills = Array[ExtResource("2_onl1n")]([ExtResource("7_s6yrx"), ExtResource("4_kje81")])
+weapon = ExtResource("9_du5wg")
 level_ups = Array[ExtResource("1_fot7k")]([ExtResource("2_kje81")])
 text_color = Color(0.44287938, 0.6725646, 0.99785954, 1)
 max_health = 110

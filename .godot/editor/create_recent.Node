@@ -1,11 +1,11 @@
+Sprite2D
+QuickTimeEvent
 Label
 Control
 VBoxContainer
 RichTextLabel
 Timer
-Sprite2D
 AnimationPlayer
-QuickTimeEvent
 AudioStreamPlayer
 AnimatedSprite2D
 TextureProgressBar

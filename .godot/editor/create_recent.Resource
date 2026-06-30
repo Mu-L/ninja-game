@@ -1,5 +1,6 @@
+Weapon
 Skill
+LevelUp
 AllyBattlerData
 EnemyBattlerData
 BattleData
-LevelUp

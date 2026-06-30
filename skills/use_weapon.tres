@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://vr5hhfyr4k1m"]
+
+[ext_resource type="Texture2D" uid="uid://bgkg0q2xiprdy" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/GuardDisabled.png" id="1_k51tp"]
+[ext_resource type="Texture2D" uid="uid://dsuv2nkjuga0u" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/Guard.png" id="2_c3c2k"]
+[ext_resource type="PackedScene" uid="uid://dd5mtow3tqq17" path="res://quick_time_events/stab/stab_qte.tscn" id="3_t2ohe"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="4_2ry30"]
+
+[resource]
+script = ExtResource("4_2ry30")
+name = "Use Weapon"
+icon = ExtResource("2_c3c2k")
+disabled_icon = ExtResource("1_k51tp")
+battle_text = "%s attacked the enemy with their weapon"
+quick_time_event = ExtResource("3_t2ohe")
+constraints = Array[int]([0])
+metadata/_custom_type_script = "uid://bycf0afmvv35g"

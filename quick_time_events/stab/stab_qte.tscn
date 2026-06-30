@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dd5mtow3tqq17"]
+
+[ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_gfxe6"]
+[ext_resource type="Script" uid="uid://ph0wyx5c6u3v" path="res://quick_time_events/stab/stab_qte.gd" id="2_nl543"]
+
+[node name="UseWeaponQTE" unique_id=1593403207 instance=ExtResource("1_gfxe6")]
+script = ExtResource("2_nl543")

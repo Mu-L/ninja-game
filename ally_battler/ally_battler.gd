@@ -9,7 +9,7 @@ signal cancel_my_turn
 @onready var skills_menu: NinePatchRect = %SkillsMenu
 @onready var skills_container: GridContainer = %SkillsContainer
 @onready var view_skill_list_button: Button = %ViewSkillListButton
-@onready var sword: Sprite2D = %Sword
+@onready var weapon_sprite: Sprite2D = %WeaponSprite
 @onready var error_sound: AudioStreamPlayer = %ErrorSound
 @onready var experience_bar: TextureProgressBar = %ExperienceBar
 @onready var scroll_container: ScrollContainer = %ScrollContainer
@@ -34,6 +34,7 @@ var played_turn := false
 var _data: AllyBattlerData
 var _max_magic_points: int = 25
 var _skills: Array[Skill]
+var weapon: Weapon
 var _magic_points: int
 
 # Visuals:
@@ -64,7 +65,7 @@ func _ready() -> void:
 	experience_bar.max_value = _data.EXP_to_next_level
 	experience_bar.value = _data.EXP
 	_magic_points = _max_magic_points
-	
+	weapon_sprite.texture = weapon.texture
 	# Set up skills:
 	populate_skills_menu()
 
@@ -342,3 +343,14 @@ func die() -> void:
 
 func get_colored_name() -> String:
 	return Util.BBcode_color(battler_name, text_color)
+
+func play_attack_anim() -> void:
+	animated_sprite_2d.play("attack right")
+	weapon_sprite.show()
+	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BOUNCE)
+	var starting_pos := weapon_sprite.position
+	tween.tween_property(weapon_sprite, "position", starting_pos+Vector2(5,0), 0.1)
+	tween.tween_property(weapon_sprite, "position", starting_pos, 0.2)
+	await tween.finished
+	weapon_sprite.hide()
+	animated_sprite_2d.play("idle right")

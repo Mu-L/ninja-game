@@ -59,6 +59,7 @@ static func create(data: BattlerData) -> Battler:
 		battler._magic_points = data.magic_points
 		battler._skills = data.skills
 		battler.text_color = data.text_color
+		battler.weapon = data.weapon
 	elif data is EnemyBattlerData:
 		var ENEMY_BATTLER = load("uid://b2i8v282cle12")
 		battler = ENEMY_BATTLER.instantiate() as EnemyBattler
@@ -93,7 +94,7 @@ func die() -> void:
 	is_alive = false
 	died.emit()
 
-func take_damage(battler_strength: int, skill_multiplier: float) -> void:
+func take_damage(battler_strength: int, skill_multiplier: float=1) -> void:
 	var amount: int = max(1, round(battler_strength * skill_multiplier - _defense))
 	set_health(_health - amount)
 	%HurtSound.play()

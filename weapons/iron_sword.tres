@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://of5cop8am2eq"]
+
+[ext_resource type="Script" uid="uid://cgvtrxt4utm1b" path="res://resource_classes/weapon.gd" id="1_nyrsc"]
+[ext_resource type="Texture2D" uid="uid://7in6ebdeplqe" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Sword2/SpriteInHand.png" id="2_skyrm"]
+
+[resource]
+script = ExtResource("1_nyrsc")
+name = "Iron Sword"
+texture = ExtResource("2_skyrm")
+metadata/_custom_type_script = "uid://cgvtrxt4utm1b"

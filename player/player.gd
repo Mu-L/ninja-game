@@ -121,8 +121,15 @@ func _on_weapon_body_entered(body: Node2D) -> void:
 	if body is Enemy:
 		health_bar.hide()
 		Global.start_battle.emit(body, self)
+		body.call_deferred("done")
 
 func _on_weapon_timer_timeout() -> void:
 	current_weapon.hide()
 	current_weapon.set_hitbox(true)
 	is_attacking = false
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if body is Enemy:
+		health_bar.hide()
+		Global.start_battle.emit(body, self)
+		body.call_deferred("done")

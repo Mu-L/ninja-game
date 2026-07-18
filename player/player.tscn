@@ -284,6 +284,8 @@ _data = {
 &"hurt": SubResource("Animation_pmsee")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebec5"]
+
 [node name="Player" type="CharacterBody2D" unique_id=2086590390 groups=["player"]]
 y_sort_enabled = true
 collision_layer = 2
@@ -305,6 +307,7 @@ position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_rkbax")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=181001614]
+process_callback = 0
 
 [node name="Weapons" type="Node2D" parent="." unique_id=365599870]
 unique_name_in_owner = true
@@ -379,4 +382,14 @@ unique_name_in_owner = true
 wait_time = 0.35
 one_shot = true
 
+[node name="Hurtbox" type="Area2D" parent="." unique_id=381248796]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1589912005]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_ebec5")
+
 [connection signal="timeout" from="WeaponTimer" to="." method="_on_weapon_timer_timeout"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

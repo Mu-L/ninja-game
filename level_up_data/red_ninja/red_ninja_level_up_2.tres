@@ -7,7 +7,7 @@
 script = ExtResource("1_ethji")
 stat_increases = Dictionary[int, int]({
 0: 4,
-2: 5,
+2: 8,
 3: 6
 })
 metadata/_custom_type_script = "uid://3cf25bcqwuo5"

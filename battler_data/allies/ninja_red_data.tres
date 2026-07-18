@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://3cf25bcqwuo5" path="res://resource_classes/level_up.gd" id="1_4y8tn"]
 [ext_resource type="Script" uid="uid://7qx50intwyfe" path="res://resource_classes/ally_battler_data.gd" id="2_3npe3"]
-[ext_resource type="Resource" uid="uid://dujaori7s53ky" path="res://level_up_data/red_ninja/red_ninja_level_up_2.tres" id="2_3qgrr"]
+[ext_resource type="Resource" uid="uid://cw010mglf210w" path="res://level_up_data/green_ninja/green_ninja_level_up_2.tres" id="2_gioh2"]
 [ext_resource type="Texture2D" uid="uid://db23jm450uv1q" path="res://Ninja Adventure - Asset Pack/Actor/Character/NinjaRed/Faceset.png" id="2_vjadx"]
+[ext_resource type="Resource" uid="uid://ln3tlflt1gm2" path="res://level_up_data/green_ninja/green_ninja_level_up_3.tres" id="3_cklcs"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="3_fdhvn"]
-[ext_resource type="Resource" uid="uid://c3jl76uisxj5l" path="res://level_up_data/red_ninja/red_ninja_level_up_3.tres" id="3_gioh2"]
 [ext_resource type="Texture2D" uid="uid://c470c6ypkbdmh" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed/SpriteSheet.png" id="5_fdhvn"]
 [ext_resource type="Resource" uid="uid://vr5hhfyr4k1m" path="res://skills/use_weapon.tres" id="6_wek01"]
 [ext_resource type="Resource" uid="uid://of5cop8am2eq" path="res://weapons/iron_sword.tres" id="9_gioh2"]
@@ -276,13 +276,14 @@ animations = [{
 
 [resource]
 script = ExtResource("2_3npe3")
-max_magic_points = 5
+max_magic_points = 16
 skills = Array[ExtResource("3_fdhvn")]([ExtResource("6_wek01")])
 weapon = ExtResource("9_gioh2")
-level_ups = Array[ExtResource("1_4y8tn")]([ExtResource("2_3qgrr"), ExtResource("3_gioh2")])
+level_ups = Array[ExtResource("1_4y8tn")]([ExtResource("2_gioh2"), ExtResource("3_cklcs")])
 text_color = Color(0.7954895, 0, 0.24469921, 1)
-max_health = 115
-defense = 10
+max_health = 105
+strength = 13
+defense = 8
 name = "Red Ninja"
 portrait = ExtResource("2_vjadx")
 texture = ExtResource("5_fdhvn")

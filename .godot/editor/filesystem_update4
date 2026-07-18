@@ -21,3 +21,11 @@ res://follower/follower.tscn
 res://follower/follower.gd
 res://rooms/room_3.tscn
 res://overworld/overworld.gd
+res://enemy_battler/enemy_battler.tscn
+res://enemy/enemy.tscn
+res://enemy/enemy.gd
+res://components/random_walker/random_walker.gd
+res://battle/battle.tscn
+res://battle/battle.gd
+res://level_up_data/green_ninja/green_ninja_level_up_2.tres
+res://level_up_data/red_ninja/red_ninja_level_up_2.tres

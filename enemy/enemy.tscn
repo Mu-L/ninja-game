@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ccp45ufa25hf0" path="res://enemy/enemy.gd" id="1_p200p"]
 [ext_resource type="AudioStream" uid="uid://dgdavkudo7r8j" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact.wav" id="3_ppra6"]
 [ext_resource type="PackedScene" uid="uid://bdexxyiy6fxdj" path="res://components/random_walker/random_walker.tscn" id="4_p200p"]
+[ext_resource type="Texture2D" uid="uid://10j37pugif1k" path="res://Ninja Adventure - Asset Pack/Ui/Emote/emote21.png" id="4_pmsee"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p200p"]
 radius = 6.0
@@ -45,7 +46,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ppra6"]
-radius = 31.06445
+radius = 50.159744
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1588866589]
 y_sort_enabled = true
@@ -53,6 +54,7 @@ collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_p200p")
+chasing_speed = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=155526234]
 unique_name_in_owner = true
@@ -77,6 +79,17 @@ body = NodePath("..")
 animated_sprite_2d = NodePath("../AnimatedSprite2D")
 
 [node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=1535200002]
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea" unique_id=829080701]
+[node name="PlayerDetectionShape" type="CollisionShape2D" parent="PlayerDetectionArea" unique_id=829080701]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_ppra6")
+
+[node name="ThoughtBubble" type="Sprite2D" parent="." unique_id=334377987]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -24)
+texture = ExtResource("4_pmsee")
+
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]

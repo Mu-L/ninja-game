@@ -34,7 +34,7 @@ var exp_gained: int
 var ally_selection_index := 0
 var number_of_rotations_left := 0
 
-# flags"
+# flags:
 var is_rotating := false
 
 enum States {
@@ -150,6 +150,10 @@ func _on_ally_finished_turn(ally: AllyBattler) -> void:
 		Global.move_cursor_to.emit(allies[ally_selection_index].global_position)
 
 func _input(event: InputEvent) -> void:
+	
+	if event.is_action("god_mode"):
+		for ally in allies:
+			ally._strength = 99999
 	
 	if state == States.ROTATING:
 		return

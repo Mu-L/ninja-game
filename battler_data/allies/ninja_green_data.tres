@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://3cf25bcqwuo5" path="res://resource_classes/level_up.gd" id="1_bkg23"]
 [ext_resource type="Script" uid="uid://7qx50intwyfe" path="res://resource_classes/ally_battler_data.gd" id="1_e24ek"]
-[ext_resource type="Resource" uid="uid://cw010mglf210w" path="res://level_up_data/green_ninja/green_ninja_level_up_2.tres" id="2_2fpfn"]
+[ext_resource type="Resource" uid="uid://dujaori7s53ky" path="res://level_up_data/red_ninja/red_ninja_level_up_2.tres" id="2_p33he"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_tmdsl"]
 [ext_resource type="Texture2D" uid="uid://c2xtnwyilcr35" path="res://Ninja Adventure - Asset Pack/Actor/Character/NinjaGreen/Faceset.png" id="3_bkg23"]
-[ext_resource type="Resource" uid="uid://ln3tlflt1gm2" path="res://level_up_data/green_ninja/green_ninja_level_up_3.tres" id="3_p33he"]
+[ext_resource type="Resource" uid="uid://c3jl76uisxj5l" path="res://level_up_data/red_ninja/red_ninja_level_up_3.tres" id="3_f28gi"]
 [ext_resource type="Resource" uid="uid://vr5hhfyr4k1m" path="res://skills/use_weapon.tres" id="6_2fpfn"]
 [ext_resource type="Texture2D" uid="uid://d2mfphyp3bhuq" path="res://Ninja Adventure - Asset Pack/Actor/Character/NinjaGreen/SpriteSheet.png" id="7_tmdsl"]
 [ext_resource type="Resource" uid="uid://of5cop8am2eq" path="res://weapons/iron_sword.tres" id="9_p33he"]
@@ -279,11 +279,11 @@ script = ExtResource("1_e24ek")
 max_magic_points = 21
 skills = Array[ExtResource("2_tmdsl")]([ExtResource("6_2fpfn")])
 weapon = ExtResource("9_p33he")
-level_ups = Array[ExtResource("1_bkg23")]([ExtResource("2_2fpfn"), ExtResource("3_p33he")])
+level_ups = Array[ExtResource("1_bkg23")]([ExtResource("2_p33he"), ExtResource("3_f28gi")])
 text_color = Color(0.21600002, 0.48, 0, 1)
-max_health = 105
+max_health = 115
 strength = 13
-defense = 8
+defense = 10
 name = "Green Ninja"
 portrait = ExtResource("3_bkg23")
 texture = ExtResource("7_tmdsl")

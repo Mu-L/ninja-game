@@ -22,7 +22,10 @@ func _physics_process(_delta: float) -> void:
 	
 	body.velocity = direction * movement_speed
 	body.move_and_slide()
-	
+	update_animation(direction)
+
+
+func update_animation(direction: Vector2) -> void:
 	match direction:
 		Vector2.UP:
 			animated_sprite_2d.play("walk up")

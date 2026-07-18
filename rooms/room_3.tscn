@@ -51,23 +51,16 @@ data = ExtResource("7_suwb7")
 y_sort_enabled = true
 
 [node name="Enemy" parent="Enemies" index="0" unique_id=1588866589 instance=ExtResource("5_6mom2")]
-position = Vector2(66, -34)
+position = Vector2(68, -176)
 battle_data = ExtResource("9_sti2h")
 
 [node name="Enemy2" parent="Enemies" index="1" unique_id=1679821185 instance=ExtResource("5_6mom2")]
-position = Vector2(-10, -166)
+position = Vector2(184, -306)
 battle_data = ExtResource("10_0v5my")
 
 [node name="Enemy3" parent="Enemies" index="2" unique_id=692159807 instance=ExtResource("5_6mom2")]
-position = Vector2(122, -310)
+position = Vector2(318, -112)
 battle_data = ExtResource("11_suwb7")
 
 [node name="Player" parent="." index="3" unique_id=279543829]
 unique_name_in_owner = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="5" unique_id=1659502633]
-visible = false
-
-[node name="Label" type="Label" parent="CanvasLayer" index="0" unique_id=230765724]
-offset_right = 40.0
-offset_bottom = 11.0

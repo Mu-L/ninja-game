@@ -222,6 +222,9 @@ animations = [{
 
 [resource]
 script = ExtResource("1_1vyle")
+max_health = 35
+strength = 25
+defense = 1
 name = "Bamboo"
 portrait = ExtResource("1_00jfx")
 texture = ExtResource("2_sslt5")

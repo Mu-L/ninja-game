@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="BattleData" format=3 uid="uid://c2rgqs3oiw2og"]
+
+[ext_resource type="Script" uid="uid://csuoyklhbiowk" path="res://resource_classes/enemy_data_row.gd" id="1_1aanr"]
+[ext_resource type="Script" uid="uid://dt43sb7vd25ke" path="res://resource_classes/enemy_battler_data.gd" id="2_a00d2"]
+[ext_resource type="Script" uid="uid://diil4nttlc7oo" path="res://resource_classes/battle_data.gd" id="2_r7dfv"]
+[ext_resource type="Resource" uid="uid://borxdhtao2br8" path="res://battler_data/enemies/bamboo_data.tres" id="3_edxiy"]
+[ext_resource type="Resource" uid="uid://btloskel7kcby" path="res://battler_data/enemies/slime_data.tres" id="3_wla66"]
+
+[sub_resource type="Resource" id="Resource_edxiy"]
+script = ExtResource("1_1aanr")
+elements = Array[ExtResource("2_a00d2")]([ExtResource("3_wla66"), ExtResource("3_edxiy"), null])
+
+[sub_resource type="Resource" id="Resource_qp0kl"]
+script = ExtResource("1_1aanr")
+elements = Array[ExtResource("2_a00d2")]([ExtResource("3_wla66"), ExtResource("3_edxiy"), null])
+
+[sub_resource type="Resource" id="Resource_kd7rb"]
+script = ExtResource("1_1aanr")
+elements = Array[ExtResource("2_a00d2")]([null, null, null])
+
+[resource]
+script = ExtResource("2_r7dfv")
+enemies_data_grid = Array[ExtResource("1_1aanr")]([SubResource("Resource_edxiy"), SubResource("Resource_qp0kl"), SubResource("Resource_kd7rb")])
+overworld_enemy_index = Vector2i(1, 0)
+metadata/_custom_type_script = "uid://diil4nttlc7oo"

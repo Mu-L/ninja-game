@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cuim5yngrx5yj" path="res://enemy/enemy.tscn" id="5_6mom2"]
 [ext_resource type="Resource" uid="uid://b336ure0huy0s" path="res://npc_data/monk.tres" id="6_0v5my"]
 [ext_resource type="Resource" uid="uid://ci0wwyn317huc" path="res://npc_data/mask_green.tres" id="7_suwb7"]
-[ext_resource type="Resource" uid="uid://wxd173j3jak1" path="res://battle_data/fields_1.tres" id="9_sti2h"]
-[ext_resource type="Resource" uid="uid://bq0joluvm4p0q" path="res://battle_data/fields_2.tres" id="10_0v5my"]
-[ext_resource type="Resource" uid="uid://b456hb0skjtq8" path="res://battle_data/fields_3.tres" id="11_suwb7"]
+[ext_resource type="Resource" uid="uid://dwk5mgabm4g6x" path="res://battle_data/first_encounter.tres" id="9_sti2h"]
+[ext_resource type="Resource" uid="uid://c2rgqs3oiw2og" path="res://battle_data/second_encounter.tres" id="10_0v5my"]
+[ext_resource type="Resource" uid="uid://xl8nj50v373k" path="res://battle_data/third_encounter.tres" id="11_suwb7"]
 
 [node name="Room3" unique_id=1645941047 instance=ExtResource("1_ugu2v")]
 
@@ -51,13 +51,23 @@ data = ExtResource("7_suwb7")
 y_sort_enabled = true
 
 [node name="Enemy" parent="Enemies" index="0" unique_id=1588866589 instance=ExtResource("5_6mom2")]
-position = Vector2(-70, 51)
+position = Vector2(66, -34)
 battle_data = ExtResource("9_sti2h")
 
-[node name="Enemy2" parent="Enemies" index="1" unique_id=73776637 instance=ExtResource("5_6mom2")]
-position = Vector2(8, -142)
+[node name="Enemy2" parent="Enemies" index="1" unique_id=1679821185 instance=ExtResource("5_6mom2")]
+position = Vector2(-10, -166)
 battle_data = ExtResource("10_0v5my")
 
-[node name="Enemy3" parent="Enemies" index="2" unique_id=637048694 instance=ExtResource("5_6mom2")]
-position = Vector2(74, 8)
+[node name="Enemy3" parent="Enemies" index="2" unique_id=692159807 instance=ExtResource("5_6mom2")]
+position = Vector2(122, -310)
 battle_data = ExtResource("11_suwb7")
+
+[node name="Player" parent="." index="3" unique_id=279543829]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="5" unique_id=1659502633]
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer" index="0" unique_id=230765724]
+offset_right = 40.0
+offset_bottom = 11.0

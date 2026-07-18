@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://3cf25bcqwuo5" path="res://resource_classes/level_up.gd" id="1_ethji"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_e4h2b"]
-[ext_resource type="Resource" uid="uid://ct22ugnf43yq5" path="res://skills/kunai_rain.tres" id="3_e4h2b"]
 
 [resource]
 script = ExtResource("1_ethji")
 stat_increases = Dictionary[int, int]({
-0: 10
+0: 4,
+2: 5,
+3: 6
 })
-skills = Array[ExtResource("2_e4h2b")]([ExtResource("3_e4h2b")])
 metadata/_custom_type_script = "uid://3cf25bcqwuo5"

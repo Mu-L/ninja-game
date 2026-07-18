@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c2t5payqh47nf"]
+
+[ext_resource type="Script" uid="uid://c4ne8fcrol4gf" path="res://follower/follower.gd" id="1_nra83"]
+[ext_resource type="Texture2D" uid="uid://bgmb7tvj8hsiq" path="res://Ninja Adventure - Asset Pack/Actor/Character/Boy/SpriteSheet.png" id="2_ly2am"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4ptn"]
+atlas = ExtResource("2_ly2am")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60d1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4ptn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Follower" type="Node2D" unique_id=2092505684]
+script = ExtResource("1_nra83")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=326144169]
+unique_name_in_owner = true
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_60d1p")
+
+[node name="Label" type="Label" parent="." unique_id=997249362]
+visible = false
+offset_left = -19.0
+offset_right = 21.0
+offset_bottom = 11.0

@@ -4,6 +4,7 @@ extends Node
 
 signal start_battle(enemy: Enemy, player: Player)
 
+signal add_follower(follower: Follower)
 signal display_text(text: String)
 signal textbox_closed
 signal move_cursor_to(pos: Vector2)

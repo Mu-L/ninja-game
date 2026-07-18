@@ -16,8 +16,11 @@ class_name Player extends CharacterBody2D
 
 @export var movement_speed: int = 100
 @export var attack_duration := 0.5
-#@export var battle_data: AllyBattlerData
 @export var party_members_data: Array[AllyBattlerData] = []
+
+var followers: Array[Follower]
+var position_history: Array[Vector2] = []
+var position_index := 0
 
 class Direction:
 	
@@ -58,14 +61,28 @@ func _ready() -> void:
 	direction = Direction.new(Direction.Directions.DOWN, self)
 	for data in party_members_data:
 		data.health = data.max_health
+		data.magic_points = data.max_magic_points
+	var i := 1
+	while i < len(party_members_data):
+		followers.append(Follower.create(party_members_data[i], self, 100-15*i))
+		i += 1
+	position_history.resize(100)
+	position_history.fill(global_position)
 
 func _physics_process(delta: float) -> void:
+	debug_label.text = "%d" % position_index
 	if is_interacting:
 		return
 	if not is_attacking:
 		movement_logic_and_animation(delta)
 	attack_logic_and_animation(delta)
 	move_and_slide()
+	update_position_history()
+
+func update_position_history() -> void:
+	if velocity != Vector2.ZERO:
+		position_history[position_index % position_history.size()] = global_position
+		position_index += 1
 
 func movement_logic_and_animation(_delta: float) -> void:
 	

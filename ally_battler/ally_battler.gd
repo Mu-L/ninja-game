@@ -14,6 +14,10 @@ signal cancel_my_turn
 @onready var experience_bar: TextureProgressBar = %ExperienceBar
 @onready var scroll_container: ScrollContainer = %ScrollContainer
 
+enum {
+	RIGHT, DOWN, LEFT, UP
+}
+
 enum SelectionType {
 	SINGLE_ENEMY,
 	SINGLE_ALLY,
@@ -64,7 +68,6 @@ func _ready() -> void:
 	animated_sprite_2d.play("idle right")
 	experience_bar.max_value = _data.EXP_to_next_level
 	experience_bar.value = _data.EXP
-	_magic_points = _max_magic_points
 	weapon_sprite.texture = weapon.texture
 	# Set up skills:
 	populate_skills_menu()
@@ -300,7 +303,8 @@ func increase_exp(amount: int) -> void:
 		_data.EXP = new_EXP
 		@warning_ignore("narrowing_conversion")
 		_data.EXP_to_next_level *= 1.25
-		Global.display_text.emit("Ninja reached level %d" % _data.level)
+		var args := [get_colored_name(), _data.level]
+		Global.display_text.emit("%s reached level %d" % args)
 		await Global.textbox_closed
 		# Check if reached max level:
 		if _data.level-1 > len(_data.level_ups):
@@ -316,6 +320,10 @@ func increase_exp(amount: int) -> void:
 			await Global.textbox_closed
 			var original_value = _data.get(stat_string)
 			_data.set(stat_string, original_value + increase_amount)
+			if stat_string == "max_health":
+				_data.health += increase_amount
+			elif stat_string == 'max_magic_points':
+				_data.magic_points += increase_amount
 		for skill: Skill in level_up.skills:
 			_data.skills.append(skill)
 			Global.display_text.emit("New Skill Unlocked: %s" % skill.name) 

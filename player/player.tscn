@@ -284,19 +284,20 @@ _data = {
 &"hurt": SubResource("Animation_pmsee")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=279543829 groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2086590390 groups=["player"]]
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_g1dw6")
-party_members_data = Array[ExtResource("3_8t03j")]([ExtResource("2_rgyib"), ExtResource("4_2ieo8"), ExtResource("5_2ieo8"), ExtResource("6_ebec5")])
+party_members_data = Array[ExtResource("3_8t03j")]([ExtResource("2_rgyib"), ExtResource("5_2ieo8"), ExtResource("4_2ieo8"), ExtResource("6_ebec5")])
+metadata/_custom_type_script = "uid://1qrbw6c1nrg7"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=93024993]
 unique_name_in_owner = true
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_g6k8r")
-animation = &"attack down"
+animation = &"walk up"
 autoplay = "idle down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=181110495]
@@ -367,6 +368,7 @@ libraries/ = SubResource("AnimationLibrary_1wwld")
 
 [node name="DebugLabel" type="Label" parent="." unique_id=1881059788]
 unique_name_in_owner = true
+visible = false
 offset_left = -19.0
 offset_top = 10.0
 offset_right = 21.0

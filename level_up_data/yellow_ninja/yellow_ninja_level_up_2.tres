@@ -2,10 +2,15 @@
 
 [ext_resource type="Script" uid="uid://3cf25bcqwuo5" path="res://resource_classes/level_up.gd" id="1_qfdmo"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_e2bpx"]
+[ext_resource type="Resource" uid="uid://3v27r02clymg" path="res://skills/spin_attack.tres" id="3_e2bpx"]
 
 [resource]
 script = ExtResource("1_qfdmo")
 stat_increases = Dictionary[int, int]({
-0: 20
+0: 7,
+1: 3,
+2: 6,
+3: 4
 })
+skills = Array[ExtResource("2_e2bpx")]([ExtResource("3_e2bpx")])
 metadata/_custom_type_script = "uid://3cf25bcqwuo5"

@@ -250,8 +250,7 @@ func finish_battle() -> void:
 		await Global.textbox_closed
 		text_box.hide()
 		for ally in allies:
-			if ally.is_alive:
-				await ally.increase_exp(exp_gained)
+			await ally.increase_exp(exp_gained)
 		battle_finished.emit()
 	else:
 		display_text("Game Over...")

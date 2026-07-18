@@ -8,6 +8,12 @@ class_name Enemy extends CharacterBody2D
 
 @export var battle_data: BattleData
 
+enum States {
+	WANDERING,
+	CHASING
+}
+var state := States.WANDERING
+
 func _ready() -> void:
 	var index = battle_data.overworld_enemy_index
 	animated_sprite_2d.sprite_frames = (

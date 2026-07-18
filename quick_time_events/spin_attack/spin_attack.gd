@@ -51,4 +51,5 @@ func _on_timer_timeout() -> void:
 	started = false
 	target.show_stat_bars()
 	await ally.missed_effect(target.global_position)
+	await ally.move_to(ally_starting_pos)
 	finished.emit()

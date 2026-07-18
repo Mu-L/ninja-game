@@ -44,6 +44,9 @@ _data = {
 &"hurt": SubResource("Animation_pmsee")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ppra6"]
+radius = 31.06445
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1588866589]
 y_sort_enabled = true
 collision_layer = 4
@@ -72,3 +75,8 @@ libraries/ = SubResource("AnimationLibrary_1wwld")
 unique_name_in_owner = true
 body = NodePath("..")
 animated_sprite_2d = NodePath("../AnimatedSprite2D")
+
+[node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=1535200002]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea" unique_id=829080701]
+shape = SubResource("CircleShape2D_ppra6")

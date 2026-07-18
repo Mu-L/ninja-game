@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="LevelUp" format=3 uid="uid://ln3tlflt1gm2"]
+
+[ext_resource type="Script" uid="uid://3cf25bcqwuo5" path="res://resource_classes/level_up.gd" id="1_ignte"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_8o3dx"]
+
+[resource]
+script = ExtResource("1_ignte")
+stat_increases = Dictionary[int, int]({
+0: 5,
+1: 1,
+2: 4,
+3: 5
+})
+metadata/_custom_type_script = "uid://3cf25bcqwuo5"

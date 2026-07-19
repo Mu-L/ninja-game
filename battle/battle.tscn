@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://4ku024axqoix" path="res://selection_cursor/selection_cursor.tscn" id="5_l1kiu"]
 [ext_resource type="PackedScene" uid="uid://bnaelby7duhxs" path="res://ui/receptacle/magic_receptacle.tscn" id="5_rxlun"]
 [ext_resource type="AudioStream" uid="uid://blhxfbppschy4" path="res://Ninja Adventure - Asset Pack/Audio/Musics/17 - Fight.ogg" id="6_l1kiu"]
+[ext_resource type="AudioStream" uid="uid://b5xxo0mbmbhb8" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav" id="8_rxlun"]
+[ext_resource type="AudioStream" uid="uid://df1fo5buh34rv" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move1.wav" id="9_vlrs1"]
 [ext_resource type="PackedScene" uid="uid://c55iom3i1e8ev" path="res://ui/receptacle/health_receptacle.tscn" id="10_t8p1f"]
 
 [node name="Battle" type="Node2D" unique_id=697061231]
@@ -41,6 +43,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "battle text goes here !"
+visible_characters_behavior = 1
 
 [node name="RotationCountLabel" type="Label" parent="UI" unique_id=1034172948]
 unique_name_in_owner = true
@@ -131,8 +134,21 @@ autoplay = true
 unique_name_in_owner = true
 stream = ExtResource("5_7fucf")
 
+[node name="TextSound" type="AudioStreamPlayer" parent="." unique_id=1771181007]
+unique_name_in_owner = true
+stream = ExtResource("8_rxlun")
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="." unique_id=1991502923]
+unique_name_in_owner = true
+stream = ExtResource("9_vlrs1")
+
 [node name="RotationTimer" type="Timer" parent="." unique_id=2035176898]
 unique_name_in_owner = true
+
+[node name="TextTimer" type="Timer" parent="." unique_id=52883603]
+unique_name_in_owner = true
+wait_time = 0.025
+one_shot = true
 
 [node name="Battlers" type="Node2D" parent="." unique_id=882097105]
 unique_name_in_owner = true
@@ -160,3 +176,4 @@ position = Vector2(201, 50)
 gizmo_extents = 36.1
 
 [connection signal="timeout" from="RotationTimer" to="." method="_on_rotation_timer_timeout"]
+[connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]

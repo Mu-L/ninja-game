@@ -1,3 +1,6 @@
+AudioStreamPlayer
+AudioStreamPlayer2D
+Timer
 CollisionShape2D
 Area2D
 Sprite2D
@@ -5,10 +8,8 @@ Label
 CanvasLayer
 Node2D
 NPC
-Timer
 CharacterBody2D
 NavigationAgent2D
 AnimatedSprite2D
 QuickTimeEvent
 Control
-VBoxContainer

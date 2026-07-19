@@ -52,6 +52,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "Hello, World !"
 scroll_active = false
+visible_characters_behavior = 1
 
 [node name="NameLabel" type="Label" parent="TextureRect" unique_id=1193501753]
 unique_name_in_owner = true

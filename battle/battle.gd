@@ -18,6 +18,9 @@ class_name Battle extends Node2D
 @onready var battler_data_ui: VBoxContainer = %BattlerDataUI
 @onready var health_receptacle: Receptacle = %HealthReceptacle
 @onready var magic_receptacle: Receptacle = %MagicReceptacle
+@onready var text_timer: Timer = %TextTimer
+@onready var text_sound: AudioStreamPlayer = %TextSound
+@onready var move_sound: AudioStreamPlayer = %MoveSound
 
 signal battle_finished
 
@@ -151,6 +154,10 @@ func _on_ally_finished_turn(ally: AllyBattler) -> void:
 
 func _input(event: InputEvent) -> void:
 	
+	for e in ['move up', 'move down', 'move left', 'move right']:
+		if event.is_action_pressed(e):
+			move_sound.play()
+	
 	if event.is_action("god_mode"):
 		for ally in allies:
 			ally._strength = 99999
@@ -159,8 +166,12 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	if text_box.visible and event.is_action_pressed("interact"):
-		text_box.hide()
-		Global.textbox_closed.emit()
+		text_timer.stop()
+		if battle_text.visible_ratio == 1.0:
+			text_box.hide()
+			Global.textbox_closed.emit()
+		else:
+			battle_text.visible_ratio = 1.0
 	
 	elif event.is_action_pressed("menu") and state == States.SELECTING_ALLY:
 		battler_data_ui.hide()
@@ -237,6 +248,8 @@ func display_text(text: String) -> void:
 	battler_data_ui.hide()
 	text_box.show()
 	battle_text.text = text
+	battle_text.visible_characters = 0
+	text_timer.start()
 
 func allies_won() -> bool:
 	return num_of_living_enemies == 0
@@ -280,3 +293,10 @@ func give_extra_turn(ally: AllyBattler) -> void:
 	if ally.is_alive:
 		ally.animated_sprite_2d.modulate.a = 1.0
 	has_not_played_turn.append(ally)
+
+func _on_text_timer_timeout() -> void:
+	battle_text.visible_characters += 1
+	if battle_text.visible_ratio != 1.0:
+		text_timer.start()
+	if battle_text.visible_characters % 2 == 0:
+		text_sound.play()

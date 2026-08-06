@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3cf25bcqwuo5" path="res://resource_classes/level_up.gd" id="1_ignte"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_8o3dx"]
+[ext_resource type="Resource" uid="uid://b30fuflliesen" path="res://skills/revive.tres" id="3_8o3dx"]
 
 [resource]
 script = ExtResource("1_ignte")
@@ -11,4 +12,5 @@ stat_increases = Dictionary[int, int]({
 2: 4,
 3: 5
 })
+skills = Array[ExtResource("2_8o3dx")]([ExtResource("3_8o3dx")])
 metadata/_custom_type_script = "uid://3cf25bcqwuo5"

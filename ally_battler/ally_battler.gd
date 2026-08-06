@@ -71,6 +71,8 @@ func _ready() -> void:
 	weapon_sprite.texture = weapon.texture
 	# Set up skills:
 	populate_skills_menu()
+	if _health <= 0:
+		die()
 
 func _on_skill_button_pressed(skill: Skill) -> void:
 	if _magic_points < skill.magic_points_cost:
@@ -290,19 +292,35 @@ func increase_exp(amount: int) -> void:
 	_data.magic_points =_magic_points
 	_data.skills =_skills
 	
+	
+	var level_up_count := 0
 	experience_bar.show()
-	_data.EXP += amount
-	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(experience_bar, "value", _data.EXP, 1.0)
-	await tween.finished
-	# Check if leveled up:
-	if _data.EXP >= _data.EXP_to_next_level:
+	while amount > 0:
+		experience_bar.max_value = _data.EXP_to_next_level
+		experience_bar.value = _data.EXP
+		var exp_left_to_next_level := _data.EXP_to_next_level - _data.EXP
+		if amount < exp_left_to_next_level:
+			# No level up:
+			_data.EXP += amount
+			var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+			tween.tween_property(experience_bar,"value",_data.EXP,0.5)
+			await tween.finished
+			break
+		else:
+			# Level Up:
+			level_up_count += 1
+			amount -= exp_left_to_next_level
+			_data.EXP = 0
+			var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+			tween.tween_property(experience_bar, "value", experience_bar.max_value, 0.5)
+			tween.tween_property(experience_bar, "scale", Vector2.ONE*1.25, 0.1)
+			tween.tween_property(experience_bar, "scale", Vector2.ONE, 0.2)
+			await tween.finished
+			_data.EXP_to_next_level *= 2
+	
+	for i in level_up_count:
 		_data.level += 1
 		%LevelUpSound.play()
-		var new_EXP := _data.EXP - _data.EXP_to_next_level
-		_data.EXP = new_EXP
-		@warning_ignore("narrowing_conversion")
-		_data.EXP_to_next_level *= 1.25
 		var args := [get_colored_name(), _data.level]
 		Global.display_text.emit("%s reached level %d" % args)
 		await Global.textbox_closed

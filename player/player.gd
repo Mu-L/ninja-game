@@ -56,8 +56,9 @@ var is_interacting := false
 var current_weapon: WeaponScene
 
 func _ready() -> void:
+	Global.battle_finished.connect(_on_battle_finished)
 	for weapon: WeaponScene in weapons.get_children():
-		weapon.body_entered.connect(_on_weapon_body_entered)
+		weapon.body_entered.connect(_on_hurtbox_body_entered)
 	direction = Direction.new(Direction.Directions.DOWN, self)
 	for data in party_members_data:
 		data.health = data.max_health
@@ -117,12 +118,6 @@ func attack_logic_and_animation(_delta: float) -> void:
 		current_weapon.set_hitbox(false)
 		weapon_timer.start(attack_duration)
 
-func _on_weapon_body_entered(body: Node2D) -> void:
-	if body is Enemy:
-		health_bar.hide()
-		Global.start_battle.emit(body, self)
-		body.call_deferred("done")
-
 func _on_weapon_timer_timeout() -> void:
 	current_weapon.hide()
 	current_weapon.set_hitbox(true)
@@ -133,3 +128,12 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		health_bar.hide()
 		Global.start_battle.emit(body, self)
 		body.call_deferred("done")
+
+func _on_battle_finished() -> void:
+	while party_members_data[0].health <= 0:
+		var leader = party_members_data.pop_front()
+		party_members_data.push_back(leader)
+		
+		animated_sprite_2d.sprite_frames = party_members_data[0].sprite_frames
+		for i in range(len(followers)):
+			followers[i].set_data(party_members_data[i+1])

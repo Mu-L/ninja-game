@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3cf25bcqwuo5" path="res://resource_classes/level_up.gd" id="1_14ecd"]
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="2_kopay"]
+[ext_resource type="Resource" uid="uid://pvnxvlvfw274" path="res://skills/second_chance.tres" id="3_kopay"]
 
 [resource]
 script = ExtResource("1_14ecd")
@@ -11,4 +12,5 @@ stat_increases = Dictionary[int, int]({
 2: 1,
 3: 2
 })
+skills = Array[ExtResource("2_kopay")]([ExtResource("3_kopay")])
 metadata/_custom_type_script = "uid://3cf25bcqwuo5"

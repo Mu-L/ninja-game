@@ -1,3 +1,4 @@
+Enemy
 AudioStreamPlayer
 AudioStreamPlayer2D
 Timer
@@ -12,4 +13,3 @@ CharacterBody2D
 NavigationAgent2D
 AnimatedSprite2D
 QuickTimeEvent
-Control

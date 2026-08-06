@@ -22,8 +22,6 @@ class_name Battle extends Node2D
 @onready var text_sound: AudioStreamPlayer = %TextSound
 @onready var move_sound: AudioStreamPlayer = %MoveSound
 
-signal battle_finished
-
 var battle_data: BattleData
 var allies_data: Array[AllyBattlerData]
 
@@ -47,6 +45,8 @@ enum States {
 	CHOOSING_ROTATION,
 }
 var state := States.BATTLER_PLAYING_TURNS
+
+static var is_debuging := false
 
 static func create(allies_data: Array[AllyBattlerData], battle_data: BattleData) -> Battle:
 	const BATTLE = preload("uid://cb3474ae6wcck")
@@ -154,13 +154,21 @@ func _on_ally_finished_turn(ally: AllyBattler) -> void:
 
 func _input(event: InputEvent) -> void:
 	
-	for e in ['move up', 'move down', 'move left', 'move right']:
-		if event.is_action_pressed(e):
-			move_sound.play()
+	#for e in ['move up', 'move down', 'move left', 'move right']:
+		#if event.is_action_pressed(e):
+			#move_sound.play()
 	
 	if event.is_action("god_mode"):
+		is_debuging = true
 		for ally in allies:
 			ally._strength = 99999
+	
+	if event.is_action("enemies_god_mod"):
+		is_debuging = true
+		for row in enemies_grid:
+			for enemy in row.elements:
+				if enemy and enemy.is_alive:
+					enemy._strength = 99999
 	
 	if state == States.ROTATING:
 		return
@@ -268,7 +276,7 @@ func finish_battle() -> void:
 		text_box.hide()
 		for ally in allies:
 			await ally.increase_exp(exp_gained)
-		battle_finished.emit()
+		Global.battle_finished.emit()
 	else:
 		display_text("Game Over...")
 		await Global.textbox_closed

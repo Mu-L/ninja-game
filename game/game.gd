@@ -16,17 +16,15 @@ func _on_battle_start(enemy: Enemy, player: Player) -> void:
 	var battle := Battle.create(player.party_members_data, enemy.battle_data)
 	add_child(battle)
 	battle.start()
-	battle.battle_finished.connect(
-		func():
-			# Update ally stats:
-			player.party_members_data = battle.allies_data
-			over_world.set_deferred("process_mode", Node.PROCESS_MODE_PAUSABLE)
-			music.stream_paused = false
-			player._on_weapon_timer_timeout()
-			over_world.show()
-			battle.queue_free()
-			enemy.die()
-	)
+	await Global.battle_finished
+	# Update ally stats:
+	player.party_members_data = battle.allies_data
+	over_world.set_deferred("process_mode", Node.PROCESS_MODE_PAUSABLE)
+	music.stream_paused = false
+	player._on_weapon_timer_timeout()
+	over_world.show()
+	battle.queue_free()
+	enemy.die()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):

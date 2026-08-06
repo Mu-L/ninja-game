@@ -18,6 +18,10 @@ static func create(data:AllyBattlerData, player:Player, step_delay, movement_spe
 	follower.step_delay = step_delay
 	return follower
 
+func set_data(data: AllyBattlerData) -> void:
+	self.data = data
+	self.animated_sprite_2d.sprite_frames = data.sprite_frames
+
 func _ready() -> void:
 	animated_sprite_2d.sprite_frames = data.sprite_frames
 	global_position = player.global_position
@@ -27,7 +31,8 @@ func _process(delta: float) -> void:
 	label.text = str(step_delay % player.position_history.size())
 	
 	if player.velocity == Vector2.ZERO:
-		animated_sprite_2d.play("idle %s" % last_dir)
+		animated_sprite_2d.play(
+				"idle %s" % last_dir if data.health > 0 else "dead")
 		return
 	var next_pos := player.position_history[step_delay % player.position_history.size()]
 	step_delay += 1
@@ -44,3 +49,6 @@ func _process(delta: float) -> void:
 		last_dir = "down"
 	if rounded.y < 0:
 		last_dir = "up"
+	
+	if data.health <= 0:
+		animated_sprite_2d.play("dead")

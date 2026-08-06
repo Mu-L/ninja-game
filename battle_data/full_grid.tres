@@ -2,23 +2,22 @@
 
 [ext_resource type="Script" uid="uid://csuoyklhbiowk" path="res://resource_classes/enemy_data_row.gd" id="1_7dc3j"]
 [ext_resource type="Script" uid="uid://dt43sb7vd25ke" path="res://resource_classes/enemy_battler_data.gd" id="2_sbg5q"]
-[ext_resource type="Resource" uid="uid://bfcluj5kpkdrt" path="res://battler_data/enemies/bat_data.tres" id="3_7fjmx"]
-[ext_resource type="Resource" uid="uid://btloskel7kcby" path="res://battler_data/enemies/slime_data.tres" id="4_s6543"]
+[ext_resource type="Resource" uid="uid://ba2j6vogaowv0" path="res://battler_data/enemies/axolotl_data.tres" id="3_sbg5q"]
 [ext_resource type="Script" uid="uid://diil4nttlc7oo" path="res://resource_classes/battle_data.gd" id="5_re6l2"]
 [ext_resource type="AudioStream" uid="uid://blhxfbppschy4" path="res://Ninja Adventure - Asset Pack/Audio/Musics/17 - Fight.ogg" id="6_4g6xv"]
 
 [sub_resource type="Resource" id="Resource_05ckq"]
 script = ExtResource("1_7dc3j")
-elements = Array[ExtResource("2_sbg5q")]([ExtResource("3_7fjmx"), ExtResource("3_7fjmx"), ExtResource("3_7fjmx")])
+elements = Array[ExtResource("2_sbg5q")]([ExtResource("3_sbg5q"), ExtResource("3_sbg5q"), ExtResource("3_sbg5q")])
 
 [sub_resource type="Resource" id="Resource_a12mb"]
 script = ExtResource("1_7dc3j")
-elements = Array[ExtResource("2_sbg5q")]([ExtResource("3_7fjmx"), ExtResource("4_s6543"), ExtResource("3_7fjmx")])
+elements = Array[ExtResource("2_sbg5q")]([ExtResource("3_sbg5q"), ExtResource("3_sbg5q"), ExtResource("3_sbg5q")])
 metadata/_custom_type_script = "uid://csuoyklhbiowk"
 
 [sub_resource type="Resource" id="Resource_wux73"]
 script = ExtResource("1_7dc3j")
-elements = Array[ExtResource("2_sbg5q")]([ExtResource("3_7fjmx"), ExtResource("3_7fjmx"), ExtResource("3_7fjmx")])
+elements = Array[ExtResource("2_sbg5q")]([ExtResource("3_sbg5q"), ExtResource("3_sbg5q"), ExtResource("3_sbg5q")])
 
 [resource]
 script = ExtResource("5_re6l2")

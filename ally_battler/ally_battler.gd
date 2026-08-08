@@ -2,6 +2,7 @@ class_name AllyBattler extends Battler
 
 signal skill_button_focused(skill_cost: int, current_magic: int, max_magic: int)
 signal cancel_my_turn
+signal finished_increasing_xp
 
 @onready var ui: CanvasLayer = $UI
 @onready var skill_animation: AnimatedSprite2D = %SkillAnimation
@@ -23,10 +24,12 @@ enum SelectionType {
 	SINGLE_ALLY,
 	ALL_ENEMIES,
 	ALL_ALLIES,
+	SELF,
 }
 const NO_SELECTION: Array[SelectionType] = [
 	SelectionType.ALL_ENEMIES,
-	SelectionType.ALL_ALLIES
+	SelectionType.ALL_ALLIES,
+	SelectionType.SELF,
 ]
 var _selection_type: SelectionType
 
@@ -40,6 +43,7 @@ var _max_magic_points: int = 25
 var _skills: Array[Skill]
 var weapon: Weapon
 var _magic_points: int
+var levels_gained := 0
 
 # Visuals:
 var text_color: Color
@@ -108,11 +112,8 @@ func play_turn() -> void:
 		if child is BaseButton:
 			child.grab_focus()
 			break
-	#Global.set_cursor_visible.emit(true)
-	#Global.move_cursor_to.emit(self.global_position)
-	#buttons.show()
-	#ui.show()
-	#view_skill_list_button.grab_focus()
+	# cancel any guarding:
+	self._defense = _data.defense
 
 func populate_skills_menu() -> void:
 	for child in skills_container.get_children():
@@ -140,6 +141,8 @@ func populate_skills_menu() -> void:
 
 func get_main_target_battler() -> Battler:
 	match _selection_type:
+		SelectionType.SELF:
+			return self
 		SelectionType.SINGLE_ALLY:
 			return _allies[_ally_selection_index % _allies.size()]
 		SelectionType.SINGLE_ENEMY:
@@ -171,17 +174,17 @@ func perform_action() -> void:
 	var qte: QuickTimeEvent
 	qte = _skill_to_perform.quick_time_event.instantiate()
 	add_child(qte)
-	qte.start(self)
 	qte.finished.connect(func():
 		qte.queue_free()
 		show_stat_bars()
 		self.animated_sprite_2d.modulate.a = 0.75
 		finished_turn.emit()
 	)
+	qte.start(self)
 
 func _process(delta: float) -> void:
 	
-	%DebugLabel.text = str(scroll_container.scroll_vertical)
+	%DebugLabel.text = str(_defense)
 	
 	if skills_menu.visible and Input.is_action_just_pressed("attack"):
 		skills_menu.hide()
@@ -292,8 +295,6 @@ func increase_exp(amount: int) -> void:
 	_data.magic_points =_magic_points
 	_data.skills =_skills
 	
-	
-	var level_up_count := 0
 	experience_bar.show()
 	while amount > 0:
 		experience_bar.max_value = _data.EXP_to_next_level
@@ -308,7 +309,7 @@ func increase_exp(amount: int) -> void:
 			break
 		else:
 			# Level Up:
-			level_up_count += 1
+			levels_gained += 1
 			amount -= exp_left_to_next_level
 			_data.EXP = 0
 			var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
@@ -317,8 +318,9 @@ func increase_exp(amount: int) -> void:
 			tween.tween_property(experience_bar, "scale", Vector2.ONE, 0.2)
 			await tween.finished
 			_data.EXP_to_next_level *= 2
-	
-	for i in level_up_count:
+
+func level_up() -> void:
+	for i in levels_gained:
 		_data.level += 1
 		%LevelUpSound.play()
 		var args := [get_colored_name(), _data.level]
@@ -380,3 +382,9 @@ func play_attack_anim() -> void:
 	await tween.finished
 	weapon_sprite.hide()
 	animated_sprite_2d.play("idle right")
+
+func stop_guarding() -> void:
+	self._defense = _data.defense
+
+func guard() -> void:
+	self._defense *= 3

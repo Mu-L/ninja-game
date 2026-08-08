@@ -1,6 +1,5 @@
 extends QuickTimeEvent
 
-
 func start(ally: AllyBattler) -> void:
 	super.start(ally)
 	await ally.move_to(target.global_position - Vector2(25,0))

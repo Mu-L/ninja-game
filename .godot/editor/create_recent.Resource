@@ -1,6 +1,6 @@
+Skill
 EnemyBattlerData
 BattleData
 LevelUp
 Weapon
-Skill
 AllyBattlerData

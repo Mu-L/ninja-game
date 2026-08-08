@@ -1,7 +1,9 @@
 res://ally_battler/ally_battler.tscn
 res://ui/main_theme.tres
 res://ui/new_shader.gdshader
-res://battler_data/enemies/bamboo_data.tres
-res://battler_data/enemies/axolotl_data.tres
-res://battler_data/allies/ninja_green_data.tres
+res://skills/guard.tres
 res://ally_battler/ally_battler.gd
+res://battle/battle.tscn
+res://battle/battle.gd
+res://quick_time_events/guard/guard_qte.tscn
+res://guard_qte.gd

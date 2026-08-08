@@ -34,6 +34,7 @@ var num_of_living_enemies := 0
 var exp_gained: int
 var ally_selection_index := 0
 var number_of_rotations_left := 0
+var num_of_allies_who_finished_increasing_xp := 0
 
 # flags:
 var is_rotating := false
@@ -112,6 +113,8 @@ func start() -> void:
 	start_ally_turn()
 
 func start_ally_turn() -> void:
+	for ally in allies:
+		ally.stop_guarding()
 	has_not_played_turn = allies.filter(func(ally: AllyBattler): return ally.is_alive)
 	number_of_rotations_left = 6
 	state = States.SELECTING_ALLY
@@ -275,8 +278,13 @@ func finish_battle() -> void:
 		await Global.textbox_closed
 		text_box.hide()
 		for ally in allies:
-			await ally.increase_exp(exp_gained)
-		Global.battle_finished.emit()
+			ally.increase_exp(exp_gained)
+			ally.finished_increasing_xp.connect(
+				func():
+					num_of_allies_who_finished_increasing_xp += 1
+					if num_of_allies_who_finished_increasing_xp == 4:
+						Global.battle_finished.emit()
+			)
 	else:
 		display_text("Game Over...")
 		await Global.textbox_closed

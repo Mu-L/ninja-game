@@ -1,7 +1,11 @@
+res://quick_time_events/guard/
+res://quick_time_events/stab/
+res://quick_time_events/base_class/
+res://skills/
+res://battle/
 res://ally_battler/
 res://battler_data/enemies/
 res://dialogue_box/
-res://battle/
 res://enemy/
 res://enemy_battler/
 res://npc/
@@ -16,8 +20,4 @@ res://quick_time_events/spin_attack/
 res://battle_data/
 res://level_up_data/yellow_ninja/
 res://level_up_data/green_ninja/
-res://level_up_data/blue_ninja/
-res://level_up_data/red_ninja/
-res://rooms/
-res://weapons/
 C:/Users/Samir/Desktop/

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://dv4ccybyfcccu"]
+
+[ext_resource type="Texture2D" uid="uid://t47kkpal85xk" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/HelmetDisabled.png" id="1_80nlb"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="1_fwo43"]
+[ext_resource type="Texture2D" uid="uid://b31wvvhvo2x24" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/Helmet.png" id="2_60int"]
+[ext_resource type="PackedScene" uid="uid://b2gaig6n55ely" path="res://quick_time_events/guard/guard_qte.tscn" id="3_60int"]
+
+[resource]
+script = ExtResource("1_fwo43")
+name = "Guard"
+icon = ExtResource("2_60int")
+disabled_icon = ExtResource("1_80nlb")
+battle_text = "%s is Guarding"
+selection_type = 4
+quick_time_event = ExtResource("3_60int")
+metadata/_custom_type_script = "uid://bycf0afmvv35g"

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://resource_classes/skill.gd" id="3_fdhvn"]
 [ext_resource type="Texture2D" uid="uid://c470c6ypkbdmh" path="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed/SpriteSheet.png" id="5_fdhvn"]
 [ext_resource type="Resource" uid="uid://vr5hhfyr4k1m" path="res://skills/use_weapon.tres" id="6_wek01"]
+[ext_resource type="Resource" uid="uid://dv4ccybyfcccu" path="res://skills/guard.tres" id="8_cklcs"]
 [ext_resource type="Resource" uid="uid://of5cop8am2eq" path="res://weapons/iron_sword.tres" id="9_gioh2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdhvn"]
@@ -277,7 +278,7 @@ animations = [{
 [resource]
 script = ExtResource("2_3npe3")
 max_magic_points = 16
-skills = Array[ExtResource("3_fdhvn")]([ExtResource("6_wek01")])
+skills = Array[ExtResource("3_fdhvn")]([ExtResource("6_wek01"), ExtResource("8_cklcs")])
 weapon = ExtResource("9_gioh2")
 level_ups = Array[ExtResource("1_4y8tn")]([ExtResource("2_gioh2"), ExtResource("3_cklcs")])
 text_color = Color(0.7954895, 0, 0.24469921, 1)

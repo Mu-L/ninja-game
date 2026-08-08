@@ -149,25 +149,16 @@ size_flags_vertical = 0
 theme_override_constants/h_separation = 20
 columns = 3
 
-[node name="DebugLabel" type="Label" parent="UI" index="3" unique_id=1769623932]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -11.0
-grow_horizontal = 0
-grow_vertical = 0
-
 [node name="ExperienceBar" type="TextureProgressBar" parent="StatsContainer" parent_id_path=PackedInt32Array(528664899) index="1" unique_id=1069882490]
 unique_name_in_owner = true
 layout_mode = 2
 value = 100.0
 texture_under = ExtResource("9_v4ran")
 texture_progress = ExtResource("10_v4ran")
+
+[node name="DebugLabel" type="Label" parent="StatsContainer" parent_id_path=PackedInt32Array(528664899) index="2" unique_id=1769623932]
+unique_name_in_owner = true
+layout_mode = 2
 
 [connection signal="pressed" from="UI/MarginContainer/Buttons/ViewSkillListButton" to="." method="_on_view_skill_list_button_pressed"]
 [connection signal="pressed" from="UI/MarginContainer2/Buttons/ViewSkillListButton" to="." method="_on_view_skill_list_button_pressed"]

@@ -318,6 +318,7 @@ func increase_exp(amount: int) -> void:
 			tween.tween_property(experience_bar, "scale", Vector2.ONE, 0.2)
 			await tween.finished
 			_data.EXP_to_next_level *= 2
+	finished_increasing_xp.emit()
 
 func level_up() -> void:
 	for i in levels_gained:
@@ -334,10 +335,10 @@ func level_up() -> void:
 			var increase_amount: int = level_up.stat_increases[stat]
 			var stat_string: String = LevelUp.Stat.keys()[stat]
 			stat_string = stat_string.to_lower()
-			Global.display_text.emit(
-				"%s increased by %d" % [stat_string.replace('_',' '), increase_amount]
-			)
-			await Global.textbox_closed
+			#Global.display_text.emit(
+				#"%s increased by %d" % [stat_string.replace('_',' '), increase_amount]
+			#)
+			#await Global.textbox_closed
 			var original_value = _data.get(stat_string)
 			_data.set(stat_string, original_value + increase_amount)
 			if stat_string == "max_health":
@@ -346,7 +347,7 @@ func level_up() -> void:
 				_data.magic_points += increase_amount
 		for skill: Skill in level_up.skills:
 			_data.skills.append(skill)
-			Global.display_text.emit("New Skill Unlocked: %s" % skill.name) 
+			Global.display_text.emit("New Skill Unlocked: %s" % Util.BBcode_color(skill.name, _data.text_color)) 
 			await Global.textbox_closed
 
 func missed_effect(pos: Vector2) -> void:

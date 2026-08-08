@@ -7,3 +7,6 @@ res://battle/battle.tscn
 res://battle/battle.gd
 res://quick_time_events/guard/guard_qte.tscn
 res://guard_qte.gd
+res://battler_data/enemies/axolotl_data.tres
+res://battler_data/enemies/bamboo_data.tres
+res://battle_data/first_encounter.tres

@@ -283,6 +283,8 @@ func finish_battle() -> void:
 				func():
 					num_of_allies_who_finished_increasing_xp += 1
 					if num_of_allies_who_finished_increasing_xp == 4:
+						for a in allies:
+							await a.level_up()
 						Global.battle_finished.emit()
 			)
 	else:

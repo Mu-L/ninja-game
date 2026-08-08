@@ -222,6 +222,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_wt4kj")
+exp_worth = 25
 max_health = 10
 strength = 30
 name = "Axolotl"

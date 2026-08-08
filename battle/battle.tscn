@@ -163,6 +163,7 @@ z_index = 2
 
 [node name="AllySpawnCircle" type="Marker2D" parent="." unique_id=1351190678]
 unique_name_in_owner = true
+visible = false
 position = Vector2(121, 90)
 rotation = 3.1415927
 

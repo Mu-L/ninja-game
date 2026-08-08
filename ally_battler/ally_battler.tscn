@@ -158,6 +158,7 @@ texture_progress = ExtResource("10_v4ran")
 
 [node name="DebugLabel" type="Label" parent="StatsContainer" parent_id_path=PackedInt32Array(528664899) index="2" unique_id=1769623932]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [connection signal="pressed" from="UI/MarginContainer/Buttons/ViewSkillListButton" to="." method="_on_view_skill_list_button_pressed"]

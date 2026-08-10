@@ -192,5 +192,5 @@ script = ExtResource("1_jok6p")
 name = "Monk"
 sprite_frames = SubResource("SpriteFrames_qf0dh")
 portait = ExtResource("1_aihk6")
-dialouge = Array[String](["Are you using your SKILLS, Young man?", "performing a skill successfully requires precision.", "But it results in high damage!"])
+dialouge = Array[String](["Certain skills target multiple enemies.", "You should try to hit as many enemies as you can in one attack."])
 metadata/_custom_type_script = "uid://10jpfy421udu"

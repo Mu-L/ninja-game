@@ -222,7 +222,6 @@ animations = [{
 
 [resource]
 script = ExtResource("1_1vyle")
-exp_worth = 75
 max_health = 35
 strength = 25
 defense = 1

@@ -277,6 +277,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_l6mt2")
+EXP_to_next_level = 85
 skills = Array[ExtResource("2_2dlt6")]([ExtResource("6_x22me"), ExtResource("8_w58c1")])
 weapon = ExtResource("9_uqjr8")
 level_ups = Array[ExtResource("1_x7hti")]([ExtResource("2_ta1n6"), ExtResource("3_uqjr8")])

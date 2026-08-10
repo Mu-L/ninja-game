@@ -1,12 +1,6 @@
-res://ally_battler/ally_battler.tscn
+res://dialogue_box/dialogue_box.tscn
 res://ui/main_theme.tres
 res://ui/new_shader.gdshader
-res://skills/guard.tres
-res://ally_battler/ally_battler.gd
-res://battle/battle.tscn
-res://battle/battle.gd
-res://quick_time_events/guard/guard_qte.tscn
-res://guard_qte.gd
-res://battler_data/enemies/axolotl_data.tres
-res://battler_data/enemies/bamboo_data.tres
-res://battle_data/first_encounter.tres
+res://dialogue_box/dialogue_box.gd
+res://level_up_data/red_ninja/red_ninja_level_up_2.tres
+res://battler_data/allies/ninja_green_data.tres

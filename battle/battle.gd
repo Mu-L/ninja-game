@@ -36,9 +36,6 @@ var ally_selection_index := 0
 var number_of_rotations_left := 0
 var num_of_allies_who_finished_increasing_xp := 0
 
-# flags:
-var is_rotating := false
-
 enum States {
 	BATTLER_PLAYING_TURNS,
 	SELECTING_ALLY,
@@ -161,12 +158,12 @@ func _input(event: InputEvent) -> void:
 		#if event.is_action_pressed(e):
 			#move_sound.play()
 	
-	if event.is_action("god_mode"):
+	if event.is_action("god_mode") and OS.is_debug_build():
 		is_debuging = true
 		for ally in allies:
 			ally._strength = 99999
 	
-	if event.is_action("enemies_god_mod"):
+	if event.is_action("enemies_god_mod") and OS.is_debug_build():
 		is_debuging = true
 		for row in enemies_grid:
 			for enemy in row.elements:
@@ -214,9 +211,9 @@ func _input(event: InputEvent) -> void:
 	
 	elif state == States.CHOOSING_ROTATION:
 		var dir: int
-		if event.is_action_pressed("move down"):
+		if event.is_action_pressed("move left"):
 			dir = -1
-		if event.is_action_pressed("move up"):
+		if event.is_action_pressed("move right"):
 			dir = 1
 		if dir != 0:
 			if number_of_rotations_left <= 0:
@@ -274,7 +271,7 @@ func is_battle_finished() -> bool:
 func finish_battle() -> void:
 	music.stop()
 	if allies_won():
-		display_text("Player Won !")
+		display_text("You Won !")
 		await Global.textbox_closed
 		text_box.hide()
 		for ally in allies:

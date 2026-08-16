@@ -1,5 +1,7 @@
+res://game/
+res://battle/
+res://player/
 C:/Users/Samir/Desktop/
-C:/Users/Samir/Desktop/project-ninja-demo/
 res://dialogue_box/
 res://Ninja Adventure - Asset Pack/Actor/Character/NinjaGreen/SeparateAnim/
 res://quick_time_events/spin_attack/
@@ -7,7 +9,6 @@ res://quick_time_events/guard/
 res://quick_time_events/stab/
 res://quick_time_events/base_class/
 res://skills/
-res://battle/
 res://ally_battler/
 res://battler_data/enemies/
 res://enemy/
@@ -16,9 +17,7 @@ res://npc/
 res://Ninja Adventure - Asset Pack/Actor/Character/Boy/
 res://Ninja Adventure - Asset Pack/Actor/Character/NinjaGreen/
 res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/
-res://game/
 res://overworld/
 res://follower/
-res://player/
 res://battle_data/
 res://level_up_data/yellow_ninja/

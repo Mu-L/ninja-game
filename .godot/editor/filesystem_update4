@@ -19,3 +19,10 @@ res://battler_data/enemies/bat_data.tres
 res://battle_data/third_encounter.tres
 res://ui/transition_shader.gdshader
 res://game/game.gd
+res://follower/follower.tscn
+res://follower/follower.gd
+res://battle/battle.tscn
+res://battle/battle.gd
+res://battler/battler.gd
+res://ally_battler/ally_battler.gd
+res://enemy_battler/enemy_battler.gd

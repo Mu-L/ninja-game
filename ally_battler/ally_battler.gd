@@ -389,3 +389,9 @@ func stop_guarding() -> void:
 
 func guard() -> void:
 	self._defense *= 3
+
+func play_moving_animation() -> void:
+	animated_sprite_2d.play("walk right")
+
+func stop_moving_animation():
+	animated_sprite_2d.play("idle right")

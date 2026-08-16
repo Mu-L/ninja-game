@@ -18,13 +18,13 @@ func _on_battle_start(enemy: Enemy, player: Player) -> void:
 	over_world.hide()
 	var battle := Battle.create(player.party_members_data, enemy.battle_data)
 	add_child(battle)
-	battle.start()
 	await play_battle_transition_effect(false)
+	battle.start()
 	await Global.battle_finished
 
+	music.stream_paused = false
 	await play_battle_transition_effect(true)
 	player.party_members_data = battle.allies_data
-	music.stream_paused = false
 	over_world.set_deferred("process_mode", Node.PROCESS_MODE_PAUSABLE)
 	player._on_weapon_timer_timeout()
 	enemy.die()
@@ -36,7 +36,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 
-func play_battle_transition_effect(invert: bool, duration:=1.0) -> void:
+func play_battle_transition_effect(invert: bool, duration:=0.75) -> void:
 	var tween := create_tween()
 	tween.tween_property(transition_material, "shader_parameter/invert", invert, 0.01)
 	tween.tween_property(transition_material, "shader_parameter/progress", 10, duration).from(0)

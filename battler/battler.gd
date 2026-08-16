@@ -148,6 +148,14 @@ func stop_selection_animation() -> void:
 	selection_arrow_animation_player.stop()
 
 func move_to(pos: Vector2) -> void:
+	play_moving_animation()
 	var tween := create_tween().set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "global_position", pos, movement_speed)
 	await tween.finished
+	stop_moving_animation()
+
+@abstract
+func play_moving_animation() -> void
+
+@abstract
+func stop_moving_animation()

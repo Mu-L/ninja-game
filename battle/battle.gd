@@ -36,6 +36,8 @@ var ally_selection_index := 0
 var number_of_rotations_left := 0
 var num_of_allies_who_finished_increasing_xp := 0
 
+const INTRO_ANIM_WALK_DISTANCE := 60
+
 enum States {
 	BATTLER_PLAYING_TURNS,
 	SELECTING_ALLY,
@@ -53,7 +55,7 @@ static func create(allies_data: Array[AllyBattlerData], battle_data: BattleData)
 	battle.battle_data = battle_data
 	return battle
 
-func start() -> void:
+func _ready() -> void:
 	Global.display_text.connect(display_text)
 	Global.give_extra_turn.connect(give_extra_turn)
 	# Spawn background:
@@ -84,6 +86,7 @@ func start() -> void:
 		var step := 360.0 / 4
 		ally_spawn_circle.rotation_degrees += step
 		ally.global_position = ally_spawn_point.global_position
+		ally.global_position.x -= INTRO_ANIM_WALK_DISTANCE
 	
 	# Spawn enemies:
 	for i in range(battle_data.enemies_data_grid.size()):
@@ -101,12 +104,24 @@ func start() -> void:
 			enemies_grid[i].elements[j] = enemy
 			enemy.global_position = (
 				enemy_spawn_origin_point.global_position + Vector2(
-				distance_between_enemies * j,
+				distance_between_enemies * j + INTRO_ANIM_WALK_DISTANCE,
 				distance_between_enemies * i
 			))
-	
 	battle_camera.make_current()
 	text_box.hide()
+	battler_data_ui.hide()
+
+func start() -> void:
+	for ally in allies:
+		ally.move_to(Vector2(ally.global_position.x + INTRO_ANIM_WALK_DISTANCE, ally.global_position.y))
+		await get_tree().create_timer(0.1).timeout
+	for row in enemies_grid:
+		for enemy in row.elements:
+			if enemy and enemy.is_alive:
+				enemy.move_to(Vector2(
+					enemy.global_position.x - INTRO_ANIM_WALK_DISTANCE, enemy.global_position.y
+				))
+				await get_tree().create_timer(0.1).timeout
 	start_ally_turn()
 
 func start_ally_turn() -> void:
@@ -115,10 +130,10 @@ func start_ally_turn() -> void:
 	has_not_played_turn = allies.filter(func(ally: AllyBattler): return ally.is_alive)
 	number_of_rotations_left = 6
 	state = States.SELECTING_ALLY
-	Global.set_cursor_visible.emit(true)
 	ally_selection_index = allies.find(has_not_played_turn[0])
 	update_battler_data_ui(allies[ally_selection_index])
 	Global.move_cursor_to.emit(allies[ally_selection_index].global_position)
+	Global.set_cursor_visible.emit(true)
 
 func enemy_turn() -> void:
 	for row in enemies_grid:

@@ -31,8 +31,7 @@ func _process(delta: float) -> void:
 	label.text = str(step_delay % player.position_history.size())
 	
 	if player.velocity == Vector2.ZERO:
-		animated_sprite_2d.play(
-				"idle %s" % last_dir if data.health > 0 else "dead")
+		animated_sprite_2d.play("idle %s" % last_dir if data.health > 0 else "dead")
 		return
 	var next_pos := player.position_history[step_delay % player.position_history.size()]
 	step_delay += 1

@@ -71,7 +71,7 @@ func _ready() -> void:
 	position_history.fill(global_position)
 
 func _physics_process(delta: float) -> void:
-	debug_label.text = "%d" % position_index
+	debug_label.text = Global.InputMode.keys()[Global.current_input_mode]
 	if is_interacting:
 		return
 	if not is_attacking:
@@ -117,11 +117,13 @@ func attack_logic_and_animation(_delta: float) -> void:
 		current_weapon.show()
 		current_weapon.set_hitbox(false)
 		weapon_timer.start(attack_duration)
+		
 
 func _on_weapon_timer_timeout() -> void:
 	current_weapon.hide()
 	current_weapon.set_hitbox(true)
 	is_attacking = false
+
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body is Enemy:

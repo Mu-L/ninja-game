@@ -7,9 +7,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2xp5l"]
 radius = 6.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3i1kj"]
-radius = 21.095022
-
 [node name="NPC" type="CharacterBody2D" unique_id=546455887]
 y_sort_enabled = true
 position = Vector2(0, -8)
@@ -22,17 +19,8 @@ shape = SubResource("CircleShape2D_2xp5l")
 
 [node name="InteractComponent" parent="." unique_id=1420502684 instance=ExtResource("3_3i1kj")]
 
-[node name="CollisionShape2D" parent="InteractComponent" index="0" unique_id=1490691203]
-visible = false
-shape = SubResource("CircleShape2D_3i1kj")
-
-[node name="ButtonPrompt" parent="InteractComponent" index="1" unique_id=1810815216]
-position = Vector2(0, -14)
-
 [node name="RandomWalker" parent="." unique_id=1193253767 node_paths=PackedStringArray("body", "animated_sprite_2d") instance=ExtResource("4_o6cys")]
 body = NodePath("..")
 animated_sprite_2d = NodePath("../AnimatedSprite2D")
 
 [connection signal="interacted" from="InteractComponent" to="." method="_on_interact_component_interacted"]
-
-[editable path="InteractComponent"]

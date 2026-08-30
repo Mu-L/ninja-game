@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bxwiqrm50f1p5"]
+
+[ext_resource type="Script" uid="uid://bb2hit2qttfvb" path="res://ui/button_prompts/button_prompt.gd" id="1_nx51i"]
+
+[node name="ButtonPrompt" type="Node2D" unique_id=1195930837]
+z_index = 5
+script = ExtResource("1_nx51i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=532048313]
+unique_name_in_owner = true

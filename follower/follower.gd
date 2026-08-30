@@ -26,7 +26,7 @@ func _ready() -> void:
 	animated_sprite_2d.sprite_frames = data.sprite_frames
 	global_position = player.global_position
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	label.text = str(step_delay % player.position_history.size())
 	

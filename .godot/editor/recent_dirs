@@ -1,11 +1,19 @@
+res://battle/
+res://ui/button_prompts/
+res://quick_time_events/healing/
+res://selection_cursor/
+res://player/
+res://ui/Controllers and Keyboard/
+res://quick_time_events/arrow/
+res://quick_time_events/spin_attack/
+res://quick_time_events/kunai_rain/
+res://dialogue_box/
+res://global/
+res://npc/
+C:/Users/Samir/Desktop/
 res://follower/
 res://game/
-res://battle/
-res://player/
-C:/Users/Samir/Desktop/
-res://dialogue_box/
 res://Ninja Adventure - Asset Pack/Actor/Character/NinjaGreen/SeparateAnim/
-res://quick_time_events/spin_attack/
 res://quick_time_events/guard/
 res://quick_time_events/stab/
 res://quick_time_events/base_class/
@@ -13,11 +21,3 @@ res://skills/
 res://ally_battler/
 res://battler_data/enemies/
 res://enemy/
-res://enemy_battler/
-res://npc/
-res://Ninja Adventure - Asset Pack/Actor/Character/Boy/
-res://Ninja Adventure - Asset Pack/Actor/Character/NinjaGreen/
-res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/
-res://overworld/
-res://battle_data/
-res://level_up_data/yellow_ninja/

@@ -36,7 +36,7 @@ func die() -> void:
 		await animation_player.animation_finished
 	queue_free()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if state == States.WANDERING:
 		random_walker.set_physics_process(true)
 	elif state == States.CHASING:

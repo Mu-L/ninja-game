@@ -2,71 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_d4hmt"]
 [ext_resource type="Script" uid="uid://cdvqiybo0a55y" path="res://quick_time_events/spin_attack/spin_attack.gd" id="2_ads52"]
-[ext_resource type="Texture2D" uid="uid://3xi8bef7ntg0" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadRight.png" id="4_7i38e"]
-[ext_resource type="Texture2D" uid="uid://c4125hkblhyi0" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/DPadLeft.png" id="6_outii"]
-[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://ui/Keyboard Letters and Symbols.png" id="7_sgyib"]
+[ext_resource type="PackedScene" uid="uid://b6ubb2vjh8y3c" path="res://ui/button_prompts/button_prompt_spin_attack.tscn" id="5_7om8a"]
 [ext_resource type="Texture2D" uid="uid://co0j5b11i1vfx" path="res://Ninja Adventure - Asset Pack/FX/Slash/SpriteSheetCircular.png" id="8_ye2l0"]
 [ext_resource type="AudioStream" uid="uid://b6rhy0uwkrb0l" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Slash5.wav" id="9_ads52"]
 [ext_resource type="Texture2D" uid="uid://yw2mmd5e1uls" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/BackgroundWood.png" id="10_7i38e"]
 [ext_resource type="Texture2D" uid="uid://dtgdib00mp88v" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/ProgressHealth.png" id="10_v2r84"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_slqvo"]
-atlas = ExtResource("7_sgyib")
-region = Rect2(48, 112, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdpmd"]
-atlas = ExtResource("7_sgyib")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ek5b8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_slqvo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gdpmd")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ek5b8"]
-atlas = ExtResource("7_sgyib")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7i232"]
-atlas = ExtResource("7_sgyib")
-region = Rect2(32, 112, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cxhdi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ek5b8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7i232")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qa15t"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_7i38e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_outii")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxhdi"]
 atlas = ExtResource("8_ye2l0")
@@ -162,26 +102,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="KeyPrompt" type="Node2D" parent="CanvasLayer/VBoxContainer/Control" index="0" unique_id=1907264335]
-position = Vector2(-15, 0)
-
-[node name="RightKey" type="AnimatedSprite2D" parent="CanvasLayer/VBoxContainer/Control/KeyPrompt" index="0" unique_id=697625633]
-position = Vector2(8, 0)
-sprite_frames = SubResource("SpriteFrames_ek5b8")
-autoplay = "default"
-frame_progress = 0.26405296
-
-[node name="LeftKey" type="AnimatedSprite2D" parent="CanvasLayer/VBoxContainer/Control/KeyPrompt" index="1" unique_id=1582303508]
-position = Vector2(-8, 0)
-sprite_frames = SubResource("SpriteFrames_cxhdi")
-autoplay = "default"
-frame_progress = 0.7165821
-
-[node name="ButtonPrompt" type="AnimatedSprite2D" parent="CanvasLayer/VBoxContainer/Control" index="1" unique_id=758282528]
-position = Vector2(15, 0)
-sprite_frames = SubResource("SpriteFrames_qa15t")
-autoplay = "default"
-frame_progress = 0.36347777
+[node name="ButtonPromptSpinAttack" parent="CanvasLayer/VBoxContainer/Control" index="0" unique_id=1195930837 instance=ExtResource("5_7om8a")]
 
 [node name="InstructionsLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" index="3" unique_id=1609310199]
 unique_name_in_owner = true

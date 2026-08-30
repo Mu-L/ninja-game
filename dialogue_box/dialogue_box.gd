@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var timer: Timer = %Timer
 @onready var portrait: TextureRect = %Portrait
 @onready var name_label: Label = %NameLabel
+@onready var button_prompt_confirm: Node2D = %ButtonPromptConfirm
 
 var lines_to_display: Array[String]
 
@@ -12,6 +13,7 @@ func _ready() -> void:
 	self.hide()
 
 func display_dialogue(dialogue: Array[String], portrait_texture: Texture, speaker_name: String) -> void:
+	button_prompt_confirm.hide()
 	portrait.texture = portrait_texture
 	name_label.text = speaker_name
 	lines_to_display = dialogue
@@ -35,9 +37,11 @@ func _process(_delta: float) -> void:
 				InteractableComponent.is_interacting = false
 				get_tree().paused = false
 			else:
+				button_prompt_confirm.hide()
 				scroll_line(lines_to_display.pop_front())
 		else:
 			label.visible_ratio = 1.0
+			button_prompt_confirm.show()
 			timer.stop()
 
 func clear_text() -> void:
@@ -48,6 +52,7 @@ func clear_text() -> void:
 func _on_timer_timeout() -> void:
 	if label.visible_ratio == 1.0 or len(label.get_parsed_text()) == 0:
 		timer.stop()
+		button_prompt_confirm.show()
 		return
 	if label.visible_characters % 2 == 0:
 		text_sound.play()

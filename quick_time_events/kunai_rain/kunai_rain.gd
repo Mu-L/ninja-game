@@ -31,7 +31,7 @@ func _on_attack_animation_player_animation_finished(_anim_name: StringName) -> v
 	_is_attacking = false
 	attack_bar.hide()
 	await ally.missed_effect(ally.get_main_target_battler().global_position)
-	await ally.move_to(ally_starting_pos)
+	await show_ally()
 	finished.emit()
 
 func _input(event: InputEvent) -> void:
@@ -58,9 +58,12 @@ func _input(event: InputEvent) -> void:
 		await enemy.take_damage(ally._strength, multiplier)
 		
 		attack_bar.hide()
-		smoke_effect.show()
-		smoke_sound.play()
-		smoke_effect.play("default")
-		await smoke_effect.animation_finished
-		ally.animated_sprite_2d.show()
+		await show_ally()
 		finished.emit()
+
+func show_ally() -> void:
+	smoke_effect.show()
+	smoke_sound.play()
+	smoke_effect.play("default")
+	await smoke_effect.animation_finished
+	ally.animated_sprite_2d.show()

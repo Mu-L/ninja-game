@@ -13,6 +13,7 @@ extends QuickTimeEvent
 var healing_amount := 0
 
 func start(ally: AllyBattler) -> void:
+	timer.start(qte_duration)
 	super.start(ally)
 	instruction_label.text = Util.BBCode_wave(
 		instruction_label.text % (target as AllyBattler).get_colored_name()
@@ -20,7 +21,6 @@ func start(ally: AllyBattler) -> void:
 	health_receptacle.update(
 		float(target._health) / target._max_health
 	)
-	timer.start(qte_duration)
 
 func _process(_delta: float) -> void:
 	if not started:

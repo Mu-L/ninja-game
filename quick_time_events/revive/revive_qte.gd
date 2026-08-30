@@ -13,6 +13,7 @@ func start(ally: AllyBattler) -> void:
 	await effect.animation_finished
 	effect.hide()
 	target.is_alive = true
+	@warning_ignore("integer_division")
 	target.heal(target._max_health/2)
 	target.animated_sprite_2d.modulate.a = 1.0
 	target.animated_sprite_2d.play("idle right")

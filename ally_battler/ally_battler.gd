@@ -225,7 +225,7 @@ func _process(delta: float) -> void:
 		if _input_buffer_timer >= _INPUT_DELAY:
 			_input_buffer_timer = 0.0
 			_buffered_index_offset = Vector2i.ZERO
-			var enemy: EnemyBattler 
+			var enemy: EnemyBattler = null
 			while (enemy == null) or (not enemy.is_alive):
 				_enemy_selection_index += index_offset
 				_enemy_selection_index %= _enemies_grid.size()

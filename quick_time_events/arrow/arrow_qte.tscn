@@ -4,9 +4,7 @@
 [ext_resource type="Script" uid="uid://dwcor6k6n5iw1" path="res://quick_time_events/arrow/arrow_qte.gd" id="2_4ijqc"]
 [ext_resource type="PackedScene" uid="uid://86kq0xdg6ih6" path="res://quick_time_events/arrow/cursor.tscn" id="3_wwyx3"]
 [ext_resource type="Texture2D" uid="uid://cujky1r7xlnls" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Arrow.png" id="4_prdyr"]
-[ext_resource type="Texture2D" uid="uid://m34od8p576sn" path="res://ui/Keyboard Letters and Symbols.png" id="5_svspc"]
-[ext_resource type="Texture2D" uid="uid://svgoryfws50q" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Idle.png" id="6_7cgne"]
-[ext_resource type="Texture2D" uid="uid://j1w5g25snexe" path="res://Ninja Adventure - Asset Pack/Ui/Input/Gamepad/ButtonA/Pressed.png" id="7_wqw2a"]
+[ext_resource type="PackedScene" uid="uid://d2d2be5nk0df0" path="res://ui/button_prompts/button_prompt_confirm.tscn" id="7_prdyr"]
 [ext_resource type="AudioStream" uid="uid://dj75gse50dexq" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Slash4.wav" id="8_557ip"]
 [ext_resource type="Texture2D" uid="uid://3wfysod15yj0" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Bow2/Sprite.png" id="9_but6u"]
 
@@ -16,42 +14,6 @@ radius = 11.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p221v"]
 radius = 1.0
 height = 14.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_33dld"]
-atlas = ExtResource("5_svspc")
-region = Rect2(16, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tjo66"]
-atlas = ExtResource("5_svspc")
-region = Rect2(16, 192, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_70ljc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_33dld")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tjo66")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_p221v"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_7cgne")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_wqw2a")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
 
 [node name="KunaiQTE" unique_id=1593403207 instance=ExtResource("1_sg33a")]
 script = ExtResource("2_4ijqc")
@@ -91,21 +53,12 @@ rect = Rect2(-12, -13, 24, 25)
 unique_name_in_owner = true
 position = Vector2(70, 0)
 
-[node name="KeyPrompt" type="AnimatedSprite2D" parent="." index="5" unique_id=899408944]
-z_index = 1
-position = Vector2(-10, -20.5)
-sprite_frames = SubResource("SpriteFrames_70ljc")
-autoplay = "default"
-
-[node name="ButtonPrompt" type="AnimatedSprite2D" parent="." index="6" unique_id=1554232937]
-z_index = 1
-position = Vector2(10, -22.5)
-sprite_frames = SubResource("SpriteFrames_p221v")
-autoplay = "default"
-
-[node name="ShootSound" type="AudioStreamPlayer" parent="." index="7" unique_id=1983751338]
+[node name="ShootSound" type="AudioStreamPlayer" parent="." index="5" unique_id=1983751338]
 unique_name_in_owner = true
 stream = ExtResource("8_557ip")
+
+[node name="ButtonPromptConfirm" parent="." index="6" unique_id=1195930837 instance=ExtResource("7_prdyr")]
+position = Vector2(0, -20)
 
 [connection signal="area_entered" from="Arrow" to="." method="_on_arrow_area_entered"]
 [connection signal="screen_exited" from="Arrow/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -6,6 +6,7 @@ static func generate_sprite_frames(texture: Texture, is_ally: bool=false ,animat
 	var directions := ["down", "up", "left", "right"]
 	if weird:
 		directions = ["down", "left", "up", "right"]
+	var atlas: AtlasTexture
 	
 	# Walk animations:
 	for i in range(len(directions)):
@@ -15,7 +16,7 @@ static func generate_sprite_frames(texture: Texture, is_ally: bool=false ,animat
 		sprite_frames.set_animation_speed(name, animation_speed)
 		
 		for j in range(4):
-			var atlas := AtlasTexture.new()
+			atlas = AtlasTexture.new()
 			atlas.filter_clip = true
 			atlas.atlas = texture
 			atlas.region = Rect2(i*16, j*16, 16, 16)
@@ -32,7 +33,7 @@ static func generate_sprite_frames(texture: Texture, is_ally: bool=false ,animat
 			sprite_frames.add_animation(name)
 			sprite_frames.set_animation_loop(name, true)
 			sprite_frames.set_animation_speed(name, animation_speed)
-			var atlas := AtlasTexture.new()
+			atlas = AtlasTexture.new()
 			atlas.atlas = texture
 			atlas.region = Rect2(16*i, 0, 16, 16)
 			sprite_frames.add_frame(name, atlas)
@@ -50,7 +51,7 @@ static func generate_sprite_frames(texture: Texture, is_ally: bool=false ,animat
 		sprite_frames.add_animation(name)
 		sprite_frames.set_animation_loop(name, true)
 		sprite_frames.set_animation_speed(name, animation_speed)
-		var atlas := AtlasTexture.new()
+		atlas = AtlasTexture.new()
 		atlas.filter_clip = true
 		atlas.atlas = texture
 		atlas.region = Rect2(i*16, 64, 16, 16)
@@ -58,7 +59,7 @@ static func generate_sprite_frames(texture: Texture, is_ally: bool=false ,animat
 	
 	# Death animation:
 	sprite_frames.add_animation("dead")
-	var atlas := AtlasTexture.new()
+	atlas = AtlasTexture.new()
 	atlas.filter_clip = true
 	atlas.atlas = texture
 	atlas.region = Rect2(0, 6*16, 16, 16)

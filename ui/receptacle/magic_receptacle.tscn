@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://doe4fuq7g6p45" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/BackgroundIron.png" id="1_gyivf"]
 [ext_resource type="Script" uid="uid://dnkr33pdtji8i" path="res://ui/receptacle/receptacle.gd" id="2_qvkcq"]
-[ext_resource type="Shader" uid="uid://cbnl8yjj205al" path="res://ui/new_shader.gdshader" id="2_vgsqg"]
+[ext_resource type="Shader" uid="uid://cbnl8yjj205al" path="res://ui/receptacle_shader.gdshader" id="2_vgsqg"]
 [ext_resource type="Texture2D" uid="uid://ctk1ai4ly7xrp" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/ProgressGreen.png" id="4_qvkcq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vgsqg"]

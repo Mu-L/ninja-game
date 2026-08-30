@@ -154,6 +154,9 @@ func move_to(pos: Vector2) -> void:
 	await tween.finished
 	stop_moving_animation()
 
+func has_full_health() -> bool:
+	return _health == _max_health
+
 @abstract
 func play_moving_animation() -> void
 

@@ -21,6 +21,9 @@ class_name Battle extends Node2D
 @onready var text_timer: Timer = %TextTimer
 @onready var text_sound: AudioStreamPlayer = %TextSound
 @onready var move_sound: AudioStreamPlayer = %MoveSound
+@onready var button_prompt_confirm: Node2D = %ButtonPromptConfirm
+@onready var state_label: Label = %StateLabel
+@onready var selection_cursor: SelectionCursor = %SelectionCursor
 
 var battle_data: BattleData
 var allies_data: Array[AllyBattlerData]
@@ -109,6 +112,7 @@ func _ready() -> void:
 			))
 	battle_camera.make_current()
 	text_box.hide()
+	button_prompt_confirm.hide()
 	battler_data_ui.hide()
 
 func start() -> void:
@@ -125,6 +129,7 @@ func start() -> void:
 	start_ally_turn()
 
 func start_ally_turn() -> void:
+	selection_cursor.show_button_prompt()
 	for ally in allies:
 		ally.stop_guarding()
 	has_not_played_turn = allies.filter(func(ally: AllyBattler): return ally.is_alive)
@@ -136,6 +141,7 @@ func start_ally_turn() -> void:
 	Global.set_cursor_visible.emit(true)
 
 func enemy_turn() -> void:
+	selection_cursor.hide_button_prompt()
 	for row in enemies_grid:
 		for enemy in row.elements:
 			if not enemy or not enemy.is_alive:
@@ -173,6 +179,7 @@ func _input(event: InputEvent) -> void:
 		#if event.is_action_pressed(e):
 			#move_sound.play()
 	
+	
 	if event.is_action("god_mode") and OS.is_debug_build():
 		is_debuging = true
 		for ally in allies:
@@ -183,7 +190,7 @@ func _input(event: InputEvent) -> void:
 		for row in enemies_grid:
 			for enemy in row.elements:
 				if enemy and enemy.is_alive:
-					enemy._strength = 99999
+					enemy._strength = 50
 	
 	if state == States.ROTATING:
 		return
@@ -192,8 +199,10 @@ func _input(event: InputEvent) -> void:
 		text_timer.stop()
 		if battle_text.visible_ratio == 1.0:
 			text_box.hide()
+			button_prompt_confirm.hide()
 			Global.textbox_closed.emit()
 		else:
+			button_prompt_confirm.show()
 			battle_text.visible_ratio = 1.0
 	
 	elif event.is_action_pressed("menu") and state == States.SELECTING_ALLY:
@@ -204,16 +213,22 @@ func _input(event: InputEvent) -> void:
 		Global.set_cursor_visible.emit(false)
 	
 	elif state == States.SELECTING_ALLY:
+		if Global.is_cursor_moving:
+			return
+		var moved := true
 		if event.is_action_pressed("move right"):
 			ally_selection_index = 0
-		if event.is_action_pressed("move down"):
+		elif event.is_action_pressed("move down"):
 			ally_selection_index = 1
-		if event.is_action_pressed("move left"):
+		elif event.is_action_pressed("move left"):
 			ally_selection_index = 2
-		if event.is_action_pressed("move up"):
+		elif event.is_action_pressed("move up"):
 			ally_selection_index = 3
-		Global.move_cursor_to.emit(allies[ally_selection_index].global_position)
-		update_battler_data_ui(allies[ally_selection_index])
+		else:
+			moved = false
+		if moved:
+			Global.move_cursor_to.emit(allies[ally_selection_index].global_position)
+			update_battler_data_ui(allies[ally_selection_index])
 		
 		if event.is_action_pressed("interact"):
 			var ally := allies[ally_selection_index]
@@ -252,6 +267,7 @@ func _input(event: InputEvent) -> void:
 			state = States.SELECTING_ALLY
 			Global.set_cursor_visible.emit(true)
 			Global.move_cursor_to.emit(allies[0].global_position)
+			update_battler_data_ui(allies[0])
 
 func update_battler_data_ui(battler: Battler) -> void:
 	if battler is AllyBattler:
@@ -316,7 +332,7 @@ func cancel_ally_turn() -> void:
 	state = States.SELECTING_ALLY
 
 func _process(_delta: float) -> void:
-	%StateLabel.text = States.keys()[state]
+	%StateLabel.text = str(Global.is_cursor_moving)
 
 func give_extra_turn(ally: AllyBattler) -> void:
 	ally.played_turn = false
@@ -328,5 +344,7 @@ func _on_text_timer_timeout() -> void:
 	battle_text.visible_characters += 1
 	if battle_text.visible_ratio != 1.0:
 		text_timer.start()
+	else:
+		button_prompt_confirm.show()
 	if battle_text.visible_characters % 2 == 0:
 		text_sound.play()

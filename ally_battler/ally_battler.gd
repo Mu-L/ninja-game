@@ -95,8 +95,8 @@ func _on_skill_button_pressed(skill: Skill) -> void:
 	_ally_selection_index = 0
 	_enemy_selection_index = Vector2.ZERO
 	var target := get_main_target_battler()
-	Global.set_cursor_visible.emit(true)
-	Global.move_cursor_to.emit(target.global_position)
+	EventBus.set_cursor_visible.emit(true)
+	EventBus.move_cursor_to.emit(target.global_position)
 	update_battler_ui.emit(target)
 	if skill.selection_area:
 		var area: SkillSelectionArea = skill.selection_area.instantiate()
@@ -169,8 +169,8 @@ func perform_action() -> void:
 	hide_stat_bars()
 	_starting_pos = self.global_position
 	_magic_points -= _skill_to_perform.magic_points_cost
-	Global.display_text.emit(_skill_to_perform.battle_text % get_colored_name())
-	await Global.textbox_closed
+	EventBus.display_text.emit(_skill_to_perform.battle_text % get_colored_name())
+	await EventBus.textbox_closed
 	var qte: QuickTimeEvent
 	qte = _skill_to_perform.quick_time_event.instantiate()
 	add_child(qte)
@@ -190,7 +190,7 @@ func _process(delta: float) -> void:
 		skills_menu.hide()
 		cancel_my_turn.emit()
 	
-	if not _is_selecting or not Input.is_anything_pressed() or Global.is_cursor_moving:
+	if not _is_selecting or not Input.is_anything_pressed() or EventBus.is_cursor_moving:
 		_input_buffer_timer = 0.0
 		_buffered_index_offset = Vector2i.ZERO
 		return
@@ -201,7 +201,7 @@ func _process(delta: float) -> void:
 		skills_menu.show()
 		ui.show()
 		focus_on_first_skill_button()
-		Global.move_cursor_to.emit(self.global_position)
+		EventBus.move_cursor_to.emit(self.global_position)
 		if _skill_selection_area:
 			_skill_selection_area.queue_free()
 	
@@ -230,7 +230,7 @@ func _process(delta: float) -> void:
 				_enemy_selection_index += index_offset
 				_enemy_selection_index %= _enemies_grid.size()
 				enemy = _enemies_grid[_enemy_selection_index.x].elements[_enemy_selection_index.y]
-			Global.move_cursor_to.emit(enemy.global_position)
+			EventBus.move_cursor_to.emit(enemy.global_position)
 			update_battler_ui.emit(enemy)
 	
 	elif _selection_type == SelectionType.SINGLE_ALLY:
@@ -242,13 +242,13 @@ func _process(delta: float) -> void:
 			_ally_selection_index = 2
 		if Input.is_action_pressed("move up"):
 			_ally_selection_index = 3
-		Global.move_cursor_to.emit(get_main_target_battler().global_position)
+		EventBus.move_cursor_to.emit(get_main_target_battler().global_position)
 	
 	if Input.is_action_pressed("interact"):
 		if not check_constraints():
 			%ErrorSound.play()
 			return
-		Global.set_cursor_visible.emit(false)
+		EventBus.set_cursor_visible.emit(false)
 		_is_selecting = false
 		if _skill_selection_area:
 			targets = _skill_selection_area.battlers.duplicate()
@@ -325,8 +325,8 @@ func level_up() -> void:
 		_data.level += 1
 		%LevelUpSound.play()
 		var args := [get_colored_name(), _data.level]
-		Global.display_text.emit("%s reached level %d" % args)
-		await Global.textbox_closed
+		EventBus.display_text.emit("%s reached level %d" % args)
+		await EventBus.textbox_closed
 		# Check if reached max level:
 		if _data.level-1 > len(_data.level_ups):
 			return
@@ -335,10 +335,10 @@ func level_up() -> void:
 			var increase_amount: int = level_up.stat_increases[stat]
 			var stat_string: String = LevelUp.Stat.keys()[stat]
 			stat_string = stat_string.to_lower()
-			#Global.display_text.emit(
+			#EventBus.display_text.emit(
 				#"%s increased by %d" % [stat_string.replace('_',' '), increase_amount]
 			#)
-			#await Global.textbox_closed
+			#await EventBus.textbox_closed
 			var original_value = _data.get(stat_string)
 			_data.set(stat_string, original_value + increase_amount)
 			if stat_string == "max_health":
@@ -347,8 +347,8 @@ func level_up() -> void:
 				_data.magic_points += increase_amount
 		for skill: Skill in level_up.skills:
 			_data.skills.append(skill)
-			Global.display_text.emit("New Skill Unlocked: %s" % Util.BBcode_color(skill.name, _data.text_color)) 
-			await Global.textbox_closed
+			EventBus.display_text.emit("New Skill Unlocked: %s" % Util.BBcode_color(skill.name, _data.text_color)) 
+			await EventBus.textbox_closed
 
 func missed_effect(pos: Vector2) -> void:
 	const MISS_LABEL = preload("uid://cqw5qj1ygekwl")

@@ -7,7 +7,7 @@ extends Node2D
 @onready var transition_material: ShaderMaterial
 
 func _ready() -> void:
-	Global.start_battle.connect(_on_battle_start)
+	EventBus.start_battle.connect(_on_battle_start)
 	transition_material = black_screen.material
 
 func _on_battle_start(enemy: Enemy, player: Player) -> void:
@@ -20,7 +20,7 @@ func _on_battle_start(enemy: Enemy, player: Player) -> void:
 	add_child(battle)
 	await play_battle_transition_effect(false)
 	battle.start()
-	await Global.battle_finished
+	await EventBus.battle_finished
 
 	music.stream_paused = false
 	await play_battle_transition_effect(true)

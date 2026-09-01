@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var timer: Timer = %Timer
 @onready var portrait: TextureRect = %Portrait
 @onready var name_label: Label = %NameLabel
-@onready var button_prompt_confirm: Node2D = %ButtonPromptConfirm
+@onready var button_prompt_confirm: ButtonPrompt = %ButtonPromptConfirm
 
 var lines_to_display: Array[String]
 
@@ -22,7 +22,24 @@ func display_dialogue(dialogue: Array[String], portrait_texture: Texture, speake
 
 func scroll_line(line: String) -> void:
 	clear_text()
-	label.text = line
+	if '[' not in line:
+		label.text = line
+		timer.start()
+		return
+	var arr: Array[Variant] = []
+	for word in line.split(" "):
+		if word[0] != '[':
+			arr.append(word)
+			continue
+		arr.append(
+			MyInput.button_prompts[word].get_current_icon()
+		)
+	for obj in arr:
+		if obj is String:
+			label.append_text(obj)
+		elif obj is Texture:
+			label.add_image(obj)
+		label.append_text(" ")
 	timer.start()
 
 func _process(_delta: float) -> void:

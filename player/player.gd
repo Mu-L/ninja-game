@@ -56,7 +56,7 @@ var is_interacting := false
 var current_weapon: WeaponScene
 
 func _ready() -> void:
-	Global.battle_finished.connect(_on_battle_finished)
+	EventBus.battle_finished.connect(_on_battle_finished)
 	for weapon: WeaponScene in weapons.get_children():
 		weapon.body_entered.connect(_on_hurtbox_body_entered)
 	direction = Direction.new(Direction.Directions.DOWN, self)
@@ -71,7 +71,6 @@ func _ready() -> void:
 	position_history.fill(global_position)
 
 func _physics_process(delta: float) -> void:
-	debug_label.text = Global.InputMode.keys()[Global.current_input_mode]
 	if is_interacting:
 		return
 	if not is_attacking:
@@ -128,7 +127,7 @@ func _on_weapon_timer_timeout() -> void:
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body is Enemy:
 		health_bar.hide()
-		Global.start_battle.emit(body, self)
+		EventBus.start_battle.emit(body, self)
 		body.call_deferred("done")
 
 func _on_battle_finished() -> void:

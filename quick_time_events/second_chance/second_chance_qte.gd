@@ -12,5 +12,5 @@ func start(ally: AllyBattler) -> void:
 	effect.play("default")
 	await effect.animation_finished
 	effect.hide()
-	Global.give_extra_turn.emit(target)
+	EventBus.give_extra_turn.emit(target)
 	finished.emit()

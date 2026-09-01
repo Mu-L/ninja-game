@@ -17,5 +17,5 @@ func start(ally: AllyBattler) -> void:
 	target.heal(target._max_health/2)
 	target.animated_sprite_2d.modulate.a = 1.0
 	target.animated_sprite_2d.play("idle right")
-	Global.give_extra_turn.emit(target)
+	EventBus.give_extra_turn.emit(target)
 	finished.emit()

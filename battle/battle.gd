@@ -59,8 +59,8 @@ static func create(allies_data: Array[AllyBattlerData], battle_data: BattleData)
 	return battle
 
 func _ready() -> void:
-	Global.display_text.connect(display_text)
-	Global.give_extra_turn.connect(give_extra_turn)
+	EventBus.display_text.connect(display_text)
+	EventBus.give_extra_turn.connect(give_extra_turn)
 	# Spawn background:
 	var background_scene := BattleData.BACKGROUNDS[battle_data.background_type]
 	var background: Node2D = background_scene.instantiate()
@@ -137,8 +137,8 @@ func start_ally_turn() -> void:
 	state = States.SELECTING_ALLY
 	ally_selection_index = allies.find(has_not_played_turn[0])
 	update_battler_data_ui(allies[ally_selection_index])
-	Global.move_cursor_to.emit(allies[ally_selection_index].global_position)
-	Global.set_cursor_visible.emit(true)
+	EventBus.move_cursor_to.emit(allies[ally_selection_index].global_position)
+	EventBus.set_cursor_visible.emit(true)
 
 func enemy_turn() -> void:
 	selection_cursor.hide_button_prompt()
@@ -169,9 +169,9 @@ func _on_ally_finished_turn(ally: AllyBattler) -> void:
 		has_not_played_turn.erase(ally)
 		state = States.SELECTING_ALLY
 		ally_selection_index = allies.find(has_not_played_turn[0])
-		Global.set_cursor_visible.emit(true)
+		EventBus.set_cursor_visible.emit(true)
 		update_battler_data_ui(allies[ally_selection_index])
-		Global.move_cursor_to.emit(allies[ally_selection_index].global_position)
+		EventBus.move_cursor_to.emit(allies[ally_selection_index].global_position)
 
 func _input(event: InputEvent) -> void:
 	
@@ -200,7 +200,7 @@ func _input(event: InputEvent) -> void:
 		if battle_text.visible_ratio == 1.0:
 			text_box.hide()
 			button_prompt_confirm.hide()
-			Global.textbox_closed.emit()
+			EventBus.textbox_closed.emit()
 		else:
 			button_prompt_confirm.show()
 			battle_text.visible_ratio = 1.0
@@ -210,10 +210,10 @@ func _input(event: InputEvent) -> void:
 		rotation_count_label.show()
 		rotation_count_label.text = "Rotations Left: %d" % number_of_rotations_left
 		state = States.CHOOSING_ROTATION
-		Global.set_cursor_visible.emit(false)
+		EventBus.set_cursor_visible.emit(false)
 	
 	elif state == States.SELECTING_ALLY:
-		if Global.is_cursor_moving:
+		if EventBus.is_cursor_moving:
 			return
 		var moved := true
 		if event.is_action_pressed("move right"):
@@ -227,7 +227,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			moved = false
 		if moved:
-			Global.move_cursor_to.emit(allies[ally_selection_index].global_position)
+			EventBus.move_cursor_to.emit(allies[ally_selection_index].global_position)
 			update_battler_data_ui(allies[ally_selection_index])
 		
 		if event.is_action_pressed("interact"):
@@ -265,8 +265,8 @@ func _input(event: InputEvent) -> void:
 			rotation_timer.stop()
 			rotation_count_label.hide()
 			state = States.SELECTING_ALLY
-			Global.set_cursor_visible.emit(true)
-			Global.move_cursor_to.emit(allies[0].global_position)
+			EventBus.set_cursor_visible.emit(true)
+			EventBus.move_cursor_to.emit(allies[0].global_position)
 			update_battler_data_ui(allies[0])
 
 func update_battler_data_ui(battler: Battler) -> void:
@@ -303,7 +303,7 @@ func finish_battle() -> void:
 	music.stop()
 	if allies_won():
 		display_text("You Won !")
-		await Global.textbox_closed
+		await EventBus.textbox_closed
 		text_box.hide()
 		for ally in allies:
 			ally.increase_exp(exp_gained)
@@ -313,11 +313,11 @@ func finish_battle() -> void:
 					if num_of_allies_who_finished_increasing_xp == 4:
 						for a in allies:
 							await a.level_up()
-						Global.battle_finished.emit()
+						EventBus.battle_finished.emit()
 			)
 	else:
 		display_text("Game Over...")
-		await Global.textbox_closed
+		await EventBus.textbox_closed
 		get_tree().change_scene_to_file("res://game/game.tscn")
 
 func _on_skill_button_focused(skill_cost: int, current_magic: int, max_magic: int) -> void:
@@ -332,7 +332,7 @@ func cancel_ally_turn() -> void:
 	state = States.SELECTING_ALLY
 
 func _process(_delta: float) -> void:
-	%StateLabel.text = str(Global.is_cursor_moving)
+	%StateLabel.text = str(EventBus.is_cursor_moving)
 
 func give_extra_turn(ally: AllyBattler) -> void:
 	ally.played_turn = false

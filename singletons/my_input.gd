@@ -1,16 +1,15 @@
 extends Node
 
-@warning_ignore_start("unused_signal")
+@onready var button_prompt_confirm: ButtonPrompt = %ButtonPromptConfirm
+@onready var button_prompt_menu: ButtonPrompt = %ButtonPromptMenu
+@onready var button_prompt_attack: ButtonPrompt = %ButtonPromptAttack
 
-signal start_battle(enemy: Enemy, player: Player)
+@onready var button_prompts: Dictionary[String, ButtonPrompt] = {
+	"[CONFIRM]" : button_prompt_confirm,
+	"[ATTACK]" : button_prompt_attack,
+	"[MENU]" : button_prompt_menu,
+}
 
-signal add_follower(follower: Follower)
-signal display_text(text: String)
-signal textbox_closed
-signal move_cursor_to(pos: Vector2)
-signal set_cursor_visible(val: bool)
-signal give_extra_turn(ally: AllyBattler)
-signal battle_finished
 signal input_mode_changed(new_mode: InputMode)
 
 enum InputMode {
@@ -20,7 +19,6 @@ enum InputMode {
 	NINTENDO,
 }
 
-var is_cursor_moving := false
 var current_input_mode := InputMode.KEYBOARD
 
 func _input(event: InputEvent) -> void:

@@ -85,7 +85,7 @@ func _ready() -> void:
 	set_health(_health)
 
 func select_me() -> void:
-	Global.move_cursor_to.emit(self.global_position)
+	EventBus.move_cursor_to.emit(self.global_position)
 
 @abstract
 func play_turn() -> void

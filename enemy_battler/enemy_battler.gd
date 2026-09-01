@@ -5,8 +5,8 @@ func _ready() -> void:
 	animated_sprite_2d.play("idle left")
 
 func play_turn() -> void:
-	Global.set_cursor_visible.emit(true)
-	Global.move_cursor_to.emit(self.global_position)
+	EventBus.set_cursor_visible.emit(true)
+	EventBus.move_cursor_to.emit(self.global_position)
 	action_to_perform = ActionType.ATTACK
 	if action_to_perform == ActionType.ATTACK:
 		
@@ -22,9 +22,9 @@ func play_turn() -> void:
 		var ally := living_allies[rng.rand_weighted(weights)]
 		
 		var args := [battler_name, ally.get_colored_name()]
-		Global.display_text.emit("%s attacked %s" % args)
-		await Global.textbox_closed
-		Global.set_cursor_visible.emit(false)
+		EventBus.display_text.emit("%s attacked %s" % args)
+		await EventBus.textbox_closed
+		EventBus.set_cursor_visible.emit(false)
 		health_bar.hide()
 		_starting_pos = self.global_position
 		await move_to(ally.global_position + Vector2(25, 0))

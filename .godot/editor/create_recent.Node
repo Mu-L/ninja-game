@@ -1,8 +1,10 @@
-Node
-Label
-TextureRect
 Control
+VBoxContainer
+TextureRect
+RichTextLabel
+Label
 HBoxContainer
+Node
 AnimatedSprite2D
 Node2D
 Timer
@@ -10,5 +12,3 @@ ColorRect
 CanvasLayer
 Enemy
 AudioStreamPlayer
-AudioStreamPlayer2D
-CollisionShape2D

@@ -22,24 +22,7 @@ func display_dialogue(dialogue: Array[String], portrait_texture: Texture, speake
 
 func scroll_line(line: String) -> void:
 	clear_text()
-	if '[' not in line:
-		label.text = line
-		timer.start()
-		return
-	var arr: Array[Variant] = []
-	for word in line.split(" "):
-		if word[0] != '[':
-			arr.append(word)
-			continue
-		arr.append(
-			MyInput.button_prompts[word].get_current_icon()
-		)
-	for obj in arr:
-		if obj is String:
-			label.append_text(obj)
-		elif obj is Texture:
-			label.add_image(obj)
-		label.append_text(" ")
+	Util.format_button_icons_to_rich_text_label(label, line)
 	timer.start()
 
 func _process(_delta: float) -> void:

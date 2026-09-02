@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://d2d2be5nk0df0" path="res://ui/button_prompts/button_prompt_confirm.tscn" id="2_d0u2o"]
 [ext_resource type="PackedScene" uid="uid://dllvrmbgpjw17" path="res://ui/button_prompts/button_prompt_menu.tscn" id="3_142tf"]
 [ext_resource type="PackedScene" uid="uid://dfl2xa6x3mg45" path="res://ui/button_prompts/button_prompt_attack.tscn" id="4_7pj03"]
+[ext_resource type="PackedScene" uid="uid://cnciu0auehfk3" path="res://ui/button_prompts/button_prompt_left.tscn" id="5_142tf"]
+[ext_resource type="PackedScene" uid="uid://b38441yqyvwog" path="res://ui/button_prompts/button_prompt_right.tscn" id="6_7pj03"]
 
 [node name="MyInput" type="Node" unique_id=1067617315]
 script = ExtResource("1_156xd")
@@ -19,5 +21,13 @@ unique_name_in_owner = true
 visible = false
 
 [node name="ButtonPromptAttack" parent="ButtonPrompts" unique_id=537824961 instance=ExtResource("4_7pj03")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ButtonPromptLeft" parent="ButtonPrompts" unique_id=800155042 instance=ExtResource("5_142tf")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ButtonPromptRight" parent="ButtonPrompts" unique_id=835770797 instance=ExtResource("6_7pj03")]
 unique_name_in_owner = true
 visible = false

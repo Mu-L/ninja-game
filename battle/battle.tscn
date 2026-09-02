@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://qa81bx3qbhu7" path="res://battle/battle.gd" id="1_4mnim"]
 [ext_resource type="PackedScene" uid="uid://d2d2be5nk0df0" path="res://ui/button_prompts/button_prompt_confirm.tscn" id="3_t8p1f"]
 [ext_resource type="Texture2D" uid="uid://d4erqddj5td6y" path="res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogueBoxSimple.png" id="4_4mnim"]
-[ext_resource type="PackedScene" uid="uid://b6ubb2vjh8y3c" path="res://ui/button_prompts/button_prompt_spin_attack.tscn" id="4_qybyd"]
 [ext_resource type="AudioStream" uid="uid://p4gm0mb73spx" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Menu5.wav" id="5_4mnim"]
 [ext_resource type="AudioStream" uid="uid://iuggp7pxayvo" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Alert/Alert.wav" id="5_7fucf"]
 [ext_resource type="PackedScene" uid="uid://4ku024axqoix" path="res://selection_cursor/selection_cursor.tscn" id="5_l1kiu"]
 [ext_resource type="PackedScene" uid="uid://bnaelby7duhxs" path="res://ui/receptacle/magic_receptacle.tscn" id="5_rxlun"]
 [ext_resource type="AudioStream" uid="uid://blhxfbppschy4" path="res://Ninja Adventure - Asset Pack/Audio/Musics/17 - Fight.ogg" id="6_l1kiu"]
+[ext_resource type="Texture2D" uid="uid://bbud44jg5dm5d" path="res://ui/refresh.png" id="6_qybyd"]
 [ext_resource type="PackedScene" uid="uid://dllvrmbgpjw17" path="res://ui/button_prompts/button_prompt_menu.tscn" id="7_eu6g2"]
 [ext_resource type="AudioStream" uid="uid://b5xxo0mbmbhb8" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav" id="8_rxlun"]
 [ext_resource type="AudioStream" uid="uid://df1fo5buh34rv" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move1.wav" id="9_vlrs1"]
@@ -103,59 +103,29 @@ fit_content = true
 scroll_active = false
 vertical_alignment = 1
 
-[node name="StateLabel" type="Label" parent="UI" unique_id=796297155]
-unique_name_in_owner = true
-visible = false
-z_index = 6
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 262.0
-offset_top = -25.0
-offset_right = 322.0
-offset_bottom = -14.0
-grow_vertical = 0
-text = "kldsjfls;kf"
-
-[node name="RotationCountLabel" type="Label" parent="UI" unique_id=1034172948]
-unique_name_in_owner = true
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=1823453488]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -116.0
-offset_top = -28.0
-offset_right = -9.0
-offset_bottom = -17.0
+offset_left = -50.0
+offset_top = -50.0
 grow_horizontal = 0
 grow_vertical = 0
-size_flags_horizontal = 4
-theme_override_constants/outline_size = 3
-text = "Rotations Left: %d"
 
-[node name="ButtonPromptSpinAttack" parent="UI/RotationCountLabel" unique_id=1614241600 instance=ExtResource("4_qybyd")]
-position = Vector2(-19, 5)
+[node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer" unique_id=843109256]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6_qybyd")
+expand_mode = 1
 
-[node name="ChangeFormationLabel" type="Label" parent="UI" unique_id=1795223819]
-unique_name_in_owner = true
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -104.0
-offset_top = -25.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Change
-Formation"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Control" type="Control" parent="UI/VBoxContainer" unique_id=937187052]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
 
-[node name="ButtonPromptMenu" parent="UI/ChangeFormationLabel" unique_id=1417716963 instance=ExtResource("7_eu6g2")]
-position = Vector2(50, 35)
+[node name="ButtonPromptMenu" parent="UI/VBoxContainer/Control" unique_id=1688883417 instance=ExtResource("7_eu6g2")]
+position = Vector2(25, 25)
 
 [node name="DisplayTextSound" type="AudioStreamPlayer" parent="." unique_id=1007540065]
 stream = ExtResource("5_4mnim")

@@ -1,0 +1,12 @@
+res://battle/battle.tscn
+res://ui/main_theme.tres
+res://ui/receptacle_shader.gdshader
+res://ui/transition_shader.gdshader
+res://dialogue_box/dialogue_box.gd
+res://util.gd
+res://battle/battle.gd
+res://ui/button_prompts/button_prompt_left.tscn
+res://ui/button_prompts/button_prompt_right.tscn
+res://singletons/my_input.tscn
+res://singletons/my_input.gd
+res://dialogue_box/dialogue_box.tscn

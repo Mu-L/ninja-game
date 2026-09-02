@@ -96,3 +96,25 @@ static func BBCode_rainbow(text: String, freq:=1.0, sat:=0.8, val:=0.8, speed=1.
 
 static func BBcode_color(text: String, color: Color) -> String:
 	return "[color=#%s]%s[/color]" % [color.to_html(), text]
+
+static func format_button_icons_to_rich_text_label(label: RichTextLabel, text: String) -> RichTextLabel:
+	label.text = ""
+	label.bbcode_enabled = true
+	if '[' not in text:
+		label.text = text
+		return label
+	var arr: Array[Variant] = []
+	for word in text.split(" "):
+		if word[0] != '[':
+			arr.append(word)
+			continue
+		arr.append(
+			MyInput.button_prompts[word].get_current_icon()
+		)
+	for obj in arr:
+		if obj is String:
+			label.append_text(obj)
+		elif obj is Texture:
+			label.add_image(obj)
+		label.append_text(" ")
+	return label

@@ -10,7 +10,7 @@ class_name Battle extends Node2D
 @onready var ally_spawn_circle: Marker2D = %AllySpawnCircle
 @onready var ally_spawn_point: Marker2D = %AllySpawnPoint
 @onready var enemy_spawn_origin_point: Marker2D = %EnemySpawnOriginPoint
-@onready var rotation_count_label: Label = %RotationCountLabel
+#@onready var rotation_count_label: Label = %RotationCountLabel
 @onready var error_sound: AudioStreamPlayer = %ErrorSound
 @onready var rotation_timer: Timer = %RotationTimer
 @onready var battler_health_label: Label = %BattlerHealthLabel
@@ -22,8 +22,9 @@ class_name Battle extends Node2D
 @onready var text_sound: AudioStreamPlayer = %TextSound
 @onready var move_sound: AudioStreamPlayer = %MoveSound
 @onready var button_prompt_confirm: Node2D = %ButtonPromptConfirm
-@onready var state_label: Label = %StateLabel
 @onready var selection_cursor: SelectionCursor = %SelectionCursor
+@onready var instructions_container: HBoxContainer = %InstructionsContainer
+@onready var change_formation_label: RichTextLabel = %ChangeFormationLabel
 
 var battle_data: BattleData
 var allies_data: Array[AllyBattlerData]
@@ -114,6 +115,8 @@ func _ready() -> void:
 	text_box.hide()
 	button_prompt_confirm.hide()
 	battler_data_ui.hide()
+	
+	
 
 func start() -> void:
 	for ally in allies:
@@ -207,8 +210,8 @@ func _input(event: InputEvent) -> void:
 	
 	elif event.is_action_pressed("menu") and state == States.SELECTING_ALLY:
 		battler_data_ui.hide()
-		rotation_count_label.show()
-		rotation_count_label.text = "Rotations Left: %d" % number_of_rotations_left
+		#rotation_count_label.show()
+		#rotation_count_label.text = "Rotations Left: %d" % number_of_rotations_left
 		state = States.CHOOSING_ROTATION
 		EventBus.set_cursor_visible.emit(false)
 	
@@ -251,7 +254,7 @@ func _input(event: InputEvent) -> void:
 				return
 			state = States.ROTATING
 			number_of_rotations_left -= 1
-			rotation_count_label.text = "Rotations Left: %d" % number_of_rotations_left
+			#rotation_count_label.text = "Rotations Left: %d" % number_of_rotations_left
 			rotation_timer.start(allies[0].movement_speed)
 			for i in range(allies.size()):
 				allies[i].move_to(allies[(i+dir) % allies.size()].global_position)
@@ -263,7 +266,7 @@ func _input(event: InputEvent) -> void:
 				allies.append(first)
 		elif event.is_action_pressed("attack"):
 			rotation_timer.stop()
-			rotation_count_label.hide()
+			#rotation_count_label.hide()
 			state = States.SELECTING_ALLY
 			EventBus.set_cursor_visible.emit(true)
 			EventBus.move_cursor_to.emit(allies[0].global_position)
@@ -330,9 +333,6 @@ func _on_rotation_timer_timeout() -> void:
 
 func cancel_ally_turn() -> void:
 	state = States.SELECTING_ALLY
-
-func _process(_delta: float) -> void:
-	%StateLabel.text = str(EventBus.is_cursor_moving)
 
 func give_extra_turn(ally: AllyBattler) -> void:
 	ally.played_turn = false

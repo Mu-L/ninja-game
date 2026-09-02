@@ -1,17 +1,17 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1788246251
+::res://::1788335206
 export_presets.cfg::TextFile::-1::1788080900::0::1::::<><><>0<>0<><>::
 guard_qte.gd::GDScript::422372950104366594::1786206265::0::1::::<>QuickTimeEvent<><>0<>0<><>::
 icon.svg::CompressedTexture2D::618367769540306195::1770807542::1770807547::1::::<><><>0<>0<>3dfe518675dc1416ae7cdfa7214a3a10<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 SFX_RetroMultiplev1.wav::AudioStreamWAV::6388885183420495547::1657714768::1772893727::1::::<><><>0<>0<>40e4b30da4c9b69d932e2b095caa99de<>res://.godot/imported/SFX_RetroMultiplev1.wav-dce449c34ad246a46aec2b43edb2df5b.sample::
-util.gd::GDScript::2531868029663139724::1786945711::0::1::::Util<>Object<><>0<>0<><>::
+util.gd::GDScript::2531868029663139724::1788335206::0::1::::Util<>Object<><>0<>0<><>::
 ::res://ally_battler/::1788172084
 ally_battler.gd::GDScript::8076644151256393085::1788172084::0::1::::AllyBattler<>Battler<><>0<>0<><>::
 ally_battler.tscn::PackedScene::833719124098917955::1786207765::0::1::::<><><>0<>0<><>::uid://3t6a4pm4ttpx::::res://battler/battler.tscn<>uid://dncnfcosfo0ij::::res://ally_battler/ally_battler.gd<>uid://vr6wlka602gs::::res://Ninja Adventure - Asset Pack/Items/Weapons/Sword/Sprite.png<>uid://3lf7ysdioi16::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Whoosh2.wav<>uid://d4jyouinuchho::::res://Ninja Adventure - Asset Pack/Audio/Jingles/LevelUp1.wav<>uid://dmhiavs4eo8nr::::res://ui/my_nine_patch_rect.tscn<>uid://iuggp7pxayvo::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Alert/Alert.wav<>uid://76ycilithniw::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Magic & Skill/Heal.wav<>uid://byoohdpms7418::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/LifeBarMiniUnder.png<>uid://pxx4m1lgvyki::::res://Ninja Adventure - Asset Pack/Ui/Receptacle/ExpBarMiniProgress.png
 blink.res::Animation::2291521282262904179::1780662460::0::1::::<><><>0<>0<><>::
-::res://battle/::1788172198
-battle.gd::GDScript::1125071678958811820::1788172198::0::1::::Battle<>Node2D<><>0<>0<><>::
-battle.tscn::PackedScene::4902652249734281718::1788085865::0::1::::<><><>0<>0<><>::uid://qa81bx3qbhu7::::res://battle/battle.gd<>uid://d2d2be5nk0df0::::res://ui/button_prompts/button_prompt_confirm.tscn<>uid://d4erqddj5td6y::::res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogueBoxSimple.png<>uid://b6ubb2vjh8y3c::::res://ui/button_prompts/button_prompt_spin_attack.tscn<>uid://p4gm0mb73spx::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Menu5.wav<>uid://iuggp7pxayvo::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Alert/Alert.wav<>uid://4ku024axqoix::::res://selection_cursor/selection_cursor.tscn<>uid://bnaelby7duhxs::::res://ui/receptacle/magic_receptacle.tscn<>uid://blhxfbppschy4::::res://Ninja Adventure - Asset Pack/Audio/Musics/17 - Fight.ogg<>uid://dllvrmbgpjw17::::res://ui/button_prompts/button_prompt_menu.tscn<>uid://b5xxo0mbmbhb8::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav<>uid://df1fo5buh34rv::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move1.wav<>uid://c55iom3i1e8ev::::res://ui/receptacle/health_receptacle.tscn
+::res://battle/::1788335262
+battle.gd::GDScript::1125071678958811820::1788335124::0::1::::Battle<>Node2D<><>0<>0<><>::
+battle.tscn::PackedScene::4902652249734281718::1788335262::0::1::::<><><>0<>0<><>::uid://qa81bx3qbhu7::::res://battle/battle.gd<>uid://d2d2be5nk0df0::::res://ui/button_prompts/button_prompt_confirm.tscn<>uid://d4erqddj5td6y::::res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogueBoxSimple.png<>uid://p4gm0mb73spx::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Menu5.wav<>uid://iuggp7pxayvo::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Alert/Alert.wav<>uid://4ku024axqoix::::res://selection_cursor/selection_cursor.tscn<>uid://bnaelby7duhxs::::res://ui/receptacle/magic_receptacle.tscn<>uid://blhxfbppschy4::::res://Ninja Adventure - Asset Pack/Audio/Musics/17 - Fight.ogg<>uid://b5xxo0mbmbhb8::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav<>uid://df1fo5buh34rv::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move1.wav<>uid://c55iom3i1e8ev::::res://ui/receptacle/health_receptacle.tscn
 ::res://battle/backgrounds/::1780999568
 orange_field.tscn::PackedScene::7781540221438805151::1780999568::0::1::::<><><>0<>0<><>::uid://b7yj4dqffi1si::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png<>uid://scuhh0k57ubf::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png<>uid://is1hrfuyfueo::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetHouse.png<>uid://bagboqmpx8qyr::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png
 ::res://battler/::1788172073
@@ -48,9 +48,9 @@ knockback_component.tscn::PackedScene::315348753707151955::1770982804::0::1::::<
 ::res://components/random_walker/::1784398380
 random_walker.gd::GDScript::5155628571938795259::1784398380::0::1::::RandomWalker<>Node2D<><>0<>0<><>::
 random_walker.tscn::PackedScene::2606683563767817187::1782842888::0::1::::<><><>0<>0<><>::uid://cfpopjot7t5h4::::res://components/random_walker/random_walker.gd
-::res://dialogue_box/::1788172229
-dialogue_box.gd::GDScript::3091828513136990430::1788172229::0::1::::<>CanvasLayer<><>0<>0<><>::
-dialogue_box.tscn::PackedScene::2571371793849611642::1788171677::0::1::::<><><>0<>0<><>::uid://bkbx71iylf5h7::::res://dialogue_box/dialogue_box.gd<>uid://b5xxo0mbmbhb8::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav<>uid://bglrvy26s0klr::::res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png<>uid://ds1hb5vhjf7yi::::res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/Faceset.png<>uid://d2d2be5nk0df0::::res://ui/button_prompts/button_prompt_confirm.tscn
+::res://dialogue_box/::1788334927
+dialogue_box.gd::GDScript::3091828513136990430::1788333329::0::1::::<>CanvasLayer<><>0<>0<><>::
+dialogue_box.tscn::PackedScene::2571371793849611642::1788334927::0::1::::<><><>0<>0<><>::uid://bkbx71iylf5h7::::res://dialogue_box/dialogue_box.gd<>uid://b5xxo0mbmbhb8::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav<>uid://bglrvy26s0klr::::res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png<>uid://ds1hb5vhjf7yi::::res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/Faceset.png<>uid://d2d2be5nk0df0::::res://ui/button_prompts/button_prompt_confirm.tscn
 ::res://enemy/::1786902270
 enemy.gd::GDScript::4946000145808831295::1786902270::0::1::::Enemy<>CharacterBody2D<><>0<>0<><>::
 enemy.tscn::PackedScene::6193916720848803065::1785934224::0::1::::<><><>0<>0<><>::uid://ccp45ufa25hf0::::res://enemy/enemy.gd<>uid://dgdavkudo7r8j::::res://Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact.wav<>uid://bdexxyiy6fxdj::::res://components/random_walker/random_walker.tscn<>uid://10j37pugif1k::::res://Ninja Adventure - Asset Pack/Ui/Emote/emote21.png
@@ -4029,11 +4029,11 @@ room_3.tscn::PackedScene::6272285962633619536::1785611316::0::1::::<><><>0<>0<><
 ::res://selection_cursor/::1788172189
 selection_cursor.gd::GDScript::6971044500272989887::1788172189::0::1::::SelectionCursor<>Node2D<><>0<>0<><>::
 selection_cursor.tscn::PackedScene::2057380690707651599::1788077312::0::1::::<><><>0<>0<><>::uid://cukoafl7ps86a::::res://Ninja Adventure - Asset Pack/Ui/Arrow.png<>uid://c6k3c4uynvvsp::::res://selection_cursor/selection_cursor.gd<>uid://d2d2be5nk0df0::::res://ui/button_prompts/button_prompt_confirm.tscn
-::res://singletons/::1788172418
+::res://singletons/::1788333977
 event_bus.gd::GDScript::1093541472206489417::1788172032::0::1::::<>Node<><>0<>0<><>::
 event_bus.tscn::PackedScene::8473768650821461284::1788172229::0::1::::<><><>0<>0<><>::uid://ptyp6lh4kblp::::res://singletons/event_bus.gd
-my_input.gd::GDScript::2017172760215672782::1788172312::0::1::::<>Node<><>0<>0<><>::
-my_input.tscn::PackedScene::8499585179999509210::1788172418::0::1::::<><><>0<>0<><>::uid://30esm8vsy0bi::::res://singletons/my_input.gd<>uid://d2d2be5nk0df0::::res://ui/button_prompts/button_prompt_confirm.tscn<>uid://dllvrmbgpjw17::::res://ui/button_prompts/button_prompt_menu.tscn<>uid://dfl2xa6x3mg45::::res://ui/button_prompts/button_prompt_attack.tscn
+my_input.gd::GDScript::2017172760215672782::1788333977::0::1::::<>Node<><>0<>0<><>::
+my_input.tscn::PackedScene::8499585179999509210::1788333977::0::1::::<><><>0<>0<><>::uid://30esm8vsy0bi::::res://singletons/my_input.gd<>uid://d2d2be5nk0df0::::res://ui/button_prompts/button_prompt_confirm.tscn<>uid://dllvrmbgpjw17::::res://ui/button_prompts/button_prompt_menu.tscn<>uid://dfl2xa6x3mg45::::res://ui/button_prompts/button_prompt_attack.tscn<>uid://cnciu0auehfk3::::res://ui/button_prompts/button_prompt_left.tscn<>uid://b38441yqyvwog::::res://ui/button_prompts/button_prompt_right.tscn
 ::res://skills/::1786205558
 arrow.tres::Resource/Skill::6490849459126948467::1782679643::0::1::::<><><>0<>0<><>::uid://ptrv05qd0gv6::::res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/Arrow.png<>uid://bqwqao10mr6jx::::res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/ArrowDisabled.png<>uid://b326wqe6hkuxm::::res://quick_time_events/arrow/arrow_qte.tscn<>uid://bycf0afmvv35g::::res://resource_classes/skill.gd<>uid://cu4kpttnq8dxt::::res://skill_selection_area/line_selection_area.tscn
 guard.tres::Resource/Skill::8693220991121480192::1786205558::0::1::::<><><>0<>0<><>::uid://t47kkpal85xk::::res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/HelmetDisabled.png<>uid://bycf0afmvv35g::::res://resource_classes/skill.gd<>uid://b31wvvhvo2x24::::res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/Helmet.png<>uid://b2gaig6n55ely::::res://quick_time_events/guard/guard_qte.tscn
@@ -4050,13 +4050,14 @@ line_selection_area.gd::GDScript::6112021661242432430::1782553206::0::1::::<>Ski
 line_selection_area.tscn::PackedScene::6237120179759101205::1781342297::0::1::::<><><>0<>0<><>::uid://d0eassyffx1wr::::res://skill_selection_area/skill_selection_area.tscn<>uid://ctcydr8degaa5::::res://skill_selection_area/line_selection_area.gd
 skill_selection_area.gd::GDScript::6656189191558294566::1781343324::0::1::::SkillSelectionArea<>Area2D<><>1<>0<><>::
 skill_selection_area.tscn::PackedScene::8922273780067042189::1781343324::0::1::::<><><>0<>0<><>::
-::res://ui/::1788165436
+::res://ui/::1788336209
 Keyboard Letters and Symbols.png::CompressedTexture2D::901854703946470125::1772813247::1782295084::1::::<><><>0<>0<>1a1bc7a4788d7b00690930d17549d432<>res://.godot/imported/Keyboard Letters and Symbols.png-e9ac0ef189ebd350630e9dc64d0c7cec.ctex::
-main_theme.tres::Theme::1262154507519227241::1788165436::0::1::::<><><>0<>0<><>::uid://j8aob4ktfksl::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_disabled.png<>uid://dbapmm8vd5567::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_hover.png<>uid://f68ehj2ynl48::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_normal.png<>uid://dspqmda6odumx::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_pressed.png
+main_theme.tres::Theme::1262154507519227241::1788332743::0::1::::<><><>0<>0<><>::uid://j8aob4ktfksl::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_disabled.png<>uid://dbapmm8vd5567::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_hover.png<>uid://f68ehj2ynl48::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_normal.png<>uid://dspqmda6odumx::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/button_pressed.png
 my_nine_patch_rect.tscn::PackedScene::8016465687076635935::1782465464::0::1::::<><><>0<>0<><>::uid://r8nrangxoa1v::::res://ui/main_theme.tres<>uid://dk1dvkq125oc3::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/nine_path_panel.png<>uid://ddiwy5yqxce0k::::res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/nine_path_bg_2.png
-receptacle_shader.gdshader::Shader::4870595214855964635::1788165436::0::1::::<><><>0<>0<><>::
-transition_shader.gdshader::Shader::1856233439935660802::1788165436::0::1::::<><><>0<>0<><>::
-::res://ui/button_prompts/::1788172181
+receptacle_shader.gdshader::Shader::4870595214855964635::1788332743::0::1::::<><><>0<>0<><>::
+refresh.png::CompressedTexture2D::2498132558807099687::1788336173::1788336211::1::::<><><>0<>0<>3c905b2280366f61cc7904b04754d043<>res://.godot/imported/refresh.png-dd38d9445e47255f783d3893e0f8e2b1.ctex::
+transition_shader.gdshader::Shader::1856233439935660802::1788332743::0::1::::<><><>0<>0<><>::
+::res://ui/button_prompts/::1788333900
 button_prompt.gd::GDScript::2512788072397834215::1788172159::0::1::::ButtonPrompt<>Node2D<><>0<>0<><>::
 button_prompt.tscn::PackedScene::4046695619433074684::1788171510::0::1::::<><><>0<>0<><>::uid://bb2hit2qttfvb::::res://ui/button_prompts/button_prompt.gd
 button_prompt_attack.tscn::PackedScene::7534594905600478416::1788171376::0::1::::<><><>0<>0<><>::uid://bxwiqrm50f1p5::::res://ui/button_prompts/button_prompt.tscn<>uid://dfeqtg405u87d::::res://ui/Controllers and Keyboard/kb_dark_all.png<>uid://cdntbed5sbgcn::::res://ui/Controllers and Keyboard/controller_switch.png<>uid://3022k8agpg1x::::res://ui/Controllers and Keyboard/controller_ps.png<>uid://3plyis5x853n::::res://ui/Controllers and Keyboard/controller_xbox.png
@@ -4064,6 +4065,8 @@ button_prompt_confirm.tscn::PackedScene::9062195364209499479::1788079772::0::1::
 button_prompt_menu.tscn::PackedScene::7955353533854839716::1788085817::0::1::::<><><>0<>0<><>::uid://bxwiqrm50f1p5::::res://ui/button_prompts/button_prompt.tscn<>uid://dfeqtg405u87d::::res://ui/Controllers and Keyboard/kb_dark_all.png<>uid://cdntbed5sbgcn::::res://ui/Controllers and Keyboard/controller_switch.png<>uid://3022k8agpg1x::::res://ui/Controllers and Keyboard/controller_ps.png<>uid://3plyis5x853n::::res://ui/Controllers and Keyboard/controller_xbox.png
 button_prompt_spin_attack.gd::GDScript::1174671791875494456::1788172181::0::1::::<>ButtonPrompt<><>0<>0<><>::
 button_prompt_spin_attack.tscn::PackedScene::4603626345330917362::1786952125::0::1::::<><><>0<>0<><>::uid://bxwiqrm50f1p5::::res://ui/button_prompts/button_prompt.tscn<>uid://dfeqtg405u87d::::res://ui/Controllers and Keyboard/kb_dark_all.png<>uid://q0aw40mfkiqy::::res://ui/button_prompts/button_prompt_spin_attack.gd<>uid://cdntbed5sbgcn::::res://ui/Controllers and Keyboard/controller_switch.png<>uid://3022k8agpg1x::::res://ui/Controllers and Keyboard/controller_ps.png<>uid://3plyis5x853n::::res://ui/Controllers and Keyboard/controller_xbox.png
+button_prompt_left.tscn::PackedScene::5689947856007060988::1788333755::0::1::::<><><>0<>0<><>::uid://bxwiqrm50f1p5::::res://ui/button_prompts/button_prompt.tscn<>uid://dfeqtg405u87d::::res://ui/Controllers and Keyboard/kb_dark_all.png<>uid://cdntbed5sbgcn::::res://ui/Controllers and Keyboard/controller_switch.png<>uid://3022k8agpg1x::::res://ui/Controllers and Keyboard/controller_ps.png<>uid://3plyis5x853n::::res://ui/Controllers and Keyboard/controller_xbox.png
+button_prompt_right.tscn::PackedScene::4421646755697749730::1788333900::0::1::::<><><>0<>0<><>::uid://bxwiqrm50f1p5::::res://ui/button_prompts/button_prompt.tscn<>uid://dfeqtg405u87d::::res://ui/Controllers and Keyboard/kb_dark_all.png<>uid://cdntbed5sbgcn::::res://ui/Controllers and Keyboard/controller_switch.png<>uid://3022k8agpg1x::::res://ui/Controllers and Keyboard/controller_ps.png<>uid://3plyis5x853n::::res://ui/Controllers and Keyboard/controller_xbox.png
 ::res://ui/Controllers and Keyboard/::1786947185
 controller_minimal.png::CompressedTexture2D::7164728384913440909::1581777908::1786947185::1::::<><><>0<>0<>55e5f70b5f6b86113bd1bc314fc101be<>res://.godot/imported/controller_minimal.png-1a441f53a14f176d5220098d2eb420ac.ctex::
 controller_ps.png::CompressedTexture2D::2018585217177190459::1581591538::1786947185::1::::<><><>0<>0<>96356b3c60899aecc0efb0b28d158650<>res://.godot/imported/controller_ps.png-689f11a2bfbfac046c09ac1f0bca8030.ctex::

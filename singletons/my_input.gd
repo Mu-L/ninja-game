@@ -3,11 +3,15 @@ extends Node
 @onready var button_prompt_confirm: ButtonPrompt = %ButtonPromptConfirm
 @onready var button_prompt_menu: ButtonPrompt = %ButtonPromptMenu
 @onready var button_prompt_attack: ButtonPrompt = %ButtonPromptAttack
+@onready var button_prompt_left: ButtonPrompt = %ButtonPromptLeft
+@onready var button_prompt_right: ButtonPrompt = %ButtonPromptRight
 
 @onready var button_prompts: Dictionary[String, ButtonPrompt] = {
 	"[CONFIRM]" : button_prompt_confirm,
 	"[ATTACK]" : button_prompt_attack,
 	"[MENU]" : button_prompt_menu,
+	"[LEFT]" : button_prompt_left,
+	"[RIGHT]" : button_prompt_right
 }
 
 signal input_mode_changed(new_mode: InputMode)

@@ -25,6 +25,9 @@ enum InputMode {
 
 var current_input_mode := InputMode.KEYBOARD
 
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 func _input(event: InputEvent) -> void:
 	var new_input_mode: InputMode
 	if event is InputEventKey:

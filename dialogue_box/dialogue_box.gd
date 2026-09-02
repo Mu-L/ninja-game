@@ -22,7 +22,8 @@ func display_dialogue(dialogue: Array[String], portrait_texture: Texture, speake
 
 func scroll_line(line: String) -> void:
 	clear_text()
-	Util.format_button_icons_to_rich_text_label(label, line)
+	label.text = line
+	Util.format_button_icons_to_rich_text_label(label)
 	timer.start()
 
 func _process(_delta: float) -> void:

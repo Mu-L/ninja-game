@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dxe2tklj148p4"]
+
+[ext_resource type="Texture2D" uid="uid://vrg0piriqnon" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/BackgroundBamboo.png" id="1_qdg6e"]
+[ext_resource type="Script" uid="uid://dnkr33pdtji8i" path="res://ui/receptacle/receptacle.gd" id="2_1a1pj"]
+[ext_resource type="Shader" uid="uid://cbnl8yjj205al" path="res://ui/receptacle_shader.gdshader" id="3_ua8hx"]
+[ext_resource type="Texture2D" uid="uid://bc5wmeyi81kuf" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/ProgressPurple.png" id="3_yg8sg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6rsy"]
+shader = ExtResource("3_ua8hx")
+shader_parameter/water_color_1 = Color(0.67, 0.2, 0.8, 0)
+shader_parameter/water_color_2 = Color(0.09799999, 0.49933323, 0.7, 0)
+shader_parameter/water_level_percentage = 1.0
+shader_parameter/wave_frequency_1 = 10.0
+shader_parameter/wave_amplitude_1 = 0.05
+shader_parameter/wave_frequency_2 = 15.0
+shader_parameter/wave_amplitude_2 = 0.03
+
+[node name="RotationReceptacle" type="TextureRect" unique_id=2066394465]
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_qdg6e")
+script = ExtResource("2_1a1pj")
+
+[node name="ActualFilling" type="TextureRect" parent="." unique_id=1218662776]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_q6rsy")
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 27.0
+offset_bottom = 27.0
+texture = ExtResource("3_yg8sg")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqxojkjpu1hpm"]
 
 [ext_resource type="Script" uid="uid://bhteevnmqv7xp" path="res://components/interact/interact_component.gd" id="1_h4gas"]
-[ext_resource type="PackedScene" uid="uid://d2d2be5nk0df0" path="res://ui/button_prompts/button_prompt_confirm.tscn" id="2_f6yxh"]
+[ext_resource type="PackedScene" uid="uid://bxwiqrm50f1p5" path="res://ui/button_prompts/button_prompt.tscn" id="2_f6yxh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6yxh"]
 radius = 31.0
@@ -14,7 +14,7 @@ script = ExtResource("1_h4gas")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1490691203]
 shape = SubResource("CircleShape2D_f6yxh")
 
-[node name="ButtonPromptConfirm" parent="." unique_id=1195930837 instance=ExtResource("2_f6yxh")]
+[node name="ButtonPrompt" parent="." unique_id=1195930837 instance=ExtResource("2_f6yxh")]
 unique_name_in_owner = true
 position = Vector2(0, -16)
 

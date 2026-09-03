@@ -21,7 +21,7 @@ class_name Battle extends Node2D
 @onready var text_timer: Timer = %TextTimer
 @onready var text_sound: AudioStreamPlayer = %TextSound
 @onready var move_sound: AudioStreamPlayer = %MoveSound
-@onready var button_prompt_confirm: Node2D = %ButtonPromptConfirm
+@onready var button_prompt_confirm: Node2D = %ButtonPrompt
 @onready var selection_cursor: SelectionCursor = %SelectionCursor
 @onready var instructions_container: HBoxContainer = %InstructionsContainer
 @onready var start_rotate_label: RichTextLabel = %StartRotateLabel
@@ -29,7 +29,6 @@ class_name Battle extends Node2D
 @onready var do_rotate_label: RichTextLabel = %DoRotateLabel
 @onready var rotation_receptacle: Receptacle = %RotationReceptacle
 @onready var rotation_data_ui: VBoxContainer = %RotationDataUI
-
 
 var battle_data: BattleData
 var allies_data: Array[AllyBattlerData]
@@ -67,6 +66,7 @@ static func create(allies_data: Array[AllyBattlerData], battle_data: BattleData)
 func _ready() -> void:
 	EventBus.display_text.connect(display_text)
 	EventBus.give_extra_turn.connect(give_extra_turn)
+	MyInput.input_mode_changed.connect(_on_input_mode_changed)
 	# Spawn background:
 	var background_scene := BattleData.BACKGROUNDS[battle_data.background_type]
 	var background: Node2D = background_scene.instantiate()
@@ -136,6 +136,7 @@ func start() -> void:
 					enemy.global_position.x - INTRO_ANIM_WALK_DISTANCE, enemy.global_position.y
 				))
 				await get_tree().create_timer(0.1).timeout
+	instructions_container.show()
 	start_ally_turn()
 
 func start_ally_turn() -> void:
@@ -250,6 +251,8 @@ func _input(event: InputEvent) -> void:
 				ally.error_sound.play()
 				return
 			state = States.BATTLER_PLAYING_TURNS
+			start_rotate_label.hide()
+			cancel_label.show()
 			await get_tree().create_timer(0.1).timeout
 			ally.play_turn()
 	
@@ -348,6 +351,8 @@ func _on_rotation_timer_timeout() -> void:
 
 func cancel_ally_turn() -> void:
 	state = States.SELECTING_ALLY
+	start_rotate_label.show()
+	cancel_label.hide()
 
 func give_extra_turn(ally: AllyBattler) -> void:
 	ally.played_turn = false
@@ -363,3 +368,14 @@ func _on_text_timer_timeout() -> void:
 		button_prompt_confirm.show()
 	if battle_text.visible_characters % 2 == 0:
 		text_sound.play()
+
+func _on_input_mode_changed() -> void:
+	for node in instructions_container.get_children():
+		if node is RichTextLabel:
+			var tags: Array = node.get_meta("tags")
+			for tag: String in tags:
+				node.update_image(
+					tag,
+					RichTextLabel.UPDATE_TEXTURE,
+					MyInput.get_icon(tag)
+				)

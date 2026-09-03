@@ -2,7 +2,7 @@ class_name InteractableComponent extends Area2D
 
 signal interacted
 
-@onready var button_prompt_confirm: Node2D = %ButtonPromptConfirm
+@onready var button_prompt_confirm: Node2D = %ButtonPrompt
 
 
 var player: Player = null

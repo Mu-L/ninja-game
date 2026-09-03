@@ -1,6 +1,6 @@
 class_name SelectionCursor extends Node2D
 
-@onready var button_prompt_confirm: ButtonPrompt = $Sprite2D/ButtonPromptConfirm
+@onready var button_prompt_confirm: ButtonPrompt = %ButtonPrompt
 
 func _ready() -> void:
 	EventBus.move_cursor_to.connect(move_to)

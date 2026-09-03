@@ -1,20 +1,14 @@
 extends Node
 
-@onready var button_prompt_confirm: ButtonPrompt = %ButtonPromptConfirm
-@onready var button_prompt_menu: ButtonPrompt = %ButtonPromptMenu
-@onready var button_prompt_attack: ButtonPrompt = %ButtonPromptAttack
-@onready var button_prompt_left: ButtonPrompt = %ButtonPromptLeft
-@onready var button_prompt_right: ButtonPrompt = %ButtonPromptRight
-
-@onready var button_prompts: Dictionary[String, ButtonPrompt] = {
-	"[CONFIRM]" : button_prompt_confirm,
-	"[ATTACK]" : button_prompt_attack,
-	"[MENU]" : button_prompt_menu,
-	"[LEFT]" : button_prompt_left,
-	"[RIGHT]" : button_prompt_right
+@onready var button_icon_data: Dictionary[String, ButtonIconData] = {
+	"[CONFIRM]" : preload("uid://djmypdcxk76p3"),
+	"[ATTACK]" : preload("uid://cxx1mamkhfdvv"),
+	"[MENU]" : preload("uid://4bsv61q0xkto"),
+	"[LEFT]" : preload("uid://kwucpuslu335"),
+	"[RIGHT]" : preload("uid://b516xopujv2mv"),
 }
 
-signal input_mode_changed(new_mode: InputMode)
+signal input_mode_changed
 
 enum InputMode {
 	KEYBOARD,
@@ -27,6 +21,20 @@ var current_input_mode := InputMode.KEYBOARD
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+func get_sprite_frames(button_icon_data: ButtonIconData) -> SpriteFrames:
+	match current_input_mode:
+		InputMode.KEYBOARD:
+			return button_icon_data.keyboard_sprite_frames
+		InputMode.PLAYSTATION:
+			return button_icon_data.playstation_sprite_frames
+		InputMode.NINTENDO:
+			return button_icon_data.nintendo_sprite_frames
+		_:
+			return button_icon_data.xbox_sprite_frames
+
+func get_icon(tag: String) -> Texture:
+	return get_sprite_frames(button_icon_data[tag]).get_frame_texture("default", 0)
 
 func _input(event: InputEvent) -> void:
 	var new_input_mode: InputMode
@@ -43,4 +51,4 @@ func _input(event: InputEvent) -> void:
 	
 	if new_input_mode != current_input_mode:
 		current_input_mode = new_input_mode
-		input_mode_changed.emit(new_input_mode)
+		input_mode_changed.emit()

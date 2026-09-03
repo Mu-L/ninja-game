@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://cb3474ae6wcck"]
 
 [ext_resource type="Script" uid="uid://qa81bx3qbhu7" path="res://battle/battle.gd" id="1_4mnim"]
-[ext_resource type="PackedScene" uid="uid://d2d2be5nk0df0" path="res://ui/button_prompts/button_prompt_confirm.tscn" id="3_t8p1f"]
 [ext_resource type="Texture2D" uid="uid://d4erqddj5td6y" path="res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogueBoxSimple.png" id="4_4mnim"]
+[ext_resource type="PackedScene" uid="uid://bxwiqrm50f1p5" path="res://ui/button_prompts/button_prompt.tscn" id="4_eu6g2"]
 [ext_resource type="AudioStream" uid="uid://p4gm0mb73spx" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Menu5.wav" id="5_4mnim"]
 [ext_resource type="AudioStream" uid="uid://iuggp7pxayvo" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Alert/Alert.wav" id="5_7fucf"]
 [ext_resource type="PackedScene" uid="uid://4ku024axqoix" path="res://selection_cursor/selection_cursor.tscn" id="5_l1kiu"]
 [ext_resource type="PackedScene" uid="uid://bnaelby7duhxs" path="res://ui/receptacle/magic_receptacle.tscn" id="5_rxlun"]
+[ext_resource type="Resource" uid="uid://djmypdcxk76p3" path="res://ui/button_icon_data/button_icon_data_interact.tres" id="5_t8p1f"]
 [ext_resource type="AudioStream" uid="uid://blhxfbppschy4" path="res://Ninja Adventure - Asset Pack/Audio/Musics/17 - Fight.ogg" id="6_l1kiu"]
 [ext_resource type="PackedScene" uid="uid://dxe2tklj148p4" path="res://ui/receptacle/rotation_receptacle.tscn" id="6_qybyd"]
 [ext_resource type="AudioStream" uid="uid://b5xxo0mbmbhb8" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav" id="8_rxlun"]
@@ -17,6 +18,7 @@
 script = ExtResource("1_4mnim")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1810498988]
+layer = 2
 
 [node name="TextBox" type="TextureRect" parent="UI" unique_id=1720251685]
 unique_name_in_owner = true
@@ -47,10 +49,10 @@ bbcode_enabled = true
 text = "battle text goes here !"
 visible_characters_behavior = 1
 
-[node name="ButtonPromptConfirm" parent="UI/TextBox" unique_id=1195930837 instance=ExtResource("3_t8p1f")]
+[node name="ButtonPrompt" parent="UI/TextBox" unique_id=1217119096 instance=ExtResource("4_eu6g2")]
 unique_name_in_owner = true
-z_index = 0
 position = Vector2(298, 43)
+button_icon_data = ExtResource("5_t8p1f")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=396701321]
 offset_right = 79.0
@@ -117,6 +119,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="InstructionsContainer" type="HBoxContainer" parent="UI/MarginContainer2" unique_id=1687366233]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 alignment = 2
 
@@ -141,7 +144,7 @@ clip_contents = false
 layout_mode = 2
 theme_override_constants/outline_size = 3
 bbcode_enabled = true
-text = "Stop
+text = "Return
 [ATTACK]"
 fit_content = true
 scroll_active = false

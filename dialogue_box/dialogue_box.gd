@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var timer: Timer = %Timer
 @onready var portrait: TextureRect = %Portrait
 @onready var name_label: Label = %NameLabel
-@onready var button_prompt_confirm: ButtonPrompt = %ButtonPromptConfirm
+@onready var button_prompt_confirm: ButtonPrompt = %ButtonPrompt
 
 var lines_to_display: Array[String]
 

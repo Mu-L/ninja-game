@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dwcor6k6n5iw1" path="res://quick_time_events/arrow/arrow_qte.gd" id="2_4ijqc"]
 [ext_resource type="PackedScene" uid="uid://86kq0xdg6ih6" path="res://quick_time_events/arrow/cursor.tscn" id="3_wwyx3"]
 [ext_resource type="Texture2D" uid="uid://cujky1r7xlnls" path="res://Ninja Adventure - Asset Pack/FX/Projectile/Arrow.png" id="4_prdyr"]
-[ext_resource type="PackedScene" uid="uid://d2d2be5nk0df0" path="res://ui/button_prompts/button_prompt_confirm.tscn" id="7_prdyr"]
+[ext_resource type="PackedScene" uid="uid://bxwiqrm50f1p5" path="res://ui/button_prompts/button_prompt.tscn" id="7_prdyr"]
 [ext_resource type="AudioStream" uid="uid://dj75gse50dexq" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Slash4.wav" id="8_557ip"]
 [ext_resource type="Texture2D" uid="uid://3wfysod15yj0" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Bow2/Sprite.png" id="9_but6u"]
 
@@ -57,7 +57,8 @@ position = Vector2(70, 0)
 unique_name_in_owner = true
 stream = ExtResource("8_557ip")
 
-[node name="ButtonPromptConfirm" parent="." index="6" unique_id=1195930837 instance=ExtResource("7_prdyr")]
+[node name="ButtonPrompt" parent="." index="6" unique_id=1195930837 instance=ExtResource("7_prdyr")]
+unique_name_in_owner = true
 position = Vector2(0, -20)
 
 [connection signal="area_entered" from="Arrow" to="." method="_on_arrow_area_entered"]

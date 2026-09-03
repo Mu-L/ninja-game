@@ -4,7 +4,8 @@
 [ext_resource type="AudioStream" uid="uid://b5xxo0mbmbhb8" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav" id="2_2iu7o"]
 [ext_resource type="Texture2D" uid="uid://bglrvy26s0klr" path="res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="2_50r5p"]
 [ext_resource type="Texture2D" uid="uid://ds1hb5vhjf7yi" path="res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/Faceset.png" id="3_6edet"]
-[ext_resource type="PackedScene" uid="uid://d2d2be5nk0df0" path="res://ui/button_prompts/button_prompt_confirm.tscn" id="5_2iu7o"]
+[ext_resource type="PackedScene" uid="uid://bxwiqrm50f1p5" path="res://ui/button_prompts/button_prompt.tscn" id="5_2iu7o"]
+[ext_resource type="Resource" uid="uid://djmypdcxk76p3" path="res://ui/button_icon_data/button_icon_data_interact.tres" id="6_cnm5i"]
 
 [node name="DialogueBox" type="CanvasLayer" unique_id=1663880039]
 process_mode = 2
@@ -67,9 +68,9 @@ theme_override_font_sizes/font_size = 16
 text = "Princess"
 horizontal_alignment = 1
 
-[node name="ButtonPromptConfirm" parent="TextureRect" unique_id=1195930837 instance=ExtResource("5_2iu7o")]
+[node name="ButtonPrompt" parent="TextureRect" unique_id=1195930837 instance=ExtResource("5_2iu7o")]
 unique_name_in_owner = true
-visible = false
 position = Vector2(279, 43)
+button_icon_data = ExtResource("6_cnm5i")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -115,5 +115,15 @@ static func format_button_icons_to_rich_text_label(label: RichTextLabel) -> Rich
 			i += 1
 		i += 1
 		tag += "]"
-		label.add_image(MyInput.button_prompts[tag].get_current_icon())
+		label.add_image(
+			MyInput.get_icon(tag),
+			0, 0, Color(1, 1, 1, 1),
+			InlineAlignment.INLINE_ALIGNMENT_CENTER,
+			Rect2(0, 0, 0, 0),
+			tag
+		)
+		if label.has_meta("tags"):
+			label.set_meta("tags", label.get_meta("tags") + [tag])
+		else:
+			label.set_meta("tags", [tag])
 	return label

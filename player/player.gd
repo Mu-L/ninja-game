@@ -86,22 +86,24 @@ func update_position_history() -> void:
 
 func movement_logic_and_animation(_delta: float) -> void:
 	
-	var input_vector = Input.get_vector("move left", "move right","move up", "move down")
-	velocity = input_vector * movement_speed
-	
-	if input_vector.x > 0:
+	var nothing_pressed := false
+	if Input.is_action_pressed("move right"):
 		direction = Direction.new(Direction.Directions.RIGHT, self)
-	if input_vector.x < 0:
+	elif Input.is_action_pressed("move left"):
 		direction = Direction.new(Direction.Directions.LEFT, self)
-	if input_vector.y > 0:
+	elif Input.is_action_pressed("move down"):
 		direction = Direction.new(Direction.Directions.DOWN, self)
-	if input_vector.y < 0:
+	elif Input.is_action_pressed("move up"):
 		direction = Direction.new(Direction.Directions.UP, self)
+	else:
+		nothing_pressed = true
 	
 	var animation_name: String
-	if input_vector == Vector2.ZERO:
+	if nothing_pressed:
+		velocity = Vector2.ZERO
 		animation_name = "idle %s" % direction.string
 	else:
+		velocity = direction.vector * movement_speed
 		animation_name = "walk %s" % direction.string
 	animated_sprite_2d.play(animation_name)
 

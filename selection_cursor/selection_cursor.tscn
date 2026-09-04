@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cukoafl7ps86a" path="res://Ninja Adventure - Asset Pack/Ui/Arrow.png" id="1_e3js4"]
 [ext_resource type="Script" uid="uid://c6k3c4uynvvsp" path="res://selection_cursor/selection_cursor.gd" id="2_1kotr"]
-[ext_resource type="PackedScene" uid="uid://bxwiqrm50f1p5" path="res://ui/button_prompts/button_prompt.tscn" id="3_3fcql"]
+[ext_resource type="PackedScene" uid="uid://bxwiqrm50f1p5" path="res://button_prompts/button_prompt.tscn" id="3_3fcql"]
 
 [sub_resource type="Animation" id="Animation_1kotr"]
 length = 0.001

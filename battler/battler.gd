@@ -1,6 +1,7 @@
 @abstract
 class_name Battler extends Area2D
 
+signal started_turn
 signal finished_turn
 signal died
 signal update_battler_ui(battler: Battler)

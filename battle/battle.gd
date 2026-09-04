@@ -87,6 +87,7 @@ func _ready() -> void:
 		battlers.add_child(ally)
 		num_of_living_allies += 1
 		ally.died.connect(func(): num_of_living_allies -= 1)
+		ally.started_turn.connect(_on_ally_started_turn)
 		ally.finished_turn.connect(_on_ally_finished_turn.bind(ally))
 		ally.update_battler_ui.connect(update_battler_data_ui)
 		ally.skill_button_focused.connect(_on_skill_button_focused)
@@ -140,6 +141,7 @@ func start() -> void:
 	start_ally_turn()
 
 func start_ally_turn() -> void:
+	start_rotate_label.show()
 	selection_cursor.show_button_prompt()
 	for ally in allies:
 		ally.stop_guarding()
@@ -153,6 +155,7 @@ func start_ally_turn() -> void:
 	EventBus.set_cursor_visible.emit(true)
 
 func enemy_turn() -> void:
+	start_rotate_label.hide()
 	selection_cursor.hide_button_prompt()
 	for row in enemies_grid:
 		for enemy in row.elements:
@@ -167,6 +170,8 @@ func enemy_turn() -> void:
 
 func _on_ally_finished_turn(ally: AllyBattler) -> void:
 	await get_tree().create_timer(0.1).timeout
+	cancel_label.hide()
+	start_rotate_label.show()
 	if is_battle_finished():
 		finish_battle()
 		return
@@ -187,11 +192,6 @@ func _on_ally_finished_turn(ally: AllyBattler) -> void:
 
 func _input(event: InputEvent) -> void:
 	
-	#for e in ['move up', 'move down', 'move left', 'move right']:
-		#if event.is_action_pressed(e):
-			#move_sound.play()
-	
-	
 	if event.is_action("god_mode") and OS.is_debug_build():
 		is_debuging = true
 		for ally in allies:
@@ -202,7 +202,7 @@ func _input(event: InputEvent) -> void:
 		for row in enemies_grid:
 			for enemy in row.elements:
 				if enemy and enemy.is_alive:
-					enemy._strength = 50
+					enemy._strength = 75
 	
 	if state == States.ROTATING:
 		return
@@ -321,6 +321,7 @@ func is_battle_finished() -> bool:
 	return allies_won() or enemies_won()
 
 func finish_battle() -> void:
+	instructions_container.hide()
 	music.stop()
 	if allies_won():
 		display_text("You Won !")
@@ -379,3 +380,6 @@ func _on_input_mode_changed() -> void:
 					RichTextLabel.UPDATE_TEXTURE,
 					MyInput.get_icon(tag)
 				)
+
+func _on_ally_started_turn() -> void:
+	cancel_label.hide()

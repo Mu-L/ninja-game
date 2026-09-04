@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_7dacu"]
 [ext_resource type="Script" uid="uid://caeybmnranpuv" path="res://quick_time_events/healing/healing_qte.gd" id="2_wp865"]
-[ext_resource type="PackedScene" uid="uid://bxwiqrm50f1p5" path="res://ui/button_prompts/button_prompt.tscn" id="4_5slos"]
+[ext_resource type="PackedScene" uid="uid://bxwiqrm50f1p5" path="res://button_prompts/button_prompt.tscn" id="4_5slos"]
 [ext_resource type="AudioStream" uid="uid://b26g7jsixo2kg" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Magic & Skill/Heal2.wav" id="4_33dld"]
-[ext_resource type="Resource" uid="uid://djmypdcxk76p3" path="res://ui/button_icon_data/button_icon_data_interact.tres" id="5_opfbh"]
-[ext_resource type="PackedScene" uid="uid://c55iom3i1e8ev" path="res://ui/receptacle/health_receptacle.tscn" id="6_opfbh"]
+[ext_resource type="Resource" uid="uid://djmypdcxk76p3" path="res://button_icon_data/button_icon_data_interact.tres" id="5_opfbh"]
+[ext_resource type="PackedScene" uid="uid://c55iom3i1e8ev" path="res://receptacle/health_receptacle.tscn" id="6_opfbh"]
 [ext_resource type="Texture2D" uid="uid://v3ktmsyl60sk" path="res://Ninja Adventure - Asset Pack/FX/Magic/Aura/SpriteSheet.png" id="8_s47li"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e85ly"]

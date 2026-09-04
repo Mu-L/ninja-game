@@ -11,6 +11,7 @@ func update(new_val: float) -> void:
 		new_val,
 		0.1
 		)
+	await tween.finished
 
 func is_full() -> bool:
 	var value: float = (actual_filling.material as ShaderMaterial).get_shader_parameter("water_level_percentage")

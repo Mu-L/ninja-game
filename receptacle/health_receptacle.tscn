@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c55iom3i1e8ev"]
 
 [ext_resource type="Texture2D" uid="uid://di4fifl0bsynk" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/BackgroundFlask.png" id="1_7hprc"]
-[ext_resource type="Script" uid="uid://dnkr33pdtji8i" path="res://ui/receptacle/receptacle.gd" id="2_7hprc"]
+[ext_resource type="Script" uid="uid://dnkr33pdtji8i" path="res://receptacle/receptacle.gd" id="2_7hprc"]
 [ext_resource type="Shader" uid="uid://cbnl8yjj205al" path="res://ui/receptacle_shader.gdshader" id="2_rj1ym"]
 [ext_resource type="Texture2D" uid="uid://bayv66ydulju1" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Sphere/ProgressHealth.png" id="4_5m5sl"]
 

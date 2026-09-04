@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="ButtonIconData" format=3 uid="uid://b516xopujv2mv"]
 
-[ext_resource type="Script" uid="uid://c7jpg3rf7yv4f" path="res://ui/button_icon_data/button_icon_data.gd" id="1_dwi2g"]
-[ext_resource type="Texture2D" uid="uid://dfeqtg405u87d" path="res://ui/Controllers and Keyboard/kb_dark_all.png" id="1_wg3ge"]
-[ext_resource type="Texture2D" uid="uid://cdntbed5sbgcn" path="res://ui/Controllers and Keyboard/controller_switch.png" id="2_sf7jo"]
-[ext_resource type="Texture2D" uid="uid://3022k8agpg1x" path="res://ui/Controllers and Keyboard/controller_ps.png" id="3_l7ed7"]
+[ext_resource type="Texture2D" uid="uid://dfeqtg405u87d" path="res://ui/Controllers and Keyboard/kb_dark_all.png" id="1_btgag"]
+[ext_resource type="Texture2D" uid="uid://cdntbed5sbgcn" path="res://ui/Controllers and Keyboard/controller_switch.png" id="2_4jprg"]
+[ext_resource type="Texture2D" uid="uid://3022k8agpg1x" path="res://ui/Controllers and Keyboard/controller_ps.png" id="3_nmvlv"]
+[ext_resource type="Script" uid="uid://c7jpg3rf7yv4f" path="res://button_icon_data/button_icon_data.gd" id="4_8r6ui"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wg3ge"]
-atlas = ExtResource("1_wg3ge")
+atlas = ExtResource("1_btgag")
 region = Rect2(208, 240, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xa6os"]
-atlas = ExtResource("1_wg3ge")
+atlas = ExtResource("1_btgag")
 region = Rect2(240, 240, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l7ed7"]
@@ -28,11 +28,11 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sf7jo"]
-atlas = ExtResource("2_sf7jo")
+atlas = ExtResource("2_4jprg")
 region = Rect2(48, 272, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l7ed7"]
-atlas = ExtResource("2_sf7jo")
+atlas = ExtResource("2_4jprg")
 region = Rect2(80, 272, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mvh4m"]
@@ -50,11 +50,11 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mvh4m"]
-atlas = ExtResource("3_l7ed7")
+atlas = ExtResource("3_nmvlv")
 region = Rect2(64, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttljw"]
-atlas = ExtResource("3_l7ed7")
+atlas = ExtResource("3_nmvlv")
 region = Rect2(64, 160, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ttljw"]
@@ -72,11 +72,11 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yrneh"]
-atlas = ExtResource("3_l7ed7")
+atlas = ExtResource("3_nmvlv")
 region = Rect2(64, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ji8yh"]
-atlas = ExtResource("3_l7ed7")
+atlas = ExtResource("3_nmvlv")
 region = Rect2(64, 160, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrneh"]
@@ -94,7 +94,7 @@ animations = [{
 }]
 
 [resource]
-script = ExtResource("1_dwi2g")
+script = ExtResource("4_8r6ui")
 keyboard_sprite_frames = SubResource("SpriteFrames_l7ed7")
 nintendo_sprite_frames = SubResource("SpriteFrames_mvh4m")
 playstation_sprite_frames = SubResource("SpriteFrames_ttljw")

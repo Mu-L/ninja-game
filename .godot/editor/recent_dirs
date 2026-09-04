@@ -1,20 +1,17 @@
+res://battle/
+res://follower/
+res://player/
+C:/Users/Samir/Desktop/
 res://quick_time_events/healing/
 res://dialogue_box/
 res://components/interact/
 res://quick_time_events/spin_attack/
 res://quick_time_events/kunai_rain/
 res://quick_time_events/arrow/
-res://battle/
 res://ui/Controllers and Keyboard/
 res://singletons/
-res://ui/button_prompts/
 res://ally_battler/
-res://ui/button_icon_data/
 res://overworld/
-res://ui/receptacle/
-res://follower/
-res://player/
-C:/Users/Samir/Desktop/
 res://selection_cursor/
 res://npc/
 res://game/

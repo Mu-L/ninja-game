@@ -164,6 +164,7 @@ func get_main_target_battler() -> Battler:
 			return null
 
 func perform_action() -> void:
+	started_turn.emit()
 	played_turn = true
 	await get_tree().create_timer(0.1).timeout
 	hide_stat_bars()

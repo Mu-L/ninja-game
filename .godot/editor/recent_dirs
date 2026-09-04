@@ -1,3 +1,4 @@
+res://game/
 res://battle/
 res://follower/
 res://player/
@@ -14,7 +15,6 @@ res://ally_battler/
 res://overworld/
 res://selection_cursor/
 res://npc/
-res://game/
 res://Ninja Adventure - Asset Pack/Actor/Character/NinjaGreen/SeparateAnim/
 res://quick_time_events/guard/
 res://quick_time_events/stab/

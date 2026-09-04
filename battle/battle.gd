@@ -202,7 +202,7 @@ func _input(event: InputEvent) -> void:
 		for row in enemies_grid:
 			for enemy in row.elements:
 				if enemy and enemy.is_alive:
-					enemy._strength = 75
+					enemy._strength = 9999
 	
 	if state == States.ROTATING:
 		return

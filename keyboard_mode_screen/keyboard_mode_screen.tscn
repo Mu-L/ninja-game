@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://vdpnik88kh38"]
+
+[ext_resource type="Script" uid="uid://djmunk1lkm65q" path="res://keyboard_mode_screen/keyboard_mode_screen.gd" id="1_4lq3c"]
+[ext_resource type="AudioStream" uid="uid://df1fo5buh34rv" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move1.wav" id="2_laufp"]
+[ext_resource type="AudioStream" uid="uid://p4gm0mb73spx" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Menu5.wav" id="3_vltf5"]
+
+[node name="KeyboardModeScreen" type="ColorRect" unique_id=148490423]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_4lq3c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1070490923]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=2023093405]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "Choose a Keyboard scheme"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=1134521857]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer/GridContainer" unique_id=226415483]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "Move"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/GridContainer" unique_id=1877058393]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[UP][LEFT][DOWN][RIGHT]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="VBoxContainer/GridContainer" unique_id=1658558228]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[UP][LEFT][DOWN][RIGHT]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="VBoxContainer/GridContainer" unique_id=1711928706]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "Interact"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="VBoxContainer/GridContainer" unique_id=1895558146]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[PRIMARY]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="VBoxContainer/GridContainer" unique_id=1292318116]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[PRIMARY]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="VBoxContainer/GridContainer" unique_id=2075612844]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "Cancel"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="VBoxContainer/GridContainer" unique_id=1108065591]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[SECONDARY]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel13" type="RichTextLabel" parent="VBoxContainer/GridContainer" unique_id=1321331570]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[SECONDARY]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel14" type="RichTextLabel" parent="VBoxContainer/GridContainer" unique_id=1395463243]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "Menu"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel15" type="RichTextLabel" parent="VBoxContainer/GridContainer" unique_id=950791252]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[TERTIARY]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel16" type="RichTextLabel" parent="VBoxContainer/GridContainer" unique_id=329726968]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[TERTIARY]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer/GridContainer" unique_id=1390873664]
+layout_mode = 2
+
+[node name="RetroButton" type="Button" parent="VBoxContainer/GridContainer" unique_id=2039915741]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Retro"
+
+[node name="ModernButton" type="Button" parent="VBoxContainer/GridContainer" unique_id=1865349591]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Modern"
+
+[node name="MenuSound" type="AudioStreamPlayer" parent="." unique_id=1545964429]
+unique_name_in_owner = true
+stream = ExtResource("2_laufp")
+
+[node name="ConfirmSound" type="AudioStreamPlayer" parent="." unique_id=163203386]
+unique_name_in_owner = true
+stream = ExtResource("3_vltf5")
+
+[connection signal="focus_entered" from="VBoxContainer/GridContainer/RetroButton" to="." method="_on_retro_button_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/GridContainer/RetroButton" to="." method="_on_retro_button_focus_entered"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/RetroButton" to="." method="_on_retro_button_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/GridContainer/ModernButton" to="." method="_on_modern_button_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/GridContainer/ModernButton" to="." method="_on_modern_button_focus_entered"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/ModernButton" to="." method="_on_modern_button_pressed"]

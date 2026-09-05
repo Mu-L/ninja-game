@@ -1,16 +1,18 @@
-res://game/
+res://singletons/
+res://dialogue_box/
+res://keyboard_mode_screen/
+res://ui/Controllers and Keyboard/
+res://button_icon_data/
 res://battle/
+res://game/
 res://follower/
 res://player/
 C:/Users/Samir/Desktop/
 res://quick_time_events/healing/
-res://dialogue_box/
 res://components/interact/
 res://quick_time_events/spin_attack/
 res://quick_time_events/kunai_rain/
 res://quick_time_events/arrow/
-res://ui/Controllers and Keyboard/
-res://singletons/
 res://ally_battler/
 res://overworld/
 res://selection_cursor/

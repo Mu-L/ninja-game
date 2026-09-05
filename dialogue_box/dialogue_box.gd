@@ -29,7 +29,7 @@ func scroll_line(line: String) -> void:
 func _process(_delta: float) -> void:
 	if not InteractableComponent.is_interacting:
 		return
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("primary action"):
 		if label.visible_ratio == 1.0:
 			if lines_to_display.size() == 0:
 				clear_text()

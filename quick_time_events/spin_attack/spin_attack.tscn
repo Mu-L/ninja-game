@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bg7icjoeyog5g" path="res://quick_time_events/base_class/quick_time_event.tscn" id="1_d4hmt"]
 [ext_resource type="Script" uid="uid://cdvqiybo0a55y" path="res://quick_time_events/spin_attack/spin_attack.gd" id="2_ads52"]
 [ext_resource type="PackedScene" uid="uid://bxwiqrm50f1p5" path="res://button_prompts/button_prompt.tscn" id="5_ads52"]
-[ext_resource type="Resource" uid="uid://kwucpuslu335" path="res://button_icon_data/button_icon_data_left.tres" id="6_v2r84"]
+[ext_resource type="Resource" uid="uid://kwucpuslu335" path="res://button_icon_data/move_left.tres" id="6_v2r84"]
 [ext_resource type="Texture2D" uid="uid://dfeqtg405u87d" path="res://ui/Controllers and Keyboard/kb_dark_all.png" id="7_outii"]
 [ext_resource type="Texture2D" uid="uid://cdntbed5sbgcn" path="res://ui/Controllers and Keyboard/controller_switch.png" id="8_sgyib"]
 [ext_resource type="Texture2D" uid="uid://co0j5b11i1vfx" path="res://Ninja Adventure - Asset Pack/FX/Slash/SpriteSheetCircular.png" id="8_ye2l0"]
@@ -13,22 +13,22 @@
 [ext_resource type="Script" uid="uid://c7jpg3rf7yv4f" path="res://button_icon_data/button_icon_data.gd" id="10_s0w5m"]
 [ext_resource type="Texture2D" uid="uid://dtgdib00mp88v" path="res://Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/ProgressHealth.png" id="10_v2r84"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v2r84"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_txn1q"]
 atlas = ExtResource("7_outii")
-region = Rect2(240, 240, 16, 16)
+region = Rect2(48, 48, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7i38e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywq10"]
 atlas = ExtResource("7_outii")
-region = Rect2(208, 240, 16, 16)
+region = Rect2(16, 48, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_outii"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_feayb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v2r84")
+"texture": SubResource("AtlasTexture_txn1q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7i38e")
+"texture": SubResource("AtlasTexture_ywq10")
 }],
 "loop": true,
 "name": &"default",
@@ -79,6 +79,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5nlx"]
+atlas = ExtResource("7_outii")
+region = Rect2(240, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0nm6"]
+atlas = ExtResource("7_outii")
+region = Rect2(208, 240, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txn1q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5nlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0nm6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_sgyib"]
 atlas = ExtResource("9_ye2l0")
 region = Rect2(64, 160, 16, 16)
@@ -103,7 +125,8 @@ animations = [{
 
 [sub_resource type="Resource" id="Resource_txn1q"]
 script = ExtResource("10_s0w5m")
-keyboard_sprite_frames = SubResource("SpriteFrames_outii")
+retro_keyboard_sprite_frames = SubResource("SpriteFrames_txn1q")
+modern_keyboard_sprite_frames = SubResource("SpriteFrames_feayb")
 nintendo_sprite_frames = SubResource("SpriteFrames_ye2l0")
 playstation_sprite_frames = SubResource("SpriteFrames_s0w5m")
 xbox_sprite_frames = SubResource("SpriteFrames_b0nm6")

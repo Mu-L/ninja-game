@@ -28,7 +28,7 @@ func start(ally: AllyBattler) -> void:
 	tween.finished.connect(fail)
 
 func _input(event: InputEvent) -> void:
-	if started and event.is_action_pressed("interact"):
+	if started and event.is_action_pressed("primary action"):
 		tween.kill()
 		started = false
 		if success_area in cursor.get_overlapping_areas():

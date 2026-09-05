@@ -35,7 +35,7 @@ func _on_attack_animation_player_animation_finished(_anim_name: StringName) -> v
 	finished.emit()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and _is_attacking:
+	if event.is_action_pressed("primary action") and _is_attacking:
 		accept_sound.play()
 		_is_attacking = false
 		attack_animation_player.stop(true)

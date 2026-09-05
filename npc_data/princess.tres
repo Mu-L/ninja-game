@@ -192,5 +192,5 @@ script = ExtResource("1_sxxve")
 name = "Princess"
 sprite_frames = SubResource("SpriteFrames_s5jop")
 portait = ExtResource("1_bcbhm")
-dialouge = Array[String](["Do you know the battle controls ?", "The [CONFIRM] key is for choosing and confirming actions.", "The [ATTACK] key is for cancelling actions.", "The [MENU] key is for changing your team's formation."])
+dialouge = Array[String](["Do you know the battle controls ?", "The [PRIMARY] key is for choosing and confirming actions.", "The [SECONDARY] key is for cancelling actions.", "The [TERTIARY] key is for changing your team's formation."])
 metadata/_custom_type_script = "uid://10jpfy421udu"

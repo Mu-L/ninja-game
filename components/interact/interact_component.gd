@@ -22,7 +22,7 @@ func _on_body_exited(body: Node2D) -> void:
 		player = null
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and player:
+	if Input.is_action_just_pressed("primary action") and player:
 		button_prompt_confirm.hide()
 		get_tree().paused = true
 		is_interacting = true

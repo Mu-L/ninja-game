@@ -207,7 +207,7 @@ func _input(event: InputEvent) -> void:
 	if state == States.ROTATING:
 		return
 	
-	if text_box.visible and event.is_action_pressed("interact"):
+	if text_box.visible and event.is_action_pressed("primary action"):
 		text_timer.stop()
 		if battle_text.visible_ratio == 1.0:
 			text_box.hide()
@@ -217,7 +217,7 @@ func _input(event: InputEvent) -> void:
 			button_prompt_confirm.show()
 			battle_text.visible_ratio = 1.0
 	
-	elif event.is_action_pressed("menu") and state == States.SELECTING_ALLY:
+	elif event.is_action_pressed("tertiary action") and state == States.SELECTING_ALLY:
 		battler_data_ui.hide()
 		start_rotate_label.hide()
 		do_rotate_label.show()
@@ -245,7 +245,7 @@ func _input(event: InputEvent) -> void:
 			EventBus.move_cursor_to.emit(allies[ally_selection_index].global_position)
 			update_battler_data_ui(allies[ally_selection_index])
 		
-		if event.is_action_pressed("interact"):
+		if event.is_action_pressed("primary action"):
 			var ally := allies[ally_selection_index]
 			if ally.played_turn or not ally.is_alive:
 				ally.error_sound.play()
@@ -279,7 +279,7 @@ func _input(event: InputEvent) -> void:
 			else:
 				var first: AllyBattler = allies.pop_front()
 				allies.append(first)
-		elif event.is_action_pressed("attack"):
+		elif event.is_action_pressed("secondary action"):
 			rotation_timer.stop()
 			do_rotate_label.hide()
 			cancel_label.hide()

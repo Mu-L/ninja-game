@@ -108,7 +108,7 @@ func movement_logic_and_animation(_delta: float) -> void:
 	animated_sprite_2d.play(animation_name)
 
 func attack_logic_and_animation(_delta: float) -> void:
-	if Input.is_action_just_pressed("attack") and not is_attacking:
+	if Input.is_action_just_pressed("secondary action") and not is_attacking:
 		is_attacking = true
 		velocity = Vector2.ZERO
 		var animation_name := "attack %s" % direction.string

@@ -192,5 +192,5 @@ script = ExtResource("1_5sm4k")
 name = "Girl"
 sprite_frames = SubResource("SpriteFrames_5sm4k")
 portait = ExtResource("1_dq4mg")
-dialouge = Array[String](["Pressing the [MENU] key in battle lets you change your team's formation.", "The party member in the front line is more likely to get attacked.", "While the party member in the back is less likely to get attacked."])
+dialouge = Array[String](["Pressing the [TERTIARY] key in battle lets you change your team's formation.", "The party member in the front line is more likely to get attacked.", "While the party member in the back is less likely to get attacked."])
 metadata/_custom_type_script = "uid://10jpfy421udu"

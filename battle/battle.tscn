@@ -128,7 +128,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 3
 bbcode_enabled = true
 text = "Rotate
-[MENU]"
+[TERTIARY]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -143,7 +143,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 3
 bbcode_enabled = true
 text = "Return
-[ATTACK]"
+[SECONDARY]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

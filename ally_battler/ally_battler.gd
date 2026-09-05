@@ -187,7 +187,7 @@ func _process(delta: float) -> void:
 	
 	%DebugLabel.text = str(_defense)
 	
-	if skills_menu.visible and Input.is_action_just_pressed("attack"):
+	if skills_menu.visible and Input.is_action_just_pressed("secondary action"):
 		skills_menu.hide()
 		cancel_my_turn.emit()
 	
@@ -197,7 +197,7 @@ func _process(delta: float) -> void:
 		return
 	
 	# Cancel selection:
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("secondary action"):
 		_is_selecting = false
 		skills_menu.show()
 		ui.show()
@@ -245,7 +245,7 @@ func _process(delta: float) -> void:
 			_ally_selection_index = 3
 		EventBus.move_cursor_to.emit(get_main_target_battler().global_position)
 	
-	if Input.is_action_pressed("interact"):
+	if Input.is_action_pressed("primary action"):
 		if not check_constraints():
 			%ErrorSound.play()
 			return

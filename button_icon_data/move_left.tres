@@ -1,26 +1,26 @@
 [gd_resource type="Resource" script_class="ButtonIconData" format=3 uid="uid://kwucpuslu335"]
 
-[ext_resource type="Texture2D" uid="uid://dfeqtg405u87d" path="res://ui/Controllers and Keyboard/kb_dark_all.png" id="1_l0pct"]
-[ext_resource type="Texture2D" uid="uid://cdntbed5sbgcn" path="res://ui/Controllers and Keyboard/controller_switch.png" id="2_e4yod"]
-[ext_resource type="Texture2D" uid="uid://3022k8agpg1x" path="res://ui/Controllers and Keyboard/controller_ps.png" id="3_ntywi"]
-[ext_resource type="Script" uid="uid://c7jpg3rf7yv4f" path="res://button_icon_data/button_icon_data.gd" id="4_e2tkj"]
+[ext_resource type="Texture2D" uid="uid://cdntbed5sbgcn" path="res://ui/Controllers and Keyboard/controller_switch.png" id="1_ywf2w"]
+[ext_resource type="Texture2D" uid="uid://3022k8agpg1x" path="res://ui/Controllers and Keyboard/controller_ps.png" id="2_6ide6"]
+[ext_resource type="Texture2D" uid="uid://dfeqtg405u87d" path="res://ui/Controllers and Keyboard/kb_dark_all.png" id="3_2iy5u"]
+[ext_resource type="Script" uid="uid://c7jpg3rf7yv4f" path="res://button_icon_data/button_icon_data.gd" id="4_4bw8p"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ejy34"]
-atlas = ExtResource("1_l0pct")
-region = Rect2(208, 208, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywf2w"]
+atlas = ExtResource("3_2iy5u")
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v2nrm"]
-atlas = ExtResource("1_l0pct")
-region = Rect2(240, 208, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ide6"]
+atlas = ExtResource("3_2iy5u")
+region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_sr3s8"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_2iy5u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ejy34")
+"texture": SubResource("AtlasTexture_ywf2w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v2nrm")
+"texture": SubResource("AtlasTexture_6ide6")
 }],
 "loop": true,
 "name": &"default",
@@ -28,11 +28,11 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sr3s8"]
-atlas = ExtResource("2_e4yod")
+atlas = ExtResource("1_ywf2w")
 region = Rect2(48, 208, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7r34"]
-atlas = ExtResource("2_e4yod")
+atlas = ExtResource("1_ywf2w")
 region = Rect2(80, 208, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pf4ib"]
@@ -50,11 +50,11 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pf4ib"]
-atlas = ExtResource("3_ntywi")
+atlas = ExtResource("2_6ide6")
 region = Rect2(32, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7x74"]
-atlas = ExtResource("3_ntywi")
+atlas = ExtResource("2_6ide6")
 region = Rect2(32, 160, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f38gj"]
@@ -71,12 +71,34 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_paxhj"]
+atlas = ExtResource("3_2iy5u")
+region = Rect2(208, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4xbm"]
+atlas = ExtResource("3_2iy5u")
+region = Rect2(240, 208, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6a144"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paxhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4xbm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_f38gj"]
-atlas = ExtResource("3_ntywi")
+atlas = ExtResource("2_6ide6")
 region = Rect2(32, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fr4ir"]
-atlas = ExtResource("3_ntywi")
+atlas = ExtResource("2_6ide6")
 region = Rect2(32, 160, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ikvqv"]
@@ -94,8 +116,9 @@ animations = [{
 }]
 
 [resource]
-script = ExtResource("4_e2tkj")
-keyboard_sprite_frames = SubResource("SpriteFrames_sr3s8")
+script = ExtResource("4_4bw8p")
+retro_keyboard_sprite_frames = SubResource("SpriteFrames_6a144")
+modern_keyboard_sprite_frames = SubResource("SpriteFrames_2iy5u")
 nintendo_sprite_frames = SubResource("SpriteFrames_pf4ib")
 playstation_sprite_frames = SubResource("SpriteFrames_f38gj")
 xbox_sprite_frames = SubResource("SpriteFrames_ikvqv")

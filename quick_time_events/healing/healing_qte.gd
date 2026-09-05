@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 	
 	time_left_label.text = "%.2f" % timer.time_left
 	
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("primary action"):
 		healing_amount += 3
 		health_receptacle.update(
 			float(target._health + healing_amount) / target._max_health

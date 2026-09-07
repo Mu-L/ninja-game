@@ -30,6 +30,9 @@ class_name Battle extends Node2D
 @onready var rotation_receptacle: Receptacle = %RotationReceptacle
 @onready var rotation_data_ui: VBoxContainer = %RotationDataUI
 @onready var end_turn_label: RichTextLabel = %EndTurnLabel
+@onready var end_turn_container: CenterContainer = %EndTurnContainer
+@onready var end_turn_button_yes: Button = %EndTurnButtonYes
+@onready var end_turn_button_no: Button = %EndTurnButtonNo
 
 var battle_data: BattleData
 var allies_data: Array[AllyBattlerData]
@@ -52,6 +55,7 @@ enum States {
 	SELECTING_ALLY,
 	ROTATING,
 	CHOOSING_ROTATION,
+	CHOOSING_TO_END_TURN,
 }
 var state := States.BATTLER_PLAYING_TURNS
 
@@ -256,13 +260,12 @@ func _input(event: InputEvent) -> void:
 			EventBus.set_cursor_visible.emit(false)
 		
 		elif event.is_action_pressed("quaternary action"):
-			for a in allies:
-				a.played_turn = false
-				if a.is_alive:
-					a.animated_sprite_2d.modulate.a = 1.0
-			await get_tree().create_timer(0.1).timeout
-			state = States.BATTLER_PLAYING_TURNS
-			enemy_turn()
+			if len(has_not_played_turn) == 0:
+				end_ally_turn()
+			else:
+				end_turn_container.show()
+				end_turn_button_no.grab_focus()
+				state = States.CHOOSING_TO_END_TURN
 	
 	elif state == States.CHOOSING_ROTATION:
 		var dir: int
@@ -298,6 +301,10 @@ func _input(event: InputEvent) -> void:
 			EventBus.set_cursor_visible.emit(true)
 			EventBus.move_cursor_to.emit(allies[0].global_position)
 			update_battler_data_ui(allies[0])
+	
+	elif state == States.CHOOSING_TO_END_TURN:
+		if event.is_action_pressed("secondary action"):
+			_on_end_turn_button_no_pressed()
 
 func update_battler_data_ui(battler: Battler) -> void:
 	if battler is AllyBattler:
@@ -398,3 +405,23 @@ func next_ally_index() -> int:
 	if len(has_not_played_turn) > 0:
 		return allies.find(has_not_played_turn[0])
 	return 0
+
+func end_ally_turn() -> void:
+	for a in allies:
+		a.played_turn = false
+		if a.is_alive:
+			a.animated_sprite_2d.modulate.a = 1.0
+	await get_tree().create_timer(0.1).timeout
+	state = States.BATTLER_PLAYING_TURNS
+	enemy_turn()
+
+func _on_end_turn_button_no_pressed() -> void:
+	end_turn_container.hide()
+	state = States.SELECTING_ALLY
+
+func _on_end_turn_button_yes_pressed() -> void:
+	end_turn_container.hide()
+	end_ally_turn()
+
+func _process(delta: float) -> void:
+	%DebugLabel.text = States.keys()[state]

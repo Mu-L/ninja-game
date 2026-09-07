@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bnaelby7duhxs" path="res://receptacle/magic_receptacle.tscn" id="5_rxlun"]
 [ext_resource type="AudioStream" uid="uid://blhxfbppschy4" path="res://Ninja Adventure - Asset Pack/Audio/Musics/17 - Fight.ogg" id="6_l1kiu"]
 [ext_resource type="PackedScene" uid="uid://dxe2tklj148p4" path="res://receptacle/rotation_receptacle.tscn" id="6_qybyd"]
+[ext_resource type="PackedScene" uid="uid://dmhiavs4eo8nr" path="res://ui/my_nine_patch_rect.tscn" id="7_eu6g2"]
 [ext_resource type="AudioStream" uid="uid://b5xxo0mbmbhb8" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav" id="8_rxlun"]
 [ext_resource type="AudioStream" uid="uid://df1fo5buh34rv" path="res://Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move1.wav" id="9_vlrs1"]
 [ext_resource type="PackedScene" uid="uid://c55iom3i1e8ev" path="res://receptacle/health_receptacle.tscn" id="10_t8p1f"]
@@ -216,6 +217,71 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
+[node name="EndTurnContainer" type="CenterContainer" parent="UI" unique_id=1066671274]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MyNinePatchRect" parent="UI/EndTurnContainer" unique_id=985872370 instance=ExtResource("7_eu6g2")]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/EndTurnContainer/MyNinePatchRect" unique_id=1265053442]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2" unique_id=803505925]
+layout_mode = 2
+
+[node name="EndTurnLabel" type="RichTextLabel" parent="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2/VBoxContainer" unique_id=182424575]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "End Your Turn ?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2/VBoxContainer" unique_id=1304609697]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="EndTurnButtonYes" type="Button" parent="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=539402987]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Yes"
+
+[node name="EndTurnButtonNo" type="Button" parent="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=1195257361]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "No"
+
+[node name="DebugLabel" type="Label" parent="UI" unique_id=1994284073]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 11.0
+grow_horizontal = 0
+
 [node name="DisplayTextSound" type="AudioStreamPlayer" parent="." unique_id=1007540065]
 stream = ExtResource("5_4mnim")
 
@@ -271,5 +337,7 @@ unique_name_in_owner = true
 position = Vector2(201, 50)
 gizmo_extents = 36.1
 
+[connection signal="pressed" from="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2/VBoxContainer/HBoxContainer/EndTurnButtonYes" to="." method="_on_end_turn_button_yes_pressed"]
+[connection signal="pressed" from="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2/VBoxContainer/HBoxContainer/EndTurnButtonNo" to="." method="_on_end_turn_button_no_pressed"]
 [connection signal="timeout" from="RotationTimer" to="." method="_on_rotation_timer_timeout"]
 [connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]

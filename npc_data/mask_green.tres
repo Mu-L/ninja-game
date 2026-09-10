@@ -192,5 +192,5 @@ script = ExtResource("1_sk175")
 name = "Ruba"
 sprite_frames = SubResource("SpriteFrames_0m71f")
 portait = ExtResource("1_2pvn4")
-dialouge = Array[String](["That's everything for now.", "Be sure to give us feedback about your experience.", "And thanks for playing!", "(You can press 'Q' to quit)"])
+dialouge = Array[String](["That's everything for now.", "Be sure to give us feedback about your experience.", "And thanks for playing!"])
 metadata/_custom_type_script = "uid://10jpfy421udu"

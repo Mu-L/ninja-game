@@ -33,6 +33,7 @@ class_name Battle extends Node2D
 @onready var end_turn_container: CenterContainer = %EndTurnContainer
 @onready var end_turn_button_yes: Button = %EndTurnButtonYes
 @onready var end_turn_button_no: Button = %EndTurnButtonNo
+@onready var confirm_label: RichTextLabel = %ConfirmLabel
 
 var battle_data: BattleData
 var allies_data: Array[AllyBattlerData]
@@ -57,7 +58,8 @@ enum States {
 	CHOOSING_ROTATION,
 	CHOOSING_TO_END_TURN,
 }
-var state := States.BATTLER_PLAYING_TURNS
+var state := States.SELECTING_ALLY:
+	set = set_state
 
 static var is_debuging := false
 
@@ -265,6 +267,9 @@ func _input(event: InputEvent) -> void:
 			else:
 				end_turn_container.show()
 				end_turn_button_no.grab_focus()
+				start_rotate_label.hide()
+				end_turn_label.hide()
+				confirm_label.show()
 				state = States.CHOOSING_TO_END_TURN
 	
 	elif state == States.CHOOSING_ROTATION:
@@ -299,8 +304,9 @@ func _input(event: InputEvent) -> void:
 			rotation_data_ui.hide()
 			state = States.SELECTING_ALLY
 			EventBus.set_cursor_visible.emit(true)
-			EventBus.move_cursor_to.emit(allies[0].global_position)
-			update_battler_data_ui(allies[0])
+			ally_selection_index = next_ally_index()
+			EventBus.move_cursor_to.emit(allies[ally_selection_index].global_position)
+			update_battler_data_ui(allies[ally_selection_index])
 	
 	elif state == States.CHOOSING_TO_END_TURN:
 		if event.is_action_pressed("secondary action"):
@@ -417,11 +423,18 @@ func end_ally_turn() -> void:
 
 func _on_end_turn_button_no_pressed() -> void:
 	end_turn_container.hide()
+	start_rotate_label.show()
+	end_turn_label.show()
+	confirm_label.hide()
 	state = States.SELECTING_ALLY
 
 func _on_end_turn_button_yes_pressed() -> void:
 	end_turn_container.hide()
+	confirm_label.hide()
 	end_ally_turn()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	%DebugLabel.text = States.keys()[state]
+
+func set_state(new_state: States) -> void:
+	state = new_state

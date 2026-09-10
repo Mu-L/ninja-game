@@ -1,3 +1,4 @@
+res://game/
 res://keyboard_mode_screen/
 res://ui/Controllers and Keyboard/
 res://ui/
@@ -7,7 +8,6 @@ res://ally_battler/
 C:/Users/Samir/Desktop/
 res://singletons/
 res://dialogue_box/
-res://game/
 res://follower/
 res://player/
 res://quick_time_events/healing/

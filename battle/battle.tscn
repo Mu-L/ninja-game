@@ -184,6 +184,22 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ConfirmLabel" type="RichTextLabel" parent="UI/MarginContainer2/InstructionsContainer" unique_id=1530489805]
+unique_name_in_owner = true
+visible = false
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/outline_size = 3
+bbcode_enabled = true
+text = "Confirm
+[PRIMARY]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MarginContainer3" type="MarginContainer" parent="UI" unique_id=1567877689]
 offset_right = 40.0
 offset_bottom = 40.0

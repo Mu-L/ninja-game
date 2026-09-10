@@ -11,3 +11,4 @@ res://button_icon_data/quaternary_action.tres
 res://ui/receptacle_shader.gdshader
 res://ui/transition_shader.gdshader
 res://battle/battle.gd
+res://npc_data/mask_green.tres

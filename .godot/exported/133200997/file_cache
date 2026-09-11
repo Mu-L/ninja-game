@@ -1,4 +1,4 @@
-res://battle/battle.tscn::1169f498747c661812f8495d5438e429::1788595515::res://.godot/exported/133200997/export-48a0bed5f71b216925c4f3fa91ede4e7-battle.scn
+res://battle/battle.tscn::5a91102a7e8a5b497572dbd9094c9b31::1789038204::res://.godot/exported/133200997/export-48a0bed5f71b216925c4f3fa91ede4e7-battle.scn
 res://battler/battler.tscn::867efa2e55d4d9ad057a78771ec43773::1782666247::res://.godot/exported/133200997/export-8e98426335541186001f5a20f636bd60-battler.scn
 res://components/damage/damage_component.tscn::408418cd14bcc4f772f5d2518868bd51::1772295734::res://.godot/exported/133200997/export-72a34c76b1c44a70a009eeefc601da63-damage_component.scn
 res://components/interact/interact_component.tscn::375b45b75e7d578ddccc9f3117f7fd27::1788425319::res://.godot/exported/133200997/export-79101c0a84c6b5f5e8ab1e11d7671c99-interact_component.scn
@@ -14,7 +14,7 @@ res://npc_data/boy.tres::07aa10c85ab150e94f174156639dd435::1788593236::res://.go
 res://npc_data/cave_girl.tres::da038db26124b0aa5b64b3a32d8db94f::1788595304::res://.godot/exported/133200997/export-73047d8a252990ab840a324eac0aa7b7-cave_girl.res
 res://npc_data/princess.tres::9851b4d577869866648494a3f0dfb108::1788595327::res://.godot/exported/133200997/export-0d3cf7e905d30863d08706d5b02136c8-princess.res
 res://npc_data/monk.tres::73387c44926b8b07633935f62fe7b700::1788593236::res://.godot/exported/133200997/export-f740e0ba78d02ec87ecd4cfd7b652695-monk.res
-res://npc_data/mask_green.tres::8bcf93b6ce5ec164416b3e6408998ca4::1788593236::res://.godot/exported/133200997/export-4a6e205e4f0a70b71fd4527f5044e430-mask_green.res
+res://npc_data/mask_green.tres::4d3c670e154f53e9de15ce502e35ba7f::1789038080::res://.godot/exported/133200997/export-4a6e205e4f0a70b71fd4527f5044e430-mask_green.res
 res://overworld/overworld.tscn::aab134a4295ab756280b8b050560540d::1783516771::res://.godot/exported/133200997/export-c4d292aad425f1f31c3662eadd440e72-overworld.scn
 res://player/player.tscn::2cd282d21f01bcae230cbf7eb665c145::1788593236::res://.godot/exported/133200997/export-753d15e03e0182f9d550ac833b42bb41-player.scn
 res://quick_time_events/base_class/quick_time_event.tscn::e148000f71b2f9aed6cc76ecde64e947::1781338659::res://.godot/exported/133200997/export-44801335a07e2356ff6db37f7cd3ccb2-quick_time_event.scn
@@ -24,7 +24,7 @@ res://rooms/room_1.tscn::c6dcd6aa0b5584a6c3262f92251dd6b5::1778321628::res://.go
 res://rooms/room_2.tscn::3c6e30ee1081d3ff92e4475a2f88f804::1778321628::res://.godot/exported/133200997/export-06d79a89f19fadbda453de0915be1426-room_2.scn
 res://rooms/room_3.tscn::6c1ded68f72a9d6f043083df46b9b782::1785611316::res://.godot/exported/133200997/export-d6c88d4aecc3264ab52e8677904bc000-room_3.scn
 res://weapon_scene/weapon_scene.tscn::32c03e2ded240425f92c4fc42877e853::1781506705::res://.godot/exported/133200997/export-08d1daf6799a505f379213a5aacbb704-weapon_scene.scn
-res://ally_battler/ally_battler.tscn::f65a8c6b4a31c5547930222c5b240a58::1788615860::res://.godot/exported/133200997/export-08b547ae2de96df1096bf8e412f09e3d-ally_battler.scn
+res://ally_battler/ally_battler.tscn::66663fb1b2953742bae92590e5f1f6d7::1788721136::res://.godot/exported/133200997/export-08b547ae2de96df1096bf8e412f09e3d-ally_battler.scn
 res://battle/backgrounds/orange_field.tscn::86fdfb4b9afc9d81706212e91cafc177::1780999568::res://.godot/exported/133200997/export-0ad25e086c279c89618e623662c08f29-orange_field.scn
 res://battler_data/allies/ninja_blue_data.tres::0468258c1e54f4cf5e8e4944d8ab40d8::1788593236::res://.godot/exported/133200997/export-cf0e6fe70112b42a7bfacb570bf4342f-ninja_blue_data.res
 res://battler_data/allies/ninja_green_data.tres::6ceccb6e1c72d78cd40e4a38db7d19d7::1788593236::res://.godot/exported/133200997/export-caaa3150efae024e57eefff1019af4da-ninja_green_data.res
@@ -43,7 +43,7 @@ res://skills/spin_attack.tres::e5fa0911ef4cfe25de1ca44e3e1e1bd8::1782679668::res
 res://skill_selection_area/circle_selection_area.tscn::40acfcbac240ed30f7c20c7972716b2b::1782035821::res://.godot/exported/133200997/export-4383bfa40204fe763e06205662a42828-circle_selection_area.scn
 res://skill_selection_area/line_selection_area.tscn::0795f9bc4fc52bc576f002799952000c::1781342297::res://.godot/exported/133200997/export-b202ea1e619c0ea516f6b47055c0a4ed-line_selection_area.scn
 res://skill_selection_area/skill_selection_area.tscn::d2d2ecc5ed5533bc064fd1f036029efa::1781343324::res://.godot/exported/133200997/export-7c299ee9aa7ccbb7d67d324b8675af00-skill_selection_area.scn
-res://ui/main_theme.tres::de6a5455cc11f7ac96594f3c6bc1e15c::1788593236::res://.godot/exported/133200997/export-124d01d3d88a2aece4c58c3df5383255-main_theme.res
+res://ui/main_theme.tres::de6a5455cc11f7ac96594f3c6bc1e15c::1789034566::res://.godot/exported/133200997/export-124d01d3d88a2aece4c58c3df5383255-main_theme.res
 res://ui/my_nine_patch_rect.tscn::199f2afbd1c926a729ffb4d10f109225::1782465464::res://.godot/exported/133200997/export-61dd3e40025b346765c2f72e1bedbff5-my_nine_patch_rect.scn
 res://battler_data/enemies/axolotl_data.tres::f3487fb92c518bd61fc6925531fe1c76::1788593236::res://.godot/exported/133200997/export-32a2fc92c307515f83808bafb7bb8a09-axolotl_data.res
 res://battle_data/first_encounter.tres::fd328078924a7fc90e41c7063a7293da::1788593236::res://.godot/exported/133200997/export-aac6a79cea336936760ebec81b69ce59-first_encounter.res
@@ -59,7 +59,7 @@ res://level_up_data/red_ninja/red_ninja_level_up_3.tres::7c09d9466f1057fd4b0da17
 res://level_up_data/yellow_ninja/yellow_ninja_level_up_3.tres::d7c357a65b96034a174618a5ca16a697::1782904163::res://.godot/exported/133200997/export-843519be782f841d594cd3852c38125e-yellow_ninja_level_up_3.res
 res://quick_time_events/arrow/arrow_qte.tscn::e488256195578feb12dd15d0dd500acd::1788425319::res://.godot/exported/133200997/export-58abc7dc324ff7e8f13cf0817374dfa0-arrow_qte.scn
 res://quick_time_events/arrow/cursor.tscn::2fca574ca770d0a8d970bd905276b486::1782641541::res://.godot/exported/133200997/export-fdaab6eeba2dab8e56ef6141754446fc-cursor.scn
-res://quick_time_events/guard/guard_qte.tscn::024d39d8cf775fe7d709e6df35ef2013::1786206265::res://.godot/exported/133200997/export-fcfd43a81036f8bb633916850293e590-guard_qte.scn
+res://quick_time_events/guard/guard_qte.tscn::d448fe0dbda0a3b5747eda8c4c6ad393::1788720517::res://.godot/exported/133200997/export-fcfd43a81036f8bb633916850293e590-guard_qte.scn
 res://quick_time_events/kunai_rain/kunai_rain.tscn::6beeb7f2b6402f89e9f9cc9e3cc9f5e5::1788425319::res://.godot/exported/133200997/export-ae1aec02938f73dd358311a40618dc93-kunai_rain.scn
 res://quick_time_events/revive/revive_qte.tscn::68aa3b314714ba037477f9613d8664a6::1782763058::res://.godot/exported/133200997/export-29bcdc00218b18c736147e14071da329-revive_qte.scn
 res://quick_time_events/second_chance/second_chance_qte.tscn::b819768120c6c30cc82553a5ca98a0e9::1782762449::res://.godot/exported/133200997/export-c5fe0e707e711cb54a08db4fd417fa82-second_chance_qte.scn
@@ -79,11 +79,12 @@ res://receptacle/magic_receptacle.tscn::9b5f53cb19f5f4f434562dad5c336130::178842
 res://receptacle/rotation_receptacle.tscn::cf13fc561d6c2e9223ccdc83d2770a71::1788425329::res://.godot/exported/133200997/export-e59ff3c602a910e6418c97618dbd99be-rotation_receptacle.scn
 res://singletons/event_bus.tscn::7e1804be2a2c74495efc7629bf6ea34e::1788172229::res://.godot/exported/133200997/export-43225bc4b9bef7c48361b513a4f1ae02-event_bus.scn
 res://singletons/my_input.tscn::c8fb69b007ea25ebbc8379f6cb86d9a3::1788613916::res://.godot/exported/133200997/export-623463996741fab4d9c65b8b37fc58f3-my_input.scn
-res://button_icon_data/move_left.tres::e87420d3521c88584500e6dc80eec2ff::1788596667::res://.godot/exported/133200997/export-4779578a4ab6e7028d5f0bc6be35e25a-move_left.res
-res://button_icon_data/move_right.tres::7b4deec83cd3b8c9803e9f47590600ff::1788596662::res://.godot/exported/133200997/export-2c23460428f612d44ade404cf5891063-move_right.res
-res://button_icon_data/primary_action.tres::1e5b32f1c1a156a28e7c28d7bc5e4160::1788611726::res://.godot/exported/133200997/export-f2290a131a0a07f182bb19df4a0d0b19-primary_action.res
-res://button_icon_data/move_up.tres::5feb37eb888aad3dba2992dc2946a74a::1788596685::res://.godot/exported/133200997/export-10e135db0d076c143edf28695e05b415-move_up.res
-res://button_icon_data/move_down.tres::cd3847fc56f4eca0f0a1c22eac9f6d8c::1788596680::res://.godot/exported/133200997/export-2e89bdee21bc3c6f23b6e4eb724e26a0-move_down.res
-res://button_icon_data/secondary_action.tres::bc09e47f4270963ccd791538911fe9af::1788595041::res://.godot/exported/133200997/export-de4e3012c2d55165596b067927a45f3b-secondary_action.res
-res://button_icon_data/tertiary_action.tres::954f276d6f89426bec0e00d72e40f0e3::1788595131::res://.godot/exported/133200997/export-a41467a96cbc29cb3aaa56db82af6eb1-tertiary_action.res
-res://keyboard_mode_screen/keyboard_mode_screen.tscn::ff242148a98799c6297ac4ae5c41af46::1788615932::res://.godot/exported/133200997/export-a78e5bfe2aa422b7a08aa7f11bbd66a7-keyboard_mode_screen.scn
+res://button_icon_data/move_left.tres::e87420d3521c88584500e6dc80eec2ff::1789034566::res://.godot/exported/133200997/export-4779578a4ab6e7028d5f0bc6be35e25a-move_left.res
+res://button_icon_data/move_right.tres::7b4deec83cd3b8c9803e9f47590600ff::1789034566::res://.godot/exported/133200997/export-2c23460428f612d44ade404cf5891063-move_right.res
+res://button_icon_data/primary_action.tres::1e5b32f1c1a156a28e7c28d7bc5e4160::1789034566::res://.godot/exported/133200997/export-f2290a131a0a07f182bb19df4a0d0b19-primary_action.res
+res://button_icon_data/move_up.tres::5feb37eb888aad3dba2992dc2946a74a::1789034566::res://.godot/exported/133200997/export-10e135db0d076c143edf28695e05b415-move_up.res
+res://button_icon_data/move_down.tres::cd3847fc56f4eca0f0a1c22eac9f6d8c::1789034566::res://.godot/exported/133200997/export-2e89bdee21bc3c6f23b6e4eb724e26a0-move_down.res
+res://button_icon_data/secondary_action.tres::bc09e47f4270963ccd791538911fe9af::1789034566::res://.godot/exported/133200997/export-de4e3012c2d55165596b067927a45f3b-secondary_action.res
+res://button_icon_data/tertiary_action.tres::954f276d6f89426bec0e00d72e40f0e3::1789034566::res://.godot/exported/133200997/export-a41467a96cbc29cb3aaa56db82af6eb1-tertiary_action.res
+res://keyboard_mode_screen/keyboard_mode_screen.tscn::ff242148a98799c6297ac4ae5c41af46::1788722330::res://.godot/exported/133200997/export-a78e5bfe2aa422b7a08aa7f11bbd66a7-keyboard_mode_screen.scn
+res://button_icon_data/quaternary_action.tres::9a2f0ebc833a88ed3bc6439263ee2b33::1789034566::res://.godot/exported/133200997/export-92ee0e74405cedcb429cf13562eebeb5-quaternary_action.res

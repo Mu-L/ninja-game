@@ -10,7 +10,6 @@ class_name AllyBattlerData extends BattlerData
 @export_tool_button("generate sprite_frames animations from texture") var button := func():
 	sprite_frames = Util.generate_sprite_frames(texture, true, animation_speed, flying)
 
-
 var magic_points: int
 var EXP: int = 0
 var level: int = 1

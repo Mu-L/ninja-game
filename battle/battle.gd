@@ -318,6 +318,7 @@ func finish_battle() -> void:
 					if num_of_allies_who_finished_increasing_xp == 4:
 						for a in allies:
 							await a.level_up()
+							await get_tree().create_timer(0.1).timeout
 						EventBus.battle_finished.emit()
 			)
 	else:

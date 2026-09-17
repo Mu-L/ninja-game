@@ -1,5 +1,7 @@
 extends Node
 
+signal confirm_button_pressed
+
 @onready var button_icon_data: Dictionary[String, ButtonIconData] = {
 	"[PRIMARY]" : preload("uid://djmypdcxk76p3"),
 	"[SECONDARY]" : preload("uid://cxx1mamkhfdvv"),
@@ -90,6 +92,9 @@ func _input(event: InputEvent) -> void:
 	if new_input_mode != current_input_mode:
 		current_input_mode = new_input_mode
 		input_mode_changed.emit()
+	
+	if event.is_action_pressed("primary action"):
+		confirm_button_pressed.emit()
 
 func update_keyboard_controls() -> void:
 	for action in keyboard_actions:

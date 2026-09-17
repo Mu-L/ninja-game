@@ -7,5 +7,12 @@ enum Stat {
 	DEFENSE
 }
 
+const SHORT_HAND_NAMES: Dictionary[Stat, String] = {
+	Stat.MAX_HEALTH : "HP",
+	Stat.MAX_MAGIC_POINTS : "MP",
+	Stat.STRENGTH : "STR",
+	Stat.DEFENSE : "DEF"
+}
+
 @export var stat_increases: Dictionary[Stat, int]
-@export var skills: Array[Skill]
+@export var new_skill: Skill

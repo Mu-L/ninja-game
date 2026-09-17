@@ -320,33 +320,32 @@ func increase_exp(amount: int) -> void:
 
 func level_up() -> void:
 	for i in levels_gained:
-		level_up_sound.play()
 		_data.level += 1
-		var args := [get_colored_name(), _data.level]
-		EventBus.display_text.emit("%s reached level %d" % args)
-		await EventBus.textbox_closed
 		# Check if reached max level:
 		if _data.level-1 > len(_data.level_ups):
 			return
+		level_up_sound.play()
 		var level_up := _data.level_ups[_data.level-2]
 		for stat: LevelUp.Stat in level_up.stat_increases.keys():
 			var increase_amount: int = level_up.stat_increases[stat]
 			var stat_string: String = LevelUp.Stat.keys()[stat]
 			stat_string = stat_string.to_lower()
-			#EventBus.display_text.emit(
-				#"%s increased by %d" % [stat_string.replace('_',' '), increase_amount]
-			#)
-			#await EventBus.textbox_closed
 			var original_value = _data.get(stat_string)
 			_data.set(stat_string, original_value + increase_amount)
 			if stat_string == "max_health":
 				_data.health += increase_amount
 			elif stat_string == 'max_magic_points':
 				_data.magic_points += increase_amount
-		for skill: Skill in level_up.skills:
-			_data.skills.append(skill)
-			EventBus.display_text.emit("New Skill Unlocked: %s" % Util.BBcode_color(skill.name, _data.text_color)) 
-			await EventBus.textbox_closed
+		if level_up.new_skill:
+			_data.skills.append(level_up.new_skill)
+		
+		# UI stuff:
+		ui.show()
+		var level_up_ui := LevelUpUI.create(_data, level_up)
+		ui.add_child(level_up_ui)
+		await MyInput.confirm_button_pressed
+		level_up_ui.queue_free()
+		ui.hide()
 
 func missed_effect(pos: Vector2) -> void:
 	const MISS_LABEL = preload("uid://cqw5qj1ygekwl")

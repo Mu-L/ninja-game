@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c8np1wvc1jkap"]
+
+[ext_resource type="PackedScene" uid="uid://d0eassyffx1wr" path="res://battle/skill_selection_area/skill_selection_area.tscn" id="1_cklfm"]
+[ext_resource type="Script" uid="uid://ci64r8aokch4m" path="res://battle/skill_selection_area/circle_selection_area.gd" id="2_1lgn6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cklfm"]
+radius = 40.0
+
+[node name="CircleSelectionArea" unique_id=126199509 instance=ExtResource("1_cklfm")]
+script = ExtResource("2_1lgn6")
+shape_color = Color(0, 0.5421636, 0.8302411, 1)
+target_type = 1
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1862460091]
+shape = SubResource("CircleShape2D_cklfm")

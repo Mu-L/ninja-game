@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://dtdi6qt2w5f35"]
-
-[ext_resource type="Script" uid="uid://30esm8vsy0bi" path="res://singletons/my_input.gd" id="1_156xd"]
-
-[node name="MyInput" type="Node" unique_id=1067617315]
-process_mode = 3
-script = ExtResource("1_156xd")

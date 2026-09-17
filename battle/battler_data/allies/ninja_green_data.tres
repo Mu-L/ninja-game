@@ -1,0 +1,294 @@
+[gd_resource type="Resource" script_class="AllyBattlerData" format=3 uid="uid://im0h2iyo37dj"]
+
+[ext_resource type="Script" uid="uid://3cf25bcqwuo5" path="res://battle/level_up_data/level_up.gd" id="1_bkg23"]
+[ext_resource type="Script" uid="uid://7qx50intwyfe" path="res://battle/battler_data/allies/ally_battler_data.gd" id="1_e24ek"]
+[ext_resource type="Resource" uid="uid://dujaori7s53ky" path="res://battle/level_up_data/red_ninja/red_ninja_level_up_2.tres" id="2_8l5fk"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://battle/skills/skill.gd" id="2_tmdsl"]
+[ext_resource type="Texture2D" uid="uid://c2xtnwyilcr35" path="res://Ninja Adventure - Asset Pack/Actor/Character/NinjaGreen/Faceset.png" id="3_bkg23"]
+[ext_resource type="Resource" uid="uid://c3jl76uisxj5l" path="res://battle/level_up_data/red_ninja/red_ninja_level_up_3.tres" id="3_vxke6"]
+[ext_resource type="Resource" uid="uid://vr5hhfyr4k1m" path="res://battle/skills/use_weapon.tres" id="7_st70b"]
+[ext_resource type="Texture2D" uid="uid://d2mfphyp3bhuq" path="res://Ninja Adventure - Asset Pack/Actor/Character/NinjaGreen/SpriteSheet.png" id="7_tmdsl"]
+[ext_resource type="Resource" uid="uid://dv4ccybyfcccu" path="res://battle/skills/guard.tres" id="8_3jnw6"]
+[ext_resource type="Resource" uid="uid://of5cop8am2eq" path="res://battle/weapons/iron_sword.tres" id="10_v8jl2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmdsl"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(0, 64, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fpfn"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(32, 64, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p33he"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(48, 64, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkg23"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(16, 64, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f28gi"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(0, 96, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce4m3"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4jwj"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw4vp"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuic0"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry4rf"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(0, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ervbm"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(0, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq4hi"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(0, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbof0"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(0, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0v5t"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(32, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfiay"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(32, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4kxm"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(32, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p0eb"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(32, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyjw7"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(48, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2fej"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(48, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4bcl"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(48, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vnqt"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(48, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flt60"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(16, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f685w"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(16, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1ucd"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(16, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x32vu"]
+atlas = ExtResource("7_tmdsl")
+region = Rect2(16, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t77tj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmdsl")
+}],
+"loop": true,
+"name": &"attack down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fpfn")
+}],
+"loop": true,
+"name": &"attack left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p33he")
+}],
+"loop": true,
+"name": &"attack right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkg23")
+}],
+"loop": true,
+"name": &"attack up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f28gi")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce4m3")
+}],
+"loop": true,
+"name": &"idle down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4jwj")
+}],
+"loop": true,
+"name": &"idle left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw4vp")
+}],
+"loop": true,
+"name": &"idle right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuic0")
+}],
+"loop": true,
+"name": &"idle up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry4rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ervbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq4hi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbof0")
+}],
+"loop": true,
+"name": &"walk down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0v5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfiay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4kxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p0eb")
+}],
+"loop": true,
+"name": &"walk left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyjw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2fej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4bcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vnqt")
+}],
+"loop": true,
+"name": &"walk right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flt60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f685w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1ucd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x32vu")
+}],
+"loop": true,
+"name": &"walk up",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_e24ek")
+max_magic_points = 21
+EXP_to_next_level = 120
+skills = Array[ExtResource("2_tmdsl")]([ExtResource("7_st70b"), ExtResource("8_3jnw6")])
+weapon = ExtResource("10_v8jl2")
+level_ups = Array[ExtResource("1_bkg23")]([ExtResource("2_8l5fk"), ExtResource("3_vxke6")])
+text_color = Color(0.21600002, 0.48, 0, 1)
+max_health = 115
+strength = 13
+defense = 10
+name = "Green Ninja"
+portrait = ExtResource("3_bkg23")
+texture = ExtResource("7_tmdsl")
+sprite_frames = SubResource("SpriteFrames_t77tj")
+flying = true
+metadata/_custom_type_script = "uid://7qx50intwyfe"

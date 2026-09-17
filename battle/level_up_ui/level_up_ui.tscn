@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://cjmfi1pd467bv"]
+
+[ext_resource type="Theme" uid="uid://r8nrangxoa1v" path="res://ui/main_theme.tres" id="1_jlyfc"]
+[ext_resource type="Script" uid="uid://dmdv846ce5321" path="res://battle/level_up_ui/level_up_ui.gd" id="1_qwotx"]
+[ext_resource type="Texture2D" uid="uid://dk1dvkq125oc3" path="res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/nine_path_panel.png" id="2_qwotx"]
+[ext_resource type="Texture2D" uid="uid://ddiwy5yqxce0k" path="res://Ninja Adventure - Asset Pack/Ui/Theme/Theme Wood/nine_path_bg_2.png" id="3_0sypd"]
+[ext_resource type="Texture2D" uid="uid://btqqgi26n4xx6" path="res://Ninja Adventure - Asset Pack/Ui/Dialog/FacesetBox.png" id="4_oq4dk"]
+[ext_resource type="Texture2D" uid="uid://c2xtnwyilcr35" path="res://Ninja Adventure - Asset Pack/Actor/Character/NinjaGreen/Faceset.png" id="5_r0daa"]
+[ext_resource type="Texture2D" uid="uid://doyuy61mvmqtw" path="res://Ninja Adventure - Asset Pack/Ui/Skill Icon/Items & Weapon/Shuriken.png" id="6_ilofx"]
+
+[node name="LevelUpUI" type="VBoxContainer" unique_id=2025174332]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -77.5
+offset_right = 81.0
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_qwotx")
+
+[node name="BattlerNameLabel" type="RichTextLabel" parent="." unique_id=1672837623]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "%s Reached level %d"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="LevelUpRect" type="NinePatchRect" parent="." unique_id=985872370]
+custom_minimum_size = Vector2(140, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_jlyfc")
+texture = ExtResource("2_qwotx")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelUpRect" unique_id=1693474024]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="NinePatchRect" type="NinePatchRect" parent="LevelUpRect/MarginContainer" unique_id=1889410555]
+layout_mode = 2
+texture = ExtResource("3_0sypd")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelUpRect/MarginContainer/NinePatchRect" unique_id=1240721965]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelUpRect/MarginContainer/NinePatchRect/MarginContainer" unique_id=573054584]
+layout_mode = 2
+theme_override_constants/separation = 11
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelUpRect/MarginContainer/NinePatchRect/MarginContainer/HBoxContainer" unique_id=1596797986]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PortraitFrame" type="TextureRect" parent="LevelUpRect/MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer" unique_id=794902634]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("4_oq4dk")
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelUpRect/MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer/PortraitFrame" unique_id=2041171879]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="BattlerPortrait" type="TextureRect" parent="LevelUpRect/MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/VBoxContainer/PortraitFrame/MarginContainer" unique_id=1049192537]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("5_r0daa")
+
+[node name="StatsContainer" type="GridContainer" parent="LevelUpRect/MarginContainer/NinePatchRect/MarginContainer/HBoxContainer" unique_id=51467528]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+columns = 2
+
+[node name="NewSkillLabel" type="RichTextLabel" parent="." unique_id=396584939]
+unique_name_in_owner = true
+visible = false
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 3
+bbcode_enabled = true
+text = "New Skill Learned"
+fit_content = true
+autowrap_mode = 0
+
+[node name="NewSkillUI" type="NinePatchRect" parent="." unique_id=20669246]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_jlyfc")
+texture = ExtResource("2_qwotx")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="NewSkillUI" unique_id=179648853]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NewSkillUI/MarginContainer" unique_id=769261258]
+layout_mode = 2
+texture = ExtResource("3_0sypd")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="CenterContainer" parent="NewSkillUI/MarginContainer/NinePatchRect" unique_id=1685494213]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NewSkillUI/MarginContainer/NinePatchRect/MarginContainer" unique_id=1327119570]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+
+[node name="SkillIcon" type="TextureRect" parent="NewSkillUI/MarginContainer/NinePatchRect/MarginContainer/HBoxContainer" unique_id=151183305]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("6_ilofx")
+
+[node name="SkillName" type="Label" parent="NewSkillUI/MarginContainer/NinePatchRect/MarginContainer/HBoxContainer" unique_id=825462082]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Kunai Rain"

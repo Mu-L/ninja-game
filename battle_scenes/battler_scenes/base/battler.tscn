@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://3t6a4pm4ttpx"]
+
+[ext_resource type="AudioStream" uid="uid://01ohrsvqmlkm" path="res://sounds/Impact2.wav" id="1_kj5ye"]
+[ext_resource type="Animation" uid="uid://7wbax7rpn4ah" path="res://battle_scenes/battler_scenes/ally/blink.res" id="2_e27bp"]
+[ext_resource type="Texture2D" uid="uid://byoohdpms7418" path="res://battle_scenes/battler_scenes/base/LifeBarMiniUnder.png" id="3_gmf5j"]
+[ext_resource type="Texture2D" uid="uid://b8j0xm6wq4ba5" path="res://battle_scenes/battler_scenes/base/LifeBarMiniProgress.png" id="4_ox4b6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mwqo"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_1wwld"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pmsee"]
+resource_name = "hurt"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1.0, 0.0, 1.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f17ml"]
+_data = {
+&"RESET": SubResource("Animation_1wwld"),
+&"blink": ExtResource("2_e27bp"),
+&"hurt": SubResource("Animation_pmsee")
+}
+
+[node name="Battler" type="Area2D" unique_id=2077277544 groups=["battler"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2107465465]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=237910253]
+visible = false
+shape = SubResource("CircleShape2D_3mwqo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1772088629]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_f17ml")
+
+[node name="NumberLabel" type="Label" parent="." unique_id=261734383]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+offset_left = -17.0
+offset_top = 32.0
+offset_right = 23.0
+offset_bottom = 55.0
+theme_override_constants/outline_size = 4
+text = "100"
+
+[node name="HPLabel" type="Label" parent="." unique_id=1568770917]
+offset_left = -14.0
+offset_top = -42.0
+offset_right = 26.0
+offset_bottom = -19.0
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=1473143112]
+unique_name_in_owner = true
+stream = ExtResource("1_kj5ye")
+
+[node name="StatsContainer" type="VBoxContainer" parent="." unique_id=528664899]
+unique_name_in_owner = true
+offset_left = -9.0
+offset_top = 9.0
+offset_right = 9.0
+offset_bottom = 13.0
+theme_override_constants/separation = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="StatsContainer" unique_id=857112302]
+unique_name_in_owner = true
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 100.0
+texture_under = ExtResource("3_gmf5j")
+texture_progress = ExtResource("4_ox4b6")

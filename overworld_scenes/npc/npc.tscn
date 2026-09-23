@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dho364r52w8t7"]
+
+[ext_resource type="Script" uid="uid://1qrbw6c1nrg7" path="res://overworld_scenes/npc/npc.gd" id="1_nhy3c"]
+[ext_resource type="PackedScene" uid="uid://cqxojkjpu1hpm" path="res://overworld_scenes/components/interact/interact_component.tscn" id="3_3i1kj"]
+[ext_resource type="PackedScene" uid="uid://bdexxyiy6fxdj" path="res://overworld_scenes/components/random_walker/random_walker.tscn" id="4_o6cys"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2xp5l"]
+radius = 6.0
+
+[node name="NPC" type="CharacterBody2D" unique_id=546455887]
+y_sort_enabled = true
+position = Vector2(0, -8)
+script = ExtResource("1_nhy3c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1606118956]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1672638396]
+shape = SubResource("CircleShape2D_2xp5l")
+
+[node name="InteractComponent" parent="." unique_id=1420502684 instance=ExtResource("3_3i1kj")]
+
+[node name="RandomWalker" parent="." unique_id=1193253767 node_paths=PackedStringArray("body", "animated_sprite_2d") instance=ExtResource("4_o6cys")]
+body = NodePath("..")
+animated_sprite_2d = NodePath("../AnimatedSprite2D")
+
+[connection signal="interacted" from="InteractComponent" to="." method="_on_interact_component_interacted"]

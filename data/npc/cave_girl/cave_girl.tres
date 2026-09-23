@@ -1,0 +1,230 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://cr74qrb8t6xaj"]
+
+[ext_resource type="Texture2D" uid="uid://c113nlj77nmpi" path="res://data/npc/cave_girl/Faceset.png" id="1_4vpii"]
+[ext_resource type="Script" uid="uid://10jpfy421udu" path="res://data/npc/npc_data.gd" id="2_6ddyt"]
+[ext_resource type="Texture2D" uid="uid://btsaaa1s0qwpd" path="res://data/npc/cave_girl/SpriteSheet.png" id="4_yafsu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgo35"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(32, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vpii"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(32, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ddyt"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(32, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qwoa"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(32, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yafsu"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3oho"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fs70"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbm45"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqrha"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(0, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ah4an"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(0, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diolh"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(0, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p57t5"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(0, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4meoq"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(48, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yh2i"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(48, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmhu0"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(48, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0217q"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(48, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfaow"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(16, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_232l6"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(16, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avxg0"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(16, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hmkx"]
+atlas = ExtResource("4_yafsu")
+region = Rect2(16, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rf2u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgo35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vpii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ddyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qwoa")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yafsu")
+}],
+"loop": true,
+"name": &"idle down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3oho")
+}],
+"loop": true,
+"name": &"idle left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fs70")
+}],
+"loop": true,
+"name": &"idle right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbm45")
+}],
+"loop": true,
+"name": &"idle up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqrha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah4an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_diolh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p57t5")
+}],
+"loop": true,
+"name": &"walk down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgo35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vpii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ddyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qwoa")
+}],
+"loop": true,
+"name": &"walk left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4meoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yh2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmhu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0217q")
+}],
+"loop": true,
+"name": &"walk right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfaow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_232l6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avxg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hmkx")
+}],
+"loop": true,
+"name": &"walk up",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_6ddyt")
+name = "Girl"
+sprite_frames = SubResource("SpriteFrames_7rf2u")
+portait = ExtResource("1_4vpii")
+texture = ExtResource("4_yafsu")
+dialouge = Array[String](["Pressing the [TERTIARY] key in battle lets you change your team's formation.", "The party member in the front line is more likely to get attacked.", "While the party member in the back is less likely to get attacked."])
+metadata/_custom_type_script = "uid://10jpfy421udu"

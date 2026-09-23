@@ -1,0 +1,359 @@
+[gd_scene format=3 uid="uid://cb3474ae6wcck"]
+
+[ext_resource type="Script" uid="uid://qa81bx3qbhu7" path="res://battle_scenes/battle_scene/battle.gd" id="1_4mnim"]
+[ext_resource type="Texture2D" uid="uid://d4erqddj5td6y" path="res://battle_scenes/battle_scene/DialogueBoxSimple.png" id="4_4mnim"]
+[ext_resource type="PackedScene" uid="uid://bxwiqrm50f1p5" path="res://ui/button_prompt/button_prompt.tscn" id="4_eu6g2"]
+[ext_resource type="AudioStream" uid="uid://de2qvyro68d30" path="res://sounds/Menu5.wav" id="5_4mnim"]
+[ext_resource type="AudioStream" uid="uid://1o8dv5yt2kjo" path="res://sounds/Alert.wav" id="5_7fucf"]
+[ext_resource type="PackedScene" uid="uid://4ku024axqoix" path="res://battle_scenes/selection_cursor/selection_cursor.tscn" id="5_l1kiu"]
+[ext_resource type="PackedScene" uid="uid://bnaelby7duhxs" path="res://battle_scenes/receptacle/magic_receptacle.tscn" id="5_rxlun"]
+[ext_resource type="AudioStream" uid="uid://cvd8mukypfo54" path="res://sounds/music/17 - Fight.ogg" id="6_l1kiu"]
+[ext_resource type="PackedScene" uid="uid://dxe2tklj148p4" path="res://battle_scenes/receptacle/rotation_receptacle.tscn" id="6_qybyd"]
+[ext_resource type="PackedScene" uid="uid://dmhiavs4eo8nr" path="res://ui/my_nine_patch_rect/my_nine_patch_rect.tscn" id="7_eu6g2"]
+[ext_resource type="AudioStream" uid="uid://cvg5qomdv2btu" path="res://sounds/Move2.wav" id="8_rxlun"]
+[ext_resource type="AudioStream" uid="uid://cf2pfojitoq2l" path="res://sounds/Move1.wav" id="9_vlrs1"]
+[ext_resource type="PackedScene" uid="uid://c55iom3i1e8ev" path="res://battle_scenes/receptacle/health_receptacle.tscn" id="10_t8p1f"]
+
+[node name="Battle" type="Node2D" unique_id=697061231]
+script = ExtResource("1_4mnim")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1810498988]
+layer = 2
+
+[node name="TextBox" type="TextureRect" parent="UI" unique_id=1720251685]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 58.0
+grow_horizontal = 2
+texture = ExtResource("4_4mnim")
+
+[node name="BattleText" type="RichTextLabel" parent="UI/TextBox" unique_id=128704603]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "battle text goes here !"
+visible_characters_behavior = 1
+
+[node name="ButtonPrompt" parent="UI/TextBox" unique_id=1217119096 instance=ExtResource("4_eu6g2")]
+unique_name_in_owner = true
+position = Vector2(298, 43)
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=396701321]
+offset_right = 79.0
+offset_bottom = 108.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="BattlerDataUI" type="VBoxContainer" parent="UI/MarginContainer" unique_id=1904351649]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+alignment = 2
+
+[node name="HealthReceptacle" parent="UI/MarginContainer/BattlerDataUI" unique_id=1770957786 instance=ExtResource("10_t8p1f")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="BattlerHealthLabel" type="Label" parent="UI/MarginContainer/BattlerDataUI" unique_id=1293268666]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/outline_size = 4
+text = "HP 100/999"
+vertical_alignment = 1
+
+[node name="MagicReceptacle" parent="UI/MarginContainer/BattlerDataUI" unique_id=1367369809 instance=ExtResource("5_rxlun")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="BattlerMagicLabel" type="RichTextLabel" parent="UI/MarginContainer/BattlerDataUI" unique_id=1413617785]
+unique_name_in_owner = true
+clip_contents = false
+custom_minimum_size = Vector2(75, 15)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "MP 100/999"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI" unique_id=807020991]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="InstructionsContainer" type="HBoxContainer" parent="UI/MarginContainer2" unique_id=1687366233]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+alignment = 2
+
+[node name="StartRotateLabel" type="RichTextLabel" parent="UI/MarginContainer2/InstructionsContainer" unique_id=820622500]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/outline_size = 3
+bbcode_enabled = true
+text = "Rotate
+[TERTIARY]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndTurnLabel" type="RichTextLabel" parent="UI/MarginContainer2/InstructionsContainer" unique_id=2073743952]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/outline_size = 3
+bbcode_enabled = true
+text = "End Turn
+[QUATERNARY]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CancelLabel" type="RichTextLabel" parent="UI/MarginContainer2/InstructionsContainer" unique_id=1746570084]
+unique_name_in_owner = true
+visible = false
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/outline_size = 3
+bbcode_enabled = true
+text = "Return
+[SECONDARY]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DoRotateLabel" type="RichTextLabel" parent="UI/MarginContainer2/InstructionsContainer" unique_id=1443976756]
+unique_name_in_owner = true
+visible = false
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/outline_size = 3
+bbcode_enabled = true
+text = "Rotate
+[LEFT][RIGHT]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmLabel" type="RichTextLabel" parent="UI/MarginContainer2/InstructionsContainer" unique_id=1530489805]
+unique_name_in_owner = true
+visible = false
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/outline_size = 3
+bbcode_enabled = true
+text = "Confirm
+[PRIMARY]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="UI" unique_id=1567877689]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RotationDataUI" type="VBoxContainer" parent="UI/MarginContainer3" unique_id=381085076]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="RotationReceptacle" parent="UI/MarginContainer3/RotationDataUI" unique_id=2066394465 instance=ExtResource("6_qybyd")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="RotationCountLabel" type="RichTextLabel" parent="UI/MarginContainer3/RotationDataUI" unique_id=1022535007]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "RP 5/6"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="EndTurnContainer" type="CenterContainer" parent="UI" unique_id=1066671274]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MyNinePatchRect" parent="UI/EndTurnContainer" unique_id=985872370 instance=ExtResource("7_eu6g2")]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/EndTurnContainer/MyNinePatchRect" unique_id=1265053442]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2" unique_id=803505925]
+layout_mode = 2
+
+[node name="EndTurnLabel" type="RichTextLabel" parent="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2/VBoxContainer" unique_id=182424575]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "End Your Turn ?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2/VBoxContainer" unique_id=1304609697]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="EndTurnButtonYes" type="Button" parent="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=539402987]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Yes"
+
+[node name="EndTurnButtonNo" type="Button" parent="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=1195257361]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "No"
+
+[node name="DebugLabel" type="Label" parent="UI" unique_id=1994284073]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 11.0
+grow_horizontal = 0
+
+[node name="DisplayTextSound" type="AudioStreamPlayer" parent="." unique_id=1007540065]
+stream = ExtResource("5_4mnim")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1830405518]
+unique_name_in_owner = true
+stream = ExtResource("6_l1kiu")
+autoplay = true
+
+[node name="ErrorSound" type="AudioStreamPlayer" parent="." unique_id=1713634468]
+unique_name_in_owner = true
+stream = ExtResource("5_7fucf")
+
+[node name="TextSound" type="AudioStreamPlayer" parent="." unique_id=1771181007]
+unique_name_in_owner = true
+stream = ExtResource("8_rxlun")
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="." unique_id=1991502923]
+unique_name_in_owner = true
+stream = ExtResource("9_vlrs1")
+
+[node name="RotationTimer" type="Timer" parent="." unique_id=2035176898]
+unique_name_in_owner = true
+
+[node name="TextTimer" type="Timer" parent="." unique_id=52883603]
+unique_name_in_owner = true
+wait_time = 0.025
+one_shot = true
+
+[node name="Battlers" type="Node2D" parent="." unique_id=882097105]
+unique_name_in_owner = true
+
+[node name="BattleCamera" type="Camera2D" parent="." unique_id=256184825]
+unique_name_in_owner = true
+position = Vector2(160, 90)
+
+[node name="SelectionCursor" parent="." unique_id=24772584 instance=ExtResource("5_l1kiu")]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+
+[node name="AllySpawnCircle" type="Marker2D" parent="." unique_id=1351190678]
+unique_name_in_owner = true
+visible = false
+position = Vector2(121, 90)
+rotation = 3.1415927
+
+[node name="AllySpawnPoint" type="Marker2D" parent="AllySpawnCircle" unique_id=880381202]
+unique_name_in_owner = true
+position = Vector2(0, 40)
+
+[node name="EnemySpawnOriginPoint" type="Marker2D" parent="." unique_id=1398596301]
+unique_name_in_owner = true
+position = Vector2(201, 50)
+gizmo_extents = 36.1
+
+[connection signal="pressed" from="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2/VBoxContainer/HBoxContainer/EndTurnButtonYes" to="." method="_on_end_turn_button_yes_pressed"]
+[connection signal="pressed" from="UI/EndTurnContainer/MyNinePatchRect/MarginContainer2/VBoxContainer/HBoxContainer/EndTurnButtonNo" to="." method="_on_end_turn_button_no_pressed"]
+[connection signal="timeout" from="RotationTimer" to="." method="_on_rotation_timer_timeout"]
+[connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]

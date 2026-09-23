@@ -1,0 +1,229 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://phyrh3kwfj00"]
+
+[ext_resource type="Texture2D" uid="uid://dsljyi8p4woou" path="res://data/npc/boy/Faceset.png" id="1_gnxjt"]
+[ext_resource type="Script" uid="uid://10jpfy421udu" path="res://data/npc/npc_data.gd" id="2_5sav8"]
+[ext_resource type="Texture2D" uid="uid://bgmb7tvj8hsiq" path="res://data/npc/boy/SpriteSheet.png" id="3_f216u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb270"]
+atlas = ExtResource("3_f216u")
+region = Rect2(32, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouq2s"]
+atlas = ExtResource("3_f216u")
+region = Rect2(32, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta3v2"]
+atlas = ExtResource("3_f216u")
+region = Rect2(32, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6611"]
+atlas = ExtResource("3_f216u")
+region = Rect2(32, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru4xk"]
+atlas = ExtResource("3_f216u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvkqt"]
+atlas = ExtResource("3_f216u")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkc8x"]
+atlas = ExtResource("3_f216u")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc86b"]
+atlas = ExtResource("3_f216u")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3tl4"]
+atlas = ExtResource("3_f216u")
+region = Rect2(0, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv300"]
+atlas = ExtResource("3_f216u")
+region = Rect2(0, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnnx0"]
+atlas = ExtResource("3_f216u")
+region = Rect2(0, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xttct"]
+atlas = ExtResource("3_f216u")
+region = Rect2(0, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hbgn"]
+atlas = ExtResource("3_f216u")
+region = Rect2(48, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qebln"]
+atlas = ExtResource("3_f216u")
+region = Rect2(48, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8jh3"]
+atlas = ExtResource("3_f216u")
+region = Rect2(48, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tsjr"]
+atlas = ExtResource("3_f216u")
+region = Rect2(48, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1yu5"]
+atlas = ExtResource("3_f216u")
+region = Rect2(16, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmcgq"]
+atlas = ExtResource("3_f216u")
+region = Rect2(16, 16, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7ujo"]
+atlas = ExtResource("3_f216u")
+region = Rect2(16, 32, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28yfb"]
+atlas = ExtResource("3_f216u")
+region = Rect2(16, 48, 16, 16)
+filter_clip = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p0o5t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb270")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouq2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta3v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6611")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru4xk")
+}],
+"loop": true,
+"name": &"idle down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvkqt")
+}],
+"loop": true,
+"name": &"idle left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkc8x")
+}],
+"loop": true,
+"name": &"idle right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc86b")
+}],
+"loop": true,
+"name": &"idle up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3tl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv300")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnnx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xttct")
+}],
+"loop": true,
+"name": &"walk down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb270")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouq2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta3v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6611")
+}],
+"loop": true,
+"name": &"walk left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hbgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qebln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8jh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tsjr")
+}],
+"loop": true,
+"name": &"walk right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1yu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmcgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7ujo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28yfb")
+}],
+"loop": true,
+"name": &"walk up",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_5sav8")
+name = "VeeCeeR"
+sprite_frames = SubResource("SpriteFrames_p0o5t")
+portait = ExtResource("1_gnxjt")
+dialouge = Array[String](["Welcome to project 'ninja', a turn based RPG made in Godot.", "We hope you enjoy this short demo !"])
+metadata/_custom_type_script = "uid://10jpfy421udu"

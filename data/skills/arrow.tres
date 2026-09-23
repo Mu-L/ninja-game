@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://cyqhlvwprkbff"]
+
+[ext_resource type="Texture2D" uid="uid://ptrv05qd0gv6" path="res://data/skills/Arrow.png" id="1_2i1h4"]
+[ext_resource type="Texture2D" uid="uid://bqwqao10mr6jx" path="res://data/skills/ArrowDisabled.png" id="1_yo8rt"]
+[ext_resource type="PackedScene" uid="uid://b326wqe6hkuxm" path="res://battle_scenes/quick_time_events/arrow/arrow_qte.tscn" id="2_2i1h4"]
+[ext_resource type="Script" uid="uid://bycf0afmvv35g" path="res://data/skills/skill.gd" id="3_n3g2q"]
+[ext_resource type="PackedScene" uid="uid://cu4kpttnq8dxt" path="res://battle_scenes/skill_selection_area/line_selection_area.tscn" id="4_e6wqi"]
+
+[resource]
+script = ExtResource("3_n3g2q")
+name = "Arrow"
+icon = ExtResource("1_2i1h4")
+disabled_icon = ExtResource("1_yo8rt")
+battle_text = "%s is about to fire an arrow at the enemies"
+magic_points_cost = 3
+selection_area = ExtResource("4_e6wqi")
+quick_time_event = ExtResource("2_2i1h4")
+constraints = Array[int]([0])
+metadata/_custom_type_script = "uid://bycf0afmvv35g"

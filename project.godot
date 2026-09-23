@@ -13,7 +13,6 @@ config_version=5
 config/name="ninja game"
 run/main_scene="uid://vdpnik88kh38"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="uid://b5hmh1kvmhir0"
 
 [autoload]
 

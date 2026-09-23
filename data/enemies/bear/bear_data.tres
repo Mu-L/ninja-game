@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cgy7juj4nkte2"]
+
+[ext_resource type="Script" uid="uid://dt43sb7vd25ke" path="res://data/enemies/enemy_data.gd" id="1_2ug5o"]
+[ext_resource type="Texture2D" uid="uid://golut77smtp2" path="res://data/enemies/bear/Faceset.png" id="1_ouh4f"]
+[ext_resource type="Texture2D" uid="uid://c5o6lrx74plb8" path="res://data/enemies/bear/SpriteSheet.png" id="3_pv5ig"]
+
+[resource]
+script = ExtResource("1_2ug5o")
+exp_worth = 200
+max_health = 150
+strength = 9999
+defense = 10
+name = "Bear"
+portrait = ExtResource("1_ouh4f")
+texture = ExtResource("3_pv5ig")
+weird = true
+metadata/_custom_type_script = "uid://dt43sb7vd25ke"
